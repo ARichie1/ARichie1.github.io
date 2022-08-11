@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACE MAKER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+    <div class="title">FACE MAKER</div>
+<!-- =====SCENE START================================= -->
+    <div class="scene">
+<!-- =====CREATION LEFT SIDE START======= -->
+        <div class="left display">
+<!-- =====CREATPANEL START============ -->
+            <div class="createPanel">
+<!-- =====REGISTER FACE NAME START============ -->
+                <div class="registerFaceName">
+                    <div class="createNewFaceLabel">Create New Face</div>
+                    <div class="lookName">
+                        <label for="lookName">Give The Face A Name</label>
+                        <form id="enterFaceName" onsubmit="return false">
+                            <input type="text" name="lookName" class="lookNameInput" placeholder="Name">
+                            <button type="submit" class="sendName" name="sendName">Create New Face</button>
+                        </form>
+                    </div>
+                </div>
+<!-- =====REGISTER FACE NAME END=========== -->
+
+<!-- =====PROPERTIES START============ -->
+                <div class="properties">
+
+<!-- =====FACE NAME START============ -->
+                    <div class="creationName"></div>
+<!-- =====FACE NAME END============ -->
+
+<!-- =====PROPERTY START============ -->
+                    <div class="property hatProperty">
+                        <div class="propertyName" id="hat">Hat</div>
+                        <div class="propertyTypes">
+                            <div class="propertyType" id="baseball">baseball</div>
+                            <div class="propertyType" id="gangstar">gangstar</div>
+                            <div class="propertyType" id="chinese">chinese</div>
+                        </div>
+                    </div>
+                    <div class="property eyeProperty">
+                        <div class="propertyName" id="eye">Eye</div>
+                        <div class="propertyTypes">
+                            <div class="propertyType" id="round">round</div>
+                            <div class="propertyType" id="square">square</div>
+                            <div class="propertyType" id="oval">oval</div>
+                        </div>
+                    </div>
+                    <div class="property noseProperty">
+                        <div class="propertyName" id="nose">Nose</div>
+                        <div class="propertyTypes">
+                            <div class="propertyType" id="clown">clown</div>
+                            <div class="propertyType" id="flat">flat</div>
+                            <div class="propertyType" id="straight">straight</div>
+                        </div>
+                    </div>
+                    <div class="property mouthProperty">
+                        <div class="propertyName" id="mouth">Mouth</div>
+                        <div class="propertyTypes">
+                            <div class="propertyType" id="happy">happy</div>
+                            <div class="propertyType" id="neutral">neutral</div>
+                            <div class="propertyType" id="sad">sad</div>
+                        </div>
+                    </div>
+                    <div class="createButton">Create</div>
+                </div>
+<!-- =====PROPERTY END============ -->
+            </div>
+<!-- =====CREATPANEL END============ -->
+        </div>
+<!-- =====CREATION LEFT SIDE END============= -->
+
+<!-- =====CREATION RIGHT SIDE START============ -->
+        <div class="right display">
+            <div class="head"></div>
+        </div>
+<!-- =====CREATION RIGHT SIDE END============ -->
+
+<!-- =====DOWNLOAD DIV START====================-->
+        <div class="downloadDiv">
+            <div class="newlyCreated"></div>
+        </div>
+<!-- =====DOWNLOAD DIV END====================-->
+    </div>
+<!-- =====SCENE END================================= -->
+    <div class="footer">BY AKINMADE RICHARD</div>
+    <script src="app.js"></script>
+</body>
+</html>

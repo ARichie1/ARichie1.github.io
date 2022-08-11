@@ -1,0 +1,67 @@
+
+
+.star{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    transform: translateZ(-50px);
+    background: linear-gradient(-45deg, #5f91ff, rgba(0, 0, 255, 0));
+    filter: drop-shadow(0 0 6px #699bff);
+    animation: 
+        tail 3000ms ease-in-out infinite,
+        shooting 3000ms ease-in-out infinite;
+}
+
+.star::before, .star::after{
+     position: absolute;
+     content: '';
+     top: cal(50px - 1px);
+     right: 0;
+     height: 2px;
+     background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5f91ff, rgba(0,0, 255, 0));
+     border-radius: 100%;
+     transform: translateX(50%) rotateZ(45deg);
+     animation: shining 3000ms ease-in-out infinite;
+}
+
+.star::after{
+    transform: translateX(50%) rotateZ(-45deg);
+}
+
+.s1{top: 150px;left: -200px;animation-delay: 0s;}
+.s2{top: 110px;left: -500px;animation-delay: 0.3s}
+.s3{top: 170px;left: 350px;animation-delay: 0.2s;}
+.s4{top: 150px;left: -50px;animation-delay: 0.1s}
+.s5{top: 90px;left: -400px;animation-delay: 0.1s;}
+.s6{top: 130px;left: -450px;animation-delay: 0.2s}
+.s7{top: 170px;left: 350px;animation-delay: 0s;}
+.s8{top: 150px;left: -50px;animation-delay: 0.1s}
+.s9{top: 220px;left: 400px;animation-delay: 0s;}
+.s10{top: 130px;left: -450px;animation-delay: 0.2s}
+
+/* Animations */
+
+ @keyframes tail {
+    0%{width: 0;}
+    30%{width: 100px;}
+    100%{width: 0 ;} 
+ }
+ 
+ @keyframes shining {
+    0%{width: 0;}
+    30%{width: 30px;}
+    100%{width: 0 ;} 
+ }
+
+ @keyframes shooting {
+    0%{transform: translateZ(0);}
+    100%{transform: translateX(320px);} 
+ }
+
+ @media  screen and (min-width:1200px) {
+    @keyframes shooting {
+        0%{transform: translateZ(0);}
+        100%{transform: translateX(1220px);} 
+     }
+ }

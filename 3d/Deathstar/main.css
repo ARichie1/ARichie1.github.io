@@ -1,0 +1,57 @@
+:root{--themeColor:#0ff7; --rotateSpeed: 20s;}
+*{margin:0px;padding:0px;box-sizing:border-box;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(-125deg, black 25%, #00103a 30%, #3e5f77 50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    perspective: 500px;
+    cursor: pointer;
+}
+
+.scene{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: sceneRotate var(--rotateSpeed) infinite linear forwards;
+    transform: rotateY(-45deg);
+}
+
+@keyframes sceneRotate {to{transform: rotateY(360deg);}}
+
+/* =====INSTRUCTION AND CREDITS===== */
+.message{
+    width: 20em;height: 3em;
+    transform-style: preserve-3d;
+    position: absolute;
+    right: 60%;top: 0%;
+    transform: translateY(250%) translateX(50%) rotateZ(90deg) rotateX(120deg);
+    animation: showProjectname 2s linear 2 forwards alternate;
+}
+
+body:hover .message{animation: showAuthor 2s linear 2 forwards alternate;}
+
+@keyframes showAuthor {to{transform: translateY(250%) translateX(50%) rotateZ(90deg) rotateX(300deg);}}
+@keyframes showProjectname {to{transform: translateY(250%) translateX(50%) rotateZ(90deg) rotateY(120deg) rotateX(120deg);}}
+
+.message .cubesides{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Tahoma;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+body:active .message .cubesides{opacity: 0;transition: .5s;}
+
+.message .front{transform: rotateY(90deg) rotateX(90deg) translateZ(1.5em);}
+.message .right{transform: rotateY(90deg) translateZ(1.5em);}
+.message .back{transform: rotateY(270deg) rotateX(270deg) translateZ(1.5em);}
+.message .left{transform: rotateY(270deg) translateZ(1.5em);}
+

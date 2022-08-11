@@ -1,0 +1,510 @@
+:root{
+    --theme-color : skyblue;
+    --font-color : #000 ;
+    /* --shadow :  0 0 0.5em #000a inset; */
+    --shadow : none;
+}
+
+* {margin: 0;padding: 0;box-sizing: border-box;
+    user-select: none;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95vh;width:95vw;
+    margin: 2.5vw 2.5vw;
+    font-family:sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+    background: linear-gradient(45deg,#000,var(--theme-color), purple,var(--theme-color));
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+
+.title{
+    position: absolute;
+    top: 1%;margin: 2%;
+    width: 95%;height: 5%;
+    display: flex;justify-content: space-evenly;
+    align-items: center;
+}
+.appNameDesign{
+    position: relative;
+    width: 60%;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.appNav{
+    position: relative;
+    width: 40%;height: 100%;
+    display: flex;justify-content: space-between;
+    align-items: center;
+}
+.pathNavBtn, .exitBtn{
+    width: 45%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: var(--theme-color);
+    box-shadow: var(--shadow);
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0;z-index: -1;
+}
+.pathNavBtn:active, 
+.exitBtn:active{
+    transform: scale(0.8);
+}
+
+.footer{
+    position: absolute;
+    bottom: 0%;margin: 2%;
+    height: 5%;text-align: center;
+}
+
+/* =====THE APP START====== */
+.app{
+    position: relative;
+    width: 95%;height: 85%;
+    box-shadow: var(--shadow);
+    display: flex;justify-content: space-evenly;
+    border-radius: 10px;
+    align-items: center;
+    overflow: hidden;
+}
+.modules{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    background: transparent;
+}
+/* =====INTRO START===== */
+#home{
+    position: absolute;
+    width: 100%;height: 100%;
+    padding: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bolder;
+    font-size: 16px;
+    text-transform: uppercase;
+    /* opacity: 0;
+    z-index: -1; */
+    opacity: 1;
+    z-index: 1;
+}
+.begin{
+    width: 30%;height: 10%;
+    background: var(--theme-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.start{
+    width: 100%;height: 100%;
+    border-radius: 10px;
+    display: flex;justify-content: center;
+    align-items: center;
+    animation: starter 1s linear infinite;
+}
+/* @keyframes starter {
+    to{transform: scale(1.1);}
+} */
+.start:active{
+    transform: scale(0.8);
+}
+/* =====INTRO END===== */
+
+/* =====TRAIT LOADER START===== */
+#traitsLoader{
+    position: absolute;
+    width: 100%;height: 100%;
+    padding: 10%;
+    opacity: 0;
+    z-index: -1;
+    /* opacity: 1;
+    z-index: 1; */
+}
+
+.traitsPicker{
+    width: 100%;height: 90%;
+    margin: 5% auto;
+}
+.triatGroup{
+    width: 100%;height: 80%;
+    display: flex;align-items: center;
+    flex-direction: column;
+}
+.traitContainer{
+    position: relative;
+    width: 70%;height: 25%;
+    margin: 1% auto;
+    display: flex;justify-content: center;
+    align-items: center;
+    /* border: 2px solid var(--theme-color); */
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: var(--shadow);
+    list-style: none;
+    cursor: pointer;
+}
+
+.traitBox{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: var(--shadow);
+    list-style: none;
+    cursor: pointer;
+}
+
+.traitMeaning{
+    position: absolute;
+    top: 5%;width: 99%;
+    padding: 3%;
+    border-radius: inherit;
+    background: linear-gradient(45deg,#000,var(--theme-color), purple,var(--theme-color));
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    z-index: 2;
+}
+.traitMeaningBtn{
+    position: absolute;
+    right: -15%;
+    width: 40px;height: 40px;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background: var(--theme-color);
+    box-shadow: var(--shadow);
+}
+.traitMeaningBtn span{
+    position: absolute;
+    top: -50%;right: -230%;
+    width: 280%;
+    text-align: center;
+    font-size: 12px;
+    background: var(--theme-color);
+    border-radius: 2px;
+    opacity: 0;
+}
+.traitMeaningBtn:hover span{
+    opacity: 1;
+}
+.traitNav{
+    position: relative;
+    width: 100%;height: 15%;
+    margin-top: 5%;
+    display: flex;justify-content: space-between;
+    align-items: center;
+}
+.navBtn{
+    width: 30%;height: 90%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--theme-color);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.traitMeaningBtn:active,
+.navBtn:active{
+    transform: scale(0.8);
+}
+
+.submitTraits{
+    position: absolute;right: 0%;
+    opacity: 0;z-index: -1;
+}
+.wordCount{
+    position: absolute;
+    top: 3%;right: 3%;
+    width: 30px;height: 30px;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background: var(--theme-color);
+}
+.wordCount::after{
+    content: 'Selected';
+    position: absolute;
+    top: 50%;right: 120%;
+    transform: translateY(-50%);
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.progress{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;height: 25%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progressThumbBack{
+    position: relative;
+    width: 100%;height: 100%;
+    padding-left: 5%;
+    border-radius: 5px;
+    background: #000;
+    overflow: hidden;
+}
+.progressThumb{
+    position: absolute;
+    height: 70%;top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    background: linear-gradient(to right, var(--theme-color), purple);
+   
+}
+@media screen and (max-width: 650px) {
+    #traitsLoader{padding-top: 15%;font-size: 14px;}
+    #traitsLoader h3{font-size: 14px;}
+    .traitMeaningBtn{right: -25%;}
+    .navBtn{width: 30%;height: 60%;}
+}
+/* =====TRAIT PICKER END===== */
+
+/* =====RESULT LOADER START===== */
+#resultLoader{
+    position: absolute;
+    width: 100%;height: 100%;
+    padding: 10%;
+    opacity: 0;
+    z-index: -1;
+    /* opacity: 1;
+    z-index: 1; */
+}
+
+.resultStats{
+    width: 100%;height: 80%;
+    display: flex;align-items: center;
+    flex-direction: column;
+}
+.stats{
+    width: 100%;height: 25%;
+    margin: 1% auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    list-style: none;
+    cursor: pointer;
+}
+.personalityHeader{width: 80%;text-align: left;font-weight: bolder;}
+.amountHeader{width: 20%;text-align: center;margin-right:3%;font-weight: bolder;}
+.personality{width: 80%;text-align: left;}
+.amount{width: 20%;text-align: center;}
+
+.showCareerList{margin-top: 5%;}
+.showListBtn{
+    width: 30%;height: 40px;
+    margin-left: 70%;
+    background: var(--theme-color);
+    border-radius: 10px;
+    display: flex;justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.showListBtn:active{
+    transform: scale(0.8);
+}
+/* =====RESULT LOADER END===== */
+
+
+/* ======CARRER PATH LOADER START===== */
+#careerPath{
+    position: absolute;
+    width: 100%;height: 100%;
+    padding: 5%;
+    padding-top: 3%;
+    opacity: 0;
+    z-index: -1;
+    /* opacity: 1;
+    z-index: 1; */
+}
+.careerPersonalities{
+    position: relative;
+    width: 100%;height: 78%;
+    
+}
+.dominanceList{
+    position: absolute;
+    width: 100%;height: 100%;
+    overflow-x: scroll;
+}
+.dominanceList::-webkit-scrollbar{background: inherit;}
+.dominanceList::-webkit-scrollbar-thumb{background: var(--theme-color);box-shadow: var(--shadow); border-radius: 20px;}
+.dominanceList::-webkit-scrollbar-button{background: var(--font-color);height: 2%;border-radius: 20%;}
+
+.mostDominantList{opacity: 1;z-index: 1;}
+.lessDominantList{opacity: 0;z-index: -1;}
+
+.mostDominant, .lessDominant{
+    position: absolute;
+    width: 100%;height: 100%;
+}
+.md1, .ld1{left: 0%;}
+.md2, .ld2{left: 100%;}
+.md3, .ld3{left: 200%;}
+.md4, .ld4{left: 300%;}
+
+.careerList{
+    width: 100%;height: 100%;
+    display: flex;align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.careerList h4{margin-bottom: 1%;}
+.list{
+    width: 100%;height: 80%;
+    margin: 5% auto;
+    display: flex;align-items: center;
+    flex-direction: column;
+    overflow-y: scroll; 
+}
+.list::-webkit-scrollbar{background: inherit;}
+.list::-webkit-scrollbar-thumb{background: var(--theme-color);box-shadow: var(--shadow);border-radius: 20px;}
+.list::-webkit-scrollbar-button{background: var(--font-color);height: 2%;border-radius: 20%;}
+
+.list li{
+    width: 70%;height: 30px;
+    margin: 1% auto;padding: 2%;
+    display: flex;justify-content: center;
+    align-items: center;
+    /* border: 2px solid var(--font-color); */
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.seeLessDominant, .getGuidelines{
+    width: 100%;height: 10%;
+    margin: 1% auto;padding: 0% 2%;
+    display: flex;align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid var(--font-color); */
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    font-size: 14px;font-weight: bold;
+}
+.checkLessDominant, .getGuidelinesBtn{
+    width: 15%;height: 30px;
+    background: var(--theme-color);
+    border-radius: 10px;
+    display: flex;justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.checkLessDominant:active, 
+.getGuidelinesBtn:active{
+    transform: scale(0.8);
+}
+/* ======CARRER PATH LOADER END===== */
+
+
+/* =====MOTIVATION AND OTHER FACTOR LOADER START===== */
+#motivation{
+    position: absolute;
+    width: 100%;height: 100%;
+    padding: 8%;padding-top: 5%;
+    line-height: 1.5em;
+    overflow-y: scroll;
+    opacity: 0;
+    z-index: -1;
+}
+#motivation::-webkit-scrollbar{background: inherit;}
+#motivation::-webkit-scrollbar-thumb{background: var(--theme-color);box-shadow: var(--shadow); border-radius: 20px;}
+#motivation::-webkit-scrollbar-button{background: var(--font-color);height: 2%;border-radius: 20%;}
+
+.motivation h4{
+    text-align: center;
+    font-weight: bolder;
+}
+.motivation p{
+    text-align: center;
+}
+#motivation .share{
+    display: flex;align-items: center;
+    justify-content: space-evenly;
+    margin: 3%;
+}
+#motivation .share .socials{
+    width: 40px;height: 40px;
+    display: flex;align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: var(--theme-color);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    cursor: pointer;
+}
+#motivation .share .socials:active{
+    transform: scale(0.8);
+}
+#motivation .backToIntro{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* =====MOTIVATION AND OTHER FACTOR LOADER END===== */
+
+
+.alertBox{
+    position: absolute;
+    width: 50%;height: 50%;
+    background: var(--theme-color);
+    border-radius: 10px;
+    display: flex;justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    transition: 0.2s ease-in-out;
+    opacity: 0;z-index: -1;
+}
+.alert{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.alertCancel{
+    position: absolute;
+    right: 2%;top: 2%;
+    width: 10%;height: 12%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.alertCancel:hover, .alertCancel:active{
+    background: red;
+    box-shadow: var(--shadow);
+}
+.alertCancel:active{transform: scale(0.8);}
+.alertMessage{
+    padding: 5%;
+    text-align: center; 
+    line-height: 30px;
+}
+
+/* =====THE APP START====== */

@@ -1,0 +1,169 @@
+/* ====== LEFT VIEWS ====== */
+body{
+    perspective: 250px;
+    perspective-origin: 20%;
+}
+.bike{top: 150%;left: 50% !important;
+    transform: scale(0.35) skewX(10deg) !important;}
+@keyframes movein {
+    0%{transform: scale(0.35);top: 35%;left:80% !important;}
+    100%{transform: scale(0.35);top: 35%;left:50% !important;}
+}
+/*===== LEFT TREES LEFT VIEW =====*/
+.treeleft .t0a{left: 5%;transform: rotate(315deg) scale(0.025);}
+.treeleft .t0{left: 5%;transform: rotate(315deg) scale(0.025);animation: movetreeL0 var(--treespeed) linear infinite forwards;}
+.treeleft .t1{left: 4%;transform: rotate(315deg) scale(0.05);animation: movetreeL1 var(--treespeed) linear infinite forwards;}
+.treeleft .t2{left: 2%;transform: rotate(315deg) scale(0.075);animation: movetreeL2 var(--treespeed) linear infinite forwards;}
+.treeleft .t3{left: 0%;transform: rotate(315deg) scale(0.1);animation: movetreeL3 var(--treespeed) linear infinite forwards;}
+.treeleft .t4{left: -2%;transform: rotate(315deg) scale(0.125);animation: movetreeL4 var(--treespeed) linear infinite forwards;}
+.treeleft .t5{left: -4%;transform: rotate(315deg) scale(0.15);animation: movetreeL5 var(--treespeed) linear infinite forwards;}
+.treeleft .t6{left: -6%;transform: rotate(315deg) scale(0.2);animation: movetreeL6 var(--treespeed) linear infinite forwards;}
+.treeleft .t7, .treeleft .t8, 
+.treeleft .t9, .treeleft .t10, 
+.treeleft .t11, .treeleft .t12,
+.treeleft .t13{display: none;}
+
+@keyframes movetreeL0 {to{left: 4%;transform: rotate(315deg) scale(0.05);}}
+@keyframes movetreeL1 {to{left: 2%;transform: rotate(315deg) scale(0.075);}}
+@keyframes movetreeL2 {to{left: 0%;transform: rotate(315deg) scale(0.1);}}
+@keyframes movetreeL3 {to{left: -2%;transform: rotate(315deg) scale(0.125);}}
+@keyframes movetreeL4 {to{left: -4%;transform: rotate(315deg) scale(0.15);}}
+@keyframes movetreeL5 {to{left: -6%;transform: rotate(315deg) scale(0.2);}}
+@keyframes movetreeL6 {to{left: -9%;transform: rotate(315deg) scale(0.4);}}
+
+@media (max-width:1200px){
+    .treeleft .t0a{left: -1%;transform: rotate(315deg) scale(0.025);}
+    .treeleft .t0{left: -1%;transform: rotate(315deg) scale(0.025);animation: movetreeL0 var(--treespeed) linear infinite forwards;}
+    .treeleft .t1{left: -2%;transform: rotate(315deg) scale(0.05);animation: movetreeL1 var(--treespeed) linear infinite forwards;}
+    .treeleft .t2{left: -3%;transform: rotate(315deg) scale(0.075);animation: movetreeL2 var(--treespeed) linear infinite forwards;}
+    .treeleft .t3{left: -4%;transform: rotate(315deg) scale(0.1);animation: movetreeL3 var(--treespeed) linear infinite forwards;}
+    .treeleft .t4{left: -5%;transform: rotate(315deg) scale(0.125);animation: movetreeL4 var(--treespeed) linear infinite forwards;}
+    .treeleft .t5{left: -6%;transform: rotate(315deg) scale(0.15);animation: movetreeL5 var(--treespeed) linear infinite forwards;}
+    .treeleft .t6{left: -8%;transform: rotate(315deg) scale(0.2);animation: movetreeL6 var(--treespeed) linear infinite forwards;}
+    .treeleft .t7{left: -10%;transform: rotate(315deg) scale(0.25);animation: movetreeL7 var(--treespeed) linear infinite forwards;}
+    .treeleft .t8{left: -12%;transform: rotate(315deg) scale(0.3);animation: movetreeL8 var(--treespeed) linear infinite forwards;}     
+    .treeleft .t9{left: -15%;transform: rotate(315deg) scale(0.4);animation: movetreeL9 var(--treespeed) linear infinite forwards;}
+    .treeleft .t10{left: -17%;transform: rotate(315deg) scale(0.5);animation: movetreeL10 var(--treespeed) linear infinite forwards;}
+    .treeleft .t11{left: -19%;transform: rotate(315deg) scale(0.6);animation: movetreeL11 var(--treespeed) linear infinite forwards;}
+    .treeleft .t12{left: -21%;transform: rotate(315deg) scale(0.8);animation: movetreeL12 var(--treespeed) linear infinite forwards;}
+    .treeleft .t13{left: -23%;transform: rotate(315deg) scale(1);animation: movetreeL13 var(--treespeed) linear infinite forwards;}
+
+    @keyframes movetreeL0 {to{left: -2%;transform: rotate(315deg) scale(0.05);}}
+    @keyframes movetreeL1 {to{left: -3%;transform: rotate(315deg) scale(0.075);}}
+    @keyframes movetreeL2 {to{left: -4%;transform: rotate(315deg) scale(0.1);}}
+    @keyframes movetreeL3 {to{left: -5%;transform: rotate(315deg) scale(0.125);}}
+    @keyframes movetreeL4 {to{left: -6%;transform: rotate(315deg) scale(0.15);}}
+    @keyframes movetreeL5 {to{left: -8%;transform: rotate(315deg) scale(0.2);}}
+    @keyframes movetreeL6 {to{left: -10%;transform: rotate(315deg) scale(0.25);}}
+    @keyframes movetreeL7 {to{left: -12%;transform: rotate(315deg) scale(0.3);}}
+    @keyframes movetreeL8 {to{left: -15%;transform: rotate(315deg) scale(0.4);}}
+    @keyframes movetreeL9 {to{left: -17%;transform: rotate(315deg) scale(0.5);}}
+    @keyframes movetreeL10 {to{left: -19%;transform: rotate(315deg) scale(0.6);}}
+    @keyframes movetreeL11 {to{left: -21%;transform: rotate(315deg) scale(0.8);}}
+    @keyframes movetreeL12 {to{left: -23%;transform: rotate(315deg) scale(1);}}
+    @keyframes movetreeL13 {to{left: -25%;transform: rotate(315deg) scale(1.2);}}
+}
+
+
+/*===== RIGHT TREES LEFT VIEW =====*/
+.treeright .t0a{right: 64%;transform: rotate(315deg) scale(0.025);}
+.treeright .t0{right: 64%;transform: rotate(315deg) scale(0.025);animation: movetreeR0 var(--treespeed) linear infinite forwards;}
+.treeright .t1{right: 62%;transform: rotate(315deg) scale(0.05);animation: movetreeR1 var(--treespeed) linear infinite forwards;}
+.treeright .t2{right: 60%;transform: rotate(315deg) scale(0.075);animation: movetreeR2 var(--treespeed) linear infinite forwards;}
+.treeright .t3{right: 58%;transform: rotate(315deg) scale(0.1);animation: movetreeR3 var(--treespeed) linear infinite forwards;}
+.treeright .t4{right: 56%;transform: rotate(315deg) scale(0.125);animation: movetreeR4 var(--treespeed) linear infinite forwards;}
+.treeright .t5{right: 54%;transform: rotate(315deg) scale(0.15);animation: movetreeR5 var(--treespeed) linear infinite forwards;}
+.treeright .t6{right: 50%;transform: rotate(315deg) scale(0.2);animation: movetreeR6 var(--treespeed) linear infinite forwards;}
+.treeright .t7{opacity: 1; right: 46%;transform: rotate(315deg) scale(0.25);animation: movetreeR7 var(--treespeed) linear infinite forwards;}
+.treeright .t8{opacity: 1; right: 42%;transform: rotate(315deg) scale(0.3);animation: movetreeR8 var(--treespeed) linear infinite forwards;}     
+.treeright .t9{opacity: 1; right: 36%;transform: rotate(315deg) scale(0.4);animation: movetreeR9 var(--treespeed) linear infinite forwards;}
+.treeright .t10{opacity: 1; right: 30%;transform: rotate(315deg) scale(0.5);animation: movetreeR10 var(--treespeed) linear infinite forwards;}
+.treeright .t11{opacity: 1; right: 24%;transform: rotate(315deg) scale(0.6);animation: movetreeR11 var(--treespeed) linear infinite forwards;}
+.treeright .t12{opacity: 1; right: 10%;transform: rotate(315deg) scale(0.8);animation: movetreeR12 var(--treespeed) linear infinite forwards;}
+.treeright .t13{opacity: 1; right: -8%;transform: rotate(315deg) scale(1);animation: movetreeR13 var(--treespeed) linear infinite forwards;}
+
+
+@keyframes movetreeR0 {to{right: 62%;transform: rotate(315deg) scale(0.05);}}
+@keyframes movetreeR1 {to{right: 60%;transform: rotate(315deg) scale(0.075);}}
+@keyframes movetreeR2 {to{right: 58%;transform: rotate(315deg) scale(0.1);}}
+@keyframes movetreeR3 {to{right: 56%;transform: rotate(315deg) scale(0.125);}}
+@keyframes movetreeR4 {to{right: 54%;transform: rotate(315deg) scale(0.15);}}
+@keyframes movetreeR5 {to{right: 50%;transform: rotate(315deg) scale(0.2);}}
+@keyframes movetreeR6 {to{right: 46%;transform: rotate(315deg) scale(0.25);}}
+@keyframes movetreeR7 {to{right: 42%;transform: rotate(315deg) scale(0.3);}}
+@keyframes movetreeR8 {to{right: 36%;transform: rotate(315deg) scale(0.4);}}
+@keyframes movetreeR9 {to{right: 30%;transform: rotate(315deg) scale(0.5);}}
+@keyframes movetreeR10 {to{right: 24%;transform: rotate(315deg) scale(0.6);}}
+@keyframes movetreeR11 {to{right: 10%;transform: rotate(315deg) scale(0.8);}}
+@keyframes movetreeR12 {to{right: -8%;transform: rotate(315deg) scale(1);}}
+@keyframes movetreeR13 {to{right: -20%;transform: rotate(315deg) scale(1.2);}}
+
+
+
+.treeright .t0a{right: 64%;transform: rotate(315deg) scale(0.025);}
+.treeright .t0{right: 64%;transform: rotate(315deg) scale(0.025);animation: movetreeR0 var(--treespeed) linear infinite forwards;}
+.treeright .t1{right: 60%;transform: rotate(315deg) scale(0.05);animation: movetreeR1 var(--treespeed) linear infinite forwards;}
+.treeright .t2{right: 57%;transform: rotate(315deg) scale(0.075);animation: movetreeR2 var(--treespeed) linear infinite forwards;}
+.treeright .t3{right: 55%;transform: rotate(315deg) scale(0.1);animation: movetreeR3 var(--treespeed) linear infinite forwards;}
+.treeright .t4{right: 53%;transform: rotate(315deg) scale(0.125);animation: movetreeR4 var(--treespeed) linear infinite forwards;}
+.treeright .t5{right: 50%;transform: rotate(315deg) scale(0.15);animation: movetreeR5 var(--treespeed) linear infinite forwards;}
+.treeright .t6{right: 45%;transform: rotate(315deg) scale(0.2);animation: movetreeR6 var(--treespeed) linear infinite forwards;}
+.treeright .t7{right: 40%;transform: rotate(315deg) scale(0.25);animation: movetreeR7 var(--treespeed) linear infinite forwards;}
+.treeright .t8{right: 35%;transform: rotate(315deg) scale(0.3);animation: movetreeR8 var(--treespeed) linear infinite forwards;}     
+.treeright .t9{right: 25%;transform: rotate(315deg) scale(0.4);animation: movetreeR9 var(--treespeed) linear infinite forwards;}
+.treeright .t10{right: 14%;transform: rotate(315deg) scale(0.5);animation: movetreeR10 var(--treespeed) linear infinite forwards;}
+.treeright .t11{right: 4%;transform: rotate(315deg) scale(0.6);animation: movetreeR11 var(--treespeed) linear infinite forwards;}
+.treeright .t12{right: -8%;transform: rotate(315deg) scale(0.8);animation: movetreeR12 var(--treespeed) linear infinite forwards;}
+.treeright .t13{right: -16%;transform: rotate(315deg) scale(1);animation: movetreeR13 var(--treespeed) linear infinite forwards;}
+
+
+@keyframes movetreeR0 {to{right: 60%;transform: rotate(315deg) scale(0.05);}}
+@keyframes movetreeR1 {to{right: 57%;transform: rotate(315deg) scale(0.075);}}
+@keyframes movetreeR2 {to{right: 55%;transform: rotate(315deg) scale(0.1);}}
+@keyframes movetreeR3 {to{right: 53%;transform: rotate(315deg) scale(0.125);}}
+@keyframes movetreeR4 {to{right: 50%;transform: rotate(315deg) scale(0.15);}}
+@keyframes movetreeR5 {to{right: 45%;transform: rotate(315deg) scale(0.2);}}
+@keyframes movetreeR6 {to{right: 40%;transform: rotate(315deg) scale(0.25);}}
+@keyframes movetreeR7 {to{right: 35%;transform: rotate(315deg) scale(0.3);}}
+@keyframes movetreeR8 {to{right: 25%;transform: rotate(315deg) scale(0.4);}}
+@keyframes movetreeR9 {to{right: 14%;transform: rotate(315deg) scale(0.5);}}
+@keyframes movetreeR10 {to{right: 4%;transform: rotate(315deg) scale(0.6);}}
+@keyframes movetreeR11 {to{right: -8%;transform: rotate(315deg) scale(0.8);}}
+@keyframes movetreeR12 {to{right: -16%;transform: rotate(315deg) scale(1);}}
+@keyframes movetreeR13 {to{right: -24%;transform: rotate(315deg) scale(1.2);}}
+
+
+
+@media (max-width:1200px){
+    .treeright .t0a{right: 56%;transform: rotate(315deg) scale(0.025);}
+    .treeright .t0{right: 56%;transform: rotate(315deg) scale(0.025);animation: movetreeR0 var(--treespeed) linear infinite forwards;}
+    .treeright .t1{right: 54%;transform: rotate(315deg) scale(0.05);animation: movetreeR1 var(--treespeed) linear infinite forwards;}
+    .treeright .t2{right: 52%;transform: rotate(315deg) scale(0.075);animation: movetreeR2 var(--treespeed) linear infinite forwards;}
+    .treeright .t3{right: 50%;transform: rotate(315deg) scale(0.1);animation: movetreeR3 var(--treespeed) linear infinite forwards;}
+    .treeright .t4{right: 48%;transform: rotate(315deg) scale(0.125);animation: movetreeR4 var(--treespeed) linear infinite forwards;}
+    .treeright .t5{right: 46%;transform: rotate(315deg) scale(0.15);animation: movetreeR5 var(--treespeed) linear infinite forwards;}
+    .treeright .t6{right: 42%;transform: rotate(315deg) scale(0.2);animation: movetreeR6 var(--treespeed) linear infinite forwards;}
+    .treeright .t7{right: 38%;transform: rotate(315deg) scale(0.25);animation: movetreeR7 var(--treespeed) linear infinite forwards;}
+    .treeright .t8{right: 34%;transform: rotate(315deg) scale(0.3);animation: movetreeR8 var(--treespeed) linear infinite forwards;}     
+    .treeright .t9{right: 28%;transform: rotate(315deg) scale(0.4);animation: movetreeR9 var(--treespeed) linear infinite forwards;}
+    .treeright .t10{right: 22%;transform: rotate(315deg) scale(0.5);animation: movetreeR10 var(--treespeed) linear infinite forwards;}
+    .treeright .t11{right: 14%;transform: rotate(315deg) scale(0.6);animation: movetreeR11 var(--treespeed) linear infinite forwards;}
+    .treeright .t12{right: 2%;transform: rotate(315deg) scale(0.8);animation: movetreeR12 var(--treespeed) linear infinite forwards;}
+    .treeright .t13{right: -10%;transform: rotate(315deg) scale(1);animation: movetreeR13 var(--treespeed) linear infinite forwards;}
+
+    @keyframes movetreeR0 {to{right: 54%;transform: rotate(315deg) scale(0.05);}}
+    @keyframes movetreeR1 {to{right: 52%;transform: rotate(315deg) scale(0.075);}}
+    @keyframes movetreeR2 {to{right: 50%;transform: rotate(315deg) scale(0.1);}}
+    @keyframes movetreeR3 {to{right: 48%;transform: rotate(315deg) scale(0.125);}}
+    @keyframes movetreeR4 {to{right: 46%;transform: rotate(315deg) scale(0.15);}}
+    @keyframes movetreeR5 {to{right: 42%;transform: rotate(315deg) scale(0.2);}}
+    @keyframes movetreeR6 {to{right: 38%;transform: rotate(315deg) scale(0.25);}}
+    @keyframes movetreeR7 {to{right: 34%;transform: rotate(315deg) scale(0.3);}}
+    @keyframes movetreeR8 {to{right: 28%;transform: rotate(315deg) scale(0.4);}}
+    @keyframes movetreeR9 {to{right: 22%;transform: rotate(315deg) scale(0.5);}}
+    @keyframes movetreeR10 {to{right: 14%;transform: rotate(315deg) scale(0.6);}}
+    @keyframes movetreeR11 {to{right: 2%;transform: rotate(315deg) scale(0.8);}}
+    @keyframes movetreeR12 {to{right: -10%;transform: rotate(315deg) scale(1);}}
+    @keyframes movetreeR13 {to{right: -18%;transform: rotate(315deg) scale(1.2);}}
+}
+/* ====== LEFT VIEWS END ====== */

@@ -1,0 +1,445 @@
+.machine{
+    width: 9em;height: 9em;
+    transform-style: preserve-3d;
+    position: relative;
+    margin:  0% auto;
+    transform: rotateZ(90deg);
+    border-radius: 100%;
+    background: transparent;
+    cursor: pointer;
+}
+
+body:active .machine{
+    transform: rotateZ(180deg);
+    animation: 
+        spinMachine 3s linear 2,
+        positionMachine 10s 8s linear infinite;
+}
+
+@keyframes spinMachine {to{transform: rotateZ(360deg) rotateX(-360deg) rotateY(360deg);}}
+@keyframes positionMachine {to{transform: rotateZ(180deg) rotateY(-360deg);}}
+
+
+.cube{
+    width: 3em;height: 3em;
+    transform-style: preserve-3d;
+    position: absolute;
+    right: 50%;top: 40%;
+    transform: translateY(-10px) translateX(50%);
+    transition: 1s;
+}
+
+body:active .cube{
+    animation: 
+        prepareLaser 5s 2s linear 2,
+        initiateLaser 1s 9s linear infinite forwards;
+}
+
+@keyframes prepareLaser {
+    from{transform: rotateX(-180deg) rotateY(-80deg)}
+    to{transform: rotateX(180deg) rotateY(80deg) rotateZ(-180deg)}
+}
+
+@keyframes initiateLaser {
+    0%{transform: translateY(-10px) translateX(50%);}
+    10%,50%,100%{ height: 50em;transform: translateY(-750px) translateX(50%);}
+}
+
+.cubesides{
+    position: absolute;
+    border-radius: 3%;
+    width: 100%;height: 100%;
+    background: var(--themeColor);
+    box-shadow: 0 0 0.5em #000a inset;
+}
+
+body:active .cube .cubesides{
+    animation: laserColor 2s 2s linear infinite;
+}
+
+@keyframes laserColor {
+    0%,20%{background: yellow;box-shadow: none;}
+    60%{background: red;box-shadow: none;}
+    100%{background: red;box-shadow: none;}
+}
+
+.front{transform: translateZ(1.5em);}
+.right{transform: rotateY(90deg) translateZ(1.5em);}
+.back{transform: rotateY(180deg) translateZ(1.5em);}
+.left{transform: rotateY(270deg) translateZ(1.5em);}
+.top{transform: translateY(-50%) rotateX(90deg);height: 3em;width: 3em;}
+.bottom{transform: translateY(-50%) rotateX(90deg);height: 3em;width: 3em;bottom: -5%;}
+
+
+.rectangle{
+    width: 100%;height: 100%;
+    position: absolute;left: 0;top: 0;
+    border-radius: 100%;
+    background: transparent;
+    border: 10px solid transparent;
+    border-left-color: var(--themeColor);
+    border-right-color: var(--themeColor);
+    box-shadow: 0 0 0.5em #000a inset;
+    animation: ball 2s linear infinite;
+}
+
+.r1{transform: rotateY(1deg);}
+.r2{transform: rotateY(2deg);}
+.r3{transform: rotateY(3deg);}
+.r4{transform: rotateY(4deg);}
+.r5{transform: rotateY(5deg);}
+.r6{transform: rotateY(6deg);}
+.r7{transform: rotateY(7deg);}
+.r8{transform: rotateY(8deg);}
+.r9{transform: rotateY(9deg);}
+.r10{transform: rotateY(10deg);}
+.r11{transform: rotateY(11deg);}
+.r12{transform: rotateY(12deg);}
+.r13{transform: rotateY(13deg);}
+.r14{transform: rotateY(14deg);}
+.r15{transform: rotateY(15deg);}
+.r16{transform: rotateY(16deg);}
+.r17{transform: rotateY(17deg);}
+.r18{transform: rotateY(18deg);}
+.r19{transform: rotateY(19deg);}
+.r20{transform: rotateY(20deg);}
+.r21{transform: rotateY(21deg);}
+.r22{transform: rotateY(22deg);}
+.r23{transform: rotateY(23deg);}
+.r24{transform: rotateY(24deg);}
+.r25{transform: rotateY(25deg);}
+.r26{transform: rotateY(26deg);}
+.r27{transform: rotateY(27deg);}
+.r28{transform: rotateY(28deg);}
+.r29{transform: rotateY(29deg);}
+.r30{transform: rotateY(30deg);}
+.r31{transform: rotateY(31deg);}
+.r32{transform: rotateY(32deg);}
+.r33{transform: rotateY(33deg);}
+.r34{transform: rotateY(34deg);}
+.r35{transform: rotateY(35deg);}
+.r36{transform: rotateY(36deg);}
+.r37{transform: rotateY(37deg);}
+.r38{transform: rotateY(38deg);}
+.r39{transform: rotateY(39deg);}
+.r40{transform: rotateY(40deg);}
+.r41{transform: rotateY(41deg);}
+.r42{transform: rotateY(42deg);}
+.r43{transform: rotateY(43deg);}
+.r44{transform: rotateY(44deg);}
+.r45{transform: rotateY(45deg);}
+.r46{transform: rotateY(46deg);}
+.r47{transform: rotateY(47deg);}
+.r48{transform: rotateY(48deg);}
+.r49{transform: rotateY(49deg);}
+.r50{transform: rotateY(50deg);}
+.r51{transform: rotateY(51deg);}
+.r52{transform: rotateY(52deg);}
+.r53{transform: rotateY(53deg);}
+.r54{transform: rotateY(54deg);}
+.r55{transform: rotateY(55deg);}
+.r56{transform: rotateY(56deg);}
+.r57{transform: rotateY(57deg);}
+.r58{transform: rotateY(58deg);}
+.r59{transform: rotateY(59deg);}
+.r60{transform: rotateY(60deg);}
+.r61{transform: rotateY(61deg);}
+.r62{transform: rotateY(62deg);}
+.r63{transform: rotateY(63deg);}
+.r64{transform: rotateY(64deg);}
+.r65{transform: rotateY(65deg);}
+.r66{transform: rotateY(66deg);}
+.r67{transform: rotateY(67deg);}
+.r68{transform: rotateY(68deg);}
+.r69{transform: rotateY(69deg);}
+.r70{transform: rotateY(70deg);}
+.r71{transform: rotateY(71deg);}
+.r72{transform: rotateY(72deg);}
+.r73{transform: rotateY(73deg);}
+.r74{transform: rotateY(74deg);}
+.r75{transform: rotateY(75deg);}
+.r76{transform: rotateY(76deg);}
+.r77{transform: rotateY(77deg);}
+.r78{transform: rotateY(78deg);}
+.r79{transform: rotateY(79deg);}
+.r80{transform: rotateY(80deg);}
+.r81{transform: rotateY(81deg);}
+.r82{transform: rotateY(82deg);}
+.r83{transform: rotateY(83deg);}
+.r84{transform: rotateY(84deg);}
+.r85{transform: rotateY(85deg);}
+.r86{transform: rotateY(86deg);}
+.r87{transform: rotateY(87deg);}
+.r88{transform: rotateY(88deg);}
+.r89{transform: rotateY(89deg);}
+.r90{transform: rotateY(90deg);}
+.r91{transform: rotateY(91deg);}
+.r92{transform: rotateY(92deg);}
+.r93{transform: rotateY(93deg);}
+.r94{transform: rotateY(94deg);}
+.r95{transform: rotateY(95deg);}
+.r96{transform: rotateY(96deg);}
+.r97{transform: rotateY(97deg);}
+.r98{transform: rotateY(98deg);}
+.r99{transform: rotateY(99deg);}
+.r100{transform: rotateY(100deg);}
+.r101{transform: rotateY(101deg);}
+.r102{transform: rotateY(102deg);}
+.r103{transform: rotateY(103deg);}
+.r104{transform: rotateY(104deg);}
+.r105{transform: rotateY(105deg);}
+.r106{transform: rotateY(106deg);}
+.r107{transform: rotateY(107deg);}
+.r108{transform: rotateY(108deg);}
+.r109{transform: rotateY(109deg);}
+.r110{transform: rotateY(110deg);}
+.r111{transform: rotateY(111deg);}
+.r112{transform: rotateY(112deg);}
+.r113{transform: rotateY(113deg);}
+.r114{transform: rotateY(114deg);}
+.r115{transform: rotateY(115deg);}
+.r116{transform: rotateY(116deg);}
+.r117{transform: rotateY(117deg);}
+.r118{transform: rotateY(118deg);}
+.r119{transform: rotateY(119deg);}
+.r120{transform: rotateY(120deg);}
+.r121{transform: rotateY(121deg);}
+.r122{transform: rotateY(122deg);}
+.r123{transform: rotateY(123deg);}
+.r124{transform: rotateY(124deg);}
+.r125{transform: rotateY(125deg);}
+.r126{transform: rotateY(126deg);}
+.r127{transform: rotateY(127deg);}
+.r128{transform: rotateY(128deg);}
+.r129{transform: rotateY(129deg);}
+.r130{transform: rotateY(130deg);}
+.r131{transform: rotateY(131deg);}
+.r132{transform: rotateY(132deg);}
+.r133{transform: rotateY(133deg);}
+.r134{transform: rotateY(134deg);}
+.r135{transform: rotateY(135deg);}
+.r136{transform: rotateY(136deg);}
+.r137{transform: rotateY(137deg);}
+.r138{transform: rotateY(138deg);}
+.r139{transform: rotateY(139deg);}
+.r140{transform: rotateY(140deg);}
+.r141{transform: rotateY(141deg);}
+.r142{transform: rotateY(142deg);}
+.r143{transform: rotateY(143deg);}
+.r144{transform: rotateY(144deg);}
+.r145{transform: rotateY(145deg);}
+.r146{transform: rotateY(146deg);}
+.r147{transform: rotateY(147deg);}
+.r148{transform: rotateY(148deg);}
+.r149{transform: rotateY(149deg);}
+.r150{transform: rotateY(150deg);}
+.r151{transform: rotateY(151deg);}
+.r152{transform: rotateY(152deg);}
+.r153{transform: rotateY(153deg);}
+.r154{transform: rotateY(154deg);}
+.r155{transform: rotateY(155deg);}
+.r156{transform: rotateY(156deg);}
+.r157{transform: rotateY(157deg);}
+.r158{transform: rotateY(158deg);}
+.r159{transform: rotateY(159deg);}
+.r160{transform: rotateY(160deg);}
+.r161{transform: rotateY(161deg);}
+.r162{transform: rotateY(162deg);}
+.r163{transform: rotateY(163deg);}
+.r164{transform: rotateY(164deg);}
+.r165{transform: rotateY(165deg);}
+.r166{transform: rotateY(166deg);}
+.r167{transform: rotateY(167deg);}
+.r168{transform: rotateY(168deg);}
+.r169{transform: rotateY(169deg);}
+.r170{transform: rotateY(170deg);}
+.r171{transform: rotateY(171deg);}
+.r172{transform: rotateY(172deg);}
+.r173{transform: rotateY(173deg);}
+.r174{transform: rotateY(174deg);}
+.r175{transform: rotateY(175deg);}
+.r176{transform: rotateY(176deg);}
+.r177{transform: rotateY(177deg);}
+.r178{transform: rotateY(178deg);}
+.r179{transform: rotateY(179deg);}
+.r180{transform: rotateY(180deg);}
+.r181{transform: rotateY(181deg);}
+.r182{transform: rotateY(182deg);}
+.r183{transform: rotateY(183deg);}
+.r184{transform: rotateY(184deg);}
+.r185{transform: rotateY(185deg);}
+.r186{transform: rotateY(186deg);}
+.r187{transform: rotateY(187deg);}
+.r188{transform: rotateY(188deg);}
+.r189{transform: rotateY(189deg);}
+.r190{transform: rotateY(190deg);}
+.r191{transform: rotateY(191deg);}
+.r192{transform: rotateY(192deg);}
+.r193{transform: rotateY(193deg);}
+.r194{transform: rotateY(194deg);}
+.r195{transform: rotateY(195deg);}
+.r196{transform: rotateY(196deg);}
+.r197{transform: rotateY(197deg);}
+.r198{transform: rotateY(198deg);}
+.r199{transform: rotateY(199deg);}
+.r200{transform: rotateY(200deg);}
+.r201{transform: rotateY(201deg);}
+.r202{transform: rotateY(202deg);}
+.r203{transform: rotateY(203deg);}
+.r204{transform: rotateY(204deg);}
+.r205{transform: rotateY(205deg);}
+.r206{transform: rotateY(206deg);}
+.r207{transform: rotateY(207deg);}
+.r208{transform: rotateY(208deg);}
+.r209{transform: rotateY(209deg);}
+.r210{transform: rotateY(210deg);}
+.r211{transform: rotateY(211deg);}
+.r212{transform: rotateY(212deg);}
+.r213{transform: rotateY(213deg);}
+.r214{transform: rotateY(214deg);}
+.r215{transform: rotateY(215deg);}
+.r216{transform: rotateY(216deg);}
+.r217{transform: rotateY(217deg);}
+.r218{transform: rotateY(218deg);}
+.r219{transform: rotateY(219deg);}
+.r220{transform: rotateY(220deg);}
+.r221{transform: rotateY(221deg);}
+.r222{transform: rotateY(222deg);}
+.r223{transform: rotateY(223deg);}
+.r224{transform: rotateY(224deg);}
+.r225{transform: rotateY(225deg);}
+.r226{transform: rotateY(226deg);}
+.r227{transform: rotateY(227deg);}
+.r228{transform: rotateY(228deg);}
+.r229{transform: rotateY(229deg);}
+.r230{transform: rotateY(230deg);}
+.r231{transform: rotateY(231deg);}
+.r232{transform: rotateY(232deg);}
+.r233{transform: rotateY(233deg);}
+.r234{transform: rotateY(234deg);}
+.r235{transform: rotateY(235deg);}
+.r236{transform: rotateY(236deg);}
+.r237{transform: rotateY(237deg);}
+.r238{transform: rotateY(238deg);}
+.r239{transform: rotateY(239deg);}
+.r240{transform: rotateY(240deg);}
+.r241{transform: rotateY(241deg);}
+.r242{transform: rotateY(242deg);}
+.r243{transform: rotateY(243deg);}
+.r244{transform: rotateY(244deg);}
+.r245{transform: rotateY(245deg);}
+.r246{transform: rotateY(246deg);}
+.r247{transform: rotateY(247deg);}
+.r248{transform: rotateY(248deg);}
+.r249{transform: rotateY(249deg);}
+.r250{transform: rotateY(250deg);}
+.r251{transform: rotateY(251deg);}
+.r252{transform: rotateY(252deg);}
+.r253{transform: rotateY(253deg);}
+.r254{transform: rotateY(254deg);}
+.r255{transform: rotateY(255deg);}
+.r256{transform: rotateY(256deg);}
+.r257{transform: rotateY(257deg);}
+.r258{transform: rotateY(258deg);}
+.r259{transform: rotateY(259deg);}
+.r260{transform: rotateY(260deg);}
+.r261{transform: rotateY(261deg);}
+.r262{transform: rotateY(262deg);}
+.r263{transform: rotateY(263deg);}
+.r264{transform: rotateY(264deg);}
+.r265{transform: rotateY(265deg);}
+.r266{transform: rotateY(266deg);}
+.r267{transform: rotateY(267deg);}
+.r268{transform: rotateY(268deg);}
+.r269{transform: rotateY(269deg);}
+.r270{transform: rotateY(270deg);}
+.r271{transform: rotateY(271deg);}
+.r272{transform: rotateY(272deg);}
+.r273{transform: rotateY(273deg);}
+.r274{transform: rotateY(274deg);}
+.r275{transform: rotateY(275deg);}
+.r276{transform: rotateY(276deg);}
+.r277{transform: rotateY(277deg);}
+.r278{transform: rotateY(278deg);}
+.r279{transform: rotateY(279deg);}
+.r280{transform: rotateY(280deg);}
+.r281{transform: rotateY(281deg);}
+.r282{transform: rotateY(282deg);}
+.r283{transform: rotateY(283deg);}
+.r284{transform: rotateY(284deg);}
+.r285{transform: rotateY(285deg);}
+.r286{transform: rotateY(286deg);}
+.r287{transform: rotateY(287deg);}
+.r288{transform: rotateY(288deg);}
+.r289{transform: rotateY(289deg);}
+.r290{transform: rotateY(290deg);}
+.r291{transform: rotateY(291deg);}
+.r292{transform: rotateY(292deg);}
+.r293{transform: rotateY(293deg);}
+.r294{transform: rotateY(294deg);}
+.r295{transform: rotateY(295deg);}
+.r296{transform: rotateY(296deg);}
+.r297{transform: rotateY(297deg);}
+.r298{transform: rotateY(298deg);}
+.r299{transform: rotateY(299deg);}
+.r300{transform: rotateY(300deg);}
+.r301{transform: rotateY(301deg);}
+.r302{transform: rotateY(302deg);}
+.r303{transform: rotateY(303deg);}
+.r304{transform: rotateY(304deg);}
+.r305{transform: rotateY(305deg);}
+.r306{transform: rotateY(306deg);}
+.r307{transform: rotateY(307deg);}
+.r308{transform: rotateY(308deg);}
+.r309{transform: rotateY(309deg);}
+.r310{transform: rotateY(310deg);}
+.r311{transform: rotateY(311deg);}
+.r312{transform: rotateY(312deg);}
+.r313{transform: rotateY(313deg);}
+.r314{transform: rotateY(314deg);}
+.r315{transform: rotateY(315deg);}
+.r316{transform: rotateY(316deg);}
+.r317{transform: rotateY(317deg);}
+.r318{transform: rotateY(318deg);}
+.r319{transform: rotateY(319deg);}
+.r320{transform: rotateY(320deg);}
+.r321{transform: rotateY(321deg);}
+.r322{transform: rotateY(322deg);}
+.r323{transform: rotateY(323deg);}
+.r324{transform: rotateY(324deg);}
+.r325{transform: rotateY(325deg);}
+.r326{transform: rotateY(326deg);}
+.r327{transform: rotateY(327deg);}
+.r328{transform: rotateY(328deg);}
+.r329{transform: rotateY(329deg);}
+.r330{transform: rotateY(330deg);}
+.r331{transform: rotateY(331deg);}
+.r332{transform: rotateY(332deg);}
+.r333{transform: rotateY(333deg);}
+.r334{transform: rotateY(334deg);}
+.r335{transform: rotateY(335deg);}
+.r336{transform: rotateY(336deg);}
+.r337{transform: rotateY(337deg);}
+.r338{transform: rotateY(338deg);}
+.r339{transform: rotateY(339deg);}
+.r340{transform: rotateY(340deg);}
+.r341{transform: rotateY(341deg);}
+.r342{transform: rotateY(342deg);}
+.r343{transform: rotateY(343deg);}
+.r344{transform: rotateY(344deg);}
+.r345{transform: rotateY(345deg);}
+.r346{transform: rotateY(346deg);}
+.r347{transform: rotateY(347deg);}
+.r348{transform: rotateY(348deg);}
+.r349{transform: rotateY(349deg);}
+.r350{transform: rotateY(350deg);}
+.r351{transform: rotateY(351deg);}
+.r352{transform: rotateY(352deg);}
+.r353{transform: rotateY(353deg);}
+.r354{transform: rotateY(354deg);}
+.r355{transform: rotateY(355deg);}
+.r356{transform: rotateY(356deg);}
+.r357{transform: rotateY(357deg);}
+.r358{transform: rotateY(358deg);}
+.r359{transform: rotateY(359deg);}
+.r360{transform: rotateY(360deg);}

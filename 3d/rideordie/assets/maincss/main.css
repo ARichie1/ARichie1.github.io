@@ -1,0 +1,507 @@
+/* MAIN STYLES START*/
+:root{
+    --boxColor:#0ff7;
+    --rotateSpeed: 30s;
+    --roadSpeed: .5s;
+    --tframe: linear;
+    --treespeed: 0.5s;
+    --cloudSpeed: 30s;
+}
+  
+*{margin:0px;padding:0px;box-sizing:border-box;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: #ccc;
+    perspective: 300px;
+}
+
+/* =====CONTROLS START===== */
+.cameracontrol{
+    position: absolute;bottom: 2%;right: 2%;z-index: 5;
+    width: 30%;height: 10%;
+    border-radius: 35px;
+    background: none;
+}
+.controlpanel{
+    position: absolute;top:5%;left: 50%;
+    transform: translateX(-50%);
+    width: 94%;height: 90%;
+    border-radius: 35px;
+    background: none;
+    display: flex;justify-content: center;align-items: center;
+    overflow: hidden;
+}
+.controlpanel .btn{
+    width: 25%; height:100%;
+    border-radius: 10px;
+    display: flex;flex-basis: 35%;justify-content: center;align-items: center;
+    background: chartreuse;
+    box-shadow: 0 0 0.5em #000a inset;
+    color: seagreen;
+    overflow: hidden;
+    cursor: pointer;
+}
+.leftbtn{left: 5%;}
+.centerbtn{left: 25%;}
+.rightbtn{left: 75%;}
+/* =====CONTROLS END===== */
+
+/* =====SCENE START===== */
+.scene{
+    position: relative;
+    width:100%;
+    height: 100%;
+    border-bottom: 8px solid #175117;
+    background: dimgray;
+}
+
+/* =====SKY END===== */
+.sky{
+    position: absolute;
+    height:38%;
+    width: 100%;
+    background: linear-gradient(to bottom,skyblue,  rgb(126, 194, 221), rgb(157, 219, 243),rgb(157, 219, 243),rgb(157, 219, 243),white);
+}
+.cloud{
+    width: 150px;height: 150px;
+    position: absolute;
+    background: transparent;
+    opacity: 0.8;
+}
+.round{
+    width: 33%;height: 33%;
+    position: absolute;
+    border-radius: 100%;
+    transform: translateX(-50%);
+    background: #fff;
+}
+
+.round::before, .round::after{
+    content: '';
+    width: 100%;height: 100%;
+    position: absolute;
+    border-radius: 100%;
+    background: #fff;
+} 
+.round::before{content: '';left: -90%;}
+.round::after{content: '';right: -90%;}
+
+.r1{left: 50%;top: 10%;}
+.r2{left: 50%;top: 40%;}
+.r3{left: 50%;top: 65%;}
+.r1::before{content: '';top: 20%;}
+.r1::after{content: '';top: 20%;}
+.r2::before{content: '';left: -120%;}
+.r2::after{content: '';right: -120%;}
+.r3::after{content: '';top:-20%;}
+
+.square{
+    width: 60%;height: 50%;
+    position: absolute;top:50%;left:50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+}
+
+@media (max-width:1200px){.cloud{height: 100px;}}
+.cloud_1{
+    position: absolute;top: 1px;left: 3%;
+    animation: cloud var(--cloudSpeed) linear infinite both ;
+}
+.cloud_2{
+    position: absolute;top: 60px;left: 15%;
+    animation: cloud var(--cloudSpeed) linear infinite both reverse;
+}
+.cloud_3{
+    position: absolute;top: 30px;left: 40%;
+    animation: cloud var(--cloudSpeed) linear infinite both;
+}
+.cloud_4{
+    position: absolute;top: 50px;left: 60%;
+    animation: cloud var(--cloudSpeed) linear infinite both reverse;
+}
+@keyframes cloud{
+    from{transform: translateX(0%);}
+    to{transform: translateX(100%);}
+}
+
+.flyingbirds{
+    position: absolute;top: -10%;
+    width: 100%;height: 100%;
+    background: transparent;
+    transform: scale(0.5);
+    animation: movebirds 10s linear infinite forwards;
+}
+@keyframes movebirds {from{left: 150%;}to{left:-100%}}
+.bird{
+    position: absolute;
+    width: 10px;height: 2px;
+    background: black;
+    border-radius: 10px;
+}
+.b1{top: 150px;left: 200px;}
+.b2{top: 110px;left: 300px;}
+.b3{top: 170px;left: 350px;}
+.b4{top: 150px;left: -50px;}
+.b5{top: 120px;left: 400px;}
+.b6{top: 130px;left: 450px;}
+.wing{
+    width: 5px;height: 7px;
+    position: absolute;left: 2px;
+    transform-origin: top;
+    background: black;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.w1{animation: flap 0.5s infinite 0s;}
+.w2{animation: flap 0.5s infinite 0.3s;}
+.w3{animation: flap 0.5s infinite 0s;}
+.w4{animation: flap 0.5s infinite 0.1s;}
+.w5{animation: flap 0.5s infinite 0s;}
+.w6{animation: flap 0.5s infinite 0.2s;}
+@keyframes flap {0%{transform: rotateX(0deg);}50%{transform: rotateX(100deg);}100%{transform: rotateX(0deg);}}
+
+/* =====SKY END===== */
+
+/* =====GROUND START===== */
+.ground{
+    position:absolute;bottom: 0;left: 50%;top:50%;
+    transform: translateX(-50%)  rotateX(70deg) ;
+    width: 200%;height: 150%;
+    background: seagreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:1200px){.ground{height: 200%;left: 50%;top:50%;}}
+/* =====grass start===== */
+.grass{
+    position: absolute;
+    border: none;outline: none;
+    height: 100%;width: 100%;
+    background: linear-gradient(seagreen,rgb(35, 126, 74),transparent);
+}
+.gleft{left:-150%;}
+.gright{right:-150%;}
+
+.plank{
+    width: 60%;height: 90%;
+    position:absolute;
+    left:0%;z-index: 3;
+    transform: perspective(100000px) rotateZ(-5deg) rotateY(120deg);
+    background: blue;  
+    border-bottom-right-radius: 10px;  
+    border-bottom-left-radius: 10px;  
+    animation: rotator 2s linear infinite forwards;
+}
+.p1{top:0%;}.p2{top:-100%;}
+.p3{top:-200%;}.p4{top:-300%;}
+.p5{top:-400%;}.p6{top:-500%;}
+
+/* @keyframes rotator {
+    to{top: 100%; transform: perspective(700px) rotateZ(-5deg) rotateX(120deg);}
+} */
+
+.g{
+    width: 100%;height: 100%;
+    position: absolute;left: 0;
+    background: linear-gradient(seagreen,rgb(35, 126, 74),seagreen);
+}
+.L::before, .R::after{
+    content: '';
+    width: 100%;height: 100%;
+    position: absolute;left: -100%;
+    background: inherit;
+}
+.L::before{content: '';left: -100%;}
+.R::after{content: '';left: 100%;}
+.grassA{top: 0%;}.grassB{top: -100%;}
+.grassC{top: -200%;}.grassD{top: -300%;}
+.grassE{top: -400%;}.grassF{top: -500%;}
+.grassG{top: -600%;}.grassH{top: -700%;}
+.grassI{top: -800%;}.grassJ{top: -900%;}
+/* =====grass end===== */
+/* =====start road===== */
+.road{
+    width: 200%;height: 100%;
+    display: flex;
+    justify-content: center;align-items: center;
+    background: dimgrey;
+    box-sizing: border-box;
+    position: absolute;
+}
+.road::before{
+    content: '';
+    position: absolute;
+    top: -500%;left: 50%;
+    width: 1%;height: 1000% !important;
+    transform: translateX(-50%);
+    border: 5px dashed #fff;
+    background: #fff;
+}
+.r{
+    width: 100%;height: 1000px;
+    display: flex;
+    position: absolute;
+    border: 10px solid grey;
+    border-top-color:transparent ;
+    border-bottom-color:transparent ;
+    background: dimgrey;
+    animation: moveground var(--roadSpeed) var(--tframe) infinite forwards;
+}
+@keyframes moveground {from{top: -300%;}to{top:100%;}}
+
+.r::before{
+    content: '';
+    position: absolute;
+    top: 5%;left: 50%;
+    width: 1%;height: 95%;
+    transform: translateX(-50%);
+    border: 5px dashed #fff;
+    background: #fff;
+}
+.roadA{top: 0%;}.roadB{top: -100%;}
+.roadC{top: -200%;}.roadD{top: -300%;}
+.roadE{top: -400%;}.roadF{top: -500%;}
+.roadG{top: -600%;}.roadH{top: -700%;}
+.roadI{top: -800%;}.roadJ{top: -900%;}
+/* =====road end===== */
+/* =====GROUND END========== */
+
+
+/* =====TREES START===== */
+.tree{
+    position: absolute;
+    top: 28%;
+    width: 120px;
+    height: 120px;
+    background: #94ab38;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transform: rotate(315deg);
+    box-shadow: 0 0 0.5em #000a inset;
+}
+.tree::before{
+    content: '';
+    position: absolute;top: 85px;left: -20px;
+    width: 10px;height: 100px;
+    background: #3c2703;
+    transform: rotate(45deg);
+}
+
+
+/* ====== RIGHT VIEWS ====== */
+body{
+    perspective: 250px;
+    perspective-origin: 80%;
+} 
+.bike{top: 150%;left: 80% !important;}
+@keyframes movein {
+    100%{transform: scale(0.35);top: 35%;left:80%}
+}
+/*===== LEFT TREES RIGHT VIEW =====*/
+.treeleft .t0a{left: 64%;transform: rotate(315deg) scale(0.025);}
+.treeleft .t0{left: 64%;transform: rotate(315deg) scale(0.025);animation: movetreeL0 var(--treespeed) linear infinite forwards;}
+.treeleft .t1{left: 60%;transform: rotate(315deg) scale(0.05);animation: movetreeL1 var(--treespeed) linear infinite forwards;}
+.treeleft .t2{left: 57%;transform: rotate(315deg) scale(0.075);animation: movetreeL2 var(--treespeed) linear infinite forwards;}
+.treeleft .t3{left: 55%;transform: rotate(315deg) scale(0.1);animation: movetreeL3 var(--treespeed) linear infinite forwards;}
+.treeleft .t4{left: 53%;transform: rotate(315deg) scale(0.125);animation: movetreeL4 var(--treespeed) linear infinite forwards;}
+.treeleft .t5{left: 50%;transform: rotate(315deg) scale(0.15);animation: movetreeL5 var(--treespeed) linear infinite forwards;}
+.treeleft .t6{left: 45%;transform: rotate(315deg) scale(0.2);animation: movetreeL6 var(--treespeed) linear infinite forwards;}
+.treeleft .t7{left: 40%;transform: rotate(315deg) scale(0.25);animation: movetreeL7 var(--treespeed) linear infinite forwards;}
+.treeleft .t8{left: 35%;transform: rotate(315deg) scale(0.3);animation: movetreeL8 var(--treespeed) linear infinite forwards;}     
+.treeleft .t9{left: 25%;transform: rotate(315deg) scale(0.4);animation: movetreeL9 var(--treespeed) linear infinite forwards;}
+.treeleft .t10{left: 14%;transform: rotate(315deg) scale(0.5);animation: movetreeL10 var(--treespeed) linear infinite forwards;}
+.treeleft .t11{left: 4%;transform: rotate(315deg) scale(0.6);animation: movetreeL11 var(--treespeed) linear infinite forwards;}
+.treeleft .t12{left: -8%;transform: rotate(315deg) scale(0.8);animation: movetreeL12 var(--treespeed) linear infinite forwards;}
+.treeleft .t13{left: -16%;transform: rotate(315deg) scale(1);animation: movetreeL13 var(--treespeed) linear infinite forwards;}
+
+
+@keyframes movetreeL0 {to{left: 60%;transform: rotate(315deg) scale(0.05);}}
+@keyframes movetreeL1 {to{left: 57%;transform: rotate(315deg) scale(0.075);}}
+@keyframes movetreeL2 {to{left: 55%;transform: rotate(315deg) scale(0.1);}}
+@keyframes movetreeL3 {to{left: 53%;transform: rotate(315deg) scale(0.125);}}
+@keyframes movetreeL4 {to{left: 50%;transform: rotate(315deg) scale(0.15);}}
+@keyframes movetreeL5 {to{left: 45%;transform: rotate(315deg) scale(0.2);}}
+@keyframes movetreeL6 {to{left: 40%;transform: rotate(315deg) scale(0.25);}}
+@keyframes movetreeL7 {to{left: 35%;transform: rotate(315deg) scale(0.3);}}
+@keyframes movetreeL8 {to{left: 25%;transform: rotate(315deg) scale(0.4);}}
+@keyframes movetreeL9 {to{left: 14%;transform: rotate(315deg) scale(0.5);}}
+@keyframes movetreeL10 {to{left: 4%;transform: rotate(315deg) scale(0.6);}}
+@keyframes movetreeL11 {to{left: -8%;transform: rotate(315deg) scale(0.8);}}
+@keyframes movetreeL12 {to{left: -16%;transform: rotate(315deg) scale(1);}}
+@keyframes movetreeL13 {to{left: -24%;transform: rotate(315deg) scale(1.2);}}
+
+
+@media (max-width:1200px){
+    .treeleft .t0a{left: 56%;transform: rotate(315deg) scale(0.025);}
+    .treeleft .t0{left: 56%;transform: rotate(315deg) scale(0.025);animation: movetreeL0 var(--treespeed) linear infinite forwards;}
+    .treeleft .t1{left: 54%;transform: rotate(315deg) scale(0.05);animation: movetreeL1 var(--treespeed) linear infinite forwards;}
+    .treeleft .t2{left: 52%;transform: rotate(315deg) scale(0.075);animation: movetreeL2 var(--treespeed) linear infinite forwards;}
+    .treeleft .t3{left: 50%;transform: rotate(315deg) scale(0.1);animation: movetreeL3 var(--treespeed) linear infinite forwards;}
+    .treeleft .t4{left: 48%;transform: rotate(315deg) scale(0.125);animation: movetreeL4 var(--treespeed) linear infinite forwards;}
+    .treeleft .t5{left: 46%;transform: rotate(315deg) scale(0.15);animation: movetreeL5 var(--treespeed) linear infinite forwards;}
+    .treeleft .t6{left: 42%;transform: rotate(315deg) scale(0.2);animation: movetreeL6 var(--treespeed) linear infinite forwards;}
+    .treeleft .t7{left: 38%;transform: rotate(315deg) scale(0.25);animation: movetreeL7 var(--treespeed) linear infinite forwards;}
+    .treeleft .t8{left: 34%;transform: rotate(315deg) scale(0.3);animation: movetreeL8 var(--treespeed) linear infinite forwards;}     
+    .treeleft .t9{left: 28%;transform: rotate(315deg) scale(0.4);animation: movetreeL9 var(--treespeed) linear infinite forwards;}
+    .treeleft .t10{left: 22%;transform: rotate(315deg) scale(0.5);animation: movetreeL10 var(--treespeed) linear infinite forwards;}
+    .treeleft .t11{left: 14%;transform: rotate(315deg) scale(0.6);animation: movetreeL11 var(--treespeed) linear infinite forwards;}
+    .treeleft .t12{left: 2%;transform: rotate(315deg) scale(0.8);animation: movetreeL12 var(--treespeed) linear infinite forwards;}
+    .treeleft .t13{left: -10%;transform: rotate(315deg) scale(1);animation: movetreeL13 var(--treespeed) linear infinite forwards;}
+
+    @keyframes movetreeL0 {to{left: 54%;transform: rotate(315deg) scale(0.05);}}
+    @keyframes movetreeL1 {to{left: 52%;transform: rotate(315deg) scale(0.075);}}
+    @keyframes movetreeL2 {to{left: 50%;transform: rotate(315deg) scale(0.1);}}
+    @keyframes movetreeL3 {to{left: 48%;transform: rotate(315deg) scale(0.125);}}
+    @keyframes movetreeL4 {to{left: 46%;transform: rotate(315deg) scale(0.15);}}
+    @keyframes movetreeL5 {to{left: 42%;transform: rotate(315deg) scale(0.2);}}
+    @keyframes movetreeL6 {to{left: 38%;transform: rotate(315deg) scale(0.25);}}
+    @keyframes movetreeL7 {to{left: 34%;transform: rotate(315deg) scale(0.3);}}
+    @keyframes movetreeL8 {to{left: 28%;transform: rotate(315deg) scale(0.4);}}
+    @keyframes movetreeL9 {to{left: 22%;transform: rotate(315deg) scale(0.5);}}
+    @keyframes movetreeL10 {to{left: 14%;transform: rotate(315deg) scale(0.6);}}
+    @keyframes movetreeL11 {to{left: 2%;transform: rotate(315deg) scale(0.8);}}
+    @keyframes movetreeL12 {to{left: -10%;transform: rotate(315deg) scale(1);}}
+    @keyframes movetreeL13 {to{left: -18%;transform: rotate(315deg) scale(1.2);}}
+
+}
+
+/*===== RIGHT TREES RIGHT VIEW =====*/
+.treeright .t0a{right: 5%;transform: rotate(315deg) scale(0.025);}
+.treeright .t0{right: 5%;transform: rotate(315deg) scale(0.025);animation: movetreeR0 var(--treespeed) linear infinite forwards;}
+.treeright .t1{right: 4%;transform: rotate(315deg) scale(0.05);animation: movetreeR1 var(--treespeed) linear infinite forwards;}
+.treeright .t2{right: 2%;transform: rotate(315deg) scale(0.075);animation: movetreeR2 var(--treespeed) linear infinite forwards;}
+.treeright .t3{right: 0%;transform: rotate(315deg) scale(0.1);animation: movetreeR3 var(--treespeed) linear infinite forwards;}
+.treeright .t4{right: -2%;transform: rotate(315deg) scale(0.125);animation: movetreeR4 var(--treespeed) linear infinite forwards;}
+.treeright .t5{right: -4%;transform: rotate(315deg) scale(0.15);animation: movetreeR5 var(--treespeed) linear infinite forwards;}
+.treeright .t6{right: -6%;transform: rotate(315deg) scale(0.2);animation: movetreeR6 var(--treespeed) linear infinite forwards;}
+.treeright .t7, .treeright .t8, 
+.treeright .t9,.treeright .t10,
+.treeright .t11, .treeright .t12,
+.treeright .t13{opacity: 0;}
+@keyframes movetreeR0 {to{right: 4%;transform: rotate(315deg) scale(0.05);}}
+@keyframes movetreeR1 {to{right: 2%;transform: rotate(315deg) scale(0.075);}}
+@keyframes movetreeR2 {to{right: 0%;transform: rotate(315deg) scale(0.1);}}
+@keyframes movetreeR3 {to{right: -2%;transform: rotate(315deg) scale(0.125);}}
+@keyframes movetreeR4 {to{right: -4%;transform: rotate(315deg) scale(0.15);}}
+@keyframes movetreeR5 {to{right: -6%;transform: rotate(315deg) scale(0.2);}}
+
+@media (max-width:1200px){
+    .treeright .t0a{right: -1%;transform: rotate(315deg) scale(0.025);}
+    .treeright .t0{right: -1%;transform: rotate(315deg) scale(0.025);animation: movetreeR0 var(--treespeed) linear infinite forwards;}
+    .treeright .t1{right: -2%;transform: rotate(315deg) scale(0.05);animation: movetreeR1 var(--treespeed) linear infinite forwards;}
+    .treeright .t2{right: -3%;transform: rotate(315deg) scale(0.075);animation: movetreeR2 var(--treespeed) linear infinite forwards;}
+    .treeright .t3{right: -4%;transform: rotate(315deg) scale(0.1);animation: movetreeR3 var(--treespeed) linear infinite forwards;}
+    .treeright .t4{right: -5%;transform: rotate(315deg) scale(0.125);animation: movetreeR4 var(--treespeed) linear infinite forwards;}
+    .treeright .t5{right: -6%;transform: rotate(315deg) scale(0.15);animation: movetreeR5 var(--treespeed) linear infinite forwards;}
+    .treeright .t6{right: -8%;transform: rotate(315deg) scale(0.2);animation: movetreeR6 var(--treespeed) linear infinite forwards;}
+    .treeright .t7{right: -10%;transform: rotate(315deg) scale(0.25);animation: movetreeR7 var(--treespeed) linear infinite forwards;}
+    .treeright .t8{right: -12%;transform: rotate(315deg) scale(0.3);animation: movetreeR8 var(--treespeed) linear infinite forwards;}     
+    .treeright .t9{right: -15%;transform: rotate(315deg) scale(0.4);animation: movetreeR9 var(--treespeed) linear infinite forwards;}
+    .treeright .t10{right: -17%;transform: rotate(315deg) scale(0.5);animation: movetreeR10 var(--treespeed) linear infinite forwards;}
+    .treeright .t11{right: -19%;transform: rotate(315deg) scale(0.6);animation: movetreeR11 var(--treespeed) linear infinite forwards;}
+    .treeright .t12{right: -21%;transform: rotate(315deg) scale(0.8);animation: movetreeR12 var(--treespeed) linear infinite forwards;}
+    .treeright .t13{right: -23%;transform: rotate(315deg) scale(1);animation: movetreeR13 var(--treespeed) linear infinite forwards;}
+
+    @keyframes movetreeR0 {to{right: -2%;transform: rotate(315deg) scale(0.05);}}
+    @keyframes movetreeR1 {to{right: -3%;transform: rotate(315deg) scale(0.075);}}
+    @keyframes movetreeR2 {to{right: -4%;transform: rotate(315deg) scale(0.1);}}
+    @keyframes movetreeR3 {to{right: -5%;transform: rotate(315deg) scale(0.125);}}
+    @keyframes movetreeR4 {to{right: -6%;transform: rotate(315deg) scale(0.15);}}
+    @keyframes movetreeR5 {to{right: -8%;transform: rotate(315deg) scale(0.2);}}
+    @keyframes movetreeR6 {to{right: -10%;transform: rotate(315deg) scale(0.25);}}
+    @keyframes movetreeR7 {to{right: -12%;transform: rotate(315deg) scale(0.3);}}
+    @keyframes movetreeR8 {to{right: -15%;transform: rotate(315deg) scale(0.4);}}
+    @keyframes movetreeR9 {to{left: -17%;transform: rotate(315deg) scale(0.5);}}
+    @keyframes movetreeR10 {to{right: -19%;transform: rotate(315deg) scale(0.6);}}
+    @keyframes movetreeR11 {to{right: -21%;transform: rotate(315deg) scale(0.8);}}
+    @keyframes movetreeR12 {to{right: -23%;transform: rotate(315deg) scale(1);}}
+    @keyframes movetreeR13 {to{right: -25%;transform: rotate(315deg) scale(1.2);}}
+
+}
+/* ====== RIGHT VIEWS END ====== */
+/* =====TREES END===== */
+
+/*===== MOUNTAINS START=====*/
+.topography{position: relative;display: flex;justify-content: space-between;}
+.topo{position: absolute;top:20.8%;transform: scale(0.5);}
+.topography-1{left:3%;}
+.topography-2{left: 23%;}
+.topography-3{left:40%;}
+.topography-4{left: 52%;}
+.topography-5{right: -6%;}
+
+@media (max-width:1200px){
+    .topo{top:22%;transform: scale(0.5);}
+    .topography-1, .topography-2{display: none;}
+    .topography-3{left:-4%;}
+    .topography-4{left: 31%;}
+    .topography-5{right: -27%;}
+}
+.mountains{
+    position: relative;
+    display: flex;align-items: center;justify-content: center;
+    height: auto;
+}
+.mountain1{
+    height: 10px; width: 0px;
+    border: 70px solid #228B22;
+    border-top-right-radius:100%; 
+    border-top-left-radius:20%;
+    margin: 0px; 
+    margin-right:20px; 
+}
+.mountain2{
+    height: 40px;width: 0px;
+    border: 70px solid #006400;
+    border-top-right-radius:100%; 
+    border-top-left-radius:100%;
+    position: absolute;  z-index: -1;
+    bottom:0%;
+}
+.mountain3{
+    height: 10px; width: 0px;
+    border: 70px solid #32CD32;
+    border-top-right-radius:40%; 
+    border-top-left-radius:180%;
+    margin: 0px;
+}
+.flip{width: 0px;margin-top: 0px;}
+.flip1{
+    position: absolute;left: -18%;top: -8%;
+    height: 59.8px;
+    border: 75px solid #228B22;
+    border-top-left-radius:100%; 
+    border-top-right-radius:20%;
+    border-color: transparent transparent transparent #228B22;
+}
+.flip2{
+    position: absolute;right: -18%;top: -8%;
+    border:75px solid #2d722d;
+    border-top-right-radius:100%; 
+    border-top-left-radius:20%;
+    border-color: transparent #32CD32 transparent transparent;
+}
+/* =====MOUNTAINS END===== */
+
+/* =====MAIN STYLES END========= */
+
+.frontbike{
+    width: 30%;height: 20%;
+    position: absolute;left:20%;top:-1900%;
+    transform:scale(0);
+    background: transparent;
+    animation: moveout 5s ease-out infinite forwards;
+}
+@keyframes moveout {
+    0%{transform: scale(0);left:-35%;}
+    100%{transform: scale(1);left:20%;}
+}
+
+.fb{width:100%;height: 100%;}

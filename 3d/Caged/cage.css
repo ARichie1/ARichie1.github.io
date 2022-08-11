@@ -1,0 +1,236 @@
+:root{
+    --boxColor:#0ff7;
+    --rotateSpeed: 30s;
+}
+
+*{margin:0px;padding:0px;box-sizing:border-box;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #000;
+    perspective: 500px;
+}
+
+.scene{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: sceneRotate var(--rotateSpeed) 2.5s infinite linear;
+    transform: rotateY(-90deg);
+}
+
+@keyframes sceneRotate {to{transform: rotateY(360deg);}}
+
+.cage{
+    width: 20em;height: 10em;
+    transform-style: preserve-3d;
+    position: absolute;
+    background: transparent;
+    animation: roll var(--rotateSpeed) linear infinite forwards;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    cursor: pointer;
+}
+
+.cube{
+    width: 3em;height: 3em;
+    transform-style: preserve-3d;
+    position: absolute;
+    transform:translateX(-20%) translateY(-35%);
+    left: 20%;top: 35%;
+    animation: slateup 2s linear infinite forwards;
+}
+
+@keyframes slateup {
+    from{transform: rotateX(-180deg) rotateY(-80deg)}
+    to{transform: rotateX(180deg) rotateY(80deg) rotateZ(-180deg)}
+}
+
+.cubesides{
+    position: absolute;
+    background: var(--boxColor);
+    border-radius: 3%;
+    width: 100%;height: 100%;
+    background: var(--boxColor);
+    box-shadow: 0 0 0.5em #000a inset;
+}
+
+.front{transform: translateZ(1.5em);}
+.right{transform: rotateY(90deg) translateZ(1.5em);}
+.back{transform: rotateY(180deg) translateZ(1.5em);}
+.left{transform: rotateY(270deg) translateZ(1.5em);}
+.top{transform: translateY(-50%) rotateX(90deg);}
+.bottom{transform: translateY(-50%) rotateX(90deg);}
+
+.wall{
+    width: 100%;height: 100%;
+    position: absolute;left: 50%;top: 50%;
+    transform: translateX(-50%) translateY(-50%) rotateY(90deg);
+    border-radius: 10%;
+    border: 5px solid var(--boxColor);
+    background: transparent;
+    box-shadow: 0 0 0.5em #000a inset;
+}
+
+.wall::before{
+    width: 100%;height: 100%;
+    position: absolute; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: Tahoma;
+    border-radius: 10%;
+    box-shadow: 0 0 0.5em #000a inset;
+}
+
+.back1{left:1%;background: black;}
+
+.back1::before{
+    content: 'BY AKINMADE RICHARD' ;
+    background: black;
+    color: var(--boxColor);
+    transform: rotateY(180deg);
+}
+
+.back2{left:2%;background: black;}
+.back3{left:3%;}
+.back4{left:4%;}
+.back5{left:5%;}
+.back6{left:6%;}
+.back7{left:7%;}
+.back8{left:8%;}
+.back9{left:9%;}
+.back10{left:10%;}
+.back11{left:11%;}
+.back12{left:12%;}
+.back13{left:13%;}
+.back14{left:14%;}
+.back15{left:15%;}
+.back16{left:16%;}
+.back17{left:17%;}
+.back18{left:18%;}
+.back19{left:19%;}
+.back20{left:20%;}
+.back21{left:21%;}
+.back22{left:22%;}
+.back23{left:23%;}
+.back24{left:24%;}
+.back25{left:25%;}
+.back26{left:26%;}
+.back27{left:27%;}
+.back28{left:28%;}
+.back29{left:29%;}
+.back30{left:30%;}
+.back31{left:31%;}
+.back32{left:32%;}
+.back33{left:33%;}
+.back34{left:34%;}
+.back35{left:35%;}
+.back36{left:36%;}
+.back37{left:37%;}
+.back38{left:38%;}
+.back39{left:39%;}
+.back40{left:40%;}
+.back41{left:41%;}
+.back42{left:42%;}
+.back43{left:43%;}
+.back44{left:44%;}
+.back45{left:45%;}
+.back46{left:46%;}
+.back47{left:47%;}
+.back48{left:48%;}
+.back49{left:49%;}
+
+.center50{left:50%;}
+
+.front1{right:1%;}
+.front2{right:2%;}
+.front3{right:3%;}
+.front4{right:4%;}
+.front5{right:5%;}
+.front6{right:6%;}
+.front7{right:7%;}
+.front8{right:8%;}
+.front9{right:9%;}
+.front10{right:10%;}
+.front11{right:11%;}
+.front12{right:12%;}
+.front13{right:13%;}
+.front14{right:14%;}
+.front15{right:15%;}
+.front16{right:16%;}
+.front17{right:17%;}
+.front18{right:18%;}
+.front19{right:19%;}
+.front20{right:20%;}
+.front21{right:21%;}
+.front22{right:22%;}
+.front23{right:23%;}
+.front24{right:24%;}
+.front25{right:25%;}
+.front26{right:26%;}
+.front27{right:27%;}
+.front28{right:28%;}
+.front29{right:29%;}
+.front30{right:30%;}
+.front31{right:31%;}
+.front32{right:32%;}
+.front33{right:33%;}
+.front34{right:34%;}
+.front35{right:35%;}
+.front36{right:36%;}
+.front37{right:37%;}
+.front38{right:38%;}
+.front39{right:39%;}
+.front40{right:40%;}
+.front41{right:41%;}
+.front42{right:42%;}
+.front43{right:43%;}
+.front44{right:44%;}
+.front45{right:45%;}
+.front46{right:46%;}
+.front47{right:47%;}
+.front48{right:48%;}
+
+.front49{right:49%;
+    height: 0%;opacity: 0;
+    background: var(--boxColor);
+    animation: door 3s linear  forwards; 
+    cursor: pointer;   
+}
+
+.front49::before{
+    content: 'Click To Open' ;
+    background: transparent;
+    color: #000;
+}
+
+.cage:active .front49{
+    animation: door 3s linear forwards reverse; 
+}
+
+@keyframes door {
+    0%{height: 0%;opacity: 0;background: transparent;}
+    20%{height: 0%;opacity: 0;background: var(--boxColor);}
+    50%{height: 50%;opacity: 0.3;background: var(--boxColor);}
+    70%{height: 100%;opacity: 0.5;background: var(--boxColor);}
+    100%{height: 100%;opacity: 1;}
+}
+
+.floor{
+    position: absolute;top: 6em;
+    transform: translate(-50%, -50%) rotateX(90deg);
+    width: 55em;height: 55em;
+    background-image: 
+    radial-gradient(#0000, #000 75%),
+    repeating-conic-gradient(from 45deg,
+     black 0deg 90deg,
+     white 90deg 180deg);
+    background-size:100%, 5em 5em;
+}

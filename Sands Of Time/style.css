@@ -1,0 +1,200 @@
+:root{
+    --modules-header-color : #000;
+    --modules-header-font-color : skyblue;
+    --background-color : #87ceeb;
+    --theme-color : skyblue;
+    --font-color : #000 ;
+}
+
+* {margin: 0;padding: 0;box-sizing: border-box;
+    user-select: none;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95vh;width:95vw;
+    margin: 2.5vw 2.5vw;
+    font-family:sans-serif;
+    font-weight: bold;
+    overflow: hidden;background: #333;
+}
+
+.title{
+    position: absolute;
+    top: 0%;
+    font-size: 40px;
+    margin: 2%;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0%;
+    font-size: 20px;
+    margin: 2%;
+}
+
+/* ==========SCENE START========== */
+.scene{
+    position: relative;
+    width: 600px;height: 80%;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1)
+      );
+      backdrop-filter: blur(30px);
+      box-shadow: 0 0 0.5em #000a inset;
+      display: flex;justify-content: space-evenly;
+      border-radius: 10px;
+      align-items: center;
+      overflow: hidden;
+}
+
+/* =====ELEMENT START====== */
+.sandsoftime{
+    width: 500px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.holder{
+    position: relative;
+    width: 170px;height: 270px;
+    border: 10px solid #fff;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    z-index: 2;
+}
+.holder::before{
+    content: '';
+    position: absolute;
+    width: 100%;height: 3%;
+    background: radial-gradient(silver,#000 );
+}
+.holder::after{
+    content: '';
+    position: absolute;
+    left: -15%;
+    width: 8%;height: 10%;
+    border-radius: 10px;
+    background: radial-gradient(silver,#000 );
+}
+
+.handle{
+    position: absolute;
+    right: 14.5%; top: 60%;
+    width: 70px;height: 30px;
+    border-radius: 20px;
+    background: radial-gradient(silver,#000 );
+    cursor: pointer;
+}
+.handle::before{
+    content: '';
+    position: absolute;
+    right: 114%; top: -175%;
+    width: 12px;height: 25px;
+    border-radius: 20px;
+    background: radial-gradient(silver,#000 );
+}
+.handle::after{
+    content: '';
+    position: absolute;
+    right: 58%; top: -60%;
+    width: 70px;height: 10px;
+    transform: rotate(90deg);
+    border-radius: 20px;
+    background: radial-gradient(silver,#000 );
+}
+
+
+.grain{
+    position: absolute;
+    top: 50%;
+    width: 20px;height: 0px;
+    background: saddlebrown;
+    box-shadow: 0 0 0.5em #000a inset;
+    border-radius: 100%;
+    animation: grains 6s linear 1 forwards;
+}
+@keyframes grains {
+    0%{height: 0%;}
+    50%{height: 120px;}
+    100%{height: 0px;}
+}
+
+.glassCase{
+    position: absolute;
+    left: 50%;top: 50%;
+    width: 140px;height: 240px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.glass{
+    position: relative;
+    width: 108px;height: 108px;
+    border-radius: 50px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%; 
+    background: transparent;
+    box-shadow: 0 0 0.5em #000a inset;
+    display: flex;justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.top{
+    transform: rotate(315deg);
+}
+.top .sand{
+    content: '';
+    position: absolute;
+    top: 0%;right: 0%;
+    width: 120%;height: 120%;
+    background: saddlebrown;
+    transform: rotate(45deg);
+    animation: drain 6s linear forwards;
+    box-shadow: 0 0 0.5em #000a inset;
+}
+@keyframes drain {
+    from{top: 0%;right: 0%;}
+    to{top: 100%;right: 100%;}
+}
+
+.bottom{
+    transform: rotate(135deg);
+}
+.bottom .sand{
+    content: '';
+    position: absolute;
+    bottom: 100%;left: 100%;
+    width: 100%;height: 100%;
+    background: saddlebrown;
+    transform: rotate(90deg);
+    border-radius: 5px;
+    box-shadow: 0 0 0.5em #000a inset;
+    animation: fill 4.5s 1.9s linear forwards;
+}
+@keyframes fill {
+    to{bottom: 0%;left: 0%;}
+}
+
+.base{
+    position: absolute;
+    top: 83%;
+    transform: perspective(200px) rotateX(70deg);
+    width: 250px;height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: radial-gradient( saddlebrown, silver,#000 );
+}

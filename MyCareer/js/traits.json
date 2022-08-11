@@ -1,0 +1,308 @@
+{        
+
+    "personalities" : {
+        "p0" : ["patient", "teases", "modest", "passive",
+        "harmonious", "good listener","conforming", "compassionate", 
+        "lack initiative", "complacent", "controversial", "accommodating",
+        "lack confidence", "flexible", "corporative", "pliable", 
+        "unassertive", "agreeable", "tactful", "sensitive", 
+        "fit in", "indecisive", "persistent", "tolerant", 
+        "stubborn", "supportive","consistent", "understanding",
+        "cautious", "dependable"],
+
+        "p1" : ["spontaneous", "unorganized", "forgetful", "judgemental",
+        "impelling", "outgoing", "talkative", "excitable",
+        "instinctive","versatile", "generalist", "humorous", 
+        "makes quick decisions", "efficient", "proud", "weak will", 
+        "convincing", "people oriented", "energetic", "passionate", 
+        "erratic", "procrastinate", "friendly", "rebellious", 
+        "activist", "unconventional", "easily disturbed", "inspiring",
+        "warm", "over tasking"],
+
+        "p2" : ["impatient", "restless", "reasons to logic", "expensive",
+        "defend ideas", "controlling", "touchy", "likes change",
+        "thick skinned", "direct", "criticise", "objective", 
+        "bold", "result oriented", "determined", "strong willed",
+        "assertive", "confrontational", "quick minded", "self centered",
+        "take control", "domineering", "impulsive", "visionary",
+        "active", "competitive", "focused", "confident",
+        "logical", "respond quickly"],
+
+        "p3" : ["structured", "scheduled", "fact oriented", "tough",
+        "perfectionist", "questioning", "responsible", "promote change",
+        "through", "analysis syndronic", "rigid", "contentious",
+        "creative", "precise", "diplomatic", "firm",
+        "respond fast", "picky", "cool hearted", "insensitive to others",
+        "systematic", "decisive", "cool", "combative",
+        "critical", "detailed", "accurate", "tough minded",
+        "prepared/plan ahead", "like stabilty"]
+    },
+
+
+    "careerArray" : {
+        "accomodatingHarmonious"  : ["Human Relations",
+            "Process Management", "Communication",
+            "Nursery Care", "Teaching", "Psychology and Counselling",
+            "Engineering", "Statistics", "Civil Service"
+        ],
+        "engagingSpontaneous" : ["Thrives in less structured and detailed careers",
+            "Entertainment", "Sales Person/Marketing",
+            "Communication", "Acting", "Preacher(Evangelist)"
+        ],
+        "directiveObjective" : ["Highly Structured Settings",
+            "Leadership", "Military", "Academician",
+            "Construction", "Entrepreneurship", "Politics"
+        ],
+        "methodicalObjective" : ["All Creative Career",
+            "Public Relation", "Building and Designs",
+            "Innovation and Inventions", "Accounting",
+            "Data Analysis",  "Medicine", "Law", "Educator"
+        ]
+    },
+
+
+    "dictionary" : {
+
+        "accomodating" : "affording to offer accomodation; obliging; happay and ready to do favours for others.",
+
+        "assertive" : "confident without being aggresive.",
+
+        "active" : "having the power or quality of acting; causing change; not dull or sluggish.",
+
+        "agreeable" : "willing; ready to agree or consent.",
+
+        "activist" : "someone who actively campaigns for change.",
+
+        "accurate" : "likes to be precise, executes with care; careful and correct.", 
+        
+        "analysisSyndrome" : "Like to take things apart and over analyse.",
+
+        "bold" : "courageous and daring.",
+
+        "convincing" : "able to change people's mind or opinion with prooof or evidence.",
+
+        "coolHearted" : "calm at heart and in self-control.",
+
+        "conforming" : "State of complying with a set of rules, with a norm or standard.",
+
+        "confrontational" : "the act of confrontating or challenging another, especially face-to-face.",
+
+        "complacent" : "Being self-satisfied with oneself or one's achievements.",
+
+        "cool" : "not showing emotion, calm and in self-control.",
+
+        "combative" : "given to fighting; disposed to engage in combat in a form or way.",
+
+        "compassionate" : "Having, feeling or showing compassion; sympathetic.",
+
+        "competitive" : "inclined to compete.",
+
+        "controlling" : "Likes to take control over a person or thing; Always wants to take charge.",
+
+        "contentious" : "Given to struggling with others out of jealousy or discord, marked by heated arguments or controversy.",
+
+        "controversial" : "Given to struggling with others out of jealousy or discord, marked by heated arguments or controversy.",
+
+        "consistent" : "having a regularly occuring, dependedable nature or way of living.",
+
+        "corporative" : "willing and able to work with others as a collective body.",
+
+        "creative" : "tending to create things or having the ability to create.",
+
+        "cautious" : "careful; using or exercising caution.",
+
+        "confident" : "very sure of something; very positive.",
+
+        "critical" : "Inclined to find fault or critise.",
+
+        "criticise": "Inclined to find fault or critise.",
+
+        "defendIdeas" : "Someone who stands his/her ground in their own ideas and repels off any ideas that he/she does not agree to.",
+
+        "decisive" : "having the power or quality in making quick decisions.",
+
+        "dependable" : "able or easily able to be depended on.",
+
+        "direct" : "Straightforward; sincere.",
+
+        "diplomatic" : "exercising tact or courtesy; using discussion to aviod hard feelings, fights or argument.",
+
+        "determined" : "always decided at mind and heart; resolute; pocessing much determination.",
+
+        "domineering" : "likes to be bossy, dominant, forceful, commanding, pushy, oppresive e.t.c.",
+
+        "detailed" : "characterized by attention to detail both giving and recieving.",
+
+        "effficient" : "causing effects, producing results; initiating change.",
+
+        "easilyDisturbed" : "extremely alarmed or shocked with ease.",
+
+        "excitable" :  "Easily excited.",
+        
+        "energetic" : "pocessing, exerting or displaying energy.",
+
+        "erratic" : "unsteady, random; prone to unexpected changes; not consistent.",
+
+        "factOriented" : "Believing in things that are real and actually exit; Does not believe in fiction or fantasy.",
+
+        "firm" : "having a steadfast, secured or hard personality.",
+
+        "friendly" : "approacheable and easy to relate with in character;generally warm hearted.",
+
+        "forgetful" : "Unable to remember things well; liable to forget.",
+
+        "fitIn" : "confident in social situations.",
+
+        "flexible" : "willing or ready to yield to the influence of others or circumstance.",
+
+        "focused" : "directing all one's efforts towards achieving a particular goal.",
+
+        "generalist" : "a person with broad general knowledge, especially one with the ability to combine ideas from diverse fields.",
+
+        "goodListener" : "Able to be depended on paying attention and listening to what a person has to say.",
+
+        "expensive" : "Having a high taste or standard.",
+
+        "harmonious" : "Showing agreement or concurrence of opinion, will, or action in feelings and decision.",
+
+        "humorous" : "full of humor or arousing laughter; funny.",
+
+        "inspiring" : "providing inspiration; encouraging.",
+
+        "impatient" : "Restless and intolerant of delays; Anxious and eager, especially to begin somthing.",
+
+        "insensitiveToOthers" : "not expressing normal emotional feelings; unaffected or does not care about the feelings of others.",
+
+        "instinctive" : "Driven by impulse, spontaneous and withouty thinking.",
+
+        "indecisive" : "slow in making decisions; inconclusive or uncertain.",
+
+        "impulsive" : "inclined to make rapid decisions without due consideration.",
+
+        "impelling" : "To urge a person; to press on; to incite to action via motivation.",
+
+        "inorganize" : "To make less organized; to reduce to chaos.",
+
+        "judgemental" : "likes to judge; Being critical and criticise.",
+        
+        "lackInitiative" : "Lacks the ability to deal with problems.",
+
+        "lackConfidence" : "absence of trust in oneself and sometimes others.",
+
+        "likesChange" : "likes and can tolerate/ handle new situation/circumstances.",
+
+        "logical" : "In agreement  with the principles of logic; Reasons to the fundamental logic of a system.",
+
+        "likeStablity" : "likes stablity.",
+
+        "makesQuickDecisions" : "having the power or quality in making quick decisions.",
+
+        "modest" : "Not bragging or boasting about oneself or one's achievements, unpretentious, humble.",
+
+        "objective" : "not influenced by the emotions or predujices; Based on observed facts.",
+
+        "organize" : "To arrange in working order.",
+
+        "outgoing" : "Comfortable in social settings and interactions; Confident in dealing with people especially in meeting new people.",
+
+        "overTasking" : "over tasking.",
+
+        "patient" : "Willing to wait if necessary; not losing one's temper while waiting.",
+
+        "planAhead" : "likes to prepare or plan ahead of time.",
+
+        "perfectionist" : "One who is unwilling to settle for anything that is not perfect or does not meet extremely high standard.",
+
+        "persistent" : "refusing to give or let go.",
+
+        "passive" : "Being subjected to an action without producing a reaction; Being inactive and submissive.",
+
+        "precise" : "likes to be exact and accurate.",
+        
+        "processOriented" : "Believing everything has to happen (step by step) according to a process or rule.",
+
+        "pliable" : "soft, flexible, easily bent.",
+
+        "promoteChange" : "Not necessarily like but supports change.",
+
+        "proud" : "having too high an opinion of oneself.",
+        
+        "procrastinate" : "to delay taking action; to wait until later.",
+
+        "passionate" : "fired with intense feeling about something or someone.",
+
+        "peopleOriented" : "like to familiarize with people, their situation or circumstance.",
+
+        "picky" : "demanding to have things just right.",
+
+        "quickMinded" : "very quick to mind.",
+
+        "questioning" : "Always asking questions, wondering and doubting, likes to interrogate.",
+
+        "restless" : "Without rest; unable to be still or quiet.",
+
+        "responsible" : "Able to be trusted; reliable; trustworthy.",
+
+        "rigid" : "Having a rigorous and unbending, uncompromising will.",
+
+        "respondQuickly" : "to say something in return; to answer or reply as fast as possible.",
+
+        "reasonsToLogic" : "reasonable in agreement with the principles of logic.",
+
+        "rebellious" : "likes to rebel, not submissive.",
+
+        "respondFast" : "to say something in return; to answer or reply as fast as possible.",
+
+        "resultOriented" : "believing every action has a corresponding consequence or result.",
+
+        "spontaneous" : "Done by one's own free choice, or without planning; Arising from a momemtary impulse.",
+
+        "structured" : "Having everything planned according to a schedule.",
+
+        "sensitive" : "easily offended, upset or hurt.",
+
+        "supportive" : "willing to always provide support.",
+
+        "stubborn" : "refusing to move or to change one's opinion; disobedient; firly resisting.",
+
+        "selfCentered" : "egotistically obssessed with oneself.",
+
+        "systematic" : "carry things out using a planned, ordered procedure.",
+
+        "strongWilled" : "having force or ability to trust in oneself or belief.",
+
+        "talkative" : "Speaking openly and honestly, neglecting privacy and consequences.",
+
+        "teases ": "To make fun of; to provoke or disturb; to annoy.",
+
+        "tough" : "Strong and resilent; sturdy.",
+
+        "touchy" : "Extremely sensitive, easily offended; oversensitive.",
+
+        "through" : "Completely opened at heart and honest.",
+
+        "takeControl" : "likes to take charge, to assume control.",
+
+        "tactful" : "able to deal with people in a sensitive manner.",
+
+        "toughMinded" : "having a strong and resilent mindset.",
+
+        "thickSkinned" : "A coarse, gross person; a prson void of sensibility or sensitiveness; a dullard.",
+
+        "tolerant" : "tending to permit, allow, understand or accept something.",
+
+        "understanding" : "the ability to share the feelings of another.",
+
+        "unconventional" : "not adhering to convention or accepted standard, thinks out of the ordinary.",
+
+        "unassertive" : "not assertive.",
+
+        "versatile" : "Capable of doing many things with sufficient skill, knowledge, ability,  or qualifications.",
+
+        "visionary" : "someone who has positive ideas about the future; having foresight.",
+
+        "warm" : "caring and friendly.",
+
+        "weakWill" : "lacking force or ability to trust in oneself or belief."
+    }
+}  

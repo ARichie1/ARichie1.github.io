@@ -1,0 +1,198 @@
+/* MAIN STYLES START*/
+:root{
+    --boxColor:#0ff7;
+    --rotateSpeed: 30s;
+    --roadSpeed: .5s;
+    --tframe: linear;
+    --treespeed: 0.5s;
+    --cloudSpeed: 30s;
+}
+  
+*{margin:0px;padding:0px;box-sizing:border-box;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width:100vw;
+    overflow: hidden;
+    background: #000;
+    perspective: 200px;
+    /* perspective-origin: right; */
+    animation: pco 3s linear infinite;
+}
+/* @keyframes pco {to{perspective-origin: left;}} */
+
+.scene{
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin:top;
+    animation: sceneRotate var(--rotateSpeed)  infinite linear; 
+    background:  black;
+}
+
+/* @keyframes sceneRotate {
+   to{transform: rotateY(360deg);}} */
+
+.ground{
+    width: 20em;height: 40em;
+    position: absolute;left: 50%;
+    transform-style: preserve-3d;
+    transform: translateX(-50%);
+    background:  pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.field{
+    width: 100%;height: 100%;
+    position:absolute;top: 50%;
+    transform: translate(-50%,-50%) rotateX(70deg);
+    transform-style: preserve-3d;
+    transform-origin:top;
+    background: black;  
+}
+
+.f1{left: -100%;}
+.f2{right: -200%;}
+ 
+.path{
+    width: 100%;height: 50%;
+    position:absolute;
+    transform-style: preserve-3d;
+    background: linear-gradient(seagreen,rgb(35, 126, 74),seagreen);
+    border: 5px solid green;
+}
+
+.f1 .path::before{
+    content: '';
+    width: 100%;height: 100%;
+    position:absolute;left: -200%;
+    transform-style: preserve-3d;
+    background: inherit;
+    border: inherit;  
+}
+.f1 .path::after{
+    content: '';
+    width: 100%;height: 100%;
+    position:absolute;left: -100%;
+    transform-style: preserve-3d;
+    background: inherit;
+    border: inherit;   
+}
+.f2 .path::before{
+    content: '';
+    width: 100%;height: 100%;
+    position:absolute;right: -200%;
+    transform-style: preserve-3d;
+    background: inherit; 
+    border: inherit;  
+}
+.f2 .path::after{
+    content: '';
+    width: 100%;height: 100%;
+    position:absolute;right: -100%;
+    transform-style: preserve-3d;
+    background: inherit;
+    border: inherit;   
+}
+
+.p1{top:0%;}.p2{top:-50%;}
+.p3{top:-100%;}.p4{top:-150%;}
+.p5{top:-200%;}.p6{top:-250%;}
+
+/* .p1{top:0%;background:red}.p2{top:-50%;background:pink;}
+.p3{top:-100%;background:purple;}.p4{top:-150%;background:yellow;}
+.p5{top:-200%;background:brown;}.p6{top:-250%;background:magenta;} */
+
+.treediv{
+    width: 100%;height: 150%;
+    position: absolute;left: 50%;
+    /* box-shadow: 0 0 0.5em #000a inset; */
+}
+
+.f1 .treediv{
+    transform:perspective(250px)
+    translate(-50%,-50%) 
+    rotateY(20deg) rotateX(80deg);
+}
+.f2 .treediv{
+    transform:perspective(250px)
+    translate(-50%,-50%) 
+    rotateY(10deg) rotateX(45deg);
+}
+
+.td1{top:0%}
+.td2{top:50%}
+.td3{top:100%}
+
+.tree{
+    position: absolute;
+    width: 25%;height: 15%;
+    left:50%;top: 67%;
+    transform:translateX(-50%) rotate(315deg);
+    background: #94ab38;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    box-shadow: 0 0 0.5em #000a inset;
+}
+
+.plank{
+    width: 5%;height: 30%;
+    position:absolute;left:50%;top: 40%;
+    transform: translateX(-50%);
+    background: #3c2703;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+} 
+
+.mainroad{
+    width: 100%;height: 100%;
+    position:absolute;top: 50%;left: 50%;
+    transform:translateY(-50%) rotateX(70deg);
+    transform-style: preserve-3d;
+    transform-origin:top;
+    background: #fff;  
+    border: 5px solid #fff;
+}
+
+.m1{left: -50%;}
+.m2{right: 100%;}
+
+.mainroad::before{
+    content: '';
+    position: absolute;
+    top: 5%;left: 50%;
+    width: 1%;height: 95%;
+    transform: translateX(-50%);
+    border: 5px dashed #fff;
+    background: #fff;
+}
+
+.road{
+    width: 100%;height: 100%;
+    position: absolute;
+    background: gray;
+    border: 5px solid gray;
+    border-left-color: #fff;
+    border-right-color:#fff ;
+}
+
+.road::before{
+    content: '';
+    position: absolute;
+    top: 5%;left: 50%;
+    width: 1%;height: 95%;
+    transform: translateX(-50%);
+    border: 5px dashed #fff;
+    background: #fff;
+}
+
+.r1{top:0%;}.r2{top:-50%;}.r3{top:-100%;}
+.r4{top:-150%;}.r5{top:-200%;}.r6{top:-250%;}
+
+@keyframes moveRoad {
+    
+}

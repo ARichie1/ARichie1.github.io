@@ -1,0 +1,63 @@
+:root{
+    --boxColor:#0ff7;
+    --rotateSpeed: 3s;
+}
+
+*{margin:0px;padding:0px;box-sizing:border-box;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width:100vw;
+    overflow: hidden;
+    background: #fff;
+    perspective: 500px;
+}
+
+.scene{
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin:top;
+   animation: sceneRotate var(--rotateSpeed)  infinite linear;
+   margin-top:50%;
+    background:  black;
+}
+
+@keyframes sceneRotate {
+   to{transform: rotateY(360deg);}}
+   
+.field{
+    width: 10em;height: 30em;
+    transform-style: preserve-3d;
+    transform-origin:top;
+    position: absolute;
+    background: transparent;
+    top: 50%;left:50%;
+    transform: translateX(-50%) translateY(-50%) rotateX(70deg);
+    background:  black;
+    cursor: pointer;
+    border:4px solid green;
+}
+
+.track{
+    width: 10%;height: 30%;
+    position: absolute;
+    left:50%;top:50%;
+    transform: perspective(500px) translateX(-50%) translateY(-50%) rotateX(110deg);
+    border-radius: 0%;
+    border: 5px solid var(--boxColor);
+    border-left-color: red;
+    border-right-color:pink;
+    border-bottom-color:violet;
+    border-top-color:indigo;
+    background: blue;
+    box-shadow: 0 0 0.5em #000a inset;
+    animation: sceneRotate1 var(--rotateSpeed)  infinite linear;
+}
+/*
+@keyframes sceneRotate1 {
+   to{transform: rotateZ(360deg);}}*/
+  
+   
