@@ -1,0 +1,212 @@
+/* PRE-STYLED CLASSES STYLES STARTS HERE */
+.many_icons::before{
+    content: "\f067";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 30%;right: 30%;
+    font-size: 50%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: var(--fcp);
+    z-index: 3;
+}
+
+/* STYLE CLICKABLE ELEMENTS STARTS HERE*/
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clkb_link:hover,
+.clkb_link:active{
+    padding: .2%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.clkb_link:hover{color: var(--fcb);}
+.clkb_link:active{color: var(--fcd);}
+
+.clkb_btn{
+    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5%;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--fcb);
+    border: var(--line);
+    font-weight: bold;
+    cursor: pointer;
+}
+.clkb_btn:hover{
+    background-color: var(--tc);
+    color: var(--fcb);
+    border: none;
+}
+.clkb_btn:active,
+.clkb_btn:focus{
+    background: var(--tcd);
+    opacity: 0.5;
+}
+.clicked{
+    color: var(--tc);
+    padding: .2%;
+    border-radius: 5px;
+}
+.active_link{
+    color: var(--tc);
+    padding: .2%;
+}
+.active_btn{
+    background: var(--tc);
+    color: var(--fcb);
+    padding: .2%;
+    border-radius: 5px;
+}
+/* STYLE CLICKABLE ELEMENTS ENDS HERE*/
+/* =====PRE-STYLED CLASSES STYLES ENDS HERE===== */
+
+/* =====FORM ELEMENTS CUSTOM STYLES STARTS HERE =====*/
+input[type="text"],
+input[type="number"],
+select, textarea{
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 5px;
+    background: transparent;
+    border: var(--line);
+    outline: none;
+}
+input[type="text"]::placeholder,
+input[type="number"]::placeholder{
+    padding-left: 1%;
+    font-weight: bold;
+}
+input[type="text"]:focus,
+input[type="number"]:focus{
+    background: var(--ebg);
+    border: var(--line);
+    outline: none;
+}
+.check_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--tc);
+    border-radius: 1px;
+    padding: 1%;
+    padding-left: 1.5%;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--fcw);
+}
+/* =====SCROLL STYLE STARTS HERE===== */
+.adjust_for_scr{
+    padding-right: 2%;
+}
+
+/* Vertical Scroll */
+.scr-y::-webkit-scrollbar{
+    background: transparent;
+    width: 10px;
+}
+
+/* Horizontal Scroll */
+.scr-x::-webkit-scrollbar{
+    background: transparent;
+    height: 10px;
+}
+
+.scr::-webkit-scrollbar-thumb{
+    background: var(--tc);
+    border-radius: 5px;
+}
+.scr::-webkit-scrollbar-button{
+    background: transparent;
+    height: 0%;width:2%;border-radius: 5px;
+}
+/* =====SCROLL STYLE ENDS HERE===== */
+
+/* =====RANGE SLIDER STYLES STARTS HERE===== */
+.range_slider{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;  
+    background: var(--tc);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+/* Mouse-over effects */
+.range_slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+.range_slider:active {
+  background: #000; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.range_slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    content: "a";
+    border-radius: 50%; 
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background: var(--tc);
+    border: var(--line);
+}
+.range_slider::-webkit-slider-thumb:active{
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 2px solid #000;
+    border: 2px solid var(--tc);
+}
+.range_slider::-moz-range-thumb{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--fcb);
+    cursor: pointer;
+}
+/* =====RANGE SLIDER STYLES ENDS HERE===== */
+
+/* =====VENDER CUSTOM STYLES STARTS HERE===== */
+.bottom-control{
+    position: absolute;
+    bottom: 0%; left: 12%;
+    width: 52%; height: 17%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: var(--line);
+}
+.bottom-control .control{
+    flex-basis: calc(100% / 3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-right: var(--line);
+    padding: 4% 2%;
+}
+.bottom-control .control:last-child{
+    border: none;
+}
+.bottom-control .control ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* =====VENDER CUSTOM STYLES ENDS HERE===== */

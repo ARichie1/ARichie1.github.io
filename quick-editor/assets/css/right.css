@@ -1,0 +1,652 @@
+/* ===== APP RIGHT =====*/
+/* FREE FRAME STYLES STARTS HERE */
+.app .right .free_frame{
+    position: relative;
+    height: 100%; width: 100%;
+    font-size: var(--fsl);
+}
+.app .right .free_frame img{
+    
+    height: 100%; width: 100%;
+}
+/* FREE FRAME STYLES ENDS HERE */
+
+/* IMAGE PREVIEW STYLES ENDS HERE */
+.app .right .preview{
+    height: 50%; width: 100%;
+    border: var(--blue_print);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app .right .preview h3{
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app .right .preview .image_preview_frame{
+    position: relative;
+    width: 100%;
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    border: var(--blue_print);
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+}
+.app .right .preview .image_preview_frame
+.image_preview_cover{
+     border: var(--line);
+    overflow: hidden;
+}
+.app .right .preview .image_preview_frame 
+.image_preview_cover .image_preview{
+    width: 100%; height: 100%;
+}
+/* IMAGE PREVIEW STYLES ENDS HERE */
+
+
+/* RESIZER PREVIEW STYLES STARTS HERE */
+.app .right .resizer_preview{
+    height: 100%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app .right .resizer_preview h3{
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app .right .resizer_image_preview_frame{
+    position: relative;
+    width: 100%;
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    border: var(--blue_print);
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+    overflow: scroll;
+}
+.app .right .resizer_image_preview_frame
+#resizer_preview_canvas{
+    border: var(--line);
+    overflow: hidden;
+}
+/* RESIZER PREVIEW STYLES ENDS HERE */
+
+/* FILTER PREVIEW STYLES STARTS HERE */
+.app .right .filter_preview{
+    height: 50%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app .right .filter_preview h3{
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app .right .filter_image_preview_frame{
+    position: relative;
+    width: 100%; min-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+}
+.app .right .filter_image_preview_frame
+#filter_preview_canvas{
+    border: var(--line);
+    overflow: hidden;
+    width: 100%; height: 100%;
+}
+/* FILTER PREVIEW STYLES ENDS HERE */
+
+/* ========== =========== =========== */
+
+/* DOWNLOAD FRAME STYLES STARTS HERE */
+.app .right .download_frame{
+    position: relative;
+    height: 100%; width: 100%;
+    font-size: var(--fsl);
+    background: var(--bg);
+}
+
+.app .right .download_frame h4{
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+    border-radius: 5px;
+    font-size: var(--fsxl);
+    border: none;
+}
+
+.app .right .download_frame .download_image_preview { 
+    height: 50%; width: 98%;
+    background: #000;
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+    margin: 0% auto;
+    margin-top: 10%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.app .right .download_frame .download_image_preview 
+.download_image_frame{
+    height: 100%; width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: scroll;
+}
+.app .right .download_frame .download_image_preview 
+.download_image_frame .image_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .right .download_frame .download_image_preview 
+.download_image_frame img{
+    height: 100%; width: 100%;
+}
+.app .right .download_frame .download_image_preview 
+.multiple_image{
+    height: 100%; width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+    display: none;
+}
+.app .right .download_frame .download_image_preview 
+.multiple_image li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .right .download_frame .download_image_preview 
+.multiple_image li .image_box{
+    height: 50px; width: 50px;
+}
+.app .right .download_frame .download_image_preview 
+.multiple_image li .image_box img{
+    height: 100%; width: 100%;
+}
+
+.app .right .download_frame .send_to_user{
+    width: 98%; height: 8%;
+    margin: 0% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    background: var(--ebg);
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.app .right .download_frame 
+.send_to_user div{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.app .right .download_frame 
+.send_to_user .stu_parts:nth-child(1){
+    flex-basis: 20%;
+    justify-content: flex-start;
+    color: var(--fcb);
+}
+.app .right .download_frame 
+.send_to_user .stu_parts:nth-child(2){
+    flex-basis: 45%;
+    color: var(--fcb);
+}
+.app .right .download_frame 
+.send_to_user .stu_parts:nth-child(3){
+    flex-basis: 30%;
+    border-radius: 5px;
+    color: white;
+}
+.app .right .download_frame 
+.send_to_user .file_type .f_type{
+    width: 100%;
+}
+.app .right .download_frame 
+.send_to_user .file_type .type_2{
+    display: none;
+}
+.app .right .download_frame 
+.send_to_user .file_name div:nth-child(1){
+    width: 80%; height: 100%;
+    justify-content: flex-end;
+    padding-right: 2%;
+}
+.app .right .download_frame 
+.send_to_user .file_name select{
+    font-size: var(--fsl);
+    border-radius: 5px;
+    height: 100%;
+}
+.app .right .download_frame 
+.send_to_user .file_name select:focus{
+    outline: none;
+}
+.app .right .download_frame 
+.send_to_user .file_name select option{
+    background: var(--tc);
+}
+
+.app .right .download_frame 
+.send_to_user .load_download{
+    width: 100%; height: 100%;
+    background: rgb(0, 27, 0);
+    border-radius: inherit;
+    cursor: progress;
+    opacity: 0.3;
+    display: none;
+}
+.app .right .download_frame 
+.send_to_user .download_btn{
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: green;
+    border-radius: inherit;
+    cursor: pointer;
+    /* display: none; */
+}
+.app .right .download_frame 
+.send_to_user .download_btn:active{
+    background: rgb(0, 27, 0);
+    color: #000;
+}
+
+.app .right .download_frame 
+.cancel_download{
+    width: 40%; height: 40px;
+    margin: 15% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgb(160, 6, 6);
+    border-radius: inherit;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    /* display: none; */
+}
+.app .right .download_frame 
+.cancel_download:active{
+    background: rgb(61, 3, 3);
+}
+/* DOWNLOAD FRAME STYLES ENDS HERE */
+
+/* ========== =========== =========== */
+
+/* USER DIRECTORIES STYLES STARTS HERE */
+.app .right .user_directories{
+    height: 50%; width: 100%;
+    border-top: var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.app .right .user_directories 
+.directories{
+    height: 100%; width: 100%;
+    overflow-y: scroll;
+}
+.app .right .user_directories 
+.directories .directory span{
+    display: flex;
+    justify-content: space-between;
+    margin: 2.5% 0%;
+}
+.app .right .user_directories 
+.directories .directory span p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .right .user_directories 
+.directories .directory ul{
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    border-bottom: var(--line);
+}
+
+.app .right .user_directories 
+.directories .directory ul li{
+    position: relative;
+    height: 60px; width: 60px;
+    display: inline-block;
+    border: 1px solid green;
+}
+.app .right .user_directories 
+.directories .directory ul li .image_options{
+    position: absolute;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.app .right .user_directories 
+.directories .directory ul li img{
+    height: 100%; width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* USER DIRECTORIES STYLES ENDS HERE */
+
+/* ========== =========== =========== */
+
+/* EXTRA TOOL STYLES STARTS HERE */
+.app .right .extra_tools{
+    height: 50%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: var(--bg);
+    display: none;
+}
+
+.app .right .extra_tools
+ .extra_tools_panel{
+    height: 100%; width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.app .right .extra_tools
+.ext_section{
+    flex-basis: calc(100%/3);
+}
+.app .right .extra_tools
+.ext_section:nth-child(2){   
+    border-left: var(--line);
+    border-right: var(--line);
+}
+
+.app .right .extra_tools
+.extra_tools_panel p{
+    padding: 2%;
+    font-weight: bold;
+}
+.app .right .extra_tools
+.extra_tools_panel li{
+    font-size: 16px;
+    padding: 2%;
+}
+.app .right .extra_tools
+.extra_tools_panel li:active{
+    color: black;
+}
+
+.app .right .extra_tools
+.exts{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+.app .right .extra_tools
+.exts p{
+    flex-basis: 10%;
+    font-size: var(--fsl);
+}
+.app .right .extra_tools
+.exts:nth-child(1){
+    flex-basis: 40%;
+    justify-content: space-evenly;
+}
+.app .right .extra_tools
+.exts:nth-child(1) .control{
+    justify-content: space-evenly;
+}
+.app .right .extra_tools
+.exts:nth-child(2){
+    flex-basis: 30%;
+}
+.app .right .extra_tools
+.exts:nth-child(3){
+    flex-basis: 30%;
+}
+
+
+/* CROPPER NAVIGATION STARTS HERE */
+.app .right .extra_tools
+.navigation_tools .zoom{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10%;
+}
+.navigation_tools .zoom ul,
+.navigation_tools .zoom .reset_zoom{
+    flex-basis: 20%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5% auto;
+}
+.navigation_tools .zoom
+ul li{
+    width: 30px; height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto;
+    margin-bottom: 10%;
+    border-radius: 100%;
+}
+.navigation_tools .zoom .reset_zoom{
+    flex-basis: 30px;
+}
+.navigation_tools .move{
+    position: relative;
+    flex-basis: 60%;
+    display: block;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.navigation_tools .move ul{
+    position: relative;
+    height: 60%; width: 80%; 
+    display: flex;
+    margin: 10% auto;
+}
+.navigation_tools .move ul li{
+    width: 30px; height: 30px;
+    position: absolute;
+    top: 0%; left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+.navigation_tools .move
+ ul li:nth-child(1){
+    top: 0%; left: 50%;
+    transform: translate(-50%, 0%);
+}
+.navigation_tools .move
+ ul li:nth-child(2){
+    top: 50%; left: 0%;
+    transform: translate(0%, -50%);
+}
+.navigation_tools .move
+ ul li:nth-child(3){
+    top: 50%; left: 100%;
+    transform: translate(-100%, -50%);
+}
+.navigation_tools .move
+ ul li:nth-child(4){
+    top: 100%; left: 50%;
+    transform: translate(-50%, -100%);
+}
+/* CROPPER NAVIGATION ENDS HERE */
+
+/* COLOR PALLETE STARTS HERE */
+.color_selector .color_pallete{
+    width: 100%; height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.color_selector p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.color_selector input{
+    width: 70%;
+    margin: 0% auto;
+}
+.color_selector .recent_colors,
+.color_selector .frequently_used{
+    width: 100%; height: 30%;
+    margin-top: 10%;
+}
+.color_selector .recent_colors ul,
+.color_selector .frequently_used ul{
+    width: 100%; height: 50%;
+    margin-top: 10%;
+    display:  flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.color_selector .recent_colors ul li,
+.color_selector .frequently_used ul li{
+    width: 20px; height: 20px;
+    border-radius: 100%;
+}
+.color_selector li:nth-child(1){background: pink !important;}
+.color_selector li:nth-child(2){background: green !important;}
+.color_selector li:nth-child(3){background: black !important;}
+.color_selector li:nth-child(4){background: orange !important;}
+.color_selector li:nth-child(5){background: pink !important;}
+.color_selector li:nth-child(6){background: white !important;}
+.color_selector li:nth-child(7){background: yellow !important;}
+.color_selector li:nth-child(8){background: green !important;}
+/* COLOR PALLETE ENDS HERE */
+
+/* ASPECT RATIO OPTIONS STYLES STARTS HERE */
+.aspect_ratios ul{
+    width: 100%; height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    user-select: none;
+}
+.aspect_ratios ul li{
+    width: 40%;
+    border-radius: 4px;
+}
+/* ASPECT RATIO OPTIONS STYLES ENDS HERE */
+
+/* PRESET FILTER OPTIOS STYLES STARTS HERE */
+.preset_filters{
+    width: 100%; height: 90%;
+    display: flex;
+}
+.preset_filters ul{
+    width: 100%; height: 100%;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.preset_filters ul li{
+    width: 80%;
+    border-radius: 4px;
+    
+}
+/* PRESET FILTER OPTIOS STYLES ENDS HERE */
+
+/* CUSTOM DATA INSERT STARTS HERE */
+.insert_tools {
+    flex-basis: 25%;
+    flex-direction: column;
+    justify-content: space-between !important;
+}
+.insert_tools .property_group_container{
+    flex-basis: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0% auto;
+    font-size: 10px;
+}
+.insert_tools .property_group_container
+.property_group{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.filter_insert_group{
+    height: 100% !important;
+}
+.insert_tools .property_group_container
+.property_group .property .property_name{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 4% 0%;
+}
+.insert_tools input{
+    width: 100%; height: 25px;
+    border-radius: 5px;
+    outline: none;
+}
+.insert_tools input:focus{
+    outline: none; 
+    border: 1px solid var(--tc);
+}
+.insert_tools .save_custom_properties{
+    width: 90%; flex-basis: 30px;
+    margin: 2.5% auto;
+}
+.insert_tools .tool_extra_tools{
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 10px !important;
+}
+/* .cropper_extra_tools{display: none;} */
+.filter_extra_tools{display: none;}
+/* CUSTOM DATA INSERT ENDS HERE */
+
+/* EXTRA TOOL STYLES ENDS HERE */
+
+
+
+

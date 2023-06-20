@@ -1,0 +1,495 @@
+.app .middle .editor{
+    position: relative;
+    height: 90%; width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+.app .middle .editor 
+.right_tools_in_media_query{
+    display: none;
+}
+.app .middle .editor
+.image_frame{
+    width: 100%; height: 60%;
+    background: #000;
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+}
+.app .middle .editor 
+.image_frame .image_screen{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; width: 100%;
+}
+.app .middle .editor 
+.image_frame .image_screen img{
+    height: 100%; width: 100%;
+}
+
+.app .middle .editor 
+.filter_canvas_frame{
+    display: none;
+}
+
+
+.app .middle .editor .switch_images{
+    position: absolute;
+    top: 69%; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 3%;
+    display: none;
+}
+.app .middle .editor .switch_images ul{
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle .editor .switch_images ul li{
+    width: 20px; height: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .middle .editor .switch_images ul li:nth-child(2){
+    width: 60%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app .middle .editor .editing_tools{
+    height: 7%; width: 100%;
+    margin-top: 1%;
+    border-top: var(--line);
+    color: #000;
+}
+.app .middle .editor .editing_tools ul{
+    height: 100%; width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+.app .middle .editor .editing_tools ul li{
+    width: 20%;
+}
+.app .middle .editor .editing_tools ul li span{
+    position: relative;
+    height: 100%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: var(--blue_print);
+}
+
+.app .middle .editor .editing_tools_settings{
+    height: 33%; width: 100%;
+}
+.app .middle .editor .editing_tools_settings .tool{
+    height: 100%; width: 100%;
+    position: relative;
+}
+
+.app .middle .editor .editing_tools_settings 
+.resize{
+    display: none;
+}
+.app .middle .editor .editing_tools_settings 
+.rotate{
+    display: none;
+}
+.app .middle .editor .editing_tools_settings 
+.filter{
+    display: none;
+}
+.app .middle .editor 
+.editing_tools_settings .tool .properties_setting{
+    height: 100%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2%;
+    border-top: var(--line);
+}
+.app .middle .editor 
+.editing_tools_settings .tool .properties_setting
+.what_to_edit{
+    position: absolute;
+    top: 0%; left: 0%;
+    height: 100%; width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2%;
+    border-top: var(--line);
+    background: var(--bg);
+    z-index: 5;
+}
+.app .middle .editor 
+.editing_tools_settings .tool .properties_setting
+.what_to_edit li{
+    height: 30px; width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2%;
+}
+
+/* RESIZE STYLES STARTS HERE */
+.app .middle .editor 
+.editing_tools_settings .resize #original_dimension,
+.app .middle .editor 
+.editing_tools_settings .resize #crop_area_dimension{
+    height: 40%; width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-style: italic;
+    color: #000;
+}
+.app .middle .editor 
+.editing_tools_settings .resize .properties_setting{
+    height: 65%; width: 100%;
+}
+.app .middle .editor 
+.editing_tools_settings .resize 
+.properties_setting span{
+    height: 30px; width:30px;
+    border-radius: 100%;
+}
+.app .middle .editor 
+.editing_tools_settings .resize 
+.properties_setting span:active{
+    color: black;
+}
+.app .middle .editor 
+.editing_tools_settings .resize 
+.properties_setting input{
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+}
+.app .middle .editor 
+.editing_tools_settings .resize .aspect_ratio{
+    height: 15%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    float: left;
+}
+.app .middle .editor 
+.editing_tools_settings .resize .aspect_ratio p{
+    margin-left: 2%;
+    color: #000;
+}
+.app .middle .editor 
+.editing_tools_settings .resize .aspect_ratio .check_box{
+    border-radius: 3px;
+    border: var(--line);
+    cursor: pointer;
+}
+/* RESIZE STYLES ENDS HERE */
+
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property_group{
+    display: flex;
+    width: 100%;
+    margin: 1% 0%;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property{
+    width: 80%;
+    margin: 0% 5%;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property .property_name{
+    margin-bottom: 5%;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property p{
+    flex-basis: 10%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property ul li{
+    width: 30px; height: 30px;
+    border-radius: 100%;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property ul li:active{
+    color: black;
+}
+
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property .property_value_setter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property 
+.property_value_setter input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    border-radius: 5px;
+}
+.app .middle .editor 
+.editing_tools_settings .tool 
+.properties_setting .property 
+.property_value_setter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ROTATE STYLES STARTS HERE */
+.app .middle .editor 
+.editing_tools_settings 
+.rotate .properties_setting{
+    height: 85%;
+}
+.app .middle .editor 
+.editing_tools_settings .rotate
+.properties_setting .property{
+    position: relative;
+}
+
+.editing_tools_settings .rotate
+.properties_setting #flip_x_y li:nth-child(1):before{
+    content: "\f337";
+    font-family: FontAwesome;
+}
+.editing_tools_settings .rotate
+.properties_setting #flip_x_y li:nth-child(2):before{
+    content: "\f338";
+    font-family: FontAwesome;
+}
+
+.editing_tools_settings .rotate
+.properties_setting .property .deg_display{
+    position: absolute;
+    top: 0;right: 0;
+    height: 40%; width: auto;
+    float: right;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editing_tools_settings .rotate
+.properties_setting .property .deg_display::after{
+    content: "\f22d";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 2%;right: 0%;
+    height: 40%;width:15%;
+    font-size: 30%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 3;
+}
+.editing_tools_settings .rotate
+.properties_setting .property .deg_display .deg_warning{
+    position: absolute;
+    top: -5%; left: -100%;
+    width: auto;height: 100%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    border-radius: inherit;
+    background: #fff;
+    z-index: 2;
+    display: none;
+}
+.editing_tools_settings .rotate
+.properties_setting .property .deg_display
+input{
+    width: 100%; height: 25px;
+    text-align: center;
+}
+/* ROTATE STYLES ENDS HERE */
+
+/* FILTER STYLES STARTS HERE */
+.app .middle .editor 
+.editing_tools_settings .filter{
+    position: relative;
+    text-align: center;
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting{
+    position: absolute;
+    height: 100%; width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: var(--line);
+    margin: 0%; 
+    padding: 5% auto;
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting #reset_filters{
+    position: absolute;
+    top: 35%; left: 2%;
+    height: 25px; width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .filter_tools{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40%; width: 100%;
+    border-bottom: var(--line);
+    font-size: 12px;
+    color: var(--fcb);
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .filter_tools li{
+    flex-basis: calc(100% / 8);
+    height: 50%; width: 100%;
+    margin: 0% 2%;
+    cursor: pointer;
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .filter_tools li:hover{
+    color: var(--tcd);
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .property_group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%; margin-top: 2%;
+}
+
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .property_group 
+.range_slider::-webkit-slider-thumb{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+#brightness .range_slider::-webkit-slider-thumb,
+#brightness .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/brightness.png);}
+#contrast .range_slider::-webkit-slider-thumb,
+#contrast .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/contrast.png);}
+#grayscale .range_slider::-webkit-slider-thumb,
+#grayscale .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/grayscale.png);}
+#saturation .range_slider::-webkit-slider-thumb,
+#saturation .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/saturation.png);}
+#blur .range_slider::-webkit-slider-thumb,
+#blur .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/blur.png);}
+#sepia .range_slider::-webkit-slider-thumb,
+#sepia .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/sepia.png);}
+#hue .range_slider::-webkit-slider-thumb,
+#hue .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/hue.png);}
+#tint .range_slider::-webkit-slider-thumb,
+#tint .range_slider::-webkit-slider-thumb:active
+{background-image: url(../images/icons/tint.png);}
+#contrast, #grayscale, #saturation, #blur,
+#sepia, #hue, #tint{
+    display: none;
+}
+/* FILTER STYLES ENDS HERE */
+
+/* MEDIA QUERY STYLES STARTS HERE */
+@media screen and (max-width:900px){
+    .app .middle .editor .right_tools_in_media_query{
+        position: absolute;
+        right: 1%; bottom: 2%;
+        height: 20%; width: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 6;
+    }
+    .app .middle .editor .right_tools_in_media_query li{
+        height: 30px; width: 30px;
+        border: var(--line);
+        border-radius: 100%;
+        margin: 10%;
+        
+        color: var(--fcb);
+    }
+    .app .middle .editor .right_tools_in_media_query li:nth-child(3){
+        display: none;
+    }
+    .app .middle .editor .right_tools_in_media_query li::before{
+        font-size: 12px;
+    }
+    .app .middle .editor .right_tools_in_media_query li:nth-child(3)::before{
+        content: "\f068";
+        font-family: FontAwesome;
+        font-size: 12px;
+    }
+
+    
+    .app .middle .editor 
+    .filter_canvas_frame{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; height: 50%;
+        background: #000;
+        background-image: var(--glass);
+        backdrop-filter: var(--blur);
+        display: none;
+    }
+    .app .middle .editor 
+    .filter_canvas_frame #filter_canvas_screen{
+        border: var(--line);
+        overflow: hidden;
+        width: 100%; height: 100%;
+    }
+}
+/* MEDIA QUERY STYLES ENDS HERE */
+
+/* =====APP MIDDLE STYLES ENDS HERE===== */

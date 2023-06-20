@@ -1,0 +1,25 @@
+
+
+/* =====APP MIDDLE FRAMES STARTS HERE===== */
+/* .app .middle .image_uploader{display: none;} */
+.app .middle .create_multiple_edits{display: none;}
+.app .middle .editor{display: none;}
+
+.app .middle .nft_generator{display: none;}
+/* .app .middle .create_nft_collection{display: none;} */
+.app .middle .user_layers{display: none;}
+.app .middle .user_single_layer{display: none;}
+
+/* =====APP MIDDLE FRAMES ENDS HERE===== */
+
+/* =====APP RIGHT FRAMES STARTS HERE===== */
+/* .app .right .free_frame{display: none;} */
+.app .right .preview{display: none;}
+.app .right .resizer_preview{display: none;}
+.app .right .filter_preview{display: none;}
+.app .right .download_frame{display: none;}
+.app .right .user_directories{display: none;}
+.app .right .extra_tools{display: none;}
+/* =====APP RIGHT FRAMES ENDS HERE===== */
+
+/* =====APP STYLES ENDS HERE===== */

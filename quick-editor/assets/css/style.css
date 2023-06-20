@@ -1,0 +1,257 @@
+:root{
+    /* MAIN BACKGROUND */
+    --bg : #2b2a2a;
+    --lbg : #464545;
+    /* --background_color : #f0e9e9; */
+    /* ELEMENT BACKGROUND */
+    --ebg: rgba(255, 255, 2555, 0.129);
+    /* GLASS BACKGROUND */
+    --glass : linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1)
+    );
+    --blur :  blur(30px);
+    /* THEME COLOR */
+    --tc : rgb(75, 145, 56) ;
+    /* --tc : rgb(206, 141, 56); */
+    /* THEME COLOR LIGHT TONE */
+    --tcl : rgb(157, 218, 141) ;
+    /* THEME COLOR DEEP TONE */
+    --tcd : rgb(45, 92, 32) ;
+    /* FONT COLOR WHITE*/
+    --fcw : #f8f8f8 ;
+    /* FONT COLOR BLACK */
+    --fcb : #000;
+    /* FONT COLOR PREMIUM */
+    --fcp : gold;
+    /* FONT SIZE */
+    --fsl : 16px; --fsm : 13px; --fss : 12px;
+    --fsxl : 18px; --fsxs : 8px;
+    /* SHADOW */
+    --shadow : 0 0 0.5em #000a inset;
+    --shadow_out : 0 0 0.5em rgba(248, 247, 247, 0.667);
+    /* BORDER */
+    --line : 1px solid #000;
+    --line_t : 1px solid var(--tc);
+
+}
+
+* {margin: 0;padding: 0;box-sizing: border-box;
+    user-select: none;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;width:100vw;
+    background: var(--bg);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow: hidden;
+}
+
+li, span, .fa{list-style: none; cursor: pointer;}
+.many_icons{
+    position: relative;
+}
+
+/* =====APP STYLES START HERE===== */
+.app{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;
+    box-shadow: var(--shadow);
+    color: var(--tc);
+    font-size: 80%;
+    overflow: hidden;
+}
+
+.app section{
+    position: relative;
+    background: transparent;
+    padding: .9%;
+}
+.app .left{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle{
+    width: 45%;
+    border-left: var(--line);
+    border-right: var(--line);
+}
+.app .right{width: 40%;}
+
+
+/* COMPONENTS CONTROL STYLES STARTS HERE*/
+.app .component_opener{
+    display: flex;
+    flex-basis: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: var(--line);
+
+}
+.app .component_opener span{
+    flex-basis: 5%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.app .component_opener .component_header{
+    flex-basis: 80%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.app .component_opener .remove_component{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+/* COMPONENTS CONTROL STYLES ENDS HERE*/
+
+
+
+@media screen and (max-width:900px){
+    .app section{
+        position: absolute;
+        top: 0%; height: 100%;
+        transition: 1s ease-in-out;
+    }
+    .app .left{
+        left: -70%; width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--lbg);
+    }
+    .minimize_space{display: none !important;}
+    .app .left header{height: 5% !important; 
+        display: none !important;}
+    .app .left nav{
+        height: 45% !important;
+        margin-top: 12.5% !important;
+        border-top: var(--line)
+    }
+    .app .left nav ul li ul{
+        position: absolute;
+        top: 100% !important; right: 0% !important;
+        border-left: var(--line) !important;
+        border-top: none !important;
+        border-bottom-left-radius: 5px !important;
+        border-top-right-radius: 0px !important;
+    }
+    .link_text{
+        width: 65% !important;
+        margin-right: 5% !important;
+    }
+    
+    .app .left .user_info_link{
+        height: 50% !important;
+        padding: 2%; padding-top: 5%;
+    }
+    .app .left .user_info_link 
+    .user_projects_info .user_projects_opener{
+        margin-left: 7%;
+    }
+    .app .left .user_info_link ul{
+        height: 30% !important;
+        overflow-y: scroll;
+    }
+    .app .left .user_info_link form{
+        margin-top: 2% !important;
+        height: 30% !important;
+    }
+    .app .left .user_info_link form input,
+    .app .left .user_info_link form button{
+        height: 30px !important;
+    }
+
+
+    /* APP MIDDLE MQ STARTS HERE */
+    /* Search MQ Styles */
+    .app .middle{left: 0%; width: 100%;}
+    .app .middle .searchbar{
+        position: relative;
+        height: 5% !important;}
+    .app .middle .searchbar form{display: none;}
+    .app .middle .searchbar form .form_cancel{
+        display: flex; justify-content: center; 
+        align-items: center;
+        width: 10%; height: 100%;}
+    .app .middle .searchbar form input{
+        width: 90% !important;}
+    .app .middle .searchbar 
+    .search_small_screen_overlay{
+        position: absolute;
+        top: 0%;left: 0%;
+        width: 100%; height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0% 2%;
+        font-size: var(--fsxl);
+        font-weight: bold;
+        z-index: 5;
+    }
+    
+    /* Editor MQ Styles*/
+    .app .middle .editor, .app .middle .nft_generator{height: 95% !important;}
+    .app .middle .editor .filter 
+    .filter_tools{padding-left: 18%;overflow-x: scroll;}
+    .app .middle .editor .filter 
+    .scr-x::-webkit-scrollbar{background: transparent;height: 2px;}
+    .app .middle .editor .filter 
+    .scr::-webkit-scrollbar-button{width:0%;}
+
+    /* NFT Generator Styles */
+    .app .middle .user_layers{
+        padding: 2%;
+    }
+    .app .middle .user_layers 
+    #create_select_has_no_layers{
+        flex-direction: column;
+    }
+    .app .middle .user_layers 
+    #create_select_has_no_layers .start_import{
+        margin-bottom: 2%
+    }
+    .app .middle .user_layers 
+    #create_select_has_no_layers .create_layer{
+        margin-top: 2%;
+    }
+
+    /* APP MIDDLE MQ ENDS HERE */
+
+    /* APP RIGHT MQ STARTS HERE */
+    .app .right{left: 100%; width: 100%;}
+    .app .right .preview{height: 50% !important;}
+    .app .right .filter_preview{height: 50% !important;}
+    .app .right .download_frame{
+        height: 91% !important; margin-top: 9% !important;
+    }
+    .app .right .extra_tools{height: 50% !important;}
+    .app .right .component_opener{background: var(--bg) !important;}
+    .app .right .component_opener .close{display: none}
+    .app .right .filter_extra_tools{height: 90% !important;}
+    .app .right .insert_tools{height: 90% !important;}  
+    /* APP RIGHT MQ ENDS HERE */
+}
+
+
+
+
+
+
+
+
+
+
+
+
