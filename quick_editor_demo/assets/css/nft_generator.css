@@ -7,6 +7,9 @@
 .app .middle .component_opener{
     height: 5% !important;
 }
+.app .middle .component_opener .close{
+    display: none;
+}
 
 /* CREATE COLLECTION FORM STYLES STARTS HERE*/
 .app .middle .create_nft_collection{
@@ -69,32 +72,6 @@ form select{
     border: none;
     cursor: pointer;
 }
-.app .middle .create_nft_collection
-.add_to_projects{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;    
-    width: 100%;height: 5%;
-    margin: 2% auto;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.app .middle .create_nft_collection
-.add_to_projects .atp{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;    
-    border-radius: 5px;
-    cursor: pointer;
-}
-.app .middle .create_nft_collection
-.add_to_projects p:nth-child(1){ width: 7%; border: 3px solid silver;}
-.app .middle .create_nft_collection
-.add_to_projects p:nth-child(2){width: 93%; margin-left: 2%;}
-.app .middle .create_nft_collection
-form p span {width: 49%;}
-
 .app .middle .create_nft_collection
 form button{
     width: 50%;height: 35px;
@@ -220,25 +197,20 @@ form button{
     content: "\f00c";
     font-family: FontAwesome;
 }
-/* =====ON IMPORT STYLE STARTS HERE===== */
+/* =====ON POP_UP STYLE STARTS HERE===== */
 .app .middle .user_layers 
-.on_import{
+.on_pop_up{
     position: absolute;
-    /* top: 300%; left: 50%; */
-    top: 10%; left: 50%;
-    transform: translateX(-50%) ;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px; width: 100%;
     font-size: var(--fsl);
     background: var(--bg);
     border-radius: 5px;
     border: var(--line);
-    display: none;
 }
-.app .middle .user_layers 
-.on_import .on_import_inner{
+.app .middle .user_layers
+.on_pop_up .on_pop_up_inner{
     position: relative;
     width: 100%; height: 100%;
     display: flex;
@@ -246,8 +218,8 @@ form button{
     justify-content: flex-start;
     flex-direction: column;
 }
-.app .middle .user_layers 
-.on_import .on_import_header{
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1){
     width: 90%; height: 10%;
     display: flex;
     align-items: center;
@@ -255,17 +227,29 @@ form button{
     text-align: right;
     border-bottom: var(--line);
 }
-.app .middle .user_layers 
-.on_import .on_import_header li{
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1) li{
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1) li:nth-child(1){width: 10%;}
+
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1) li:nth-child(2){width: 80%;}
+
+/* =====ON POP_UP STYLE ENDS HERE===== */
+
+/* =====ON IMPORT STYLE STARTS HERE===== */
 .app .middle .user_layers 
-.on_import .on_import_header li:nth-child(1){width: 10%;}
-.app .middle .user_layers 
-.on_import .on_import_header li:nth-child(2){width: 80%;}
+.on_import{
+    top: 10%; left: 50%;
+    transform: translateX(-50%) ;
+    height: 400px; width: 100%;
+    display: none;
+}
 .app .middle .user_layers 
 .on_import form{
     width: 95%; height: 90%;
@@ -289,6 +273,36 @@ form button{
 }
 /* =====ON IMPORT STYLE ENDS HERE===== */
 
+/* ON GENERATE STYLES STARTS HERE */
+.app .middle .user_layers
+.on_generate{
+    top: 100%; left: 15%;
+    /* transform: translate(-50%, -50%) ; */
+    height: 200px; width: 70%;
+    font-size: 100% ;
+    display: none;
+}
+.app .middle .user_layers
+.on_generate .on_generate_options{
+    width: 95%; height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+.app .middle .user_layers
+.on_generate .on_generate_options li{
+    width: 70%; height: 25px;
+}
+.app .middle .build_test{
+    position: absolute;
+    bottom: 10%; right: 7%;
+    width: 50px; height: 50px;
+    border-radius: 100%;
+    display: none;
+}
+/* ON GENERATE STYLES ENDS HERE */
 
 /* =====ON CREATE STYLE STARTS HERE===== */
 
@@ -502,6 +516,7 @@ form button{
 .l_image_uploader{
     display: none;
 }
+
 .app .middle .user_layers
 .layers .layer .l_properties 
 .check_box_container{
@@ -539,12 +554,34 @@ form button{
     backdrop-filter: var(--blur);
 }
 .app .middle .user_layers
+.layers .layer ul li .image_check_box{
+    position: absolute;
+    top: 5%; right: 5%;
+    width: 100%; height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top-right-radius: 5px;
+}
+.app .middle .user_layers
+.layers .layer ul li .image_check_box p{
+    width: 10px; height: 10px;
+    border-top-right-radius: 5px;
+}
+.app .middle .user_layers
 .layers .layer ul li img{
     border-radius: 5%;
     height: 100%; width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
 }
+/* .app .middle .user_layers
+.layers .layer ul li canvas{
+    border-radius: 5%;
+    height: 100%; width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
 /* LAYERS SETTINGS ENDS HERE */
 
 /* SINGLE LAYER PAGE STYLES STARTS HERE */
@@ -559,14 +596,14 @@ form button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: var(--line);
 }
 .app .middle .user_single_layer .single_layer 
 .l_properties{
     display: flex;
     justify-content: space-between;
     width: 100%; height: 5%;
-    border: var(--line);
+    /* border-top: var(--line); */
+    border-bottom: var(--line);
 }
 
 .app .middle .user_single_layer .single_layer 
@@ -627,16 +664,21 @@ form button{
 } 
 .app .middle .user_single_layer .single_layer
 .l_properties .l_on_rename{
+    width: 90%;
     display: none;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_on_rename input{
+    border: none;
+    border-left: var(--line);
+    border-right: var(--line);
 }
 .app .middle .user_single_layer ul{
     width: 100%; height: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    border-top: var(--line);
     overflow-y: scroll;
-    border: var(--line);
 }
 .app .middle .user_single_layer ul li{
     height: 100px; width: 100px;

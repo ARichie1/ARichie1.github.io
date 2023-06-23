@@ -1,0 +1,141 @@
+/* ===== APP LEFT =====*/
+
+/* HEADER STYLES STARTS HERE */
+.app .left header{
+    position: relative;
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: var(--line);
+}
+/* HEADER STYLES ENDS HERE */
+
+/* LEFT MINIMIZE BUTTON STYLES STARTS HERE */
+.minimize_space{
+    position: absolute;
+    top: 13%; right: 5%;
+    width: 20px; height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.minimize_space .maxi_btn{
+    display: none;
+}
+/* LEFT MINIMIZE BUTTON STYLES ENDS HERE */
+
+/* NAVIGATION PANEL STYLES STARTS HERE */
+.app .left nav{
+    height: 90%; width: 100%;
+}
+.app .left nav ul{
+    height: 100%; width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.app .left nav ul .main_link{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    width: 100%;
+    height: 10%;
+    font-size: 16px;
+}
+
+.link_icon{
+    position: absolute;
+    top: 0%; left:0%;
+    width: 25%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link_text{
+    position: absolute;
+    top: 0%; right:0%;
+    width: 70%; height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app .left nav ul li{
+    position: relative;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+}
+.app .left nav ul li ul{
+    position: absolute;
+    top: 0%; right: -100%;
+    width: 100%; height: auto;
+    float: right;
+    padding: 4%;
+    background: var(--bg);
+    border: var(--line);
+    border-left: none;
+    list-style: none;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    transition: .5s ease-in-out;
+    display: none;
+}
+.app .left nav ul li:hover ul{
+    display: block;
+    z-index: 5;
+    animation: moveout .2s ease-in-out;
+}
+.app .left nav ul li:hover ul{
+    display: block;
+    z-index: 5;
+}
+.app .left nav ul li ul li{
+    width: 100%; height: 35px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    font-size: 14px;
+}
+.app .left nav ul li ul li .link_text{
+    width: 75%;
+    list-style: none;
+    font-size: 14px;
+}
+.tools_nav:hover .span_icon, 
+.tools_nav:hover .span_text{
+    color: var(--fcb);
+    border-radius: 5px;
+} 
+
+.app .left header .link_icon{
+    width: 25%; height: 100%;
+    padding: 50% auto;
+    font-size: 130%;
+    font-weight: bolder;
+}
+.app .left header .link_text{
+    width: 70%;
+    font-size: 130%;
+    font-weight: bolder;
+}
+
+/* .app .left nav ul 
+.settings .day_mode_icon,
+.app .left nav ul 
+.settings .day_mode_text{
+    display: none;
+} */
+.app .left nav ul 
+.settings .dark_mode_icon,
+.app .left nav ul 
+.settings .dark_mode_text{
+    display: none;
+}
+/* NAVIGATION PANEL STYLES ENDS HERE */

@@ -410,13 +410,17 @@ this.add_or_minus_value = (input_element, minuser, adder, min, max ) => {
     this.check_box_info = ((check_box, counter_screen) => {
         let check_state;
         if (check_box.hasAttribute("checked")) {
-            counter_screen.innerHTML = parseInt(counter_screen.innerHTML) - 1;
+            if (counter_screen) {
+                counter_screen.innerHTML = parseInt(counter_screen.innerHTML) - 1;
+            }
             check_box.removeAttribute("checked")
             check_box.innerHTML = ""
             check_state = false
         }
         else{
-            counter_screen.innerHTML = parseInt(counter_screen.innerHTML) + 1;
+            if (counter_screen) {
+                counter_screen.innerHTML = parseInt(counter_screen.innerHTML) + 1;
+            }
             check_box.setAttribute("checked", "")
             check_box.innerHTML = "<i class='fa fa-check'></i>"
             check_state = true
@@ -438,15 +442,28 @@ this.add_or_minus_value = (input_element, minuser, adder, min, max ) => {
         });
     }
     this.select_check_box = (check_box_layer) => {
-        let checkbox = document.querySelector(`#${check_box_layer}_cb`)
-        checkbox.setAttribute("checked", "")
-        checkbox.innerHTML = "<i class='fa fa-check'></i>"
+        let check_box = document.querySelector(`#${check_box_layer}_cb`)
+        check_box.setAttribute("checked", "")
+        check_box.innerHTML = "<i class='fa fa-check'></i>"
     }
     this.unselect_check_box = (check_box_layer, display) => {
-        let checkbox = document.querySelector(`#${check_box_layer}_cb`)
-        checkbox.removeAttribute("checked")
-        checkbox.innerHTML = ""
-        if (display) this.hide(checkbox)
+        let check_box = document.querySelector(`#${check_box_layer}_cb`)
+        check_box.removeAttribute("checked")
+        check_box.innerHTML = ""
+        if (display) this.hide(check_box)
+    }
+    this.select_check_boxes = (check_boxes, display) => {
+        check_boxes.forEach(check_box => {
+            check_box.setAttribute("checked", "")
+            check_box.innerHTML = "<i class='fa fa-check'></i>"
+        })
+    }
+    this.unselect_check_boxes = (check_boxes, display) => {
+        check_boxes.forEach(check_box => {
+            check_box.removeAttribute("checked")
+            check_box.innerHTML = ""
+            if (display) this.hide(check_box)
+        })
     }
 // =====CHECKBOXES CONTROLLERS===== //
 
@@ -583,8 +600,39 @@ this.url_to_file = (url) => {
 }
 // =====WORKING WITH FILES ENDS HERE===== //
 
+// =====DRAW IMAGE ON CANVAS STARTS HERE===== //
+this.fill_canvas = (img_canvas, file, posx, posy, width, height) => {
+    let context;
+    let reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = (event) => {
+        let img_url = event.target.result
+        let image = document.createElement("img")
+        image.src = img_url
+        
+        image.onload = (e) => {
+            context = img_canvas.getContext("2d")
+            // canvas_context.imageSmoothingQuality = "high"
+            // canvas_context.width = e.target.width
+            // canvas_context.height = e.target.height
+            context.drawImage(image, posx, posy, width, height)
+        }
+    }
+    console.log(context);
+    return context.canvas
+}
+// =====DRAW IMAGE ON CANVAS ENDS HERE===== //
 
-
+let random_array = []
+this.unique_random_number = () => {
+    let random = Math.floor(Math.random() * 10000)
+    if (!random_array.includes(random)) {
+        random_array.push(random)
+        return random
+    }else{
+        this.unique_random_number()
+    }
+}
 
 this.file_to_url = (file, file_property) => {
     let new_image_url;

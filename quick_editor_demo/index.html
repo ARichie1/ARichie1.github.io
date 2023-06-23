@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharply</title>
+    <title>Quick Editor</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/left.css">
     <link rel="stylesheet" href="./assets/css/middle.css">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./assets/css/custom.css">
     <link rel="stylesheet" href="./assets/css/components.css">
     <link rel="stylesheet" href="./assets/vendor/cropper_js/cropper.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <!-- =====APP STARTS HERE===== -->
@@ -27,7 +27,7 @@
             </div>
             <header class="component l_c">
                 <span class="link_icon"><i class="fa fa-bolt"></i></span> 
-                <h1 class="brand_name link_text">Sharply</h1>
+                <h1 class="brand_name link_text">Quick Editor</h1>
             </header>
             <nav class="main_nav component l_c">
                 <ul>
@@ -87,57 +87,12 @@
                     </li>
                 </ul>
             </nav>
-            <div class="user_info_link component l_c">
-                <div class="project_minimize link_icon">
-                    <span class="clkb_link">
-                        <i class="fa  fa-project-diagram"></i>
-                    </span>
-                    <span class="clkb_link many_icons">
-                        <i class="fa  fa-project-diagram"></i>
-                    </span>
-                </div>
-                <div class="user_projects_info">
-                    <div class="user_projects_opener">
-                        <span class="show_projects clkb_link"><i class="fa  fa-project-diagram"></i></span>
-                        <p class="projecs_header">Projects <em>[</em><span class="project_cnt">2</span><em>]</em></p>
-                        <span class="add_project clkb_link many_icons"><i class="fa  fa-project-diagram"></i></span>
-                    </div>
-                    <div class="user_projects">
-                        <span id="vanish_point" style="display: none;"></span>
-                        <ul>
-                            <li class="project_link clkb_link">maxi collection</li>
-                            <li class="project_link clkb_link">infinite crop</li>
-                            <li class="project_link clkb_link">infinite resize</li>
-                            <li class="project_link clkb_link">my crops</li>
-                            <li class="project_link clkb_link">infinite recrop</li>
-                        </ul>
-                        <form action="" method="post" class="add_new_project">
-                            <input type="text" name="new_project_name" class="new_project_name" id="new_project_name" placeholder="Project Name">
-                            <button class="insert_new_project clkb_btn">Add</button>
-                        </form>
-                        <div class="user_directories_link clkb_link">
-                            <i class="fa fa-folder"></i>
-                            <p>Directories</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="user_display">
-                    <div class="avatar clkb_link">
-                        <img src="./assets/images/avatar.png" alt="" srcset="">
-                    </div>
-                    <span class="username">Guest</span>
-                    <div class="status clkb_link">
-                        <i class="fa fa-sign-in in" aria-hidden="true"></i>
-                        <i class="fa fa-sign-out out" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
         </section>
 <!-- =====APP LEFT SECTION ENDS HERE===== -->
 
 <!-- =====APP MIDLLE SECTION STARTS HERE===== -->
         <section class="middle">
+            <span id="vanish_point" style="display: none;"></span>
             <div class="notification_screen">
                 <div class="notification_props">
                     <div class="notification_header">
@@ -411,7 +366,7 @@
                 <div class="component_opener">
                     <span><i class="fa fa-images"></i></span>
                     <span class="component_header"><h4>NFT Generator</h4></span>
-                    <span class="remove_component close" id="##nft_generator"><i class="fa  fa-times"></i></span>
+                    <span class="remove_component close" id="##nft_generator"><i class="fa fa-power-off"></i></span>
                 </div>
                 <div class="create_nft_collection">
                     <h3>Create NFT Collection</h3>
@@ -424,7 +379,7 @@
                         </textarea>
                         <label for="collection_size">Collection Size</label>
                         <input type="text" maxlength="5" name="collection_size" id="collection_size" placeholder="100">
-                        <ul>
+                        <ul class="collection_dimension">
                             <li>
                                 <label for="output_width">Output Width</label>
                                 <input type="text" maxlength="4" name="output_width" id="output_width" placeholder="e.g 500">
@@ -443,10 +398,6 @@
                             <option value="webp">webp</option>
                         </select>
 
-                        <div class="add_to_projects">
-                            <p class="check_box atp" id="add_to_proj"></p>
-                            <p class="atp">Add To Project</p>
-                        </div>
                         <button type="submit">Next</button>
                     </form>
                 </div>
@@ -458,6 +409,10 @@
                         <div class="import_layers clkb_link" id="#on_import">
                             <span class="many_icons"><i class="fa fa-layer-group"></i></span>
                                 Import Layers
+                        </div>
+                        <div class="generate_art clkb_link" id="#on_generate">
+                            <span class="many_icons"><i class="fa fa-images"></i></span>
+                                Generate Art
                         </div>
                         <div class="export_layers clkb_link" id="#on_export">
                             <span class="many_icons"><i class="fa fa-layer-group"></i></span>
@@ -482,8 +437,8 @@
                             </div>
                         </div>
 
-                        <div class="on_import component nft_edit_layers_c" state="closed">
-                            <div class="on_import_inner">
+                        <div class="on_import component nft_edit_layers_c on_pop_up" state="closed">
+                            <div class="on_import_inner on_pop_up_inner">
                                 <ul class="on_import_header">
                                     <li class="on_import_close clkb_link close" id="##on_import">
                                         <i class="fa fa-times"></i>
@@ -498,6 +453,21 @@
                                     <button type="submit" class="clkb_btn">Add Layers</i></button>
                                 </form>
                             </div> 
+                        </div>
+
+                        <div class="on_generate nft_edit_layers_c on_pop_up">
+                            <div class="on_generate_inner on_pop_up_inner">
+                                <ul class="on_generate_header">
+                                    <li class="on_generate_close clkb_link close" id="##on_generate">
+                                        <i class="fa fa-times"></i>
+                                    </li>
+                                    <li>Generate Art</li>
+                                </ul>
+                                <ul class="on_generate_options">
+                                    <li class="clkb_btn">Test A Combination</li>
+                                    <li class="clkb_btn">Generate Collection Size <em>[</em><span class="coll_size">100</span><em>]</em></li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div class="on_create component nft_edit_layers_c" id="quick_mode" state="closed">
@@ -529,24 +499,56 @@
                             <div class="del_layers clkb_link"><i class="fa fa-trash-alt"></i></div>    
                         </div>            
                     </div>
-                    <div class="layers  scr scr-y"></div>
+                    <div class="build_test clkb_btn"><i class="fa fa-check"></i></div>
+                    <div class="layers scr scr-y" select_mode="relative"></div>
                 </div>
                 <div class="user_single_layer"></div> 
             </div>
-            <!-- NFT GENERATOR STARTS HERE -->
+            <!-- NFT GENERATOR ENDS HERE -->
         </section>
 <!-- =====APP MIDLLE SECTION ENDS HERE===== -->
 
 <!-- =====APP RIGHT SECTION STARTS HERE===== -->
         <section class="right">
             <div class="free_frame component r_c h_c" state="opened">
-                <img src="./assets/images/trust.jpg" alt="">
+                <!-- <img src="./assets/images/trust.jpg" alt=""> -->
             </div>
-            <div class="preview component r_c" state="closed">
+            <div class="generator_preview component r_c h_c" state="closed">
+                <div class="component_opener">
+                    <span><i class="fa fa-tv"></i></span>
+                    <span class="component_header">
+                        <h4>Preview</h4>
+                        <ul class="generator_preview_frames">
+                            <li class="view_generated_test_art clkb_link">Test Art</li>
+                            <li class="view_generated_collection clkb_link">Collection</li>
+                        </ul>
+                    </span>
+                    <span class="remove_component close" id="##generator_preview"><i class="fa  fa-times"></i></span>
+                </div>
+                <div class="test_art_preview_frame">
+                    <canvas id="test_art_canvas"></canvas>
+                    <ul class="test_art_downloader">
+                        <li class="test_art_dimension"></li>
+                        <li class="test_art_name"></li>
+                        <li class="test_art_download_btn clkb_btn">Download</li>
+                    </ul>
+                </div>
+                <div class="collection_preview_frame">
+                    <canvas id="collection_image_generator_canvas"></canvas>
+                    <div class="collection_frame_image_cover">
+                        <img src="" alt="">
+                    </div>
+                    <ul class="src scr-y" id="generated_arts"></ul>
+                    <div class="collection_download_btn clkb_btn">
+                        <i class="fa fa-arrow-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cropper_preview component r_c" state="closed">
                 <div class="component_opener">
                     <span><i class="fa fa-tv"></i></span>
                     <span class="component_header"><h4>Preview</h4></span>
-                    <span class="remove_component close" id="##preview"><i class="fa  fa-times"></i></span>
+                    <span class="remove_component close" id="##cropper_preview"><i class="fa  fa-times"></i></span>
                 </div>
                 <div class="image_preview_frame">
                     <div class="image_preview_cover" style="height: 90%; width: 90%">
@@ -588,87 +590,9 @@
                     <ul class="download_image_frame multiple_image scr scr-x scr-y">
                         <li class="multi_image">
                             <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
+                                <!-- <img src="./assets/images/8.png" alt="" srcset=""> -->
                             </div>
-                            <div class="image_name">1</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">2</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">3</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">4</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">5</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">6</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">7</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">8</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">9</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">10</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">11</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">12</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">13</div>
-                        </li>
-                        <li class="multi_image">
-                            <div class="image_box">
-                                <img src="./assets/images/8.png" alt="" srcset="">
-                            </div>
-                            <div class="image_name">14</div>
+                            <div class="image_name">15</div>
                         </li>
                         <li class="multi_image">
                             <div class="image_box">
@@ -719,224 +643,6 @@
                 </div>
             </div>
 
-
-            <div class="user_directories component r_c" state="closed">
-                <div class="component_opener">
-                    <span><i class="fa fa-folder"></i></span>
-                    <span class="component_header"><h4>Directories</h4></span>
-                    <span class="remove_component close" id="##user_directories"><i class="fa  fa-times"></i></span>
-                </div>
-                <div class="directories scr scr-y">
-                    <div class="directory">
-                        <span class="d_name">
-                            <p>Originals</p>
-                            <span class="adjust_for_scr">
-                                <i class="fa fa-angle-down"></i>
-                            </span>
-                        </span>
-                        <ul class="d_images scr scr-x">
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/0.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/1.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/2.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/3.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/4.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/5.png" alt="" srcset="">
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="directory">
-                        <span class="d_name">
-                            <p>Collection</p>
-                            <span class="adjust_for_scr">
-                                <i class="fa fa-angle-down"></i>
-                            </span>
-                        </span>
-                        <ul class="d_images scr scr-x">
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/0.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/1.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/2.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/3.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/4.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/5.png" alt="" srcset="">
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="directory">
-                        <span class="d_name">
-                            <p>Single Edits</p>
-                            <span class="adjust_for_scr">
-                                <i class="fa fa-angle-down"></i>
-                            </span>
-                        </span>
-                        <ul class="d_images scr scr-x">
-                            <li class="d_image">
-                                    <span class="image_options">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-alt"></i>
-                                    </span>
-                                <img src="./assets/images/0.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                    <span class="image_options">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-alt"></i>
-                                    </span>
-                                <img src="./assets/images/1.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                    <span class="image_options">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-alt"></i>
-                                    </span>
-                                <img src="./assets/images/2.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                    <span class="image_options">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-alt"></i>
-                                    </span>
-                                <img src="./assets/images/3.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                    <span class="image_options">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-alt"></i>
-                                    </span>
-                                <img src="./assets/images/4.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                    <span class="image_options">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-alt"></i>
-                                    </span>
-                                <img src="./assets/images/5.png" alt="" srcset="">
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="directory">
-                        <span class="d_name">
-                            <p>Multiple Edits</p>
-                            <span class="adjust_for_scr">
-                                <i class="fa fa-angle-down"></i>
-                            </span>
-                        </span>
-                        <ul class="d_images scr scr-x">
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/0.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/1.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/2.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/3.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/4.png" alt="" srcset="">
-                            </li>
-                            <li class="d_image">
-                                <span class="image_options">
-                                    <i class="fa fa-edit"></i>
-                                    <i class="fa fa-trash-alt"></i>
-                                </span>
-                                <img src="./assets/images/5.png" alt="" srcset="">
-                            </li>
-                        </ul>
-                    </div>
-                 </div>
-            </div>
             <div class="extra_tools component r_c" state="closed">
                 <div class="component_opener">
                     <span><i class="fa fa-tools"></i></span>
@@ -1068,5 +774,6 @@
     <script type="module" src="./assets/vendor/cropper_js/cropper.js"></script>
     <script type="module" src="./assets/js/app.js"></script>
     <script type="module" src="./assets/js/design.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

@@ -1,4 +1,8 @@
 /* ===== APP RIGHT =====*/
+.app .right .component_opener{
+    height: 5%;
+}
+
 /* FREE FRAME STYLES STARTS HERE */
 .app .right .free_frame{
     position: relative;
@@ -6,13 +10,132 @@
     font-size: var(--fsl);
 }
 .app .right .free_frame img{
-    
     height: 100%; width: 100%;
 }
-/* FREE FRAME STYLES ENDS HERE */
+/* FREE FRAME STYLES STARTS HERE */
 
-/* IMAGE PREVIEW STYLES ENDS HERE */
-.app .right .preview{
+/* GENERATOR PREVIEW STYLES STARTS HERE */
+.app .right .generator_preview{
+    position: relative;
+    height: 100%; width: 100%;
+}
+.app .right .generator_preview 
+.component_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+.app .right .generator_preview 
+.component_header h4{
+    flex-basis: 30% !important;
+    display: flex;
+    justify-content: flex-start;
+}
+.app .right .generator_preview 
+.generator_preview_frames{
+    flex-basis: 70% !important;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.app .right .generator_preview 
+.test_art_preview_frame{
+    position: relative;
+    height: 95%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+.app .right .generator_preview 
+.test_art_preview_frame #test_art_canvas{
+    height: 50%; width: 100%;
+    border: 1px solid red;
+}
+.app .right .generator_preview 
+.test_art_preview_frame 
+.test_art_downloader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px; width: 100%;
+    margin-top: 3%; padding: 2%;
+    border: 1px solid red;
+}
+.app .right .generator_preview 
+.test_art_preview_frame 
+.test_art_downloader .test_art_download_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border: 1px solid red;
+}
+.app .right .collection_preview_frame{
+    height: 93%; width: 100%;
+    margin-top: 2%;
+    display: none;
+}
+.app .right .generator_preview
+.collection_preview_frame
+#collection_image_generator_canvas{
+    height: 50%; width: 100%;
+    display: none;
+}
+.app .right .generator_preview
+.collection_preview_frame
+.collection_frame_image_cover{
+    height: 50%; width: 100%;
+}
+.app .right .generator_preview
+.collection_preview_frame
+.collection_frame_image_cover img{
+    height: 100%; width: 100%;
+}
+.app .right .generator_preview
+.collection_preview_frame 
+#generated_arts{
+    height: 50%; width: 100%;
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+    border: var(--line);
+    padding-top: 2%;
+}
+.app .right .generator_preview
+.collection_preview_frame 
+#generated_arts::-webkit-scrollbar-thumb{
+    background: var(--tc);
+    border-radius: 5px;
+}
+.app .right .generator_preview
+.collection_preview_frame 
+#generated_arts li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .right .generator_preview
+.collection_preview_frame 
+#generated_arts li img{
+    height: 60px; width: 60px;
+}
+.app .right .generator_preview
+.collection_preview_frame
+.collection_download_btn{
+    position: absolute;
+    bottom: 5%; right: 5%;
+    height: 50px; width: 50px;
+    border-radius: 100%;
+}
+/* GENERATOR PREVIEW STYLES ENDS HERE */
+
+/* CROPPER PREVIEW STYLES ENDS HERE */
+.app .right .cropper_preview{
     height: 50%; width: 100%;
     border: var(--blue_print);
     display: flex;
@@ -20,13 +143,13 @@
     justify-content: center;
     align-items: center;
 }
-.app .right .preview h3{
+.app .right .cropper_preview h3{
     height: 10%; width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.app .right .preview .image_preview_frame{
+.app .right .cropper_preview .image_preview_frame{
     position: relative;
     width: 100%;
     min-height: 90%;
@@ -38,16 +161,16 @@
     background-image: var(--glass);
     backdrop-filter: var(--blur);
 }
-.app .right .preview .image_preview_frame
+.app .right .cropper_preview .image_preview_frame
 .image_preview_cover{
      border: var(--line);
     overflow: hidden;
 }
-.app .right .preview .image_preview_frame 
+.app .right .cropper_preview .image_preview_frame 
 .image_preview_cover .image_preview{
     width: 100%; height: 100%;
 }
-/* IMAGE PREVIEW STYLES ENDS HERE */
+/* CROPPER PREVIEW STYLES ENDS HERE */
 
 
 /* RESIZER PREVIEW STYLES STARTS HERE */
@@ -302,64 +425,6 @@
     background: rgb(61, 3, 3);
 }
 /* DOWNLOAD FRAME STYLES ENDS HERE */
-
-/* ========== =========== =========== */
-
-/* USER DIRECTORIES STYLES STARTS HERE */
-.app .right .user_directories{
-    height: 50%; width: 100%;
-    border-top: var(--line);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-.app .right .user_directories 
-.directories{
-    height: 100%; width: 100%;
-    overflow-y: scroll;
-}
-.app .right .user_directories 
-.directories .directory span{
-    display: flex;
-    justify-content: space-between;
-    margin: 2.5% 0%;
-}
-.app .right .user_directories 
-.directories .directory span p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.app .right .user_directories 
-.directories .directory ul{
-    width: 100%;
-    display: block;
-    white-space: nowrap;
-    overflow-x: scroll;
-    border-bottom: var(--line);
-}
-
-.app .right .user_directories 
-.directories .directory ul li{
-    position: relative;
-    height: 60px; width: 60px;
-    display: inline-block;
-    border: 1px solid green;
-}
-.app .right .user_directories 
-.directories .directory ul li .image_options{
-    position: absolute;
-    width: 100%; height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.app .right .user_directories 
-.directories .directory ul li img{
-    height: 100%; width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-/* USER DIRECTORIES STYLES ENDS HERE */
 
 /* ========== =========== =========== */
 

@@ -1,0 +1,24 @@
+[
+    [
+        {"name": "background"},
+        {"name": "skin"},
+        {"name": "cloth"},
+        {"name": "mouth"},
+        {"name": "earring"},
+        {"name": "eye"},
+        {"name": "head_wear"}
+    ],
+
+    [   
+        {"name": "background"},
+        {"name": "skin"},
+        {"name": "cloth"},
+        {"name": "mouth"}
+    ],
+
+    [
+        {"name": "background"},
+        {"name": "skin"},
+        {"name": "cloth"}
+    ]       
+]
