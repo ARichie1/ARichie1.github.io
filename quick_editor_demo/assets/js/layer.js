@@ -64,7 +64,7 @@ class Layer{
             }
         }
     }
-    add_image(id, image){
+    add_image(id, name, image){
         // Use Default Size 
         // this.images[id] = image
 
@@ -81,7 +81,9 @@ class Layer{
 
             let collection_sized_image = document.createElement("img")
             collection_sized_image.src = image_url
-            this.images[id] = collection_sized_image
+            this.images[id] = {}
+            this.images[id]["img"] = collection_sized_image
+            this.images[id]["name"] = name
         }
     }
     delete_image(id){
@@ -138,13 +140,19 @@ let empty_layers = () => {
 // Layer Frontend Design Template
 let append_layer = ((new_layer, mode) => {
     let appearance = ""
-    let layer_id, has_check_box, has_closer, has_layer_icon;
+    let layer_id, has_check_box, has_closer, has_layer_icon, has_props_hider;
     if (mode == "all") {
         appearance = "layer"
         layer_id = `layer_${new_layer.id}`
         has_check_box = `<span class="check_box_container"><p class="check_box" id="${new_layer.name}_cb"></p></span>`;
         has_closer = `<span style="display:none;"></span>`
         has_layer_icon = `<i class="fa fa-layer-group"></i>`
+        has_props_hider = `
+            <span class="layer_properties_hider">
+                ${has_layer_icon}
+                <h4 class="">${new_layer.name}</h4>
+            </span>
+        `
     }
     else if (mode == "one") {
         appearance = "single_layer"
@@ -152,6 +160,7 @@ let append_layer = ((new_layer, mode) => {
         has_check_box = `<span style="display:none;"></span>`
         has_closer = `<span class="close_sl close many_icons" id="##user_layers"><i class="fa fa-layer-group"></i></span>`
         has_layer_icon = `<span style="display:none;"></span>`
+        has_props_hider = `<span style="display:none;"></span>`
     }
     let new_layer_properties = 
             `<div class="l_properties">
@@ -178,6 +187,7 @@ let append_layer = ((new_layer, mode) => {
                     <input type="text" name="" class="l_rename_input" placeholder="Enter new name">
                     <button class="l_change_name clkb_btn">Change</button>
                 </span>
+                ${has_props_hider}
             </div>`
 
 
@@ -196,7 +206,6 @@ let append_layer = ((new_layer, mode) => {
 let image_loader = ((new_layer) => {
     let new_image_options = 
     `<ul class="image_options">
-        <li class="clkb_link"><i class="fa fa-eye"></i></li>
         <li class="clkb_link"><i class="fa fa-edit"></i></li>
         <li class="clkb_link"><i class="fa fa-trash-alt"></i></li>
     </ul>`
@@ -208,7 +217,7 @@ let image_loader = ((new_layer) => {
             let new_image_container = document.createElement("li")
             new_image_container.className = "l_image"
             new_image_container.id = `${new_layer.name + "_" + image_key}`
-            // new_image_container.setAttribute("select_mode", "relative")
+            new_image_container.setAttribute("name", image.name)
             new_image_container.innerHTML = new_image_options
 
             let new_image_check_box_container = document.createElement("span")
@@ -217,7 +226,7 @@ let image_loader = ((new_layer) => {
             ` <p class="check_box" id="${image_key}_cb"></p>`
 
             new_image_container.appendChild(new_image_check_box_container)
-            new_image_container.appendChild(image)
+            new_image_container.appendChild(image.img)
 
             layer_images_ul.appendChild(new_image_container)
         }

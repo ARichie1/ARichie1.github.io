@@ -47,6 +47,7 @@ body{
     height: 100vh;width:100vw;
     background: var(--bg);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: FontAwesome; */
     overflow: hidden;
 }
 
@@ -83,7 +84,11 @@ li, span, .fa{list-style: none; cursor: pointer;}
     border-left: var(--line);
     border-right: var(--line);
 }
-.app .right{width: 40%;}
+.app .right{
+    width: 40%; z-index: 5;
+    border: 1px solid green;
+    overflow: hidden;
+}
 
 
 /* COMPONENTS CONTROL STYLES STARTS HERE*/
@@ -123,6 +128,7 @@ li, span, .fa{list-style: none; cursor: pointer;}
         top: 0%; height: 100%;
         transition: 1s ease-in-out;
     }
+    /* APP LEFT MQ STARTS HERE */
     .app .left{
         left: -70%; width: 70%;
         display: flex;
@@ -141,16 +147,20 @@ li, span, .fa{list-style: none; cursor: pointer;}
     .app .left nav ul li ul{
         position: absolute;
         top: 100% !important; right: 0% !important;
+        height: 200px !important;
+        display: flex !important;
+        justify-content: space-evenly !important;
         border-left: var(--line) !important;
         border-top: none !important;
         border-bottom-left-radius: 5px !important;
         border-top-right-radius: 0px !important;
+        z-index: 6;
     }
     .link_text{
         width: 65% !important;
         margin-right: 5% !important;
     }
-    
+    /* APP LEFT MQ ENDS HERE */
 
     /* APP MIDDLE MQ STARTS HERE */
     /* Search MQ Styles */
@@ -180,13 +190,12 @@ li, span, .fa{list-style: none; cursor: pointer;}
     }
     
     /* Editor MQ Styles*/
-    .app .middle .editor, .app .middle .nft_generator{height: 95% !important;}
+    .app .middle .editor, 
+    .app .middle .nft_generator{height: 95% !important;}
     .app .middle .editor .filter 
-    .filter_tools{padding-left: 18%;overflow-x: scroll;}
+    .filter_tools{overflow-x: scroll;}
     .app .middle .editor .filter 
     .scr-x::-webkit-scrollbar{background: transparent;height: 2px;}
-    .app .middle .editor .filter 
-    .scr::-webkit-scrollbar-button{width:0%;}
 
     /* NFT Generator Styles */
     .app .middle .user_layers{
@@ -209,6 +218,11 @@ li, span, .fa{list-style: none; cursor: pointer;}
 
     /* APP RIGHT MQ STARTS HERE */
     .app .right{left: 100%; width: 100%;}
+    .app .right .generator_preview
+    .collection_preview_frame
+    .collection_download_btn{
+        bottom: 15% !important;
+    }
     .app .right .cropper_preview{height: 50% !important;}
     .app .right .filter_preview{height: 50% !important;}
     .app .right .download_frame{
@@ -216,7 +230,6 @@ li, span, .fa{list-style: none; cursor: pointer;}
     }
     .app .right .extra_tools{height: 50% !important;}
     .app .right .component_opener{background: var(--bg) !important;}
-    .app .right .component_opener .close{display: none}
     .app .right .filter_extra_tools{height: 90% !important;}
     .app .right .insert_tools{height: 90% !important;}  
     /* APP RIGHT MQ ENDS HERE */

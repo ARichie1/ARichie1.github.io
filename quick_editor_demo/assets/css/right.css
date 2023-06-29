@@ -18,6 +18,7 @@
 .app .right .generator_preview{
     position: relative;
     height: 100%; width: 100%;
+    overflow: hidden;
 }
 .app .right .generator_preview 
 .component_header{
@@ -27,42 +28,57 @@
     font-weight: bold;
 }
 .app .right .generator_preview 
-.component_header h4{
-    flex-basis: 30% !important;
-    display: flex;
-    justify-content: flex-start;
-}
-.app .right .generator_preview 
 .generator_preview_frames{
-    flex-basis: 70% !important;
+    position: relative;
+    flex-basis: 100% ;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
 }
 .app .right .generator_preview 
+.generator_preview_frames li:nth-child(2){
+    margin-left: 20%;
+}
+.app .right .generator_preview 
+.generator_preview_frames li:nth-child(3){
+    margin-left: 10%;
+}
+.app .right .generator_preview 
+.layer_image_preview_frame,
+.app .right .generator_preview 
 .test_art_preview_frame{
-    position: relative;
     height: 95%; width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    border: var(--line);
+    border-top: none ;
+    padding: 2%;
 }
+.app .right .generator_preview 
+.layer_image_preview_frame #layer_image_canvas,
 .app .right .generator_preview 
 .test_art_preview_frame #test_art_canvas{
     height: 50%; width: 100%;
-    border: 1px solid red;
 }
+
+.app .right .generator_preview 
+.layer_image_preview_frame 
+.layer_image_info,
 .app .right .generator_preview 
 .test_art_preview_frame 
 .test_art_downloader{
+    height: 40px; width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px; width: 100%;
     margin-top: 3%; padding: 2%;
-    border: 1px solid red;
+    border: var(--line);
+}
+.app .right .generator_preview 
+.layer_image_preview_frame 
+.layer_image_info li:nth-child(1){
+    text-transform: capitalize;
 }
 .app .right .generator_preview 
 .test_art_preview_frame 
@@ -71,12 +87,13 @@
     justify-content: center;
     align-items: center;
     height: 30px;
-    border: 1px solid red;
 }
 .app .right .collection_preview_frame{
-    height: 93%; width: 100%;
-    margin-top: 2%;
-    display: none;
+    height: 95%; width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .app .right .generator_preview
 .collection_preview_frame
@@ -118,11 +135,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10%;
 }
 .app .right .generator_preview
 .collection_preview_frame 
 #generated_arts li img{
-    height: 60px; width: 60px;
+    height: 70px; width: 70px;
 }
 .app .right .generator_preview
 .collection_preview_frame
@@ -131,6 +149,20 @@
     bottom: 5%; right: 5%;
     height: 50px; width: 50px;
     border-radius: 100%;
+}
+ /* Gen Previews Default Positions */
+.app .right .gen_preview{
+    position: absolute; top: 5%;
+    transition: .5s ease-in-out;
+    background: var(--ebg);
+}
+.app .right .generator_preview 
+.layer_image_preview_frame{left: 0%;}
+.app .right .generator_preview 
+.test_art_preview_frame,
+.app .right .generator_preview
+.collection_preview_frame{
+    left: 100%;
 }
 /* GENERATOR PREVIEW STYLES ENDS HERE */
 
@@ -214,6 +246,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid red;
 }
 .app .right .filter_preview h3{
     height: 10%; width: 100%;
@@ -437,10 +470,10 @@
     background: var(--bg);
     display: none;
 }
-
+.app .right .component_opener .close{display: none}
 .app .right .extra_tools
  .extra_tools_panel{
-    height: 100%; width: 100%;
+    height: 90%; width: 100%;
     display: flex;
     justify-content: space-evenly;
 }

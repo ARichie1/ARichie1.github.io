@@ -23,17 +23,58 @@ let Help_me = function () {
     }
 // HIDE AND SHOW MANY END==================//
 
-// APPEAR AND DISAPPEAR START==================//
-    this.disappear = function (element, z_index = -1) {
-        element.style.opacity = "0";
-        element.style.zIndex = `${z_index}`;}
-    this.fade = function (element, z_index = -1) {
-        element.style.opacity = "0.3";
-        element.style.zIndex = `${z_index}`;}
-    this.appear = function (element, z_index = 1) {
-        element.style.opacity = "1";
-        element.style.zIndex = `${z_index}`;}
-// APPEAR AND DISAPPEAR END==================//
+// APPEAR, FADE OR DISAPPEAR START==================//
+    this.disappear = function (elements, z_index = -5) {
+        if (elements.length) {
+            elements.forEach(elem => {
+                elem.style.opacity = "0";
+                elem.style.zIndex = `${z_index}`;
+            });
+        }else{
+            elements.style.opacity = "0";
+            elements.style.zIndex = `${z_index}`;
+        }
+    }
+    this.fade = function (elements, z_index = -5) {
+        if (elements.length) {
+            elements.forEach(elem => {
+                elem.style.opacity = "0.3";
+                elem.style.zIndex = `${z_index}`;
+            });
+        }else{
+            elements.style.opacity = "0.3";
+            elements.style.zIndex = `${z_index}`;
+        }
+    }
+    this.appear = function (elements, z_index = 5) {
+        if (elements.length) {
+            elements.forEach(elem => {
+                elem.style.opacity = "1";
+                elem.style.zIndex = `${z_index}`;
+            });
+        }else{
+            elements.style.opacity = "1";
+            elements.style.zIndex = `${z_index}`;
+        }
+    }
+
+    this.magic = (action, elements) => {
+        let opacity, z_index
+        if (action == "appear") {opacity = "1"; z_index = "5"}
+        else if (action == "fade") {opacity = "0.3"; z_index = "5"}
+        if (action == "disappear") {opacity = "0"; z_index = "-5"}
+
+        if (elements.length) {
+            elements.forEach(elem => {
+                elem.style.opacity = opacity;
+                elem.style.zIndex = z_index;
+            });
+        }else{
+            elements.style.opacity = opacity;
+            elements.style.zIndex = z_index;
+        }
+    }
+// APPEAR, FADE OR DISAPPEAR END==================//
 
 // STYLERS START==================//
 
@@ -239,7 +280,7 @@ this.purify = ((id) => {
 this.many_actions = function (event, elem, func) {   
     if (typeof(elem) == "object") {
         elem.forEach(el => {
-            if (el.length > 0) {
+            if (el.length) {
                 el.forEach(e => {
                     e.addEventListener(event, () => {func()})
                 });
@@ -250,49 +291,6 @@ this.many_actions = function (event, elem, func) {
     }else elem.addEventListener(event, () => {func();})
 }
 // =====MANY ACTIONS ENDS HERE===== //
-
-// =====SWAP THE STATE OF AN ELEMENT STARTS HERE===== //
-this.elements_state_swap = function (elements_class, state, display) {
-    let elem, elems;
-    let display_value;
-    if (state === "opened") {if(display) display_value = display}
-    else if (state === "closed") {display_value = "none"}
-    if (typeof(elements_class) == "object") {
-        elements_class.forEach(ele_class => {
-            if (document.querySelectorAll("." + ele_class)) {
-                elems = document.querySelectorAll("." + ele_class)
-                elems.forEach(el => {
-                    el.style.display = display_value;
-                    el.setAttribute("state", state)
-                });
-            }else{
-                elem = document.querySelector("." + ele_class)
-                elem.style.display = display_value;
-                elem.setAttribute("state", state)
-            }
-        });
-    }else{
-        elem = document.querySelector("." + elements_class)
-        elem.style.display = display_value;
-        elem.setAttribute("state", state)
-    }
-}
-// =====SWAP THE STATE OF AN ELEMENT ENDS HERE===== //
-
-// =====SET ACTIVE STATE OF AN ELEMENT IN A LIST OF ELEMENTS STARTS HERE===== //
-this.set_active = (elements, active_class) => {
-    elements.forEach(element => {
-        element.addEventListener("click", () => {
-            element.classList.add(active_class)
-            elements.forEach(el => {
-                if (el.id != element.id) {
-                    el.classList.remove(active_class)
-                }
-            })
-        })
-    })
-}
-// =====SET ACTIVE STATE OF AN ELEMENT IN A LIST OF ELEMENTS ENDS HERE===== //
 
 // =====DELETE SECLECTED CHILD/CHILDREN FROM PARENT ELEMENT FROM FOREIGN BUTTON START===== //
 this.init_item_deletion = (btn_id, item_array, item_container, add_action) => {
@@ -333,6 +331,70 @@ this.add_or_minus_value = (input_element, minuser, adder, min, max ) => {
 }
 // =====INCREMENT OR DECREMENT AN INPUT ELEMENT VALUE ENDS HERE===== //
 
+// =====SWAP THE STATE OF AN ELEMENT STARTS HERE===== //
+this.elements_state_swap = function (elements_class, state, display) {
+    let elem, elems;
+    let opacity = "1";
+    let z_index = "3";
+    if (state === "closed") {opacity = "0"; z_index = "-3"; }
+    let set_state = (e) => {
+        e.style.opacity = opacity;
+        e.style.zIndex = z_index
+        e.setAttribute("state", state)
+        if (display) e.style.display = display
+    }
+    if (typeof(elements_class) == "object") {
+        elements_class.forEach(ele_class => {
+            if (document.querySelectorAll("." + ele_class)) {
+                elems = document.querySelectorAll("." + ele_class)
+                elems.forEach(el => {
+                    set_state(el)
+                });
+            }else{
+                elem = document.querySelector("." + ele_class)
+                set_state(elem)
+            }
+        });
+    }else{
+        elem = document.querySelector("." + elements_class)
+        set_state(elem)
+    }
+}
+// =====SWAP THE STATE OF AN ELEMENT ENDS HERE===== //
+
+// =====SWITCH COMPONENT STARTS HERE===== //
+this.switch_component = (prev_comp, curr_comp, display) => {
+    // Previous Component
+    if (typeof(prev_comp) == "object") {
+        prev_comp.forEach(p_c_class => {
+            this.elements_state_swap(p_c_class, "closed")
+        });
+    } else this.elements_state_swap(prev_comp, "closed")
+
+    // Current Component
+    if (typeof(curr_comp) == "object") {
+        curr_comp.forEach(c_c_class => {
+            this.elements_state_swap(c_c_class, "opened", display)
+        });
+    } else this.elements_state_swap(curr_comp, "opened", display)
+}
+// =====SWITCH COMPONENT ENDS HERE===== //
+
+// =====SET ACTIVE STATE OF AN ELEMENT IN A LIST OF ELEMENTS STARTS HERE===== //
+this.set_active = (elements, active_class) => {
+    elements.forEach(element => {
+        element.addEventListener("click", () => {
+            element.classList.add(active_class)
+            elements.forEach(el => {
+                if (el.id != element.id) {
+                    el.classList.remove(active_class)
+                }
+            })
+        })
+    })
+}
+// =====SET ACTIVE STATE OF AN ELEMENT IN A LIST OF ELEMENTS ENDS HERE===== //
+
 // =====NAVIGATION FUNCTIONS STARTS HERE=====//
     this.navigate = function (component_links, components, display_type, active) {
         component_links.forEach(component_link => {
@@ -340,6 +402,7 @@ this.add_or_minus_value = (input_element, minuser, adder, min, max ) => {
                 let component_link_id = component_link.id;
                 let cleaned_component_link_id = this.clean(component_link_id);
 
+                console.log(cleaned_component_link_id);
                 if (active == "enable") {
                     component_link.classList.add("active_link");
                     component_links.forEach(clk => {
@@ -351,14 +414,19 @@ this.add_or_minus_value = (input_element, minuser, adder, min, max ) => {
                 
                 components.forEach(cmp => {
                     if(cmp.id !== cleaned_component_link_id){
+                        console.log(cmp.id);
                         cmp.setAttribute("state", "closed");
-                        this.hide(cmp);
+                        this.elements_state_swap(cmp.id, "closed")
+                        cmp.style.left = "100%"
                     }
                 })
 
                 let component = document.querySelector("." + cleaned_component_link_id);
-                component.setAttribute("state", "opened");
-                this.unhide(component, display_type)
+                // component.setAttribute("state", "opened");
+                // this.unhide(component)
+                // this.unhide(component, display_type)
+                this.elements_state_swap(cleaned_component_link_id, "opened")
+                component.style.left = "0%"
             })
         })
     }
@@ -512,6 +580,17 @@ this.reset_sliders = (default_values, sliders) => {
         if (action) action()
     })
 // =====NOTIFICATION_BOX FUNCTIONS ENDS HERE=====//
+
+
+this.draw_image_on_canvas = (canvas, image, width, height) => {
+    if (!canvas) canvas = document.createElement("canvas")
+    canvas.width = width
+    canvas.height = height
+    let context = canvas.getContext("2d")
+    context.imageSmoothingQuality = "high"
+    context.drawImage(image, 0, 0, width, height)
+}
+
 
 // =====IMAGE RESIZER STARTS HERE===== //
 this.resize = (active_image, image_canvas, width, height, width_input, height_input) => {

@@ -2,7 +2,7 @@
 export {open_rename, close_rename, change_layer_name,
     delete_a_layer, add_images, add_image_options,
     get_checked_images, free_checked_images,
-    select_test_images,
+    select_test_images, unselect_test_images,
     build_test_resource, build_collection_resource,
     build_composite
 }
@@ -10,7 +10,6 @@ import { Help_me } from "./functions.js"
 
 let helper = new Help_me()
 let CHECKED_IMAGES = []
-let COLLECTION_URLS = []
 
 // LAYER RENAME FUNCTIONALITY STARTS HERE
     // Open Renamer
@@ -78,8 +77,8 @@ let COLLECTION_URLS = []
 
 // LAYER DELETE FUNCTIONALITY STARTS HERE
 let delete_a_layer = (delete_btn, layer_object, layers_container,
-    nft_generator, notification_screen, func,
-    single_layer_container, user_layers,
+    nft_generator, notification_screen, 
+    func_a, func_b, single_layer_container, LAYERS
     ) => {
         delete_btn.addEventListener("click", () => {
         helper.fade(nft_generator)
@@ -99,11 +98,16 @@ let delete_a_layer = (delete_btn, layer_object, layers_container,
                 layer_object.delete_layer()
                 layers_container.removeChild(document.querySelector(`#layer_${layer_object.id}`))
                 setTimeout(() => {
-                    if (single_layer_container && user_layers){
-                        helper.hide(single_layer_container)
-                        helper.unhide(user_layers, "flex")
+                    // refresh/refetch the available layers
+                    func_a()
+                    // if in single layer page 
+                    if (func_b && single_layer_container && LAYERS){
+                        single_layer_container.innerHTML = ""
+                        single_layer_container.style.opacity = "0"
+                        single_layer_container.style.zIndex = "-3"
+                        // if that is not the last layer just go back to multi-layer page
+                        if(helper.count_keys(LAYERS) > 0) func_b()
                     }
-                    func()
                 }, 100);
             })
         }
@@ -118,6 +122,7 @@ let delete_a_layer = (delete_btn, layer_object, layers_container,
 let add_images = (uploader_files, layer_object, func_a, func_b) => {
     for (const file_key in uploader_files) {
         const file = uploader_files[file_key];
+        console.log(file);
         let blob_url = new Blob([file], {type: 'image/png'})
         let nft_reader = new FileReader()
         nft_reader.readAsDataURL(blob_url)
@@ -126,7 +131,7 @@ let add_images = (uploader_files, layer_object, func_a, func_b) => {
             let default_image = document.createElement("img")
             default_image.src = default_image_url
             let image_id = helper.unique_random_number();
-            layer_object.add_image(image_id, default_image)
+            layer_object.add_image(image_id, file.name, default_image)
         }
     }
     // Wait 100ms For Image/Images To Load 
@@ -140,73 +145,131 @@ let add_images = (uploader_files, layer_object, func_a, func_b) => {
 let add_image_options = (
     layers_container,
     layer_images_containers, layer_object,
+    collection_width, collection_height,
     func_a, func_b) => {
-    layer_images_containers.forEach(lic => {
-        let split_id = lic.getAttribute("id").split("_")
+        console.log(layer_images_containers);
+
+    let give_image_options = (layer_images_container) => {
+        let split_id = layer_images_container.getAttribute("id").split("_")
         let lic_id = split_id[1]
-        let image_options_container = lic.querySelector(".image_options")
-        let image_options = lic.querySelectorAll(".image_options li")
+        let lic_name = layer_images_container.getAttribute("name")
+        let image_options_container = layer_images_container.querySelector(".image_options")
+        let image_options = layer_images_container.querySelectorAll(".image_options li")
         
-        let image_check_box_container = lic.querySelector(".image_check_box")
-        let image_check_box = lic.querySelector(".image_check_box p")
+        let image_check_box_container = layer_images_container.querySelector(".image_check_box")
+        let image_check_box = layer_images_container.querySelector(".image_check_box p")
         
-        let image = lic.querySelector("img")
+        let image = layer_images_container.querySelector("img")
         image.addEventListener("click", () => {
-            helper.unhide(image_options_container, "flex")
-            // Close Image Options
-            image_options[0].addEventListener("click", () => {
-                image_options_container.style.display = "none"
-            })
+            // Preview The Click Image
+            const layer_image_preview_canvas = document.querySelector("#layer_image_canvas")
+            const layer_image_info_items = document.querySelectorAll(".layer_image_info li")
+
+            // Add The Image and Its Info To The Preview Box
+            layer_image_preview_canvas.width = collection_width
+            layer_image_preview_canvas.height = collection_height
+            let context = layer_image_preview_canvas.getContext("2d")
+            context.imageSmoothingQuality = "high"
+            context.drawImage(image, 0, 0, collection_width, collection_height)
+            layer_image_info_items[0].innerHTML =  layer_object.name
+            layer_image_info_items[1].innerHTML =  `Id : #${lic_id}`
+            layer_image_info_items[2].innerHTML =  lic_name
+            layer_image_info_items[3].innerHTML =  `${collection_width} x ${collection_height}`
+
+            let clear_layer_image_preview = () => {
+                context.clearRect(0, 0, 
+                    layer_image_preview_canvas.width, 
+                    layer_image_preview_canvas.height)
+                layer_image_info_items.forEach(item => {
+                    item.innerHTML = ""
+                });
+            }
+
+            // Toggles The Image Options
+            helper.toggle_one_style_for_one(image_options_container, 
+                "display", "flex", "none")
+
+            if (image_options_container.style.display === "none") {
+                clear_layer_image_preview()
+            }
             // Edit Layer Image
-            image_options[1].addEventListener("click", () => {
+            image_options[0].addEventListener("click", () => {
                 // image_options_container.style.display = "none"
             })
-            //Delete Layer Image
-            image_options[2].addEventListener("click", () => {
+            // Delete Layer Image
+            image_options[1].addEventListener("click", () => {
                 layer_object.delete_image(lic_id)
                 if (func_b) func_b(layer_object.name)
                 func_a()
+
+                clear_layer_image_preview()
             })
         })
 
         // Handle Images Check_Box
         image_check_box.addEventListener("click", () => {
             let state = helper.check_box_info(image_check_box)
-            if (state && !CHECKED_IMAGES.includes(lic_id)) {
-                CHECKED_IMAGES.push(lic_id)
-            }
-            else {
-                CHECKED_IMAGES = helper.remove_element(CHECKED_IMAGES, lic_id)
-            }
-
+            if (state && !CHECKED_IMAGES.includes(lic_id)) CHECKED_IMAGES.push(lic_id)
+            else CHECKED_IMAGES = helper.remove_element(CHECKED_IMAGES, lic_id)
             console.log(CHECKED_IMAGES);
 
+            document.querySelector(".selected_test_image_cnt").innerHTML = CHECKED_IMAGES.length
+            if (CHECKED_IMAGES.length > 1) {
+                helper.elements_state_swap("build_test", "opened")
+                helper.appear(document.querySelector(".build_test"))
+            }
+            else {
+                helper.elements_state_swap("build_test", "closed")
+                helper.disappear(document.querySelector(".build_test"))
+            }
             // If User Tries To Generate A Test Art
             if (layers_container.getAttribute("select_mode") == "absolute") {
                 layer_images_containers.forEach(a_lic => {
                     if (state) {
-                        if (a_lic.id != lic.getAttribute("id")) {
+                        if (a_lic.id != layer_images_container.getAttribute("id")) {
                             helper.hide(a_lic)
                         }
-                    } else{
-                        helper.unhide(a_lic, "inline-block")
-                    }  
+                    } else helper.unhide(a_lic, "inline-block") 
                 })
             }
         })
-    })
+    }
+
+    if (layer_images_containers.length > 0) {
+        console.log("yes");
+        layer_images_containers.forEach(lic => {
+            give_image_options(lic)
+        })
+    }
 }
 // LAYER IMAGES FUNCTIONALITY ENDS HERE
 
 // FETCHING, BUNDLING AND GENERATING LAYERS STARTS HERE
 // Select test images to generate a test art
 let select_test_images = (image_check_box_opener,
-    layers_container, layer_images_containers, func) => {
-    image_check_box_opener.addEventListener("click", () => {
+    layers_container, layers_options, layer_images_containers, func) => {
+        image_check_box_opener.addEventListener("click", () => {
+        layers_options.forEach(l_op => {
+            helper.hide(l_op)
+        })
         layer_images_containers.forEach(lic => {
             layers_container.setAttribute("select_mode", "absolute")
             let image_check_box_container = lic.querySelector(".image_check_box")
-            helper.unhide(image_check_box_container)
+            helper.unhide(image_check_box_container, "flex")
+        })
+        func()
+    })
+}
+let unselect_test_images = (image_check_box_closer,
+    layers_container, layers_options, layer_images_containers, func) => {
+    image_check_box_closer.addEventListener("click", () => {
+        layers_options.forEach(l_op => {
+            helper.unhide(l_op, "flex")
+        })
+        layer_images_containers.forEach(lic => {
+            layers_container.setAttribute("select_mode", "relative")
+            let image_check_box_container = lic.querySelector(".image_check_box")
+            helper.hide(image_check_box_container)
         })
         func()
     })
@@ -224,8 +287,8 @@ let build_test_resource = (layers) => {
             console.log(currently_checked_images);
             if (currently_checked_images.length > 0) {
                 console.log(CHECKED_IMAGES[i]);
-                console.log(layer.images[`${currently_checked_images[i]}`]);
-                resource.push(layer.images[`${currently_checked_images[i]}`])
+                console.log(layer.images[`${currently_checked_images[i]}`]["img"]);
+                resource.push(layer.images[`${currently_checked_images[i]}`]["img"])
             }else{
                 console.log("Go Check An Image");
             }
@@ -247,7 +310,7 @@ let build_collection_resource = (layers) => {
             if (helper.count_keys(layer.images) >= 1) {
                 for (const image_key in layer.images) {
                     if (Object.hasOwnProperty.call(layer.images, image_key)) {
-                        const image = layer.images[image_key];
+                        const image = layer.images[image_key]["img"];
                         resource[i].push(image)
                     }
                     j++

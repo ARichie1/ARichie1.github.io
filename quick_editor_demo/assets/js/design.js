@@ -6,7 +6,7 @@ import { Layer, get_layer, get_layers, delete_checked,
 import {open_rename, close_rename, change_layer_name,
     delete_a_layer, add_images, add_image_options,
     get_checked_images, free_checked_images,
-    select_test_images,
+    select_test_images, unselect_test_images,
     build_test_resource, build_collection_resource,
     build_composite
 } from "./layers_functions.js"
@@ -48,7 +48,7 @@ const main_nav_links_to_components = main_nav.querySelectorAll(".ltc")
 const main_link_ul = document.querySelector(".main_link ul")
 const edit_single_link = document.querySelector(".main_link ul .edit_single_link")
 const edit_multiple_link = document.querySelector(".main_link ul .edit_multiple_link")
-const nft_generator_link = document.querySelector(".main_link ul .nft_generator_link")
+const nft_art_generator_link = document.querySelector(".main_link ul .nft_art_generator_link")
 
 const link_icons = document.querySelectorAll(".link_icon")
 const link_texts = document.querySelectorAll(".link_text")
@@ -71,6 +71,9 @@ const search_small_screen_overlay = document.querySelector(".searchbar .search_s
 const search_left_opener = document.querySelector(".searchbar .search_small_screen_overlay .left_opener")
 const search_opener = document.querySelector(".searchbar .search_small_screen_overlay .search_opener")
 // Searchbar Elements Endss Here
+
+// Image Editor Starts Here
+const image_editor_container = document.querySelector(".image_editor")
 
 // Image_uploader Elements Starts Here
 const image_uploader_container = document.querySelector(".image_uploader")
@@ -103,12 +106,14 @@ const change_edit_image = document.querySelector(".change_edit_image")
 const save_edit = document.querySelector(".save_edit")
 
 // Crop Tool
+const crop_tool_settings_container = document.querySelector("#crop")
 const clear_crop = document.querySelectorAll("#crop #clear_crop li")
 const draw_drag = document.querySelectorAll("#crop #draw_drag li")
 const lock_unlock = document.querySelectorAll("#crop #lock_unlock li")
 const reset_poweroff = document.querySelectorAll("#crop #reset_poweroff li")
 
 // Resize Tool
+const resize_tool_settings_container = document.querySelector("#resize")
 const resize_tool_what_to_edit_container = document.querySelector("#resize .what_to_edit")
 const resize_tool_what_to_edit = document.querySelectorAll("#resize .what_to_edit li")
 const original_dimensions = document.querySelectorAll("#resize #original_dimension span")
@@ -122,6 +127,7 @@ const resize_maintain_aspect_ratio = document.querySelector("#resize #maintain_a
 
 
 // Rotate Tool
+const rotate_tool_settings_container = document.querySelector("#rotate")
 const rotate_cw_acw = document.querySelectorAll("#rotate #rotate_cw_acw li")
 const flip_x_y = document.querySelectorAll("#rotate #flip_x_y li")
 const rotate_deg_warning = document.querySelector("#rotate #straighten #rotate_deg_warning")
@@ -129,7 +135,7 @@ const rotate_deg_display = document.querySelector("#rotate #straighten #rotate_d
 const rotate_slider = document.querySelector("#rotate #straighten #straighten_slider")
 
 // Filter Tool
-const filter_tool_container = document.querySelector(".filter")
+const filter_tool__settings_container = document.querySelector("#filter")
 const filter_tools_link_container = document.querySelector(".filter .filter_tools")
 const filter_tool_what_to_edit_container = document.querySelector(".filter .what_to_edit")
 const filter_tool_what_to_edit = document.querySelectorAll(".filter .what_to_edit li")
@@ -146,14 +152,13 @@ const sepia_slider = document.querySelector("#filter #sepia #sepia_slider")
 const hue_slider = document.querySelector("#filter #hue #hue_slider")
 const tint_slider = document.querySelector("#filter #tint #tint_slider")
 // Editor Elements Ends Here
+// Image Editor Starts Here
 
-// NFT Generator Elements starts here
-const nft_generator = document.querySelector(".nft_generator")
-const nft_generator_close = document.querySelector(".nft_generator .component_opener .close")
+// ============================= //
 
-const nft_edit_layers_components  = document.querySelectorAll(".nft_edit_layers_c")
-const nft_edit_layers_component_links = document.querySelectorAll(".middle .edit_layers .nft_edit_layers_c_l")
-const nft_edit_layers_close_component_links = document.querySelectorAll(".middle .edit_layers .close")
+//  Elements starts here
+const nft_art_generator = document.querySelector(".nft_art_generator")
+const nft_art_generator_close = document.querySelector(".nft_art_generator .component_opener .close")
 
 // Create NFT Collection Component Elements Starts Here
 const create_nft_collection = document.querySelector(".create_nft_collection")
@@ -174,47 +179,47 @@ let layers_cnt  = document.querySelector(".layers_cnt")
 const layers_container = document.querySelector(".layers")
 let dom_layers = []
 
-const instruction_container  = document.querySelector(".instruction")
+const art_generator_crud_tools_container = document.querySelector(".art_generator_crud_tools")
+const art_generator_tools_container  = document.querySelector(".art_generator_tools")
+const art_generator_tools_container_btn = document.querySelector(".art_generator_tools_opener")
 
-const import_export_container  = document.querySelector(".import_export")
-const import_btn  = document.querySelector(".import_layers")
-const export_btn  = document.querySelector(".export_layers")
-const start_import_btn = document.querySelector(".start_import")
-const on_import = document.querySelector(".on_import")
-const on_import_close = document.querySelector(".on_import .close")
-const on_import_input  = document.querySelector(".on_import_input")
-const on_import_button  = document.querySelector(".on_import button")
-const on_export = document.querySelector(".on_export")
+const on_no_layers_container = document.querySelector(".on_no_layers")
+const start_import_layer_link = document.querySelector(".start_import_layer")
+const start_create_layer_link = document.querySelector(".start_create_layer")
 
-const generate_art_btn = document.querySelector(".generate_art")
-const on_generate = document.querySelector(".on_generate")
-const on_generate_close = document.querySelector(".on_generate .close")
-const on_generate_options = document.querySelectorAll(".on_generate_options li")
-const build_test_btn = document.querySelector(".build_test")
-
-
-const edit_layers_container  = document.querySelector(".edit_layers")
-const no_layer_text  = document.querySelector(".edit_layers .no_layer")
-const create_select_container  = document.querySelector(".edit_layers .create_select")
-
-const create_layer  = document.querySelector(".create_layer")
-const on_create  = document.querySelector(".on_create")
+const create_layer_link = document.querySelector(".create_layer")
+const on_create_container  = document.querySelector(".on_create")
 const on_create_close  = document.querySelector(".on_create_close")
-const on_create_expand  = document.querySelector(".on_create_expand")
 const on_create_input  = document.querySelector(".on_create_input")
 const on_create_button  = document.querySelector(".on_create button")
 
-const select_layer  = document.querySelector(".select_layer")
-const on_select  = document.querySelector(".on_select")
+const select_layer_link  = document.querySelector(".select_layer")
+const on_select_container  = document.querySelector(".on_select")
 const select_all  = document.querySelector(".select_all")
 const unselect_all  = document.querySelector(".unselect_all")
 let selected_cnt  = document.querySelector(".selected_cnt")
 const on_select_cancel  = document.querySelector(".cancel_on_select")
 const on_select_delete_btn = document.querySelector(".del_layers")
+
+const import_layer_link  = document.querySelector(".import_layer")
+const on_import_container = document.querySelector(".on_import")
+const on_import_close = document.querySelector(".on_import .close")
+const on_import_input  = document.querySelector(".on_import_input")
+const on_import_button  = document.querySelector(".on_import button")
+const export_layer_link  = document.querySelector(".export_layer")
+
+const generate_art_link  = document.querySelector(".generate_art")
+const on_generate_container = document.querySelector(".on_generate")
+const on_generate_close = document.querySelector(".on_generate .close")
+const on_generate_options = document.querySelectorAll(".on_generate_options li")
+
+const build_test_mode_indicator = document.querySelector(".build_test_mode_indicator")
+const cancel_build_test_btn = document.querySelector(".cancel_build_test")
+const selected_test_image_cnt = document.querySelector(".selected_test_image_cnt")
+const build_test_btn = document.querySelector(".build_test")
 // User Layers Editor Elements Ends Here
 
 // Single Layer Editor Elements Starts Here
-// const user_single_layer = document.querySelector(".user_single_layer")
 const single_layer_container = document.querySelector(".user_single_layer")
 const single_layer_close_btn = document.querySelector(".user_single_layer .close_sl")
 let single_layer;
@@ -235,6 +240,13 @@ const free_frame_container = document.querySelector(".free_frame")
 
 // NFT Art Generator Previews
 const generator_preview_container = document.querySelector(".generator_preview")
+const generator_preview_frames_links = document.querySelectorAll(".generator_preview_frames li")
+const gen_preview_containers = document.querySelectorAll(".gen_preview")
+
+const layer_image_preview_container = document.querySelector(".layer_image_preview_frame")
+const layer_image_preview_canvas = document.querySelector("#layer_image_canvas")
+const layer_image_info_items = document.querySelectorAll(".layer_image_info li")
+
 const test_art_preview_container = document.querySelector(".test_art_preview_frame")
 const test_art_preview_canvas = document.querySelector("#test_art_canvas")
 const test_art_downloader_items = document.querySelectorAll(".test_art_downloader li")
@@ -302,6 +314,8 @@ const notification_screen = document.querySelector(".notification_screen")
 // =====MEDIA QUERY ELEMENTS STARTS HERE===== //
 const right_tools_in_media_query_container = document.querySelector(".right_tools_in_media_query")
 const right_tools_in_media_query_openers = document.querySelectorAll(".right_tools_in_media_query li")
+
+
 // =====MEDIA QUERY ELEMENTS ENDS HERE===== //
 
 
@@ -313,7 +327,7 @@ const right_tools_in_media_query_openers = document.querySelectorAll(".right_too
 // SET USER_MODE STARTS HERE
 edit_single_link.onclick = () => USER_MODE = "SINGLE"
 edit_multiple_link.onclick = () => USER_MODE = "MULTIPLE"
-nft_generator_link.onclick = ()  => USER_MODE = "GENERATOR"
+nft_art_generator_link.onclick = ()  => USER_MODE = "GENERATOR"
 // SET USER_MODE ENDS HERE
 
 // =====LEFT SIDE =====//
@@ -390,7 +404,7 @@ if (WINDOW_WIDTH <= SMALL_SCREEN) {
 
     // Elements That Closes Left Menu
     helper.many_actions("click", 
-    [app_right, editor, nft_generator,
+    [app_right, editor, nft_art_generator,
          main_nav_links_to_components, search_opener], 
     () => {
         helper.style_many_for_one(app_left, [
@@ -404,10 +418,49 @@ if (WINDOW_WIDTH <= SMALL_SCREEN) {
 // ================================================ //
 
 // =====MIDDLE SIDE STARTS HERE=====//
+// =====Toggle middle to left starts here===== //
+right_tools_in_media_query_openers[0].onclick = () => {
+    helper.toggle_style_many([
+        {name : app_right,
+            props: [["left", "0%", "100%"], 
+            ["z-index", "5", "-5"]]},
+        {name : search_small_screen_overlay,
+            props: [["display", "none", "flex"]]},
+    ])
+}
+// =====Toggle middle to left ends here=====//
+
 // Components Navigations Starts Here
-// switches app middle components
-helper.navigate(middle_components_links, middle_components, "block")
-// helper.close(middle_close_component_links, middle_components, "block")
+middle_components_links[0].addEventListener("click", () => {
+    helper.hide(nft_art_generator)
+    helper.unhide(image_editor_container, "block")
+    helper.elements_state_swap('image_uploader', "opened")
+    helper.elements_state_swap(['create_multiple_edits', 'editor'], "closed")
+})
+middle_components_links[1].addEventListener("click", () => {
+    helper.hide(nft_art_generator)
+    helper.unhide(image_editor_container, "block")
+    helper.elements_state_swap('create_multiple_edits', "opened")
+    helper.elements_state_swap(['image_uploader', 'editor'], "closed")
+})
+middle_components_links[2].addEventListener("click", () => {
+    helper.elements_state_swap('image_uploader', "opened")
+    helper.elements_state_swap(['create_multiple_edits', 'editor'], "closed")
+    helper.hide(image_editor_container)
+    helper.unhide(nft_art_generator, "block")
+})
+
+// Multiple Editor Starts Here
+cme_btn.addEventListener("click", (e) => {
+    e.preventDefault()
+    USER_MODE = "MULTIPLE"
+    file_props.name = cme_output_name.value
+    image_uploader.setAttribute("multiple", "")
+
+    helper.elements_state_swap('image_uploader', "opened")
+    helper.elements_state_swap(['create_multiple_edits', 'editor'], "closed")
+})
+// Multiple Editor Ends Here
 
 // =====EDITOR FUNCTIONALITIES STARTS HERE===== //
 // switch editing tools components
@@ -434,21 +487,20 @@ helper.many_actions("click", [crop_tool, rotate_tool], () => {
         hide_on_tools_click.concat(filter_extra_tools).concat(resize_extra_tools), "closed")
 
     if (WINDOW_WIDTH <= SMALL_SCREEN){
-        helper.unhide(right_tools_in_media_query_openers[1], "flex")
         helper.unhide(image_frame, "flex")
         helper.hide(filter_canvas_frame)
     }
 })
 resize_tool.addEventListener("click", () => {
     CURRENT_EDIT_TOOL = "RESIZE"
+    // helper.elements_state_swap("resize", "opened")
+    // resize_tool_settings_container.style.left = "0%"
     helper.elements_state_swap(resize_extra_tools, "opened", "flex")
     helper.elements_state_swap(
          show_on_tools_click.concat(hide_on_tools_click)
          .concat(cropper_extra_tools)
-         .concat(filter_extra_tools), "closed")
-    helper.hide(right_tools_in_media_query_openers[1])
+         .concat(filter_extra_tools), "closed", "none")
     if (WINDOW_WIDTH < SMALL_SCREEN) {
-        helper.hide(right_tools_in_media_query_openers[1])
         helper.unhide(image_frame, "flex")
         helper.hide(filter_canvas_frame)
     }
@@ -458,11 +510,7 @@ filter_tool.addEventListener("click", () => {
     helper.elements_state_swap(["extra_tools"].concat(filter_extra_tools), "opened", "flex")
     helper.elements_state_swap(["cropper_preview"].concat(hide_on_tools_click)
         .concat(cropper_extra_tools)
-        .concat(resize_extra_tools),"closed")
-    if (WINDOW_WIDTH < SMALL_SCREEN) {
-        helper.unhide(right_tools_in_media_query_openers[1], "flex")
-        filter_tools_link_container.classList.add("scr", "scr-x")
-    }
+        .concat(resize_extra_tools), "closed", "none")
 })
 let reset_editor = () => {
     crop_tool.click()
@@ -477,18 +525,6 @@ let file_props = {
     name: "",type: "",
     type_icon: "",extension: "",
 }
-
-// Multiple Editor Starts Here
-cme_btn.addEventListener("click", (e) => {
-    e.preventDefault()
-    USER_MODE = "MULTIPLE"
-    file_props.name = cme_output_name.value
-    image_uploader.setAttribute("multiple", "")
-
-    helper.hide(create_multiple_edits_container)
-    helper.unhide(image_uploader_container, "flex")
-})
-// Multiple Editor Ends Here
 
 // Handle Uploads Starts Here
 clear_uploads_btn.addEventListener("click", (e) => {
@@ -528,45 +564,13 @@ let output_image_url;
 // =====HANDLING UPLOADS STARTS HERE===== //
 image_uploader.addEventListener("change", (e) => {
     GET_USER_MODE()
-    helper.elements_state_swap(["free_frame", "image_uploader"], "closed")
-    helper.elements_state_swap(hide_on_tools_click.concat(filter_extra_tools), "closed")
-    helper.elements_state_swap(["editor"], "opened", "block")
+    helper.elements_state_swap("image_uploader", "closed")
+    helper.elements_state_swap(hide_on_tools_click
+        .concat(filter_extra_tools)
+        .concat(["free_frame"]), "closed", "none")
+    helper.elements_state_swap("editor", "opened")
     helper.elements_state_swap(["cropper_preview", "extra_tools"], "opened", "flex")
 
-
-    // APP MIDDLE TO LEFT TOGGLE FOR MEDIA QUERY STARTS HERE
-    // Switch To Right Side Of App
-    helper.many_actions('click', 
-    [right_tools_in_media_query_openers[0], right_tools_in_media_query_openers[1]],
-    () => {
-        app_right.style.left = "0%"
-        helper.hide_many([
-            search_small_screen_overlay,
-            right_tools_in_media_query_openers[0],
-             right_tools_in_media_query_openers[1]])
-        helper.unhide(right_tools_in_media_query_openers[2], "flex")
-    })
-    // Adjust Some CSS Styles
-    right_tools_in_media_query_openers[1].onclick = () => {
-        if (WINDOW_WIDTH <= SMALL_SCREEN){
-            if (CURRENT_EDIT_TOOL == "FILTER") insert_tools_container.style.height = "90% !important";
-            else insert_tools_container.style.height = "100% !important";
-        }
-    }
-    // Hide Some Extra Tools MQuery Buttons Depending On The Edit Tool Mode
-    right_tools_in_media_query_openers[2].onclick = () => {
-        app_right.style.left = "100%"
-        helper.unhide(search_small_screen_overlay, "flex")
-        helper.hide(right_tools_in_media_query_openers[2], "flex")
-
-        if (CURRENT_EDIT_TOOL == "RESIZE") {
-            helper.unhide(right_tools_in_media_query_openers[0], "flex")
-        }else{
-            helper.unhide_many([right_tools_in_media_query_openers[0], 
-                right_tools_in_media_query_openers[1]], "flex")
-        }
-    }
-    // APP MIDDLE TO LEFT TOGGLE FOR MEDIA QUERY ENDS HERE
 
     // FILE CONTROLLERS STARTS HERE
     let file = image_uploader.files[0]
@@ -1111,15 +1115,11 @@ image_uploader.addEventListener("change", (e) => {
 
 
 
-
-// NFT Generator Navigation Functionalities Ends Here
-// switch nft edit layers components 
-helper.navigate(nft_edit_layers_component_links, nft_edit_layers_components, "flex")
-helper.close(nft_edit_layers_close_component_links, nft_edit_layers_components, "flex", "disabled")
-
+// NFT ART GENERATOR FUNCTIONALITIES STARTS HERE
 let collection_name, collection_description, collection_size,
     collection_width, collection_height, collection_format
 
+// Get Collection Details
 create_nft_collection_button.addEventListener('click', (e) => {
     e.preventDefault()
     collection_name = collection_name_input.value
@@ -1129,74 +1129,33 @@ create_nft_collection_button.addEventListener('click', (e) => {
     collection_height = parseInt(collection_height_input.value)
     collection_format = collection_output_format_input.value
     
+    // app middle tools to show/hide
     helper.hide(create_nft_collection)
-    helper.hide(free_frame_container)
     helper.unhide(user_layers, "block")
-    helper.unhide(nft_generator_close, "flex")
+    helper.unhide(nft_art_generator_close, "flex")
+    // app right tools to show/hide
+    helper.hide(free_frame_container)
     helper.unhide(generator_preview_container, "block")
 
     fetch_and_activate_dom_layers()
 })
 
-// IMPORT LAYERS FUNCTIONALITIES STARTS HERE
-import_btn.addEventListener('click', () => {
-    helper.style_many_for_one(on_import, [
-            ["display", "flex"],
-            ["z-index", "3"]
-    ])
-    helper.hide(import_export_container)
-})
-on_import_button.addEventListener("click", (e) => {
-    e.preventDefault()
-    let new_json_layers = JSON.parse(on_import_input.value)
-    new_json_layers.forEach(njl => {
-        let nl_id = (helper.count_keys(LAYERS) + 1).toString()
-        let nl = new Layer(njl.name, nl_id, [500, 500])
-        // let nl = new Layer(njl.name, nl_id, 
-        //     [collection_width, collection_height])
-    
-        nl.add_to_layers()
-        fetch_and_activate_dom_layers()
-    });
-    
-    helper.hide(on_import)
-    // helper.hide(start_import_btn)
-    helper.unhide(import_export_container, "flex")
-    helper.unhide(create_select_container, "flex")
-})
-// IMPORT LAYERS FUNCTIONALITIES ENDS HERE
-
-// CREATE NEW LAYERS FUNCTIONALITIES STARTS HERE
-on_create_button.addEventListener("click", (e) => {
-    e.preventDefault()
-    let new_layer_name = on_create_input.value.toString().toLowerCase()
-    let new_layer_id = (helper.count_keys(LAYERS) + 1).toString()
-    let new_layer = new Layer(new_layer_name, 
-        new_layer_id, [500, 500])
-    // let new_layer = new Layer(new_layer_name, 
-    //     new_layer_id, [collection_width, collection_height])
-    new_layer.add_to_layers()
-    fetch_and_activate_dom_layers()
-    
-    helper.hide(on_create)
-    helper.hide(start_import_btn)
-    helper.unhide(import_export_container, "flex")
-    helper.unhide(create_select_container, "flex")
-    on_create_input.value = ""
-})
-on_create_expand.addEventListener("click", () => {
-    helper.toggleIcon(on_create_expand,
-        on_create_expand.innerHTML, "fa fa-compress", "fa fa-expand")
-    helper.toggleAttribute(on_create, "id", "box_mode", "quick_mode")
-
-    on_create_close.addEventListener("click", () => {
-        edit_layers_container.style.height = "20px"
-    })
-})
-create_layer.addEventListener("click", () => {
-    helper.appear(on_create)  
-})
-// CREATE NEW LAYERS FUNCTIONALITIES ENDS HERE
+// User Layers Functionalities Starts Here
+// user layers navigation variables/functions
+let user_layers_prev_components = []
+let user_layers_current_component = ""
+let get_element
+let switch_user_layers_component = (display) => {
+    helper.switch_component(
+        user_layers_prev_components[user_layers_prev_components.length - 1], 
+        user_layers_current_component, display)
+}
+let close_user_layers_component = (display) => {
+    user_layers_prev_components.push(user_layers_current_component)
+    user_layers_current_component = 
+        user_layers_prev_components[user_layers_prev_components.length - 2]
+    switch_user_layers_component(display)
+}
 
 // Stores each DOM Layer As Element
 let dls = []
@@ -1228,9 +1187,9 @@ let fetch_and_activate_dom_layers = (() => {
         let l_add_image_btn = layer_properties.querySelector(".l_options .l_add_image")
         let l_image_uploader = layer_properties.querySelector(".l_options .l_add_image .l_image_uploader")
         let l_delete_btn = layer_properties.querySelector(".l_options .l_delete")
-        let l_spinner = layer_properties.querySelector(".l_options .l_spinner")
         let l_check_box = layer_properties.querySelector(".check_box")
         layers_check_boxes.push(l_check_box)
+        let l_properties_hider = layer_properties.querySelector(".layer_properties_hider")
 
         let l_on_rename_container = layer_properties.querySelector(".l_on_rename")
         let l_on_rename_container_close = layer_properties.querySelector(".l_on_rename .close")
@@ -1240,8 +1199,9 @@ let fetch_and_activate_dom_layers = (() => {
         // LAYER SINGLE PAGE OPENER FUNCTIONALITY STARTS HERE  
             l_name_container.addEventListener("click", () => {
                 fetch_and_activate_dom_single_layer(layer_obj.name)
-                helper.hide(user_layers)
-                helper.unhide(single_layer_container, "flex")
+                user_layers_prev_components.push(["art_generator_crud_tools", "layers"])
+                user_layers_current_component = "user_single_layer"
+                switch_user_layers_component()
             })
         // LAYER SINGLE PAGE OPEl_rename_inputNER FUNCTIONALITY ENDS HERE 
 
@@ -1249,21 +1209,20 @@ let fetch_and_activate_dom_layers = (() => {
             open_rename(l_rename_btn, l_on_rename_container, [l_name_container, l_options]) 
             l_rename_input.addEventListener("change", () => {
                 change_layer_name(l_change_name_btn, l_rename_input.value, LAYERS, layer_obj,
-                    nft_generator, notification_screen, l_on_rename_container_close, fetch_and_activate_dom_layers)
+                    nft_art_generator, notification_screen, l_on_rename_container_close, fetch_and_activate_dom_layers)
             })
             close_rename(l_on_rename_container_close, l_on_rename_container, [l_name_container, l_options])
         // LAYER RENAME FUNCTIONALITY ENDS HERE
 
         // LAYER DELETE FUNCTIONALITY STARTS HERE
             delete_a_layer(l_delete_btn, layer_obj, layers_container, 
-                nft_generator, notification_screen, fetch_and_activate_dom_layers)
+                nft_art_generator, notification_screen, fetch_and_activate_dom_layers)
         // LAYER DELETE FUNCTIONALITY ENDS HERE
 
         // LAYER CHECKBOX FUNCTIONALITY ENDS HERE
             l_check_box.addEventListener("click", () => {
                 let state = helper.check_box_info(l_check_box, selected_cnt)
                 layer_obj.select(state)
-                console.log(layer_obj)
             })
         // LAYER CHECKBOX FUNCTIONALITY ENDS HERE
 
@@ -1282,18 +1241,35 @@ let fetch_and_activate_dom_layers = (() => {
 
             // Enable Image Options
             add_image_options(
-                layers_container,
-                layer_images_containers, layer_obj,
-                fetch_and_activate_dom_layers)
+                layers_container, layer_images_containers, layer_obj, 
+                500, 500, fetch_and_activate_dom_layers)
+            // add_image_options(
+            //     layers_container, layer_images_containers, layer_obj, 
+            //     collection_width, collection_height,
+            //     fetch_and_activate_dom_layers)
 
-            // Select Images For Generating Test Art
+            // Enter Generating Test Art Mode and Select Images
             select_test_images(on_generate_options[0],
-                layers_container, 
+                layers_container, layers_options, 
                 layer_images_containers, () => {
-                    helper.hide(on_generate)
-                    helper.unhide(import_export_container, "flex")
-                    helper.unhide(create_select_container, "flex")
-                    helper.unhide(build_test_btn, "flex")
+                    user_layers_prev_components.push(["on_generate", "art_generator_crud_tools"])
+                    user_layers_current_component = ["build_test_mode_indicator", "layers"]
+                    switch_user_layers_component()
+                    
+                    helper.appear(l_properties_hider)
+                })
+
+            // Unselect Images and Exit Generating Test Art Mode
+            unselect_test_images(cancel_build_test_btn,
+                layers_container, layers_options, 
+                layer_images_containers, () => {
+                    user_layers_prev_components.push(["on_generate", "build_test_mode_indicator"])
+                    user_layers_current_component = ["art_generator_crud_tools", "layers"]
+                    switch_user_layers_component()
+                    
+                    helper.disappear(l_properties_hider)
+                    helper.elements_state_swap("build_test", "closed")
+                    helper.disappear(build_test_btn)
                 })
         // LAYER IMAGES FUNCTIONALITY ENDS HERE
     })
@@ -1303,15 +1279,16 @@ let fetch_and_activate_dom_layers = (() => {
 
 // SELECT MODE FUNCTIONALITIES STARTS HERE
 // Enters Into Select Mode
-select_layer.addEventListener("click", () => {
+select_layer_link.addEventListener("click", () => {
     select_counter()
-    helper.unhide(on_select, "flex")
+    user_layers_prev_components.push("art_generator_crud_tools")
+    user_layers_current_component = "on_select"
+    switch_user_layers_component()
+    
     layers_check_boxes.forEach(c_box => {
         helper.unhide(c_box.parentElement, "flex")
     });
-    layers_options.forEach(lop=> {
-        helper.hide(lop)
-    });
+    layers_options.forEach(lop => {helper.hide(lop)});
 })
 select_all.addEventListener("click", () => {
     for (const l_key in LAYERS) {
@@ -1354,7 +1331,7 @@ on_select_delete_btn.addEventListener("click", (e) => {
         btns = [{text: "Ok", class:"notification_close n_clear", id:"##" + notification_screen.className}]
     }
     
-    helper.notification_box(nft_generator, notification_screen,
+    helper.notification_box(nft_art_generator, notification_screen,
         {type: "alert !!!", msg, btns}
     )
     if (notification_screen.querySelector("#deletes_something")) {
@@ -1371,12 +1348,14 @@ on_select_delete_btn.addEventListener("click", (e) => {
 // Exit Select Mode
 on_select_cancel.addEventListener("click", () => {
     unselect_all.click()
-    layers_check_boxes.forEach(lcb => {
-        helper.hide(lcb)
+    user_layers_prev_components.push("on_select")
+    user_layers_current_component = "art_generator_crud_tools"
+    switch_user_layers_component()
+
+    layers_check_boxes.forEach(c_box => {
+        helper.hide(c_box.parentElement, "flex")
     });
-    layers_options.forEach(lop=> {
-        helper.unhide(lop, "flex")
-    });
+    layers_options.forEach(lop => {helper.unhide(lop, "flex")});
 })
 // Resets the Selected Count Display
 let select_counter = (() => {
@@ -1389,32 +1368,10 @@ let select_counter = (() => {
 // and what to do with the count
 let layers_counter = (() => {
     if (helper.count_keys(LAYERS) == 0) {
-        helper.unhide(no_layer_text, "flex")
-        helper.unhide(start_import_btn, "flex")
-        helper.hide(import_export_container)
-        on_create.id = "box_mode"
-        helper.hide(on_create_expand)
-        on_create_close.addEventListener("click", () => {
-            edit_layers_container.style.height = "70%"
-        })
-        edit_layers_container.id = "edit_layers_has_no_layers"
-        create_select_container.id = "create_select_has_no_layers"
-        helper.hide_many([instruction_container, select_layer, layers_cnt_container])
-    }else{
-        helper.hide(no_layer_text)
-        helper.unhide(import_export_container, "flex")
-        helper.hide(start_import_btn)
-        on_create.id = "quick_mode"
-        helper.unhide(on_create_expand, "flex")
-        on_create_close.addEventListener("click", () => {
-            edit_layers_container.style.height = "5%"
-        })
-        on_import_close.addEventListener('click', () => {
-            helper.unhide(import_export_container, "flex")
-        })
-        edit_layers_container.id = "edit_layers_has_layers"
-        create_select_container.id = "create_select_has_layers"
-        helper.unhide_many([instruction_container, select_layer, layers_cnt_container], "flex")
+        user_layers_prev_components.push(["art_generator_crud_tools", "layers"])
+        user_layers_current_component = "on_no_layers"
+        switch_user_layers_component()
+        on_create_container.id = "box_mode"
     }
 });
 
@@ -1457,7 +1414,7 @@ let fetch_and_activate_dom_single_layer = ((sl_name) => {
     let layer_id = dom_sl.getAttribute("id")
     let layer_obj = LAYERS[dom_sl.getAttribute("name")]
     let layer_properties = dom_sl.querySelector(".l_properties");
-    let layer_images_containers = dom_sl.querySelectorAll(".l_image");
+    let layer_images_containers = dom_sl.querySelector(".l_image");
 
     let l_closer_btn = layer_properties.querySelector(".close_sl")
     
@@ -1478,8 +1435,7 @@ let fetch_and_activate_dom_single_layer = ((sl_name) => {
     // CLOSE SINGLE LAYER PAGE FUNCTIONALITY STARTS HERE  
         l_closer_btn.addEventListener("click", () => {
             fetch_and_activate_dom_layers()
-            helper.hide(single_layer_container)
-            helper.unhide(user_layers, "flex")
+            close_user_layers_component()
         })
     // CLOSE SINGLE LAYER PAGE FUNCTIONALITY ENDS HERE 
 
@@ -1487,7 +1443,7 @@ let fetch_and_activate_dom_single_layer = ((sl_name) => {
         open_rename(l_rename_btn, l_on_rename_container, [l_name_container, l_options])    
         l_rename_input.addEventListener("change", () => {
             change_layer_name(l_change_name_btn, l_rename_input.value, LAYERS, layer_obj,
-                nft_generator, notification_screen, l_on_rename_container_close, 
+                nft_art_generator, notification_screen, l_on_rename_container_close, 
                 fetch_and_activate_dom_layers, fetch_and_activate_dom_single_layer)
         })
         close_rename(l_on_rename_container_close, l_on_rename_container, [l_name_container, l_options])
@@ -1495,8 +1451,8 @@ let fetch_and_activate_dom_single_layer = ((sl_name) => {
    
     // LAYER DELETE FUNCTIONALITY STARTS HERE
         delete_a_layer(l_delete_btn, layer_obj, layers_container, 
-            nft_generator, notification_screen, fetch_and_activate_dom_layers, 
-            single_layer_container, user_layers)
+            nft_art_generator, notification_screen, fetch_and_activate_dom_layers, 
+            close_user_layers_component, single_layer_container, LAYERS)
     // LAYER DELETE FUNCTIONALITY ENDS HERE
 
     // LAYER IMAGES FUNCTIONALITY STARTS HERE
@@ -1513,29 +1469,117 @@ let fetch_and_activate_dom_single_layer = ((sl_name) => {
             fetch_and_activate_dom_single_layer)
         })
         // Enable Image Options
-        add_image_options(layer_images_containers, layer_obj,
+        add_image_options(layer_images_containers, layer_obj, 500, 500,
             fetch_and_activate_dom_layers, fetch_and_activate_dom_single_layer)
+        // add_image_options(layer_images_containers, layer_obj,
+        //     collection_width, collection_height,
+        //     fetch_and_activate_dom_layers, fetch_and_activate_dom_single_layer)
     // LAYER IMAGES FUNCTIONALITY ENDS HERE
 })
 // FETCHES THE NEWLY UPDATED LAYER FROM THE DOM ENDS HERE
 // SINGLE LAYER FUNCTIONALTIES ENDS HERE
 
-// GENERATE NFT ART FUNCTIONALITIES STARTS HERE
-generate_art_btn.addEventListener('click', () => {
-    helper.style_many_for_one(on_generate, [
-            ["display", "flex"],
-            ["z-index", "3"]
+// Import Layers Start Here
+// open import component to import layers when there ain't no layers
+start_import_layer_link.addEventListener("click", () => {
+    user_layers_prev_components.push("on_no_layers")
+    user_layers_current_component = "on_import"
+    switch_user_layers_component()
+})
+
+// open import component to import layers more layers
+import_layer_link.addEventListener("click", () => {
+    user_layers_prev_components.push(["art_generator_crud_tools", "layers"])
+    user_layers_current_component = "on_import"
+    switch_user_layers_component()
+
+    helper.disappear(art_generator_tools_container)
+    art_generator_tools_container.style.left = "-40%"
+})
+
+// import the layers in the import conponent text area
+on_import_button.addEventListener("click", (e) => {
+    e.preventDefault()
+    let new_json_layers = JSON.parse(on_import_input.value)
+    new_json_layers.forEach(njl => {
+        let nl_id = (helper.count_keys(LAYERS) + 1).toString()
+        let nl = new Layer(njl.name, nl_id, [500, 500])
+        // let nl = new Layer(njl.name, nl_id, 
+        //     [collection_width, collection_height])
+    
+        nl.add_to_layers()
+        fetch_and_activate_dom_layers()
+    });
+    user_layers_prev_components.push("on_import")
+    user_layers_current_component = ["art_generator_crud_tools", "layers"]
+    switch_user_layers_component()
+
+    on_create_container.id = "quick_mode"
+    on_import_input.value = ""
+})
+on_import_close.addEventListener("click", () => {
+    close_user_layers_component("block")
+})
+// Import Layers Ends Here
+
+// Create New Layers Starts Here 
+start_create_layer_link.addEventListener("click", () => {
+    user_layers_prev_components.push("on_no_layers")
+    user_layers_current_component = "on_create"
+    switch_user_layers_component()
+})
+create_layer_link.addEventListener("click", () => {
+    user_layers_prev_components.push(["art_generator_crud_tools"])
+    user_layers_current_component = "on_create"
+    switch_user_layers_component()
+})
+on_create_button.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log();
+    let new_layer_name = on_create_input.value.toString().toLowerCase()
+    let new_layer_id = (helper.count_keys(LAYERS) + 1).toString()
+    let new_layer = new Layer(new_layer_name, 
+        new_layer_id, [500, 500])
+    // let new_layer = new Layer(new_layer_name, 
+    //     new_layer_id, [collection_width, collection_height])
+    new_layer.add_to_layers()
+    fetch_and_activate_dom_layers()
+
+    user_layers_prev_components.push("on_create")
+    user_layers_current_component = ["art_generator_crud_tools", "layers"]
+    switch_user_layers_component()
+
+    on_create_input.value = ""
+    on_create_container.id = "quick_mode"
+})
+on_create_close.addEventListener("click", () => {
+    close_user_layers_component("block")
+})
+// Create New Layers Ends Here 
+
+// Show art gen tools starts Here 
+art_generator_tools_container_btn.addEventListener("click", () => {
+    helper.toggle_many_style_for_one(art_generator_tools_container, [
+        ["opacity", "1", "0"],
+        ["z-index", "5", "-5"],
+        ["left", "0%", "-40%"]   
     ])
-    helper.hide(import_export_container)
-    helper.hide(create_select_container)
+}) 
+
+// Generate NFT Art Functionalities Starts Here
+generate_art_link.addEventListener('click', () => {
+    user_layers_prev_components.push(["art_generator_crud_tools", "layers"])
+    user_layers_current_component = "on_generate"
+    switch_user_layers_component()
+
+    helper.disappear(art_generator_tools_container)
+    art_generator_tools_container.style.left = "-40%"
 })
 on_generate_close.addEventListener('click', () => {
-    helper.unhide(import_export_container, "flex")
-    helper.unhide(create_select_container, "flex")
+    close_user_layers_component("flex")
 })
 
-
-// GENERATE A TEST ART STARTS HERE
+// Generate a Test Art
 test_art_preview_canvas.width = 500
 test_art_preview_canvas.height = 500
 let test_art_url;
@@ -1560,17 +1604,19 @@ build_test_btn.addEventListener("click", () => {
     free_checked_images()
     fetch_and_activate_dom_layers()
     
+    // Hide Test Mode Elements
+    cancel_build_test_btn.click()
     helper.hide(build_test_btn)
-    // Hide Collection Preview
-    helper.hide(collection_preview_container)
-    // Display The Test Art Preview
+
+    // Display The Test Art Preview and Image Info
     test_art_downloader_items[0].innerHTML = "500 x 500"
     test_art_downloader_items[1].innerHTML = "test_art.png"
-    helper.unhide(test_art_preview_container, "block")
+    generator_preview_frames_links[1].click()
+    right_tools_in_media_query_openers[0].click()
 })
-// GENERATE A TEST ART ENDS HERE
+// Generate a Test Art Ends Here
 
-// GENERATE COLLECTION STARTS HERE
+// Generate a random collection
 collection_image_generator_canvas.width = 500
 collection_image_generator_canvas.height = 500
 let collection_image_generator_canvas_context = collection_image_generator_canvas.getContext("2d")
@@ -1604,20 +1650,22 @@ on_generate_options[1].addEventListener("click", (e) => {
         collection_art_urls.push(new_art_url)
     }
 
-    // Clear and Hide Test Art Preview
-    test_art_preview_canvas_context.clearRect(0, 0,
-        test_art_preview_canvas.width,
-        test_art_preview_canvas.height)
-    helper.hide(test_art_preview_container)
     // Display The Collection Preview
-    helper.unhide(collection_preview_container, "block")
+    generator_preview_frames_links[2].click()
+    right_tools_in_media_query_openers[0].click()
     
-    // Switch Some Elements Display
-    helper.hide(on_generate)
-    helper.unhide(import_export_container, "flex")
-    helper.unhide(create_select_container, "flex")
+    // Display Image In The Preview Box Onclick
+    let collection_images = generated_arts_container.querySelectorAll("img")
+    collection_images.forEach(coll_image => {
+        coll_image .addEventListener("click", () => {
+            colletion_images_preview.src = coll_image.src
+        })
+    });
+
+    // Exit on_generate
+    on_generate_close.click()
 })
-// GENERATE COLLECTION STARTS HERE
+// Generate a random collection ends here
 
 // DOWNLOAD GENERATED TEST ART STARTS HERE
 test_art_downloader_items[2].onclick = () => {
@@ -1648,6 +1696,33 @@ collection_download_btn.onclick = () => {
 }
 // DOWNLOAD GENERATED COLLECTION ENDS HERE
 
+// Generator Preview Controllers
+generator_preview_frames_links[0].addEventListener("click", () => {
+    layer_image_preview_container.style.left = "0%"
+    helper.appear(layer_image_preview_container)
+    test_art_preview_container.style.left = "100%"
+    collection_preview_container.style.left = "100%"
+    helper.disappear([test_art_preview_container, collection_preview_container])
+
+})
+generator_preview_frames_links[1].addEventListener("click", () => {
+    test_art_preview_container.style.left = "0%"
+    helper.appear(test_art_preview_container)
+    layer_image_preview_container.style.left = "100%"
+    collection_preview_container.style.left = "100%"
+    helper.disappear([layer_image_preview_container, collection_preview_container])
+
+})
+generator_preview_frames_links[2].addEventListener("click", () => {
+    collection_preview_container.style.left = "0%"
+    helper.appear(collection_preview_container)
+    layer_image_preview_container.style.left = "100%"
+    test_art_preview_container.style.left = "100%"
+    helper.disappear([layer_image_preview_container, test_art_preview_container])
+})
+
+// Generate NFT Art Functionalities Starts Here
+
 // Complete Shutdown/Deletion Of The Current 
 // Collection and NFT Art Generator Itself
 let shutdown_nft_art_generator = () => {
@@ -1661,18 +1736,18 @@ let shutdown_nft_art_generator = () => {
 
     helper.hide_many([test_art_preview_container, 
         collection_preview_container,
-        user_layers, nft_generator_close])
+        user_layers, nft_art_generator_close])
     helper.unhide_many([create_nft_collection,
         free_frame_container], "flex")
 }
-nft_generator_close.addEventListener("click", () => {
+nft_art_generator_close.addEventListener("click", () => {
     let msg = `You are about poweroff the art generator <br>
     <p> !!ALL LAYERS AND THE COLLECTION ITSELF WILL BE DELETED !!</p>`
     let btns = [
         {text: "No", class:"notification_close n_clear", id:"##" + notification_screen.className},
         {text: "Yes", class:"notification_close", id: "deletes_something"}
     ]
-    helper.notification_box(nft_generator, notification_screen,
+    helper.notification_box(nft_art_generator, notification_screen,
         {type: "alert !!!", msg, btns}
     )
     if (notification_screen.querySelector("#deletes_something")) {
@@ -1681,8 +1756,6 @@ nft_generator_close.addEventListener("click", () => {
         })
     }
 })
-// GENERATE NFT ART FUNCTIONALITIES ENDS HERE
-
 // =====NFT ART GENERATOR FUNCTIONALITIES ENDS HERE===== //
 // =====MIDDLE SIDE ENDS HERE=====//
 

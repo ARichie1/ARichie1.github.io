@@ -1,14 +1,14 @@
 
 
 /* =====APP MIDDLE FRAMES STARTS HERE===== */
-.app .middle .image_uploader{display: none;}
-.app .middle .create_multiple_edits{display: none;}
-.app .middle .editor{display: none;}
+/* .app .middle .image_editor{display: none;} */
+/* .app .middle .image_uploader{opacity: 0; z-index: -3;} */
+.app .middle .create_multiple_edits{opacity: 0; z-index: -3;}
+.app .middle .editor{opacity: 0; z-index: -3;}
 
-/* .app .middle .nft_generator{display: none;} */
-/* .app .middle .create_nft_collection{display: none;} */
-.app .middle .user_layers{display: none;}
-.app .middle .user_single_layer{display: none;}
+.app .middle .nft_art_generator{display: none;}
+/* .app .middle .create_nft_collection{opacity: 0; z-index: -3;} */
+/* .app .middle .user_layers{opacity: 0; z-index: -3;} */
 
 /* =====APP MIDDLE FRAMES ENDS HERE===== */
 

@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/left.css">
     <link rel="stylesheet" href="./assets/css/middle.css">
+    <link rel="stylesheet" href="./assets/css/image_editor.css">
     <link rel="stylesheet" href="./assets/css/editor.css">
-    <link rel="stylesheet" href="./assets/css/nft_generator.css">
+    <link rel="stylesheet" href="./assets/css/nft_art_generator.css">
     <link rel="stylesheet" href="./assets/css/right.css">
     <link rel="stylesheet" href="./assets/css/custom.css">
     <link rel="stylesheet" href="./assets/css/components.css">
@@ -58,11 +59,11 @@
                                 </span>
                                 <span class="link_text">Edit Multiple</span>
                             </li>
-                            <li class="nft_generator_link m_c_l clkb_link ltc" id="#nft_generator">
+                            <li class="nft_art_generator_link m_c_l clkb_link ltc" id="#nft_art_generator">
                                 <span class="link_icon">
                                     <i class="fa fa-images"></i>
                                 </span>
-                                <span class="link_text">NFT Generator</span>
+                                <span class="link_text">NFT Art Generator</span>
                             </li>
                         </ul>
                     </li>
@@ -93,6 +94,12 @@
 <!-- =====APP MIDLLE SECTION STARTS HERE===== -->
         <section class="middle">
             <span id="vanish_point" style="display: none;"></span>
+            
+            <ul class="right_tools_in_media_query">
+                <li class="many_icons clkb_btn"><i class="fa fa-desktop"></i></li>
+            </ul>
+
+            <!-- NOTIFIACATION BOX STARTS HERE -->
             <div class="notification_screen">
                 <div class="notification_props">
                     <div class="notification_header">
@@ -101,6 +108,9 @@
                     <div class="notification_info"></div>
                 </div>
             </div>
+            <!-- NOTIFIACATION BOX ENDS HERE -->
+
+            <!-- SEARCH STARTS HERE -->
             <div class="searchbar component">
                 <ul class="search_small_screen_overlay">
                     <li class="left_opener clkb_link"><i class="fa fa-bars"></i></li>
@@ -116,259 +126,261 @@
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <div class="image_uploader component m_c h_c" state="opened">
-                <form action="" method="post">
-                    <span class="upload_icon">
-                        <i class="fa fa-upload"></i>
-                    </span>
-                    <div class="upload_tools">
-                        <span class="clear_uploads clkb_link" id="clear_uploads"><i class="fa fa-times"></i></span>
-                        <span class="upldr">
-                            <input type="file" name="" class="clkb_btn" id="upload_image">
-                        </span>
-                    </div>
-                </form>
-                <h1>Upload Image To Start Editing</h1>
-            </div>
-            <div class="create_multiple_edits m_c" state="closed">
-                <h3>Create Multiple Edits</h3>
-                <div class="form_container">
+            <!-- SEARCH ENDS HERE -->
+
+            <!-- IMAGE EDITOR STARTS HERE -->
+            <div class="image_editor">
+                <!-- Image Uploader Page (Image Editor Home Screen) -->
+                <div class="image_uploader component m_c h_c" state="opened">
                     <form action="" method="post">
-                        <label for="output_name">Output File Name</label>
-                        <input type="text" name="output_name" id="output_name">
+                        <span class="upload_icon">
+                            <i class="fa fa-upload"></i>
+                        </span>
+                        <div class="upload_tools">
+                            <span class="clear_uploads clkb_link" id="clear_uploads"><i class="fa fa-times"></i></span>
+                            <span class="upldr">
+                                <input type="file" name="" class="clkb_btn" id="upload_image">
+                            </span>
+                        </div>
+                    </form>
+                    <h1>Upload Image To Start Editing</h1>
+                </div>
+                <!-- Creating A Multiple Edit Output file Name Page -->
+                <div class="create_multiple_edits m_c" state="closed">
+                    <form action="" method="post">
+                        <h3>Create Multiple Edits</h3>
+                        <span class="close clkb_link"><i class="fa fa-times"></i></span>
+                        <input type="text" name="output_name" id="output_name" placeholder="Enter Output File Name">
                         <button type="submit" class="clkb_btn">Next</button>
                     </form>
                 </div>
-            </div>
-            <div class="editor component m_c" state="closed">
-                <div class="image_frame">
-                    <div class="image_screen">
-                        <img src="" alt="" srcset="">
+                <!-- Main Editor Page -->
+                <div class="editor component m_c" state="closed">
+                    <div class="image_frame">
+                        <div class="image_screen">
+                            <img src="" alt="" srcset="">
+                        </div>
                     </div>
-                </div>
-                <div class="filter_canvas_frame">
-                    <canvas id="filter_canvas_screen"></canvas>
-                </div>
-                <ul class="switch_images">
-                    <li class="clkb_btn"><i class="fa fa-angle-left"></i></li>
-                    <li>Switch</li>
-                    <li class="clkb_btn"><i class="fa fa-angle-right"></i></li>
-                </ul>
-                <ul class="right_tools_in_media_query">
-                    <li class="clkb_btn"><i class="fa fa-desktop"></i></li>
-                    <li class="many_icons clkb_btn"><i class="fa fa-tools"></i></li>
-                    <li class="many_icons clkb_btn"><i class="fa fa-tools"></i></li>
-                </ul>
-                <div class="editing_tools">
-                    <ul>
-                        <li class="change_edit_image clkb_btn">
-                            <span><i class="fa fa-image"></i>Change</span>
-                        </li>
-                        <li class="crop_tool tool_link clkb_link active_link" id="#crop">
-                            <span><i class="fa fa-crop"></i>Crop</span>
-                        </li>
-                        <li class="rotate_tool tool_link clkb_link" id="#rotate">
-                            <span><i class="fa fa-rotate"></i>Rotate</span>
-                        </li>
-                        <li class="resize_tool tool_link clkb_link" id="#resize">
-                            <span><i class="fa fa-expand"></i>Resize</span>
-                        </li>
-                        <li class="filter_tool tool_link clkb_link" id="#filter">
-                            <span><i class="fa fa-magic"></i>Filter</span>
-                        </li>
-                        <li class="save_edit clkb_btn">
-                            <span><i class="fa fa-save"></i>Save</span>
-                        </li>
+                    <div class="filter_canvas_frame">
+                        <canvas id="filter_canvas_screen"></canvas>
+                    </div>
+                    <ul class="switch_images">
+                        <li class="clkb_btn"><i class="fa fa-angle-left"></i></li>
+                        <li>Switch</li>
+                        <li class="clkb_btn"><i class="fa fa-angle-right"></i></li>
                     </ul>
-                </div>
-                <div class="editing_tools_settings">
-                    <div class="crop tool" id="crop">
-                        <div class="properties_setting">
-                            <div class="property_group">
-                                <div class="property" id="clear_crop">
-                                    <p class="property_name">Clear - Crop</p>
-                                    <ul>
-                                        <li class="clkb_btn"><i class="fa fa-eraser"></i></li>
-                                        <li class="clkb_btn"><i class="fa fa-crop"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="property" id="draw_drag">
-                                    <p class="property_name">Draw - Drag</p>
-                                    <ul>
-                                        <li class="clkb_btn"><i class="fa fa-plus"></i></li>
-                                        <li class="clkb_btn"><i class="fa fa-arrows-alt"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                           <div class="property_group">
-                                <div class="property" id="lock_unlock">
-                                    <p class="property_name">Lock - Unlock</p>
-                                    <ul>
-                                        <li class="clkb_btn"><i class="fa fa-lock"></i></li>
-                                        <li class="clkb_btn"><i class="fa fa-lock-open"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="property" id="reset_poweroff">
-                                    <p class="property_name">Reset - Power Off</p>
-                                    <ul>
-                                        <li class="clkb_btn"><i class="fa fa-cancel"></i></li>
-                                        <li class="clkb_btn"><i class="fa fa-power-off"></i></li>
-                                    </ul>
-                                </div>
-                           </div>
-                        </div>
+                    <div class="editing_tools">
+                        <ul>
+                            <li class="change_edit_image clkb_btn">
+                                <span><i class="fa fa-image"></i>Change</span>
+                            </li>
+                            <li class="crop_tool tool_link clkb_link active_link" id="#crop">
+                                <span><i class="fa fa-crop"></i>Crop</span>
+                            </li>
+                            <li class="rotate_tool tool_link clkb_link" id="#rotate">
+                                <span><i class="fa fa-rotate"></i>Rotate</span>
+                            </li>
+                            <li class="resize_tool tool_link clkb_link" id="#resize">
+                                <span><i class="fa fa-expand"></i>Resize</span>
+                            </li>
+                            <li class="filter_tool tool_link clkb_link" id="#filter">
+                                <span><i class="fa fa-magic"></i>Filter</span>
+                            </li>
+                            <li class="save_edit clkb_btn">
+                                <span><i class="fa fa-save"></i>Save</span>
+                            </li>
+                        </ul>
                     </div>
-
-                    <div class="resize tool" id="resize">
-                        <div class="properties_setting">
-                            <ul class="what_to_edit">
-                                <li class="clkb_btn"><i class="fa fa-expand"></i> Crop Area</li>
-                                <li class="clkb_btn"><i class="fa fa-image"></i> Original</li>
-                            </ul>
-                            <ul id="original_dimension">
-                                <li class="original_width">Original Width: <span></span> px</li>
-                                <li class="original_height">Original Height : <span></span> px</li>
-                            </ul>
-                            <ul id="crop_area_dimension">
-                                <li class="crop_area_width">Crop Area Width: <span></span> px</li>
-                                <li class="crop_area_height">Crop Area Height : <span></span> px</li>
-                            </ul>
-                            <div class="property_group">
-                                <div class="property" id="resize_width">
-                                    <p class="property_name">Width</p>
-                                    <div class="property_value_setter">
-                                        <span class="clkb_btn minuser"><i class="fa fa-minus"></i></span>
-                                        <input type="number" name="value" class="value" id="">
-                                        <span class="clkb_btn adder"><i class="fa fa-plus"></i></span>
+                    <div class="editing_tools_settings">
+                        <div class="crop tool" id="crop">
+                            <div class="properties_setting">
+                                <div class="property_group">
+                                    <div class="property" id="clear_crop">
+                                        <p class="property_name">Clear - Crop</p>
+                                        <ul>
+                                            <li class="clkb_btn"><i class="fa fa-eraser"></i></li>
+                                            <li class="clkb_btn"><i class="fa fa-crop"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="property" id="draw_drag">
+                                        <p class="property_name">Draw - Drag</p>
+                                        <ul>
+                                            <li class="clkb_btn"><i class="fa fa-plus"></i></li>
+                                            <li class="clkb_btn"><i class="fa fa-arrows-alt"></i></li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="property" id="resize_height">
-                                    <p class="property_name">Height</p>
-                                    <div class="property_value_setter">
-                                        <span class="clkb_btn minuser"><i class="fa fa-minus"></i></span>
-                                        <input type="number" name="value" class="value" id="">
-                                        <span class="clkb_btn adder"><i class="fa fa-plus"></i></span>
+                            <div class="property_group">
+                                    <div class="property" id="lock_unlock">
+                                        <p class="property_name">Lock - Unlock</p>
+                                        <ul>
+                                            <li class="clkb_btn"><i class="fa fa-lock"></i></li>
+                                            <li class="clkb_btn"><i class="fa fa-lock-open"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="property" id="reset_poweroff">
+                                        <p class="property_name">Reset - Power Off</p>
+                                        <ul>
+                                            <li class="clkb_btn"><i class="fa fa-cancel"></i></li>
+                                            <li class="clkb_btn"><i class="fa fa-power-off"></i></li>
+                                        </ul>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="resize tool" id="resize">
+                            <div class="properties_setting">
+                                <ul class="what_to_edit">
+                                    <li class="clkb_btn"><i class="fa fa-expand"></i> Crop Area</li>
+                                    <li class="clkb_btn"><i class="fa fa-image"></i> Original</li>
+                                </ul>
+                                <ul id="original_dimension">
+                                    <li class="original_width">Original Width: <span></span> px</li>
+                                    <li class="original_height">Original Height : <span></span> px</li>
+                                </ul>
+                                <ul id="crop_area_dimension">
+                                    <li class="crop_area_width">Crop Area Width: <span></span> px</li>
+                                    <li class="crop_area_height">Crop Area Height : <span></span> px</li>
+                                </ul>
+                                <div class="property_group">
+                                    <div class="property" id="resize_width">
+                                        <p class="property_name">Width</p>
+                                        <div class="property_value_setter">
+                                            <span class="clkb_btn minuser"><i class="fa fa-minus"></i></span>
+                                            <input type="number" name="value" class="value" id="">
+                                            <span class="clkb_btn adder"><i class="fa fa-plus"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="property" id="resize_height">
+                                        <p class="property_name">Height</p>
+                                        <div class="property_value_setter">
+                                            <span class="clkb_btn minuser"><i class="fa fa-minus"></i></span>
+                                            <input type="number" name="value" class="value" id="">
+                                            <span class="clkb_btn adder"><i class="fa fa-plus"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="aspect_ratio">
-                            <p class="check_box" id="maintain_aspect_ratio"></p>
-                            <p> Maintain Aspect Ratio</p>
-                        </div>
-                    </div>
-
-                    <div class="rotate tool" id="rotate">
-                        <div class="properties_setting">
-                            <div class="property_group">
-                                <div class="property" id="rotate_cw_acw">
-                                    <p class="property_name">Rotate</p>
-                                    <ul class="property_value_setter">
-                                        <li class="clkb_btn"><i class="fa fa-redo"></i></li>
-                                        <li class="clkb_btn"><i class="fa fa-undo"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="property" id="flip_x_y">
-                                    <p class="property_name">Flip</p>
-                                    <ul class="property_value_setter">
-                                        <li class="flip_horinzontal clkb_btn many_icons">
-                                            <i class="fa fa-image"></i>
-                                        </li>
-                                        <li class="flip_vertical clkb_btn many_icons">
-                                            <i class="fa fa-image"></i>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="aspect_ratio">
+                                <p class="check_box" id="maintain_aspect_ratio"></p>
+                                <p> Maintain Aspect Ratio</p>
                             </div>
-                           <div class="property_group">
-                                <div class="property" id="straighten">
-                                    <div class="property_name">Straighten</div>
-                                    <div class="deg_display">
-                                        <div class="deg_warning" id="rotate_deg_warning"> Can Only Accept 0 - 360</div>
-                                        <input type="text" name="" id="rotate_deg_display" minlength="1" maxlength="3"  value="0">
+                        </div>
+
+                        <div class="rotate tool" id="rotate">
+                            <div class="properties_setting">
+                                <div class="property_group">
+                                    <div class="property" id="rotate_cw_acw">
+                                        <p class="property_name">Rotate</p>
+                                        <ul class="property_value_setter">
+                                            <li class="clkb_btn"><i class="fa fa-redo"></i></li>
+                                            <li class="clkb_btn"><i class="fa fa-undo"></i></li>
+                                        </ul>
                                     </div>
-                                    <input type="range" min="0" max="360" name="rotate_slider" value="0" class="range_slider" id="straighten_slider">
+                                    <div class="property" id="flip_x_y">
+                                        <p class="property_name">Flip</p>
+                                        <ul class="property_value_setter">
+                                            <li class="flip_horinzontal clkb_btn many_icons">
+                                                <i class="fa fa-image"></i>
+                                            </li>
+                                            <li class="flip_vertical clkb_btn many_icons">
+                                                <i class="fa fa-image"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                           </div>
-                        </div>
-                    </div>
-
-                    <div class="filter tool scr scr-y" id="filter">
-                        <div class="properties_setting">
-                            <ul class="what_to_edit">
-                                <li class="clkb_btn"><i class="fa fa-expand"></i> Crop Area</li>
-                                <li class="clkb_btn"><i class="fa fa-image"></i> Original</li>
-                            </ul>
-                            <div class="clkb_btn" id="reset_filters">
-                                <p><i class="fa fa-cancel"></i></p>
-                                <p>Reset</p>
-                            </div>
-                            <ul class="filter_tools">
-                                <li class="ft_tool_link clkb_link active_link" id="##brightness">
-                                    <span><i class="fa fa-sun"></i>Brightness</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##contrast">
-                                    <span><i class="fa fa-adjust"></i>Contrast</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##grayscale">
-                                    <span><i class="fa fa-lightbulb"></i>Grayscale</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##saturation">
-                                    <span><i class="fa fa-temperature-high"></i>Saturation</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##blur">
-                                    <span><i class="fa fa-low-vision"></i>Blur</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##sepia">
-                                    <span><i class="fa fa-cloud"></i>Sepia</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##hue">
-                                    <span><i class="fa fa-eye-dropper"></i>Hue</span>
-                                </li>
-                                <li class="ft_tool_link clkb_link" id="##tint">
-                                    <span><i class="fa fa-tint"></i>Tint</span>
-                                </li>
-                            </ul>
                             <div class="property_group">
-                                <div class="property ft_tool brightness" id="brightness">
-                                    <input type="range" name="brightness" class="range_slider" id="brightness_slider">
-                                </div>
-                                <div class="property ft_tool contrast" id="contrast">
-                                    <input type="range" name="contrast" class="range_slider" id="contrast_slider">
-                                </div>
-                                <div class="property ft_tool grayscale" id="grayscale">
-                                    <input type="range" name="grayscale" class="range_slider" id="grayscale_slider">
-                                </div>
-                                <div class="property ft_tool saturation" id="saturation">
-                                    <input type="range" name="saturation" class="range_slider" id="saturation_slider">
-                                </div>
-                                <div class="property ft_tool blur" id="blur">
-                                    <input type="range" name="blur" class="range_slider" id="blur_slider">
-                                </div>
-                                <div class="property ft_tool sepia" id="sepia">
-                                    <input type="range" name="sepia" class="range_slider" id="sepia_slider">
-                                </div>
-                                <div class="property ft_tool hue" id="hue">
-                                    <input type="range" name="hue" class="range_slider" id="hue_slider">
-                                </div>
-                                <div class="property ft_tool tint" id="tint">
-                                    <input type="range" name="tint" class="range_slider" id="tint_slider">
-                                </div>
-                           </div>
+                                    <div class="property" id="straighten">
+                                        <div class="property_name">Straighten</div>
+                                        <div class="deg_display">
+                                            <div class="deg_warning" id="rotate_deg_warning"> Can Only Accept 0 - 360</div>
+                                            <input type="text" name="" id="rotate_deg_display" minlength="1" maxlength="3"  value="0">
+                                        </div>
+                                        <input type="range" min="0" max="360" name="rotate_slider" value="0" class="range_slider" id="straighten_slider">
+                                    </div>
+                            </div>
+                            </div>
                         </div>
-                    </div>
 
+                        <div class="filter tool" id="filter">
+                            <div class="properties_setting">
+                                <ul class="what_to_edit">
+                                    <li class="clkb_btn"><i class="fa fa-expand"></i> Crop Area</li>
+                                    <li class="clkb_btn"><i class="fa fa-image"></i> Original</li>
+                                </ul>
+                                <div class="clkb_btn" id="reset_filters">
+                                    <p><i class="fa fa-cancel"></i></p>
+                                    <p>Reset</p>
+                                </div>
+                                <ul class="filter_tools scr scr-x">
+                                    <li class="ft_tool_link clkb_link active_link" id="##brightness">
+                                        <span><i class="fa fa-sun"></i>Brightness</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##contrast">
+                                        <span><i class="fa fa-adjust"></i>Contrast</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##grayscale">
+                                        <span><i class="fa fa-lightbulb"></i>Grayscale</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##saturation">
+                                        <span><i class="fa fa-temperature-high"></i>Saturation</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##blur">
+                                        <span><i class="fa fa-low-vision"></i>Blur</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##sepia">
+                                        <span><i class="fa fa-cloud"></i>Sepia</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##hue">
+                                        <span><i class="fa fa-eye-dropper"></i>Hue</span>
+                                    </li>
+                                    <li class="ft_tool_link clkb_link" id="##tint">
+                                        <span><i class="fa fa-tint"></i>Tint</span>
+                                    </li>
+                                </ul>
+                                <div class="property_group">
+                                    <div class="property ft_tool brightness" id="brightness">
+                                        <input type="range" name="brightness" class="range_slider" id="brightness_slider">
+                                    </div>
+                                    <div class="property ft_tool contrast" id="contrast">
+                                        <input type="range" name="contrast" class="range_slider" id="contrast_slider">
+                                    </div>
+                                    <div class="property ft_tool grayscale" id="grayscale">
+                                        <input type="range" name="grayscale" class="range_slider" id="grayscale_slider">
+                                    </div>
+                                    <div class="property ft_tool saturation" id="saturation">
+                                        <input type="range" name="saturation" class="range_slider" id="saturation_slider">
+                                    </div>
+                                    <div class="property ft_tool blur" id="blur">
+                                        <input type="range" name="blur" class="range_slider" id="blur_slider">
+                                    </div>
+                                    <div class="property ft_tool sepia" id="sepia">
+                                        <input type="range" name="sepia" class="range_slider" id="sepia_slider">
+                                    </div>
+                                    <div class="property ft_tool hue" id="hue">
+                                        <input type="range" name="hue" class="range_slider" id="hue_slider">
+                                    </div>
+                                    <div class="property ft_tool tint" id="tint">
+                                        <input type="range" name="tint" class="range_slider" id="tint_slider">
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+            <!-- IMAGE EDITOR ENDS HERE -->
 
             <!-- NFT GENERATOR STARTS HERE -->
-            <div class="nft_generator component m_c" state="closed">
+            <div class="nft_art_generator component m_c" state="closed">
                 <div class="component_opener">
                     <span><i class="fa fa-images"></i></span>
-                    <span class="component_header"><h4>NFT Generator</h4></span>
-                    <span class="remove_component close" id="##nft_generator"><i class="fa fa-power-off"></i></span>
+                    <span class="component_header"><h4>NFT Art Generator</h4></span>
+                    <span class="remove_component close" id="##nft_art_generator"><i class="fa fa-power-off"></i></span>
                 </div>
-                <div class="create_nft_collection">
+                <div class="create_nft_collection" state="opened">
                     <h3>Create NFT Collection</h3>
                     <form action="" method="post" aria-disabled="true">
                         <label for="collection_name">Collection Name</label>
@@ -401,108 +413,119 @@
                         <button type="submit">Next</button>
                     </form>
                 </div>
-                <div class="user_layers">
-                    <div class="instruction">
-                        <h4>Add (<i class="fa fa-plus"></i>) Or Drag and Drop Art Into a Desired Layer From Your PC</h4>
+                <div class="user_layers" state="closed">
+                    <div class="on_no_layers" state="opened">
+                        <p>YOU DON'T HAVE ANY LAYER</p>
+                        <div class="import_create">
+                            <div class="start_import_layer clkb_link">
+                                <span class="many_icons"><i class="fa fa-layer-group"></i></span>
+                                    Import Layers
+                            </div> 
+                            <div class="start_create_layer clkb_link">
+                                <span class="many_icons"><i class="fa fa-layer-group"></i></span>
+                                Create Layer
+                            </div>  
+                        </div>
                     </div>
-                    <div class="import_export">
-                        <div class="import_layers clkb_link" id="#on_import">
+
+                    <div class="art_generator_crud_tools" state="closed">
+                        <div class="art_generator_tools_opener clkb_link">
+                            <span class="many_icons"><i class="fa fa-layer-group"></i></span>
+                            Merge
+                        </div>
+                        <div class="create_layer clkb_btn">
+                            <span class="many_icons"><i class="fa fa-layer-group"></i></span>
+                            Create Layer
+                        </div>       
+                        <div class="layers_cnt_container"><span class="layers_cnt"></span></div>
+                        <div class="select_layer clkb_link">
+                            <span class="many_icons"><i class="fa fa-layer-group"></i></span>
+                            Select
+                        </div>
+                    </div>
+
+                    <div class="art_generator_tools">
+                        <div class="import_layer clkb_link" id="#on_import">
                             <span class="many_icons"><i class="fa fa-layer-group"></i></span>
                                 Import Layers
+                        </div>
+                        <div class="export_layer clkb_link" id="#on_export">
+                            <span class="many_icons"><i class="fa fa-layer-group"></i></span>
+                                Export Layers
                         </div>
                         <div class="generate_art clkb_link" id="#on_generate">
                             <span class="many_icons"><i class="fa fa-images"></i></span>
                                 Generate Art
                         </div>
-                        <div class="export_layers clkb_link" id="#on_export">
-                            <span class="many_icons"><i class="fa fa-layer-group"></i></span>
-                                Export Layers
-                        </div>
                     </div>
-                    <div class="edit_layers" id="edit_layers_has_layers">
-                        <p class="no_layer">YOU DON'T HAVE ANY LAYER</p>
-                        <div class="create_select component nft_edit_layers_c h_c" state="opened" id="create_select_has_layers">
-                            <div class="start_import clkb_link nft_edit_layers_c_l" id="##on_import">
-                                <span class="many_icons"><i class="fa fa-layer-group"></i></span>
-                                    Import Layers
-                            </div> 
-                            <div class="create_layer clkb_link nft_edit_layers_c_l" id="on_create">
-                                <span class="many_icons"><i class="fa fa-layer-group"></i></span>
-                                Create New Layer
-                            </div>       
-                            <div class="layers_cnt_container">Layers <em>[</em><span class="layers_cnt"></span><em>]</em></div>
-                            <div class="select_layer clkb_link nft_edit_layers_c_l" id="#on_select">
-                                <span class="many_icons"><i class="fa fa-layer-group"></i></span>
-                                Select Layer
-                            </div>
-                        </div>
-
-                        <div class="on_import component nft_edit_layers_c on_pop_up" state="closed">
-                            <div class="on_import_inner on_pop_up_inner">
-                                <ul class="on_import_header">
-                                    <li class="on_import_close clkb_link close" id="##on_import">
-                                        <i class="fa fa-times"></i>
-                                    </li>
-                                    <li>Import Layers</li>
-                                </ul>
-                                <form action="" method="">
-                                    <textarea type="text" name="import_json_layers" 
-                                        class="on_import_input scr scr-y" id="on_import_input" 
-                                        placeholder="only json objects allowed">
-                                    </textarea>
-                                    <button type="submit" class="clkb_btn">Add Layers</i></button>
-                                </form>
-                            </div> 
-                        </div>
-
-                        <div class="on_generate nft_edit_layers_c on_pop_up">
-                            <div class="on_generate_inner on_pop_up_inner">
-                                <ul class="on_generate_header">
-                                    <li class="on_generate_close clkb_link close" id="##on_generate">
-                                        <i class="fa fa-times"></i>
-                                    </li>
-                                    <li>Generate Art</li>
-                                </ul>
-                                <ul class="on_generate_options">
-                                    <li class="clkb_btn">Test A Combination</li>
-                                    <li class="clkb_btn">Generate Collection Size <em>[</em><span class="coll_size">100</span><em>]</em></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="on_create component nft_edit_layers_c" id="quick_mode" state="closed">
-                            <div class="on_create_inner">
-                                <ul class="on_create_header">
-                                    <li class="on_create_close clkb_link close" id="##on_create">
-                                        <i class="fa fa-times"></i>
-                                    </li>
-                                    <li>Create Layer</li>
-                                </ul>
-                                <form action="" method="">
-                                    <input type="text" name="create_new_layer" class="on_create_input" id="on_create_input" placeholder="Layer Name">
-                                    <button type="submit" class="clkb_btn">Add Layer</i></button>
-                                </form>
-                                <div class="on_create_expand clkb_link">
-                                    <i class="fa fa-expand"></i>
-                                </div> 
-                            </div> 
-                        </div>
-                        
-                        <div class="on_select component nft_edit_layers_c" state="closed">
-                            <div class="cancel_on_select clkb_link close" id="##on_select">
-                                <i class="fa fa-times"></i>
-                            </div> 
-                            <div class="select_all clkb_link">Select All</div>        
-                            <div class="unselect_all clkb_link">Unselect All</div>        
-                            <div class="seleted_layers">Selected <em>[</em><span class="selected_cnt">0</span><em>]</em></div>        
-                            <!-- <div class="delete_layers clkb_link"><i class="fa fa-trash-alt"></i></div>     -->
-                            <div class="del_layers clkb_link"><i class="fa fa-trash-alt"></i></div>    
+                    
+                    <div class="on_create" id="box_mode" state="closed">
+                        <div class="on_create_inner">
+                            <ul class="on_create_header">
+                                <li class="on_create_close clkb_link close" id="##on_create">
+                                    <i class="fa fa-times"></i>
+                                </li>
+                                <li>Create Layer</li>
+                            </ul>
+                            <form action="" method="">
+                                <input type="text" name="create_new_layer" class="on_create_input" id="on_create_input" placeholder="Layer Name">
+                                <button class="clkb_btn">Add Layer</i></button>
+                            </form>
                         </div>            
                     </div>
-                    <div class="build_test clkb_btn"><i class="fa fa-check"></i></div>
-                    <div class="layers scr scr-y" select_mode="relative"></div>
+
+                    <div class="on_select" state="closed">
+                        <div class="cancel_on_select clkb_link close" id="##on_select">
+                            <i class="fa fa-times"></i>
+                        </div> 
+                        <div class="select_all clkb_link">Select All</div>        
+                        <div class="unselect_all clkb_link">Unselect All</div>        
+                        <div class="seleted_layers">Selected : <span class="selected_cnt">0</span></div>        
+                        <div class="del_layers clkb_link"><i class="fa fa-trash-alt"></i></div>    
+                    </div> 
+                    
+                    <div class="on_import on_pop_up" state="closed">
+                        <div class="on_import_inner on_pop_up_inner">
+                            <ul class="on_import_header">
+                                <li class="on_import_close clkb_link close" id="##on_import">
+                                    <i class="fa fa-times"></i>
+                                </li>
+                                <li>Import Layers</li>
+                            </ul>
+                            <form action="" method="">
+                                <textarea type="text" name="import_json_layers" 
+                                    class="on_import_input scr scr-y" id="on_import_input">
+                                </textarea>
+                                <button type="submit" class="clkb_btn">Add Layers</i></button>
+                            </form>
+                        </div> 
+                    </div>
+
+                    <div class="on_generate on_pop_up">
+                        <div class="on_generate_inner on_pop_up_inner">
+                            <ul class="on_generate_header">
+                                <li class="on_generate_close clkb_link close" id="##on_generate">
+                                    <i class="fa fa-times"></i>
+                                </li>
+                                <li>Generate Art</li>
+                            </ul>
+                            <ul class="on_generate_options">
+                                <li class="clkb_btn">Test a Combination</li>
+                                <li class="clkb_btn">Generate Collection [ <span class="coll_size">100</span> ]</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="build_test_mode_indicator" state="closed">
+                        <li class="cancel_build_test clkb_link">
+                            <i class="fa fa-times"></i></li>
+                        <li>Test Mode</li>
+                        <li>Selected : &nbsp; <span class="selected_test_image_cnt">0</span></em></li>
+                    </ul>
+                    <div class="build_test clkb_btn" state="closed"><i class="fa fa-check"></i></div>
+                    
+                    <div class="layers scr scr-y" select_mode="relative" state=""closed></div>
+                    <div class="user_single_layer" state="closed"></div>
                 </div>
-                <div class="user_single_layer"></div> 
             </div>
             <!-- NFT GENERATOR ENDS HERE -->
         </section>
@@ -517,15 +540,24 @@
                 <div class="component_opener">
                     <span><i class="fa fa-tv"></i></span>
                     <span class="component_header">
-                        <h4>Preview</h4>
                         <ul class="generator_preview_frames">
+                            <li class="view_generated_test_art clkb_link">Preview</li>
                             <li class="view_generated_test_art clkb_link">Test Art</li>
                             <li class="view_generated_collection clkb_link">Collection</li>
                         </ul>
                     </span>
                     <span class="remove_component close" id="##generator_preview"><i class="fa  fa-times"></i></span>
                 </div>
-                <div class="test_art_preview_frame">
+                <div class="layer_image_preview_frame gen_preview">
+                    <canvas id="layer_image_canvas"></canvas>
+                    <ul class="layer_image_info">
+                        <li class="image_own_layer"></li>
+                        <li class="layer_image_id"></li>
+                        <li class="layer_image_name"></li>
+                        <li class="layer_image_dimension"></li>
+                    </ul>
+                </div>
+                <div class="test_art_preview_frame gen_preview">
                     <canvas id="test_art_canvas"></canvas>
                     <ul class="test_art_downloader">
                         <li class="test_art_dimension"></li>
@@ -533,7 +565,7 @@
                         <li class="test_art_download_btn clkb_btn">Download</li>
                     </ul>
                 </div>
-                <div class="collection_preview_frame">
+                <div class="collection_preview_frame gen_preview">
                     <canvas id="collection_image_generator_canvas"></canvas>
                     <div class="collection_frame_image_cover">
                         <img src="" alt="">

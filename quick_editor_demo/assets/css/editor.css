@@ -1,13 +1,11 @@
 .app .middle .editor{
-    position: relative;
+    position: absolute;
+    top: 5%; left: 0%;
     height: 90%; width: 100%;
     font-size: 14px;
     font-weight: bold;
 }
-.app .middle .editor 
-.right_tools_in_media_query{
-    display: none;
-}
+/* Editor Main Screens Starts Here */
 .app .middle .editor
 .image_frame{
     width: 100%; height: 60%;
@@ -27,13 +25,11 @@
 .image_frame .image_screen img{
     height: 100%; width: 100%;
 }
-
 .app .middle .editor 
-.filter_canvas_frame{
-    display: none;
-}
+.filter_canvas_frame{display: none;}
+/* Editor Main Screens Ends Here*/
 
-
+/* Image Switcher For Multiple Edit Mode Starts Here */
 .app .middle .editor .switch_images{
     position: absolute;
     top: 69%; left: 50%;
@@ -60,7 +56,10 @@
     justify-content: center;
     align-items: center;
 }
+/* Image Switcher For Multiple Edit Mode Ends Here */
 
+/* Editing Tools Starts Here */
+/* Editing Tools Links Starts Here */
 .app .middle .editor .editing_tools{
     height: 7%; width: 100%;
     margin-top: 1%;
@@ -86,29 +85,32 @@
     align-items: center;
     border: var(--blue_print);
 }
+/* Editing Tools Links Ends Here */
 
+/* Editing Tools Settings Starts Here */
 .app .middle .editor .editing_tools_settings{
+    position: relative;
     height: 33%; width: 100%;
 }
 .app .middle .editor .editing_tools_settings .tool{
     height: 100%; width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .app .middle .editor .editing_tools_settings 
-.resize{
-    display: none;
+.tool{
+    position: absolute; 
+    top: 0%; left: 100%;
+    transition: .5s ease-in-out;
+    opacity: 0; z-index: -3;
 }
 .app .middle .editor .editing_tools_settings 
-.rotate{
-    display: none;
-}
-.app .middle .editor .editing_tools_settings 
-.filter{
-    display: none;
-}
+.crop{left: 0%; opacity: 1; z-index: 5;}
+
 .app .middle .editor 
 .editing_tools_settings .tool .properties_setting{
+    position: relative;
     height: 100%; width: 100%;
     display: flex;
     flex-direction: column;
@@ -365,24 +367,30 @@ input{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 4;
 }
 
 .app .middle .editor 
 .editing_tools_settings .filter
 .properties_setting .filter_tools{
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 40%; width: 100%;
+    height: 50%; width: 100%;
     border-bottom: var(--line);
     font-size: 12px;
     color: var(--fcb);
+    overflow-x: scroll;
+}    
+.app .middle .editor .filter 
+.scr-x::-webkit-scrollbar{
+    background: transparent;
+    height: 5px;
 }
+.app .middle .editor .filter 
+.scr::-webkit-scrollbar-button{width:0%;}
 .app .middle .editor 
 .editing_tools_settings .filter
 .properties_setting .filter_tools li{
-    flex-basis: calc(100% / 8);
-    height: 50%; width: 100%;
+    flex-basis: 25%;
     margin: 0% 2%;
     cursor: pointer;
 }
@@ -394,10 +402,32 @@ input{
 .app .middle .editor 
 .editing_tools_settings .filter
 .properties_setting .property_group{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%; margin-top: 2%;
+    height: 100%; width: 100%;
+    margin-top: 2%;
+    overflow: hidden;
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .property_group
+.ft_tool{
+    position: absolute;
+    top: 0%; left: 100%;
+    width:90%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s ease-in-out;
+    opacity: 0; z-index: -3;
+}
+.app .middle .editor 
+.editing_tools_settings .filter
+.properties_setting .property_group
+#brightness{
+    left: 0%; opacity: 1; z-index: 3;
 }
 
 .app .middle .editor 
@@ -432,10 +462,6 @@ input{
 #tint .range_slider::-webkit-slider-thumb,
 #tint .range_slider::-webkit-slider-thumb:active
 {background-image: url(../images/icons/tint.png);}
-#contrast, #grayscale, #saturation, #blur,
-#sepia, #hue, #tint{
-    display: none;
-}
 /* FILTER STYLES ENDS HERE */
 
 /* MEDIA QUERY STYLES STARTS HERE */
