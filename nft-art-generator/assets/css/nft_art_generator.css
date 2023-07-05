@@ -1,0 +1,931 @@
+
+/* =====NFT GENERATOR STYLES STARTS HERE=====*/
+.app .middle .nft_art_generator{
+    position: absolute;
+    top: 2%; left: 2%;
+    height: 96%; width: 96%;
+    font-size: 16px;
+    overflow: hidden;
+    transition: .5 ease-in-out;
+}
+.app .middle .component_opener{
+    height: 5% !important;
+}
+.app .middle .component_opener .close{
+    display: none;
+}
+
+/* CREATE COLLECTION FORM STYLES STARTS HERE*/
+.app .middle .create_nft_collection{
+    width: 90%; height: 100%;
+    margin: 1% auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.app .middle .create_nft_collection
+form{
+    width: 70%; height: 70%;
+    margin: 20% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.app .middle .create_nft_collection
+form h3{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10%;
+}
+.app .middle .create_nft_collection
+form .input_container{
+    width: 100%;
+}
+.app .middle .create_nft_collection
+form input{
+    width: 100%; height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 3%;
+}
+
+.app .middle .create_nft_collection
+form textarea{width: 100%; height: 30px;}
+.app .middle .create_nft_collection
+form ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle .create_nft_collection
+form ul li{width: 47%; position: relative;}
+/* .app .middle .create_nft_collection
+form ul li label::after{
+    content: "px";
+    position: absolute;
+    bottom: 0%; right: 0%;
+    width: 30%; height: 25px;
+    text-align: center; 
+    border-radius: 5px;
+} */
+.app .middle .create_nft_collection
+form p{
+    width: 100%; 
+    border-radius: 5px;
+    font-size: 12px;
+    color: red;
+}
+.app .middle .create_nft_collection
+form ul li input{margin-top: 4%;}
+
+
+.app .middle .create_nft_collection
+form select{
+    width: 100%;height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.app .middle .create_nft_collection
+form button{
+    width: 50%;height: 35px;
+    margin: 2% auto;
+}
+/* CREATE COLLECTION FORM STYLES ENDS HERE*/
+
+/* USER LAYERS SETTINGS STYLES STARTS HERE*/
+.app .middle .user_layers{
+    position: relative;
+    height: 91%; width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 2% 1%; padding: 0%;
+    overflow: hidden;
+}
+
+/* on no layer styles starts here */
+.app .middle .user_layers 
+.on_no_layers{
+    position: absolute;
+    top: 0%; left: 0%;
+    width: 100%; height: 100%;
+    background: transparent;
+    padding-top: 20%;
+    background: var(--ebg);
+}
+.app .middle .user_layers 
+.on_no_layers p{
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 21px;
+}
+.app .middle .user_layers 
+.on_no_layers .import_create{
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.app .middle .user_layers 
+.on_no_layers .import_create 
+.clkb_link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px; width: 45%;
+    border: 1px dashed #000;
+}
+.app .middle .user_layers 
+.on_no_layers .import_create 
+.clkb_link:hover{
+    border-radius: 5px;
+}
+/* on no layer styles ends here */
+
+/* user layers tools link */
+.app .middle .user_layers 
+.art_generator_crud_tools{
+    position: absolute;
+    top: 0%; left: 0%;
+    height: 7%; width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--line);
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_layers 
+.art_generator_crud_tools 
+.art_generator_tools_opener .many_icons::before{
+    content: "\f7d9";
+    font-family: FontAwesome;
+}
+.app .middle .user_layers 
+.art_generator_crud_tools 
+.create_layer{
+    font-weight: normal;
+    height: 20px;
+}
+.app .middle .user_layers 
+.art_generator_crud_tools
+.select_layer .many_icons::before{
+    content: "\f00c"; font-family: FontAwesome; right: 27%;}
+/* user layers tools link ends here */
+
+/* art_generator_tools styles starts here */
+.app .middle .user_layers 
+.art_generator_tools{
+    position: absolute;
+    top: 7%; left: -40%;
+    width: 40%; height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: var(--tc3);
+    border-right: var(--line);
+    border-bottom: var(--line);
+    border-bottom-right-radius: 5px;
+    transition: .5s ease-in-out;
+    opacity: 0; z-index: -5;
+}
+.app .middle .user_layers 
+.art_generator_tools .import_layer .many_icons::before{
+    content: "\f309"; font-family: FontAwesome; right: 37%;}
+.app .middle .user_layers 
+.art_generator_tools .export_layer .many_icons::before{
+    content: "\f30c"; font-family: FontAwesome; right: 37%;}
+.app .middle .user_layers 
+.art_generator_tools .generate_art .many_icons::before{
+    content: "\f863"; font-family: FontAwesome; right: 25%; top: 22%;}
+/* art_generator_tools styles ends here */
+
+/* on create styles starts here*/
+/* box mode starts here*/
+.app .middle .user_layers 
+#box_mode{
+    position: absolute;
+    height: 100%; width: 100%;
+    font-size: var(--fsl);
+    opacity: 0; z-index: -3;
+    background: var(--ebg);
+}
+.app .middle .user_layers 
+#box_mode .on_create_inner{
+    position: relative;
+    width: 70%; height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: var(--line);
+    border-radius: 5px;
+    margin: 30% auto
+}
+.app .middle .user_layers 
+#box_mode .on_create_header{
+    width: 90%; height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: right;
+}
+.app .middle .user_layers 
+#box_mode .on_create_header li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app .middle .user_layers 
+#box_mode .on_create_header li:nth-child(1){width: 10%;}
+.app .middle .user_layers 
+#box_mode .on_create_header li:nth-child(2){width: 80%;}
+.app .middle .user_layers 
+#box_mode form{
+    width: 95%; height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+.app .middle .user_layers 
+#box_mode form input{
+    width: 70%; height: 25px;
+}
+.app .middle .user_layers 
+#box_mode form p{
+    color: red;
+    display: none;
+}
+.app .middle .user_layers 
+#box_mode form button{
+    width: 70%; height: 25px;
+}
+.app .middle .user_layers 
+#box_mode .on_create_expand{
+    position: absolute;
+    right: 3%; top: 2.5%;
+    width: 10%; height: 20px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* box mode ends here */
+
+/* quick mode starts here */
+.app .middle .user_layers 
+#quick_mode{
+    position: absolute;
+    width: 98%; height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0; z-index: -3;
+    border-bottom: var(--line);
+}
+.app .middle .user_layers 
+#quick_mode .on_create_inner{
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app .middle .user_layers 
+#quick_mode ul {width: 5%;}
+.app .middle .user_layers 
+#quick_mode ul li:nth-child(1){width: 100%;}
+.app .middle .user_layers 
+#quick_mode ul li:nth-child(2){display: none;}
+.app .middle .user_layers 
+#quick_mode .cancel_on_create{
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app .middle .user_layers 
+#quick_mode form{
+    width: 93%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+.app .middle .user_layers 
+#quick_mode form input{
+    width: 70%; height: 25px;
+}
+.app .middle .user_layers 
+#quick_mode form p{
+    position: absolute;
+    top: 100%; width: 65%;
+    background: var(--ebg);
+    color: red;
+    border-radius: 5px;
+    font-size: 14px;
+    padding-left: 3%;
+    display: none;
+}
+.app .middle .user_layers 
+#quick_mode form button{
+    width: 28%; height: 25px;
+}
+.app .middle .user_layers 
+#quick_mode .on_create_expand{
+    width: 5%; height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* quick mode ends here */
+/* on create styles ends here (quick mode)*/
+
+/* on select styles starts here */
+.app .middle .user_layers 
+.on_select{
+    position: absolute;
+    top: 0%; left: 0%;
+    width: 100%; height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--line);
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_layers 
+.on_select .unselect_all{
+    display: none;
+}
+/* on select styles ends here */
+
+/* on pop_up styles starts here */
+.app .middle .user_layers 
+.on_pop_up{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fsl);
+    background: var(--ebg);
+    border-radius: 5px;
+}
+.app .middle .user_layers
+.on_pop_up .on_pop_up_inner{
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1){
+    width: 90%; height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: right;
+    border-bottom: var(--line);
+}
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1) li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1) li:nth-child(1){width: 10%;}
+
+.app .middle .user_layers
+.on_pop_up ul:nth-child(1) li:nth-child(2){width: 80%;}
+/* on pop_up styles ends here */
+
+/* on import styles starts here */
+.app .middle .user_layers 
+.on_import{
+    height: 100%; width: 100%;
+    background: var(--ebg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_layers 
+.on_import form{
+    position: relative;
+    width: 95%; height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+.app .middle .user_layers 
+.on_import form .on_import_form_options{
+    position: absolute;
+    top: 2%; right: 2%;
+    width: 100%; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    display: none;
+}
+.app .middle .user_layers 
+.on_import form 
+.on_import_form_options li{
+    height: 30px;
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.app .middle .user_layers 
+.on_import form 
+.on_import_form_options .paste_btn{
+    justify-content: flex-end;
+}
+.app .middle .user_layers 
+.on_import form .import_instruction{
+    position: absolute;
+    top: 10%; left: 4%;
+    width: 92%; height: 66%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    background: var(--tc3);
+    color: var(--tphc);
+    border-radius: 5px;
+    /* display: none; */
+}
+.app .middle .user_layers 
+.on_import form .import_instruction
+ul{
+    width: 100%; height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle .user_layers 
+.on_import form .import_instruction
+ul li:nth-child(1){
+    width: 80%; height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app .middle .user_layers 
+.on_import form .import_instruction
+ul li:nth-child(2){
+    position: relative;
+    width: 20%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .middle .user_layers 
+.on_import form .import_instruction
+ul li:nth-child(2):active:before{
+    content: "Copied";
+    position: absolute;
+    right: 100%;
+    width: auto; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tc2);
+    font-size: 12px;
+}
+.app .middle .user_layers 
+.on_import form .import_instruction
+.code_box{
+    width: 100%; height: 50%;
+    margin-top: 2%;
+    background: var(--ebg);
+    padding-top: 5%;
+    padding-left: 5%;
+}
+.app .middle .user_layers 
+.on_import form .import_instruction
+.continue_to_import{
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 35%;
+}
+.app .middle .user_layers 
+.on_import form textarea{
+    width: 95%; height: 70%;
+    background: var(--fcw);
+    padding-top: 2%;
+    display: flex;
+    justify-content: flex-start;
+    background: ghostwhite;
+}
+.app .middle .user_layers 
+.on_import form button{
+    width: 70%; height: 25px;
+}
+/* on import styles ends here */
+
+/* on generate styles starts here */
+.app .middle .user_layers
+.on_generate{
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%; width: 80%;
+    font-size: 100% ;
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_layers
+.on_generate .on_generate_options{
+    width: 95%; height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+.app .middle .user_layers
+.on_generate .on_generate_options li{
+    width: 70%; height: 25px;
+}
+
+.app .middle .user_layers 
+.build_test_mode_indicator{
+    position: absolute;
+    top: 0%; left: 0%;
+    width: 100%; height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--line);
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_layers 
+.build_test_mode_indicator li{
+    flex-basis: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .middle .user_layers 
+.build_test_mode_indicator li:nth-child(1){
+    flex-basis: 5%;
+    text-align: center;
+}
+.app .middle .user_layers 
+.build_test_mode_indicator li:nth-child(2){
+    flex-basis: 65%;
+}
+.app .middle .user_layers 
+.build_test_mode_indicator li:nth-child(3){
+    flex-basis: 30%;
+}
+
+.app .middle .build_test{
+    position: absolute;
+    bottom: 10%; right: 7%;
+    width: 50px; height: 50px;
+    border-radius: 100%;
+    opacity: 0; z-index: -5;
+}
+/* on generate styles ends here */
+
+/* everthing multi-layers page starts here*/
+.app .middle .user_layers
+.layers{
+    position: absolute;
+    top: 10%; left: 0%;
+    height: 90%; width: 100%;
+    overflow-y: scroll;
+    font-size: var(--fsm);
+    opacity: 0; z-index: -5;
+}
+.app .middle .user_layers
+.layers .layer{
+    position: relative;
+}
+.app .middle .user_layers
+.layers .layer .l_properties{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 1% 0%;
+}
+.app .middle .user_layers
+.layers .layer .l_properties
+.layer_properties_hider{
+    position: absolute;
+    top: 0%; left: 0%;
+    height: 100%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: capitalize;
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_layers
+.layers .layer .l_properties
+.layer_properties_hider h4{
+    margin-left: 3%;
+}
+
+.app .middle .user_layers
+.layers .layer .l_properties 
+.l_name_container{
+    flex-basis: 60%;
+    display: flex;
+    justify-content: flex-start;
+    justify-content: space-evenly;    
+    align-items: center;
+}
+.app .middle .user_layers
+.layers .layer .l_properties 
+.l_name_container .l_name{
+    position: relative;
+    flex-basis: 90%;
+    margin-left: 5%;
+    text-transform: capitalize;
+}
+.app .middle .user_layers
+.layers .layer .l_properties 
+.l_name_container .l_name::after{
+    content: "\f107";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0%; right: 0%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app .middle .user_layers
+.layers .layer .l_properties .l_options{
+    flex-basis: 40%;
+    display: flex;
+    justify-content: space-evenly;    
+    align-items: center;
+}
+.re_position_btn{
+    position: absolute;
+    top: 300%; right: 5%;
+    height: 30px; width: 30px;
+    display: flex; justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background: var(--ebg);
+    color: var(--tc2);
+    z-index: 3; opacity: 1;
+}
+.app .middle .user_layers
+.layers .layer .l_properties .l_options
+.l_image_uploader{
+    display: none;
+}
+
+.app .middle .user_layers
+.layers .layer .l_properties 
+.check_box_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.app .middle .user_layers
+.layers .layer .l_properties 
+.check_box_container .check_box{
+    width: 9px; height: 10px;
+    /* display: none; */
+}
+
+.app .middle .user_layers 
+.layers .layer ul{
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    border-top: var(--line);
+    /* border-bottom: var(--line); */
+    padding-top: 2.5%;
+} 
+
+.app .middle .user_layers
+.layers .layer ul li{
+    height: 72px; width: 72px;
+    display: inline-block;
+    border-radius: 5%;
+    position: relative;
+    margin: 0px 1%;
+    background: var(--ebg);
+    backdrop-filter: var(--blur);
+}
+.app .middle .user_layers
+.layers .layer ul li .image_check_box{
+    position: absolute;
+    top: 5%; right: 5%;
+    width: 100%; height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    display: none;
+}
+.app .middle .user_layers
+.layers .layer ul li .image_check_box p{
+    width: 10px; height: 10px;
+}
+.app .middle .user_layers
+.layers .layer ul li img{
+    border-radius: 5%;
+    height: 100%; width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* everthing multi-layers page ends here*/
+
+/* everthing single layer page starts here*/
+.app .middle .user_single_layer{
+    position: absolute;
+    left: 0%; top: 0%;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    opacity: 0; z-index: -3;
+}
+.app .middle .user_single_layer .single_layer{
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.app .middle .user_single_layer .single_layer 
+.l_properties{
+    display: flex;
+    justify-content: space-between;
+    width: 100%; height: 5%;
+    /* border-top: var(--line); */
+    border-bottom: var(--line);
+}
+
+.app .middle .user_single_layer .single_layer 
+.l_properties div{
+    display: flex;
+    justify-content: space-between;
+}
+.app .middle .user_single_layer .single_layer 
+.l_properties .close_sl{
+    flex-basis: 5%;
+    justify-content: flex-start;
+    justify-content: space-evenly;    
+    align-items: center;
+}
+.app .middle .user_single_layer .single_layer 
+.l_properties .close_sl::before{
+    content: "\f104";
+    font-family: FontAwesome;
+    top: 35%; left: 35%;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_name_container{
+    flex-basis: 60%;
+    justify-content: flex-start;
+    justify-content: space-evenly;    
+    align-items: center;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_name_container .l_name{
+    position: relative;
+    flex-basis: 90%;
+    margin-left: 5%;
+    text-transform: capitalize;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_name_container .l_name::after{
+    content: "\f106";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0%; right: 0%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_options{
+    flex-basis: 40%;
+    display: flex;
+    justify-content: space-evenly;    
+    align-items: center;
+}
+.app .middle .l_properties .l_options
+.l_add_image::before{
+    top: -5%; right: -5%;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_options
+.l_image_uploader{
+    display: none;
+} 
+.app .middle .user_single_layer .single_layer
+.l_properties .l_on_rename{
+    width: 90%;
+    display: none;
+}
+.app .middle .user_single_layer .single_layer
+.l_properties .l_on_rename input{
+    border: none;
+    border-left: var(--line);
+    border-right: var(--line);
+}
+.app .middle .user_single_layer ul{
+    width: 100%; height: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+}
+.app .middle .user_single_layer ul li{
+    height: 100px; width: 100px;
+    margin: 12% auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    background-image: var(--glass);
+    backdrop-filter: var(--blur);
+    border: var(--line);
+}
+.app .middle .user_single_layer ul li img{
+    border-radius: 5%;
+    height: 100%; width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.app .middle .user_layers
+.layers .layer ul li .image_options,
+.app .middle .user_single_layer ul li .image_options{
+    position: absolute;
+    top: 0%;left: 0%;
+    width: 100%; height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: transparent;
+    overflow: hidden;
+    display: none;
+}
+
+.app .middle .user_layers
+.layers .layer ul li .image_options li,
+.app .middle .user_single_layer ul li .image_options li{
+    height: 100%; width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%; border: none;
+    background: transparent;
+}
+.app .middle .user_layers
+.layers .layer .l_properties 
+.l_on_rename,
+.app .middle .user_single_layer .l_properties 
+.l_on_rename{
+    width: 100%;
+    /* margin: 0% 2%; */
+    display: flex;
+    justify-content: space-evenly;
+    display: none;
+}
+.app .middle .user_layers
+.layers .layer .l_properties 
+.l_on_rename input,
+.app .middle .user_single_layer .l_properties 
+.l_on_rename input{
+    width: 75%;
+}
+/* everthing single layer page ends here*/
+
+/* =====NFT GENERATOR STYLES ENDS HERE=====*/

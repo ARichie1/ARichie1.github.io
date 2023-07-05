@@ -1,0 +1,114 @@
+:root{
+    /* MAIN BACKGROUND */
+    /* GLASS BACKGROUND */
+    --ebg: rgba(255, 255, 2555, 0.129);
+    --blur :  blur(30px);
+
+    /* THEME COLOR */
+    --tc1 : rgb(108, 169, 238) ;
+    --tc2 : rgb(239, 117, 206) ;
+    --tc3 : rgb(132, 81, 181) ;
+    /* PLACEHOLDER COLOR LIGHT TONE */
+    --tphc : saddlebrown;
+    /* CHILD ICON COLOR */
+    --tcic : gold;
+
+    /* FONT SIZE */
+    --fsl : 16px; --fsm : 13px; --fss : 12px;
+    --fsxl : 18px; --fsxs : 8px;
+
+    /* SHADOW */
+    --shadow : 0 0 0.5em #000a inset;
+    --shadow_out : 0 0 0.5em rgba(248, 247, 247, 0.667);
+
+    /* BORDER */
+    --line : 1px solid var(--tc1);
+
+}
+
+* {margin: 0;padding: 0;box-sizing: border-box;
+    user-select: none;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;width:100vw;
+    /* background: var(--bg); */
+    background: url(../images/bg_box.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(1px);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: FontAwesome; */
+    overflow: hidden;
+}
+
+li, span, .fa{list-style: none; cursor: pointer;}
+.many_icons{
+    position: relative;
+}
+
+/* =====APP STYLES START HERE===== */
+.app{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;
+    box-shadow: var(--shadow);
+    color: var(--tc1);
+    font-size: 80%;
+    overflow: hidden;
+}
+
+.app section{
+    position: relative;
+    background: transparent;
+    padding: .9%;
+}
+.app .left{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle{
+    width: 45%;
+    border-left: var(--line);
+    border-right: var(--line);
+}
+.app .right{
+    width: 40%; z-index: 5;
+    overflow: hidden;
+}
+
+
+/* COMPONENTS CONTROL STYLES STARTS HERE*/
+.app .component_opener{
+    display: flex;
+    flex-basis: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: var(--line);
+}
+.app .component_opener span{
+    flex-basis: 5%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.app .component_opener .component_header{
+    flex-basis: 80%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.app .component_opener .remove_component{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+/* COMPONENTS CONTROL STYLES ENDS HERE*/
+

@@ -1,0 +1,141 @@
+/* ===== APP LEFT =====*/
+
+/* HEADER STYLES STARTS HERE */
+.app .left header{
+    position: relative;
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: var(--line);
+}
+/* HEADER STYLES ENDS HERE */
+
+/* LEFT MINIMIZE BUTTON STYLES STARTS HERE */
+.minimize_space{
+    position: absolute;
+    top: 13%; right: 5%;
+    width: 20px; height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.minimize_space .maxi_btn{
+    display: none;
+}
+/* LEFT MINIMIZE BUTTON STYLES ENDS HERE */
+
+/* NAVIGATION PANEL STYLES STARTS HERE */
+.app .left nav{
+    height: 90%; width: 100%;
+}
+.app .left nav ul{
+    height: 100%; width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.app .left nav ul .main_link{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    width: 100%;
+    height: 10%;
+    font-size: 16px;
+}
+.link_icon{
+    position: absolute;
+    top: 0%; left:0%;
+    width: 25%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link_text{
+    position: absolute;
+    top: 0%; right:0%;
+    width: 70%; height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* .app .left .link_text a{
+    color: var(--tc1);
+    text-decoration: none;
+}
+.app .left .link_text a:hover{
+    color: var(--tc2);
+} */
+.app .left nav ul li{
+    position: relative;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+}
+.app .left header .link_icon{
+    width: 25%; height: 100%;
+    padding: 50% auto;
+    font-size: 130%;
+    font-weight: bolder;
+}
+.app .left header .link_text{
+    width: 70%;
+    font-size: 130%;
+    font-weight: bolder;
+}
+.app .left #generator_setting_up,
+.app .left #generator_power_off_link,
+.app .left #searcher_link{
+    display: none;
+}
+.app .left #generator_setting_up{
+    opacity: 0.5; cursor: default;
+}
+
+/* .app .left nav ul 
+.settings .day_mode_icon,
+.app .left nav ul 
+.settings .day_mode_text{
+    display: none;
+} */
+.app .left nav ul 
+.settings .dark_mode_icon,
+.app .left nav ul 
+.settings .dark_mode_text{
+    display: none;
+}
+/* NAVIGATION PANEL STYLES ENDS HERE */
+
+/* MEDIA QUERY STARTS HERE */
+@media screen and (max-width:900px){
+    .app section{
+        position: absolute;
+        top: 0%; height: 100%;
+        transition: 1s ease-in-out;
+    }
+    /* APP LEFT MQ STARTS HERE */
+    .app .left{
+        left: -70%; width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--tc3);
+        padding-top: 4%;
+    }
+    .minimize_space{display: none !important;}
+    .app .left header{height: 5% !important; 
+        display: none !important;}
+    .app .left nav{
+        margin-top: 12.5% !important;
+        border-top: var(--line)
+    }
+    .link_text{
+        width: 65% !important;
+        margin-right: 5% !important;
+    }
+    /* APP LEFT MQ ENDS HERE */
+}

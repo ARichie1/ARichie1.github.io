@@ -1,0 +1,149 @@
+/* PRE-STYLED CLASSES STYLES STARTS HERE */
+.many_icons::before{
+    content: "\f067";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 30%;right: 30%;
+    font-size: 50%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: var(--tcic);
+    opacity: 0.8;
+}
+
+/* STYLE CLICKABLE ELEMENTS STARTS HERE*/
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clkb_link a{
+    appearance: none;
+    text-decoration: none;
+    color: var(--tc1);
+}
+.clkb_link:hover,
+.clkb_link:active{
+    padding: .2%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.clkb_link:hover{color: var(--tc2);}
+.clkb_link:active{color: var(--tc3);}
+.clkb_link:hover a{color: var(--tc2);}
+.clkb_link:active a{color: var(--tc3);}
+
+.clkb_btn{
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5%;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--tc1);
+    border: var(--line);
+    font-weight: bold;
+    cursor: pointer;
+}
+.clkb_btn:hover{
+    background-color: var(--tc2);
+    color: var(--tc3);
+    border: none;
+}
+.clkb_btn:active,
+.clkb_btn:focus{
+    background: var(--tc3);
+    opacity: 0.5;
+}
+.clicked{
+    color: var(--tc1);
+    padding: .2%;
+    border-radius: 5px;
+}
+.active_link{
+    color: var(--tc1);
+    padding: .2%;
+}
+.active_btn{
+    background: var(--tc1);
+    color: var(--fcb);
+    padding: .2%;
+    border-radius: 5px;
+}
+/* STYLE CLICKABLE ELEMENTS ENDS HERE*/
+/* =====PRE-STYLED CLASSES STYLES ENDS HERE===== */
+
+/* =====FORM ELEMENTS CUSTOM STYLES STARTS HERE =====*/
+input[type="text"],
+input[type="number"],
+select, textarea{
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 5px;
+    background: transparent;
+    border: var(--line);
+    outline: none;
+    font-weight: bold;
+    color: var(--tphc);
+}
+select option{
+    appearance: none;
+    color: var(--tc1);
+    background: var(--tc3);
+    border-radius: 5px;
+    outline: none;
+}
+input[type="text"]::placeholder,
+input[type="number"]::placeholder{
+    padding-left: 1%;
+    font-weight: bold;
+    color: var(--tphc);
+    opacity: 0.3;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus, textarea:focus{
+    background: var(--ebg);
+    border: var(--line);
+    outline: none;
+}
+.check_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%; padding-left: 1.5%;
+    border: 1px solid var(--tc1);
+    border-radius: 1px;
+    font-size: 10px; font-weight: bold;
+    color: var(--tc2);
+}
+/* =====SCROLL STYLE STARTS HERE===== */
+.adjust_for_scr{
+    padding-right: 2%;
+}
+
+/* Vertical Scroll */
+.scr-y::-webkit-scrollbar{
+    background: transparent;
+    width: 10px;
+}
+
+/* Horizontal Scroll */
+.scr-x::-webkit-scrollbar{
+    background: transparent;
+    height: 10px;
+}
+
+.scr::-webkit-scrollbar-thumb{
+    background: var(--tc1);
+    border-radius: 5px;
+}
+.scr::-webkit-scrollbar-button{
+    background: transparent;
+    height: 0%;width:2%;border-radius: 5px;
+}
+/* =====SCROLL STYLE ENDS HERE===== */
