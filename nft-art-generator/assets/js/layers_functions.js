@@ -109,7 +109,6 @@ let delete_a_layer = (delete_btn, layer_object, layers_container,
 }
 // LAYER DELETE FUNCTIONALITY ENDS HERE
 
-
 // LAYER IMAGES FUNCTIONALITY STARTS HERE
 // Detect and Serve Uploads
 // l_image_uploader.addEventListener("change", image_adder)
@@ -136,7 +135,7 @@ let add_images = (uploader_files, layer_object, func_a, func_b) => {
 }
 
 let add_image_options = (
-    layers_container,
+    layers, layers_container,
     layer_images_containers, layer_object,
     collection_width, collection_height,
     func_a, func_b) => {
@@ -164,9 +163,8 @@ let add_image_options = (
             context.imageSmoothingQuality = "high"
             context.drawImage(image, 0, 0, collection_width, collection_height)
             layer_image_info_items[0].innerHTML =  layer_object.name
-            layer_image_info_items[1].innerHTML =  `Id : #${lic_id}`
-            layer_image_info_items[2].innerHTML =  lic_name
-            layer_image_info_items[3].innerHTML =  `${collection_width} x ${collection_height}`
+            layer_image_info_items[1].innerHTML =  lic_name
+            layer_image_info_items[2].innerHTML =  `${collection_width} x ${collection_height}`
 
             let clear_layer_image_preview = () => {
                 context.clearRect(0, 0, 
@@ -205,15 +203,16 @@ let add_image_options = (
             else CHECKED_IMAGES = helper.remove_element(CHECKED_IMAGES, lic_id)
             console.log(CHECKED_IMAGES);
 
-            document.querySelector(".selected_test_image_cnt").innerHTML = CHECKED_IMAGES.length
-            if (CHECKED_IMAGES.length > 1) {
-                helper.elements_state_swap("build_test", "opened")
-                helper.appear(document.querySelector(".build_test"))
+            document.querySelector(".selected_test_image_cnt").innerHTML 
+                = `${CHECKED_IMAGES.length} / ${helper.count_keys(layers)}`
+             
+            // Only show the build test button when an image 
+            // as been selected in each layer
+            if (CHECKED_IMAGES.length == helper.count_keys(layers)) {
+                helper.appear(document.querySelector(".build_test"), "7")
             }
-            else {
-                helper.elements_state_swap("build_test", "closed")
-                helper.disappear(document.querySelector(".build_test"))
-            }
+            else helper.disappear(document.querySelector(".build_test"), "-7")
+
             // If User Tries To Generate A Test Art
             if (layers_container.getAttribute("select_mode") == "absolute") {
                 layer_images_containers.forEach(a_lic => {

@@ -146,11 +146,11 @@
 .collection_preview_frame
 .collection_download_btn{
     position: absolute;
-    bottom: 5%; right: 5%;
+    top: 70%; right: 5%;
     height: 50px; width: 50px;
     border-radius: 100%;
 }
- /* Gen Previews Default Positions */
+/* Gen Previews Default Positions */
 .app .right .gen_preview{
     position: absolute; top: 5%;
     transition: .5s ease-in-out;

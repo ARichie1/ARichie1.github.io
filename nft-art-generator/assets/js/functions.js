@@ -502,6 +502,9 @@ this.reset_sliders = (default_values, sliders) => {
         try {
             let clip_text = await navigator.clipboard.readText();
             destination.innerHTML = clip_text
+            if (destination.hasAttribute("type")) {
+                destination.value = clip_text
+            }
         } catch (err) {
             console.error('Failed to paste content : ', err);
 

@@ -53,7 +53,6 @@ const middle_components = document.querySelectorAll(".m_c");
 const middle_components_links = document.querySelectorAll(".m_c_l");
 const middle_close_component_links = document.querySelectorAll(".middle .close")
 
-
 // Landing Page Elements Starts Here
 const landing_page = document.querySelector(".landing_page")
 const landing_page_btn = document.querySelector(".landing_page button")
@@ -70,8 +69,8 @@ const search_form_cancel = document.querySelector(".searchbar form .form_cancel"
 const search = document.querySelector(".searchbar #search")
 const search_btn = document.querySelector(".searchbar button")
 const search_small_screen_overlay = document.querySelector(".searchbar .search_small_screen_overlay")
-const search_left_opener = document.querySelector(".searchbar .search_small_screen_overlay .left_opener")
-const search_opener = document.querySelector(".searchbar .search_small_screen_overlay .search_opener")
+const search_left_opener_btn = document.querySelector(".searchbar .search_small_screen_overlay .left_opener")
+const search_opener_btn = document.querySelector(".searchbar .search_small_screen_overlay .search_opener")
 // Searchbar Elements Endss Here
 
 // ============================= //
@@ -83,6 +82,10 @@ const nft_art_generator_close = document.querySelector(".nft_art_generator .comp
 
 // Create NFT Collection Component Elements Starts Here
 const create_nft_collection = document.querySelector(".create_nft_collection")
+const collection_name_preview = document.querySelector(".collection_name_preview")
+const collection_size_preview = document.querySelector(".coll_size")
+const reset_form_values_btn = document.querySelector(".reset_cnc_form_values")
+const use_default_values_btn = document.querySelector(".use_default_values")
 const collection_name_input = document.querySelector("#collection_name")
 const collection_size_input = document.querySelector("#collection_size")
 const collection_width_input = document.querySelector("#output_width")
@@ -131,12 +134,14 @@ const on_import_code_box = document.querySelector(".on_import .import_instructio
 const on_import_continue_btn = document.querySelector(".on_import .import_instruction .continue_to_import")
 const on_import_options = document.querySelector(".on_import .on_import_form_options")
 const on_import_view_format_btn = document.querySelector(".on_import .view_import_format")
+const on_import_reset_btn = document.querySelector(".on_import .reset_import_form_btn")
 const on_import_paste_btn = document.querySelector(".on_import .paste_btn")
 const on_import_input  = document.querySelector(".on_import_input")
 const on_import_button  = document.querySelector(".on_import button")
 const export_layer_link  = document.querySelector(".export_layer")
 
 const generate_art_link  = document.querySelector(".generate_art")
+const disabled_generate_art_link  = document.querySelector(".disabled_generate_art_link")
 const on_generate_container = document.querySelector(".on_generate")
 const on_generate_close = document.querySelector(".on_generate .close")
 const on_generate_options = document.querySelectorAll(".on_generate_options li")
@@ -195,8 +200,7 @@ const notification_screen = document.querySelector(".notification_screen")
 
 
 // =====MEDIA QUERY ELEMENTS STARTS HERE===== //
-const right_tools_in_media_query_container = document.querySelector(".right_tools_in_media_query")
-const right_tools_in_media_query_opener = document.querySelector(".right_tools_in_media_query li")
+const show_right_in_media_query_btn = document.querySelector(".show_right_in_media_query_btn")
 // =====MEDIA QUERY ELEMENTS ENDS HERE===== //
 
 // =====DESIGN LOGIC STARTS HERE===== //
@@ -230,7 +234,7 @@ searcher_link.addEventListener("click", () => {
 
 if (WINDOW_WIDTH <= SMALL_SCREEN) {
     // Search Elements Functionalities
-    search_opener.addEventListener("click", () => {
+    search_opener_btn.addEventListener("click", () => {
         helper.disappear(search_small_screen_overlay, -5)
         helper.unhide(search_form, "flex")
         helper.unhide(search_form_cancel, "flex")
@@ -242,7 +246,7 @@ if (WINDOW_WIDTH <= SMALL_SCREEN) {
     search_btn.addEventListener("click", (e) => {
         e.preventDefault()
     })
-    search_left_opener.addEventListener("click", () => {
+    search_left_opener_btn.addEventListener("click", () => {
         helper.toggle_many_style_for_one(app_left, [
             ["left", "0%", "-70%"],
             ["z-index", "4", "-4"]
@@ -252,7 +256,7 @@ if (WINDOW_WIDTH <= SMALL_SCREEN) {
     // Elements That Closes Left Menu
     helper.many_actions("click", 
     [app_right, main_links, landing_page, nft_art_generator, 
-        search_opener], 
+        search_opener_btn], 
     () => {
         helper.style_many_for_one(app_left, [
             ["left", "-70%"],
@@ -283,16 +287,13 @@ helper.many_actions("click", [landing_page_btn, nft_art_generator_link], () => {
 theme_and_credits_link.addEventListener("click", () => {
     helper.appear(theme_and_credits_container, "8")
 })
-// theme_change_btn.addEventListener("click", () => {
-//     helper.elements_state_swap("theme_and_credits", "opened")
-// })
 theme_and_credits_close_btn.addEventListener("click", () => {
     helper.disappear(theme_and_credits_container, "-8")
 })
 // Open Theme Setting and Credits Ends Here
 
 // =====Toggle middle to left starts here===== //
-right_tools_in_media_query_opener.onclick = () => {
+show_right_in_media_query_btn.onclick = () => {
     helper.toggle_style_many([
         {name : app_middle,
             props: [["opacity", "0.5", "1"]]},
@@ -302,6 +303,7 @@ right_tools_in_media_query_opener.onclick = () => {
         {name : search_small_screen_overlay,
             props: [["display", "none", "flex"]]},
     ])
+    show_right_in_media_query_btn.style.zIndex = "8"
 }
 // =====Toggle middle to left ends here=====//
 
@@ -309,6 +311,20 @@ right_tools_in_media_query_opener.onclick = () => {
 let collection_name = "no_name", collection_size = 10,
     collection_width = 500, collection_height = 500, collection_format = "png"
 
+// Clear The Inputs
+reset_form_values_btn.addEventListener("click", () => {
+    collection_name_input.value = ""
+    collection_size_input.value = ""
+    collection_width_input.value = ""
+    collection_height_input.value = ""
+})
+// Fill The Inputs With Default Values
+use_default_values_btn.addEventListener("click", () => {
+    collection_name_input.value = "My New Arts"
+    collection_size_input.value = 20
+    collection_width_input.value = 500
+    collection_height_input.value = 500
+})
 // Get Collection Details
 create_nft_collection_button.addEventListener('click', (e) => {
     e.preventDefault()
@@ -328,7 +344,9 @@ create_nft_collection_button.addEventListener('click', (e) => {
     // else continue with collection creation
     else{
         collection_name = collection_name_input.value
+        collection_name_preview.innerHTML = collection_name
         collection_size = parseInt(collection_size_input.value)
+        collection_size_preview.innerHTML = ` [${collection_size}]`
         collection_width = parseInt(collection_width_input.value)
         collection_height = parseInt(collection_height_input.value)
         collection_format = collection_output_format_input.value
@@ -456,7 +474,7 @@ let fetch_and_activate_dom_layers = (() => {
             // add_image_options(
             //     layers_container, layer_images_containers, layer_obj, 
             //     500, 500, fetch_and_activate_dom_layers)
-            add_image_options(
+            add_image_options(LAYERS,
                 layers_container, layer_images_containers, layer_obj, 
                 collection_width, collection_height,
                 fetch_and_activate_dom_layers)
@@ -470,6 +488,8 @@ let fetch_and_activate_dom_layers = (() => {
                     switch_user_layers_component()
                     
                     helper.appear(l_properties_hider)
+                    // helper.elements_state_swap("build_test", "opened")
+                    // helper.appear(build_test_btn, "7")
                 })
 
             // Unselect Images and Exit Generating Test Art Mode
@@ -481,8 +501,8 @@ let fetch_and_activate_dom_layers = (() => {
                     switch_user_layers_component()
                     
                     helper.disappear(l_properties_hider)
-                    helper.elements_state_swap("build_test", "closed")
-                    helper.disappear(build_test_btn)
+                    // helper.elements_state_swap("build_test", "closed")
+                    helper.disappear(build_test_btn, "-7")
                 })
         // LAYER IMAGES FUNCTIONALITY ENDS HERE
     })
@@ -586,8 +606,32 @@ let layers_counter = (() => {
         switch_user_layers_component()
         on_create_container.id = "box_mode"
     }else{
-        helper.unhide(searcher_link, "flex")
-        helper.disappear(right_tools_in_media_query_container, "-8")
+        if (WINDOW_WIDTH <= 900) helper.appear(search_opener_btn, "2")
+        else helper.unhide(searcher_link, "flex")
+      
+        // detect if the user can generate art
+        let generate_state;
+        // check if each avalible layer has at least one image
+        for (const layer_key in LAYERS) {
+            if (Object.hasOwnProperty.call(LAYERS, layer_key)) {
+                const lyer = LAYERS[layer_key];
+                let layer_images_cnt = helper.count_keys(lyer.images)
+                if (layer_images_cnt > 0) generate_state = true
+                else if (layer_images_cnt == 0) {
+                    generate_state = false
+                    return
+                }
+            }
+        }
+        // if layers are more than one and each layers has at least
+        // one image then enable the generate button else disable the button
+        if (helper.count_keys(LAYERS) > 1 && generate_state) {
+            helper.hide(disabled_generate_art_link)
+            helper.unhide(generate_art_link, "flex")
+        }else{
+            helper.hide(generate_art_link)
+            helper.unhide(disabled_generate_art_link, "flex")
+        }
     }
 });
 
@@ -724,11 +768,16 @@ helper.many_actions("click",
     [on_import_copy_btn, on_import_continue_btn], () => {
     helper.disappear(on_import_instruction)
     helper.unhide(on_import_options, "flex")
+    helper.appear(on_import_button, "2")
 })
 
 on_import_view_format_btn.addEventListener("click", () => {
     helper.appear(on_import_instruction)
     helper.hide(on_import_options)
+    helper.disappear(on_import_button, "-2")
+})
+on_import_reset_btn.addEventListener("click", () => {
+    on_import_input.value = ""
 })
 
 // import the layers in the import conponent text area
@@ -759,7 +808,7 @@ on_import_button.addEventListener("click", (e) => {
         user_layers_current_component = ["art_generator_crud_tools", "layers"]
         switch_user_layers_component()
 
-        helper.appear(right_tools_in_media_query_container, "8")
+        helper.appear(show_right_in_media_query_btn, "8")
 
         on_create_container.id = "quick_mode"
         on_import_input.value = ""
@@ -802,7 +851,7 @@ on_create_button.addEventListener("click", (e) => {
         user_layers_current_component = ["art_generator_crud_tools", "layers"]
         switch_user_layers_component()
 
-        helper.appear(right_tools_in_media_query_container, "8")
+        helper.appear(show_right_in_media_query_btn, "8")
 
         on_create_input.value = ""
         helper.hide(on_create_error_container)
@@ -833,6 +882,14 @@ generate_art_link.addEventListener('click', () => {
 
     helper.disappear(art_generator_tools_container)
     art_generator_tools_container.style.left = "-40%"
+})
+disabled_generate_art_link.addEventListener('click', () => {
+    let msg = "Add at least two(2) layers and one(1) image to each layer"
+    let btns = [{text: "Ok", class:"notification_close n_clear",
+            id:"##" + notification_screen.className}]
+    helper.notification_box(nft_art_generator, notification_screen,
+        {type: "alert !!!", msg, btns}
+    )
 })
 on_generate_close.addEventListener('click', () => {
     close_user_layers_component("flex")
@@ -867,7 +924,7 @@ build_test_btn.addEventListener("click", () => {
     
     // Hide Test Mode Elements
     cancel_build_test_btn.click()
-    helper.hide(build_test_btn)
+    helper.disappear(build_test_btn, "-7")
 
     // Display The Test Art Preview and Image Info
     // test_art_downloader_items[0].innerHTML = `500 x 500`
@@ -876,7 +933,7 @@ build_test_btn.addEventListener("click", () => {
     test_art_downloader_items[1].innerHTML = `test_art.${collection_format}`
     generator_preview_frames_links[1].click()
     if (WINDOW_WIDTH <= 900) {
-        right_tools_in_media_query_opener.click()
+        show_right_in_media_query_btn.click()
     }
 })
 // Generate a Test Art Ends Here
@@ -919,7 +976,7 @@ on_generate_options[1].addEventListener("click", (e) => {
     // Display The Collection Preview
     generator_preview_frames_links[2].click()
     if (WINDOW_WIDTH <= 900) {
-        right_tools_in_media_query_opener.click()
+        show_right_in_media_query_btn.click()
     }
     
     // Display Image In The Preview Box Onclick
@@ -1008,7 +1065,10 @@ let shutdown_nft_art_generator = () => {
     helper.unhide(nft_art_generator_link, "flex")
     helper.hide_many([nft_art_generator_setting_up, nft_art_generator_power_off_link])
     
-    helper.disappear(right_tools_in_media_query_container, "-8")
+    helper.disappear(show_right_in_media_query_btn, "-8")
+    
+    helper.hide(searcher_link)
+    helper.disappear(search_opener_btn, "-2")
     
     helper.elements_state_swap("nft_art_generator", "closed")
     helper.elements_state_swap("landing_page", "opened")

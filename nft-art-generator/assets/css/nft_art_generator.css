@@ -11,6 +11,12 @@
 .app .middle .component_opener{
     height: 5% !important;
 }
+.app .middle .nft_art_generator 
+.component_opener .component_header span,
+.app .middle .nft_art_generator 
+.component_opener .component_header h5{
+    margin-left: 2%;
+}
 .app .middle .component_opener .close{
     display: none;
 }
@@ -26,7 +32,7 @@
 .app .middle .create_nft_collection
 form{
     width: 70%; height: 70%;
-    margin: 20% auto;
+    margin: 10% auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -37,6 +43,18 @@ form h3{
     width: 100%;
     text-align: center;
     margin-bottom: 10%;
+}
+.app .middle .create_nft_collection
+form .manage_cnc_values{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle .create_nft_collection
+form .manage_cnc_values h5{
+    height: 30px;
+    padding: 2%;
 }
 .app .middle .create_nft_collection
 form .input_container{
@@ -203,7 +221,18 @@ form button{
 .art_generator_tools .export_layer .many_icons::before{
     content: "\f30c"; font-family: FontAwesome; right: 37%;}
 .app .middle .user_layers 
-.art_generator_tools .generate_art .many_icons::before{
+.art_generator_tools .generate_art{
+    display: none;
+}   
+.app .middle .user_layers 
+.art_generator_tools .disabled_generate_art_link{
+    opacity: 0.3; cursor: auto;
+}
+.app .middle .user_layers 
+.art_generator_tools .generate_art .many_icons::before,
+.app .middle .user_layers 
+.art_generator_tools 
+.disabled_generate_art_link .many_icons::before{
     content: "\f863"; font-family: FontAwesome; right: 25%; top: 22%;}
 /* art_generator_tools styles ends here */
 
@@ -461,6 +490,11 @@ form button{
 }
 .app .middle .user_layers 
 .on_import form 
+.on_import_form_options .reset_import_form_btn{
+    justify-content: center;
+}
+.app .middle .user_layers 
+.on_import form 
 .on_import_form_options .paste_btn{
     justify-content: flex-end;
 }
@@ -545,6 +579,7 @@ ul li:nth-child(2):active:before{
 .app .middle .user_layers 
 .on_import form button{
     width: 70%; height: 25px;
+    opacity: 0; z-index: -2;
 }
 /* on import styles ends here */
 
@@ -568,7 +603,11 @@ ul li:nth-child(2):active:before{
 }
 .app .middle .user_layers
 .on_generate .on_generate_options li{
-    width: 70%; height: 25px;
+    width: auto; height: 30px;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .app .middle .user_layers 
