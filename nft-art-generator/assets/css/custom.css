@@ -102,7 +102,7 @@ input[type="number"]::placeholder{
     padding-left: 1%;
     font-weight: bold;
     color: var(--tphc);
-    opacity: 0.3;
+    opacity: 0.4;
 }
 input[type="text"]:focus,
 input[type="number"]:focus,

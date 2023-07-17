@@ -189,7 +189,7 @@ form button{
 .art_generator_crud_tools 
 .create_layer{
     font-weight: normal;
-    height: 20px;
+    height: 30px;
 }
 .app .middle .user_layers 
 .art_generator_crud_tools
@@ -211,7 +211,7 @@ form button{
     border-right: var(--line);
     border-bottom: var(--line);
     border-bottom-right-radius: 5px;
-    transition: .5s ease-in-out;
+    transition: .4s ease;
     opacity: 0; z-index: -5;
 }
 .app .middle .user_layers 
@@ -456,7 +456,7 @@ form button{
 .app .middle .user_layers 
 .on_import form{
     position: relative;
-    width: 95%; height: 90%;
+    width: 95%; height: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -528,6 +528,7 @@ ul li:nth-child(1){
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    text-align: left;
 }
 .app .middle .user_layers 
 .on_import form .import_instruction
@@ -781,16 +782,21 @@ ul li:nth-child(2):active:before{
 .app .middle .user_layers
 .layers .layer ul li .image_check_box{
     position: absolute;
-    top: 5%; right: 5%;
-    width: 100%; height: 10%;
+    top: 0%; right: 0%;
+    width: 100%; height: 100%;
+    border: var(--line);
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    border-radius: 5px;
     display: none;
 }
 .app .middle .user_layers
 .layers .layer ul li .image_check_box p{
-    width: 10px; height: 10px;
+    width: 100%; height: 100%;
+    border-radius: inherit;
+    border: none;
+    font-size: 30px;
 }
 .app .middle .user_layers
 .layers .layer ul li img{
@@ -945,8 +951,11 @@ ul li:nth-child(2):active:before{
     justify-content: center;
     align-items: center;
     margin: 0%; border: none;
-    background: transparent;
+    background: var(--ebg);
+    background: var(--tc3);
+    border-radius: 3px;
 }
+
 .app .middle .user_layers
 .layers .layer .l_properties 
 .l_on_rename,

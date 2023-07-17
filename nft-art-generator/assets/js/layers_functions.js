@@ -184,7 +184,9 @@ let add_image_options = (
             }
             // Edit Layer Image
             image_options[0].addEventListener("click", () => {
-                // image_options_container.style.display = "none"
+                if(window.innerWidth <= 900){
+                    document.querySelector(".show_right_in_media_query_btn").click()
+                }
             })
             // Delete Layer Image
             image_options[1].addEventListener("click", () => {
@@ -248,6 +250,9 @@ let select_test_images = (image_check_box_opener,
             layers_container.setAttribute("select_mode", "absolute")
             let image_check_box_container = lic.querySelector(".image_check_box")
             helper.unhide(image_check_box_container, "flex")
+
+            let image_options_container = lic.querySelector(".image_options")
+            helper.hide(image_options_container);
         })
         func()
     })

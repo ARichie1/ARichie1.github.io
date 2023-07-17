@@ -62,13 +62,7 @@
     justify-content: space-between;
     align-items: center;
 }
-/* .app .left .link_text a{
-    color: var(--tc1);
-    text-decoration: none;
-}
-.app .left .link_text a:hover{
-    color: var(--tc2);
-} */
+
 .app .left nav ul li{
     position: relative;
     align-items: center;
@@ -94,13 +88,6 @@
 .app .left #generator_setting_up{
     opacity: 0.5; cursor: default;
 }
-
-/* .app .left nav ul 
-.settings .day_mode_icon,
-.app .left nav ul 
-.settings .day_mode_text{
-    display: none;
-} */
 .app .left nav ul 
 .settings .dark_mode_icon,
 .app .left nav ul 
@@ -114,7 +101,7 @@
     .app section{
         position: absolute;
         top: 0%; height: 100%;
-        transition: 1s ease-in-out;
+        transition: .3s ease;
     }
     /* APP LEFT MQ STARTS HERE */
     .app .left{

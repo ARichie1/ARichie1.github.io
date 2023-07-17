@@ -9,7 +9,7 @@
     --tc2 : rgb(239, 117, 206) ;
     --tc3 : rgb(132, 81, 181) ;
     /* PLACEHOLDER COLOR LIGHT TONE */
-    --tphc : saddlebrown;
+    --tphc : rgb(224, 144, 87);
     /* CHILD ICON COLOR */
     --tcic : gold;
 
@@ -34,14 +34,12 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;width:100vw;
-    /* background: var(--bg); */
     background: url(../images/bg_box.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(1px);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* font-family: FontAwesome; */
     overflow: hidden;
 }
 

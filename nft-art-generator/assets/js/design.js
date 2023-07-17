@@ -37,6 +37,7 @@ const maxi_space_btn = document.querySelector(".minimize_space .maxi_btn")
 
 const main_nav = document.querySelector(".main_nav")
 const main_links = document.querySelectorAll(".main_link")
+const home_link = document.querySelector(".home")
 const nft_art_generator_link = document.querySelector(".generator_link")
 const nft_art_generator_setting_up = document.querySelector("#generator_setting_up")
 const nft_art_generator_power_off_link = document.querySelector("#generator_power_off_link")
@@ -304,6 +305,13 @@ show_right_in_media_query_btn.onclick = () => {
             props: [["display", "none", "flex"]]},
     ])
     show_right_in_media_query_btn.style.zIndex = "8"
+
+    // Toggle Icon
+    let srimq_btn_svg_container = show_right_in_media_query_btn
+        .querySelector("span")
+    helper.toggleIcon(srimq_btn_svg_container,
+         srimq_btn_svg_container.innerHTML,
+          "fa fa-desktop", "fa fa-angle-left")
 }
 // =====Toggle middle to left ends here=====//
 
@@ -361,7 +369,9 @@ create_nft_collection_button.addEventListener('click', (e) => {
         helper.hide_many([nft_art_generator_setting_up, nft_art_generator_link])
         
         // app middle tools to show/hide
+        create_nft_collection.setAttribute("state", "closed")
         helper.hide(create_nft_collection)
+        user_layers.setAttribute("state", "opened")
         helper.unhide(user_layers, "block")
         helper.unhide(nft_art_generator_close, "flex")
         // app right tools to show/hide
@@ -804,6 +814,7 @@ on_import_button.addEventListener("click", (e) => {
             nl.add_to_layers()
             fetch_and_activate_dom_layers()
         });
+
         user_layers_prev_components.push("on_import")
         user_layers_current_component = ["art_generator_crud_tools", "layers"]
         switch_user_layers_component()
@@ -1055,7 +1066,9 @@ let shutdown_nft_art_generator = () => {
         fetch_and_activate_dom_layers
         get_layers();
     }, 5000);
-
+    
+    user_layers.setAttribute("state", "closed")
+    create_nft_collection.setAttribute("state", "opened")
     helper.hide_many([test_art_preview_container, 
         collection_preview_container,
         user_layers, nft_art_generator_close])
@@ -1069,6 +1082,12 @@ let shutdown_nft_art_generator = () => {
     
     helper.hide(searcher_link)
     helper.disappear(search_opener_btn, "-2")
+
+    // This ensures that the import and create form closes
+    helper.elements_state_swap(["on_import", "on_create"], "closed")
+    
+    // Reset the create collection form values
+    reset_form_values_btn.click()
     
     helper.elements_state_swap("nft_art_generator", "closed")
     helper.elements_state_swap("landing_page", "opened")
@@ -1091,6 +1110,20 @@ helper.many_actions("click",
         })
     }
 })
+
+home_link.addEventListener("click", () => {
+    if(user_layers.getAttribute("state") == "closed"){
+        helper.elements_state_swap("nft_art_generator", "closed")
+        helper.elements_state_swap("landing_page", "opened")
+
+        helper.unhide(nft_art_generator_link, "flex")
+        helper.hide_many([nft_art_generator_setting_up, nft_art_generator_power_off_link])
+    }
+    else{
+        nft_art_generator_power_off_link.click()
+    }
+})
+
 // =====NFT ART GENERATOR FUNCTIONALITIES ENDS HERE===== //
 // =====MIDDLE SIDE ENDS HERE=====//
 
