@@ -128,23 +128,28 @@
     position: absolute;
     top: 2%; left: 2%;
     height: 96%; width: 96%;
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    padding: 10% auto;
+    padding-top: 20%;
     font-size: 16px;
     overflow: hidden;
     transition: .1 ease-in-out;
 }
 .app .middle .landing_page h3{
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 60px;
+}
+.app .middle .landing_page h4{
+    text-align: center;
+    font-size: 23px;
+    line-height: 40px;
+    margin: 10% 2%;
 }
 .app .middle .landing_page button{
     height:40px; width: auto;
     font-size: 16px;
     overflow: hidden;
+    margin: 15% auto;
     transition: .1 ease-in-out;
 }
 /* LANDING PAGE STYLES ENDS HERE */
