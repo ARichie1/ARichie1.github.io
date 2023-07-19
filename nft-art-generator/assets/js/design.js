@@ -188,6 +188,8 @@ const test_art_downloader_items = document.querySelectorAll(".test_art_downloade
 const collection_preview_container = document.querySelector(".collection_preview_frame")
 const collection_image_generator_canvas = document.querySelector("#collection_image_generator_canvas")
 const colletion_images_preview = document.querySelector(".collection_frame_image_cover img")
+const show_prev_col_image_btn = document.querySelector(".show_prev_col_image")
+const show_next_col_image_btn = document.querySelector(".show_next_col_image")
 const generated_arts_container = document.querySelector("#generated_arts")
 const collection_download_btn = document.querySelector(".collection_download_btn")
 // =====APP RIGHT ENDS HERE===== //
@@ -790,29 +792,38 @@ on_import_reset_btn.addEventListener("click", () => {
     on_import_input.value = ""
 })
 
-// import the layers in the import conponent text area
+// import the layers in the import component text area
 on_import_button.addEventListener("click", (e) => {
     e.preventDefault()
 
-    // Check if user entered a valid json or doesn't enter anything
-    if (helper.is_valid_json(on_import_input.value) == false) {
-        console.log("enter valid json man");
-        let msg = "Please Insert a Valid JSON or Use The Format Above"
+    let invalid_layer_names = [
+        "", " ", "\t", "\n", 
+        "~", "`", "!", "@", "#",
+        "$", "%", "^", "&", "*", 
+        "(", ")", "_",  "+", "[",
+        "]", "{", "}", ";", ":", 
+        '"', "'", "\\", "|", "<", 
+        ",", ">", ".", "?", "/",
+    ]
+    if (invalid_layer_names.includes(on_import_input.value)) {
+        let msg = "Please Add ONE or More Layer Names"
         let btns = [{text: "Ok", class:"notification_close n_clear",
                 id:"##" + notification_screen.className}]
         helper.notification_box(nft_art_generator, notification_screen,
             {type: "alert !!!", msg, btns}
         )
     }else{
-        let new_json_layers = JSON.parse(on_import_input.value)
-        new_json_layers.forEach(njl => {
-            let nl_id = (helper.count_keys(LAYERS) + 1).toString()
-            // let nl = new Layer(njl.name, nl_id, [500, 500])
-            let nl = new Layer(njl.name, nl_id, 
-                [collection_width, collection_height])
-        
-            nl.add_to_layers()
-            fetch_and_activate_dom_layers()
+        let new_multi_layers = on_import_input.value.split("\n")
+        new_multi_layers.forEach(nml => {
+            let cleaned_nml = helper.remove_special_chars(nml)
+            if (!invalid_layer_names.includes(cleaned_nml)) {
+                let nl_id = (helper.count_keys(LAYERS) + 1).toString()
+                let nl = new Layer(cleaned_nml, nl_id, 
+                    [collection_width, collection_height])
+            
+                nl.add_to_layers()
+                fetch_and_activate_dom_layers()
+            }
         });
 
         user_layers_prev_components.push("on_import")
@@ -938,14 +949,24 @@ build_test_btn.addEventListener("click", () => {
     helper.disappear(build_test_btn, "-7")
 
     // Display The Test Art Preview and Image Info
-    // test_art_downloader_items[0].innerHTML = `500 x 500`
     test_art_downloader_items[0].innerHTML = `${collection_width} x ${collection_height}`
-    // test_art_downloader_items[1].innerHTML = "test_art.png"
     test_art_downloader_items[1].innerHTML = `test_art.${collection_format}`
     generator_preview_frames_links[1].click()
     if (WINDOW_WIDTH <= 900) {
         show_right_in_media_query_btn.click()
     }
+
+    // DOWNLOAD GENERATED TEST ART STARTS HERE
+    test_art_downloader_items[2].onclick = () => {
+        let a = document.createElement("a")
+        a.href = test_art_url
+        // Set The Output Image Name
+        a.download = `test_art.${collection_format}`
+        // a.download = `test_art.png`
+        // Initiate The Download
+        a.click()
+    }
+    // DOWNLOAD GENERATED TEST ART ENDS HERE
 })
 // Generate a Test Art Ends Here
 
@@ -962,7 +983,6 @@ on_generate_options[1].addEventListener("click", (e) => {
     generated_arts_container.innerHTML = ""
 
     for (let i = 0; i < collection_size; i++) {
-    // for (let i = 0; i < 10; i++) {
         collection_image_generator_canvas_context.clearRect(0, 0,
             collection_image_generator_canvas.width,
             collection_image_generator_canvas.height)
@@ -974,7 +994,7 @@ on_generate_options[1].addEventListener("click", (e) => {
         let new_art_url = collection_image_generator_canvas_context["canvas"].toDataURL("image/png")
         let new_art = document.createElement("img")
         new_art.src = new_art_url
-        let new_art_id = helper.unique_random_number();
+        new_art.id = `coll_${i}`
 
         let new_art_container = document.createElement("li")
         new_art_container.appendChild(new_art)
@@ -991,45 +1011,65 @@ on_generate_options[1].addEventListener("click", (e) => {
     }
     
     // Display Image In The Preview Box Onclick
+    let current_image_cnt = 0;
+    let prev_image_cnt, next_image_cnt;
     let collection_images = generated_arts_container.querySelectorAll("img")
     collection_images.forEach(coll_image => {
         coll_image .addEventListener("click", () => {
+            current_image_cnt = parseInt((coll_image.id).split("_")[1])
+            coll_image.style.border = "5px solid var(--tc2)"
+            collection_images.forEach(c_img => {
+                if (c_img.id != coll_image.id) c_img.style.border = "none"
+            })
             colletion_images_preview.src = coll_image.src
         })
     });
+
+    show_prev_col_image_btn.addEventListener("click", () => {
+        let current_image = generated_arts_container.querySelector(`#coll_${current_image_cnt}`)
+        current_image.style.border = "none"
+
+        if (current_image_cnt == 0) prev_image_cnt = collection_size - 1
+        else prev_image_cnt = current_image_cnt - 1
+
+        current_image_cnt = prev_image_cnt
+        let prev_image = generated_arts_container.querySelector(`#coll_${prev_image_cnt}`)
+        prev_image.style.border = "5px solid var(--tc2)"
+        colletion_images_preview.src = prev_image.src
+    })
+    show_next_col_image_btn.addEventListener("click", () => {
+        let current_image = generated_arts_container.querySelector(`#coll_${current_image_cnt}`)
+        current_image.style.border = "none"
+
+        if (current_image_cnt == (collection_size - 1)) next_image_cnt = 0
+        else next_image_cnt = current_image_cnt + 1
+
+        current_image_cnt = next_image_cnt
+        let next_image = generated_arts_container.querySelector(`#coll_${next_image_cnt}`)
+        next_image.style.border = "5px solid var(--tc2)"
+        colletion_images_preview.src = next_image.src
+    })
+
+    // DOWNLOAD GENERATED COLLECTION STARTS HERE
+    collection_download_btn.onclick = () => {
+        let cnt = 0
+        collection_art_urls.forEach( url => {
+            let a = document.createElement("a")
+            a.href = url
+            // Set The Output Image Name
+            a.download = `${collection_name}_${cnt}.${collection_format}`
+            // a.download = `z_${cnt}.png`
+            // Initiate The Download
+            a.click()
+            cnt++
+        });
+    }
+    // DOWNLOAD GENERATED COLLECTION ENDS HERE
 
     // Exit on_generate
     on_generate_close.click()
 })
 // Generate a random collection ends here
-
-// DOWNLOAD GENERATED TEST ART STARTS HERE
-test_art_downloader_items[2].onclick = () => {
-    let a = document.createElement("a")
-    a.href = test_art_url
-    // Set The Output Image Name
-    a.download = `test_art.${collection_format}`
-    // a.download = `test_art.png`
-    // Initiate The Download
-    a.click()
-}
-// DOWNLOAD GENERATED TEST ART ENDS HERE
-
-// DOWNLOAD GENERATED COLLECTION STARTS HERE
-collection_download_btn.onclick = () => {
-    let cnt = 0
-    collection_art_urls.forEach( url => {
-        let a = document.createElement("a")
-        a.href = url
-        // Set The Output Image Name
-        a.download = `${collection_name}_${cnt}.${collection_format}`
-        // a.download = `z_${cnt}.png`
-        // Initiate The Download
-        a.click()
-        cnt++
-    });
-}
-// DOWNLOAD GENERATED COLLECTION ENDS HERE
 
 // Generator Preview Controllers
 generator_preview_frames_links[0].addEventListener("click", () => {

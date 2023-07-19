@@ -161,7 +161,10 @@ let add_image_options = (
             layer_image_preview_canvas.height = collection_height
             let context = layer_image_preview_canvas.getContext("2d")
             context.imageSmoothingQuality = "high"
-            context.drawImage(image, 0, 0, collection_width, collection_height)
+            context.drawImage(image, 0, 0, 
+                layer_image_preview_canvas.width, 
+                layer_image_preview_canvas.height)
+            
             layer_image_info_items[0].innerHTML =  layer_object.name
             layer_image_info_items[1].innerHTML =  lic_name
             layer_image_info_items[2].innerHTML =  `${collection_width} x ${collection_height}`

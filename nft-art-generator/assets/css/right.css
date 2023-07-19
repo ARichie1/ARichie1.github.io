@@ -21,6 +21,10 @@
     overflow: hidden;
 }
 .app .right .generator_preview 
+.remove_component{
+    display: none;
+}
+.app .right .generator_preview 
 .component_header{
     display: flex;
     justify-content: space-between;
@@ -59,7 +63,12 @@
 .layer_image_preview_frame #layer_image_canvas,
 .app .right .generator_preview 
 .test_art_preview_frame #test_art_canvas{
-    height: 50%; width: 100%;
+    height: 50%; width: auto;
+    image-rendering: optimizeQuality;
+}
+.app .right .generator_preview 
+.layer_image_preview_frame #layer_image_canvas{
+    border: var(--line);
 }
 
 .app .right .generator_preview 
@@ -98,19 +107,40 @@
 .app .right .generator_preview
 .collection_preview_frame
 #collection_image_generator_canvas{
-    height: 50%; width: 100%;
+    height: 50%; width: auto;
     display: none;
 }
 .app .right .generator_preview
 .collection_preview_frame
 .collection_frame_image_cover{
+    position: relative;
     height: 50%; width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
 }
 .app .right .generator_preview
 .collection_preview_frame
 .collection_frame_image_cover img{
-    height: 100%; width: 100%;
+    height: 96%; width: auto;
 }
+.app .right .generator_preview
+.collection_preview_frame
+.col_image_preview_control{
+    position: absolute; top: 45%;
+    height: 30px; width: 30px;
+    border-radius: 100%;
+    border: none;
+    background: var(--tc2);
+}
+.app .right .generator_preview
+.collection_preview_frame
+.show_prev_col_image{left: 5%;}
+.app .right .generator_preview
+.collection_preview_frame
+.show_next_col_image{right: 5%;}
+
 .app .right .generator_preview
 .collection_preview_frame 
 #generated_arts{
@@ -150,6 +180,7 @@
     height: 50px; width: 50px;
     border-radius: 100%;
 }
+
 /* Gen Previews Default Positions */
 .app .right .gen_preview{
     position: absolute; top: 5%;

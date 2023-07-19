@@ -558,14 +558,14 @@ ul li:nth-child(2):active:before{
     width: 100%; height: 50%;
     margin-top: 2%;
     background: var(--ebg);
-    padding-top: 5%;
+    padding-top: 2.5%;
     padding-left: 5%;
 }
 .app .middle .user_layers 
 .on_import form .import_instruction
 .continue_to_import{
     width: 30%;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 35%;
 }
 .app .middle .user_layers 
@@ -579,7 +579,7 @@ ul li:nth-child(2):active:before{
 }
 .app .middle .user_layers 
 .on_import form button{
-    width: 70%; height: 25px;
+    width: 70%; height: 30px;
     opacity: 0; z-index: -2;
 }
 /* on import styles ends here */

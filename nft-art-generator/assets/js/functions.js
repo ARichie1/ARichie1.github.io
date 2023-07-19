@@ -210,16 +210,21 @@ this.unique_random_number = () => {
 
 // =====STRING CLEANER/PUTIFIER STARTS HERE===== //
 // CLEANS UP ID FROM ###e_example -> e_example
-this.clean = ((id) => {
+this.clean = (id) => {
     let cleaned_id = id.replace(/[^\w]/g, "")
     return cleaned_id
-})
+}
 
 // CLEANS UP ID PROPERLY FROM ###e_example -> example
-this.purify = ((id) => {
+this.purify = (id) => {
     let purified_id = this.clean(id).slice(2)
     return purified_id
-})
+}
+
+this.remove_special_chars = (str) => {
+    let cleaned_str = str.replace(/[^a-zA-Z0-9 ]/g, "")
+    return cleaned_str
+}
 // =====STRING CLEANER/PUTIFIER ENDS HERE===== //
 
 // SENTENCIZE (CONVERTS AN ARRAY INTO A PROPER SENTENCE) STARTS HERE

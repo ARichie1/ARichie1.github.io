@@ -300,17 +300,20 @@
                                 </ul>
                                 <div class="import_instruction">
                                     <ul>
-                                        <li>Insert VALID JSON Data e.g &#128071;&#127998;</li>
+                                        <li>You Can Add Multiple Layers e.g &#128071;&#127998;</li>
                                         <li class="clkb_link copy_btn"><i class="fa fa-copy"></i>Copy</li>
                                     </ul>
                                     <div class="code_box">
-                                        [  <br>
-                                            {"name": "background"}, <br>
-                                            {"name": "skin"}, <br>
-                                            {"name": "cloth"}, <br>
-                                            {"name": "mouth"} <br>
-                                        ]
+                                        background<br>
+                                        skin<br>
+                                        cloth<br>
+                                        mouth<br>
+                                        eye<br>
+                                        earring<br>
+                                        head wear
                                     </div>
+                                    <br>
+                                    <div>NB: Each layer name should be on a new line</div>
                                     <div class="clkb_btn continue_to_import">Continue</div>
                                 </div>
                                 <textarea type="text" name="import_json_layers" 
@@ -369,6 +372,7 @@
                     <span class="remove_component close" id="##generator_preview"><i class="fa  fa-times"></i></span>
                 </div>
                 <div class="layer_image_preview_frame gen_preview">
+                    <!-- <img src="" alt="" id="layer_image_preview"> -->
                     <canvas id="layer_image_canvas"></canvas>
                     <ul class="layer_image_info">
                         <li class="image_own_layer"></li>
@@ -387,7 +391,13 @@
                 <div class="collection_preview_frame gen_preview">
                     <canvas id="collection_image_generator_canvas"></canvas>
                     <div class="collection_frame_image_cover">
+                        <div class="show_prev_col_image col_image_preview_control clkb_btn">
+                            <i class="fa fa-angle-left"></i>
+                        </div>
                         <img src="" alt="">
+                        <div class="show_next_col_image col_image_preview_control clkb_btn">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
                     </div>
                     <ul class="src scr-y" id="generated_arts"></ul>
                     <div class="collection_download_btn clkb_btn">
