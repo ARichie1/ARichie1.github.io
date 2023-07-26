@@ -267,6 +267,30 @@ if (WINDOW_WIDTH <= SMALL_SCREEN) {
         ])
     })
 }
+
+search_btn.addEventListener("click", (e) => {
+    e.preventDefault()
+    for (const l_key in LAYERS) {
+        if (Object.hasOwnProperty.call(LAYERS, l_key)) {
+            const layer = LAYERS[l_key];
+            if (layer.name == search.value) {
+                let searched_layer = document.querySelector(`#layer_${layer.id}`)
+                searched_layer.style.border = "4px solid var(--tc2)"
+                setTimeout(() => {searched_layer.style.border = "none";}, 5000);
+
+            }else{
+                let msg = "Layer Doesn't Exist : No Layer With That Name"
+                let btns = [{text: "Ok", class:"notification_close n_clear",
+                    id:"##" + notification_screen.className}]
+                helper.notification_box(nft_art_generator, notification_screen,
+                    {type: "alert !!!", msg, btns}
+                )
+                
+                helper.appear([search_form], "8")
+            }
+        }
+    }
+})
 // =====LEFT SIDE ENDS HERE=====//
 
 // ================================================ //

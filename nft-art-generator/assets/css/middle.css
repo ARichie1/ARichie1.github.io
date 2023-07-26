@@ -131,6 +131,7 @@
     padding: 10% auto;
     padding-top: 20%;
     font-size: 16px;
+    letter-spacing: 5px;
     overflow: hidden;
     transition: .1 ease-in-out;
 }
@@ -150,6 +151,7 @@
     font-size: 16px;
     overflow: hidden;
     margin: 15% auto;
+    letter-spacing: 2px;
     transition: .1 ease-in-out;
 }
 /* LANDING PAGE STYLES ENDS HERE */
@@ -161,7 +163,9 @@
     height: 96%; width: 96%;
     padding-top: 20%;
     font-size: 16px;
-    background: var(--tc3);
+    background: linear-gradient(
+        to bottom, var(--tc3) 80%,
+        var(--tc2));
     overflow: hidden;
     transition: .1 ease-in-out;
     opacity: 0; z-index: -3;
