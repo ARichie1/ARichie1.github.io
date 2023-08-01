@@ -286,7 +286,16 @@ search_btn.addEventListener("click", (e) => {
                     {type: "alert !!!", msg, btns}
                 )
                 
-                helper.appear([search_form], "8")
+
+                if (notification_screen.querySelector(".n_clear")) {
+                    notification_screen.querySelector(".n_clear").addEventListener("click", () => {
+                        helper.appear([search_form, searchbar], "8")
+                        nft_art_generator_component_opener.style.zIndex = "-8"
+                        console.log("red");
+                    })
+                }
+            
+            
             }
         }
     }
@@ -1001,7 +1010,7 @@ on_generate_options[1].addEventListener("click", (e) => {
     collection_image_generator_canvas.height = collection_height
     let collection_image_generator_canvas_context = collection_image_generator_canvas.getContext("2d")
 
-    let collection_resource = build_collection_resource(get_layers())
+    let collection_resource = build_collection_resource(get_layers(), collection_size)
 
     // Empty Previously Generated Content
     generated_arts_container.innerHTML = ""
@@ -1010,7 +1019,7 @@ on_generate_options[1].addEventListener("click", (e) => {
         collection_image_generator_canvas_context.clearRect(0, 0,
             collection_image_generator_canvas.width,
             collection_image_generator_canvas.height)
-        build_composite(collection_resource, 
+        build_composite(collection_resource[i], 
             collection_image_generator_canvas_context,
             collection_image_generator_canvas.width,
             collection_image_generator_canvas.height)

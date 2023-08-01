@@ -298,7 +298,8 @@ let build_test_resource = (layers) => {
 
 // Builds an array for each layer image keys
 // and then add to resource array
-let build_collection_resource = (layers) => {
+let random_composite_tracker = []
+let build_collection_resource = (layers, coll_size) => {
     let i = 0, j = 0
     let resource = []
     for (const layer_key in layers) {
@@ -317,12 +318,13 @@ let build_collection_resource = (layers) => {
         }
         i++
     }
-    return resource
+    build_unique_composites(resource, random_composite_tracker, coll_size)
+    return random_composite_tracker
 }
 
-// Bundle and Generate art based on the resource provided
-// then display to canvas
-let build_composite = (resource, canvas_context, canvas_width, canvas_height) => {
+// Build Unique Art By Getting A Random Image From Each Layer
+let build_unique_composites = (resource, random_composite_tracker, coll_size) => {
+    let new_composite = []
     if (resource.length > 0) {
         for (let i = 0; i < resource.length; i++) {
             // Build Art By Getting A Random Image From Each Layer
@@ -330,8 +332,36 @@ let build_composite = (resource, canvas_context, canvas_width, canvas_height) =>
                 if (resource[i].length > 0) {
                     let random_layer_image_index = Math.floor(Math.random() * resource[i].length)
                     let random_layer_image = resource[i][random_layer_image_index]
+                    new_composite.push(random_layer_image)
+                }
+            }  
+        }
+    }
+
+    // Check if the newly merge art exist before or not
+    if (!random_composite_tracker.includes(new_composite)){
+        random_composite_tracker.push(new_composite)
+        // Also check if generated art have reached the max collection size
+        if (random_composite_tracker.length != coll_size) {
+            build_unique_composites(resource, random_composite_tracker, coll_size)
+        }else{
+            return random_composite_tracker
+        }
+    }else{
+        build_unique_composites(resource, random_composite_tracker, coll_size)
+    }
+}
+
+// Bundle and Generate art based on the resource provided
+// then display to canvas
+let build_composite = (resource, canvas_context, canvas_width, canvas_height) => {
+    if (resource.length > 0) {
+        for (let i = 0; i < resource.length; i++) {
+            // Build Art From Each Random Art Array
+            if (resource[i].length){
+                for (let j = 0; j < resource[i].length; j++) {
                     canvas_context.imageSmoothingQuality = "high"
-                    canvas_context.drawImage(random_layer_image, 0, 0, canvas_width, canvas_height)
+                    canvas_context.drawImage(resource[i][j], 0, 0, canvas_width, canvas_height)
                 }
             }
             // Build An Test Art Based On Checked Layers
@@ -344,7 +374,6 @@ let build_composite = (resource, canvas_context, canvas_width, canvas_height) =>
         return canvas_context
     }
 }
-
 // FETCHING, BUNDLING AND GENERATING LAYERS ENDS HERE
 
 // Returns Currently Checked Layers
