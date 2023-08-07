@@ -133,6 +133,7 @@
     font-size: 16px;
     letter-spacing: 5px;
     overflow: hidden;
+    text-transform: uppercase;
     transition: .1 ease-in-out;
 }
 .app .middle .landing_page h3{
@@ -152,6 +153,7 @@
     overflow: hidden;
     margin: 15% auto;
     letter-spacing: 2px;
+    text-transform: uppercase;
     transition: .1 ease-in-out;
 }
 /* LANDING PAGE STYLES ENDS HERE */

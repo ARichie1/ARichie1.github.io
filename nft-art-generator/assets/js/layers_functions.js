@@ -4,7 +4,7 @@ export {open_rename, close_rename, change_layer_name,
     get_checked_images, free_checked_images,
     select_test_images, unselect_test_images,
     build_test_resource, build_collection_resource,
-    build_composite
+    build_composite, free_random_composite_tracker
 }
 import { Help_me } from "./functions.js"
 
@@ -382,4 +382,7 @@ let get_checked_images = () => {
 }
 let free_checked_images = () => {
     CHECKED_IMAGES = []
+}
+let free_random_composite_tracker = () => {
+    random_composite_tracker = []
 }

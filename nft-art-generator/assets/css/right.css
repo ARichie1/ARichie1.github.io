@@ -179,6 +179,8 @@
     top: 70%; right: 5%;
     height: 50px; width: 50px;
     border-radius: 100%;
+    border: 3px solid green;
+    color: green;
 }
 
 /* Gen Previews Default Positions */

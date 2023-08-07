@@ -8,7 +8,7 @@ import {open_rename, close_rename, change_layer_name,
     get_checked_images, free_checked_images,
     select_test_images, unselect_test_images,
     build_test_resource, build_collection_resource,
-    build_composite
+    build_composite, free_random_composite_tracker
 } from "./layers_functions.js"
 
 let helper = new Help_me();
@@ -653,6 +653,12 @@ let layers_counter = (() => {
     }else{
         if (WINDOW_WIDTH <= 900) helper.appear(search_opener_btn, "2")
         else helper.unhide(searcher_link, "flex")
+
+        if (helper.count_keys(LAYERS) > 3) {
+            layers_container.classList.add("scr", "scr-y")
+        }else{
+            layers_container.classList.remove("scr", "scr-y")
+        }
       
         // detect if the user can generate art
         let generate_state;
@@ -668,6 +674,7 @@ let layers_counter = (() => {
                 }
             }
         }
+
         // if layers are more than one and each layers has at least
         // one image then enable the generate button else disable the button
         if (helper.count_keys(LAYERS) > 1 && generate_state) {
@@ -1006,15 +1013,23 @@ build_test_btn.addEventListener("click", () => {
 // Generate a random collection
 let collection_art_urls = []
 on_generate_options[1].addEventListener("click", (e) => {
+    
+    // activate the loader
+    helper.hide_many([on_generate_options[0], on_generate_options[1]])
+    helper.unhide(on_generate_options[2], "flex")
+
+    // prepare the canvas machine... lol
     collection_image_generator_canvas.width = collection_width
     collection_image_generator_canvas.height = collection_height
     let collection_image_generator_canvas_context = collection_image_generator_canvas.getContext("2d")
 
+    // get the neccessary images resource
     let collection_resource = build_collection_resource(get_layers(), collection_size)
 
-    // Empty Previously Generated Content
+    // empty Previously Generated Content
     generated_arts_container.innerHTML = ""
 
+    // create each art piece
     for (let i = 0; i < collection_size; i++) {
         collection_image_generator_canvas_context.clearRect(0, 0,
             collection_image_generator_canvas.width,
@@ -1024,18 +1039,36 @@ on_generate_options[1].addEventListener("click", (e) => {
             collection_image_generator_canvas.width,
             collection_image_generator_canvas.height)
 
+        // display the art piece
         let new_art_url = collection_image_generator_canvas_context["canvas"].toDataURL("image/png")
         let new_art = document.createElement("img")
         new_art.src = new_art_url
         new_art.id = `coll_${i}`
-
         let new_art_container = document.createElement("li")
         new_art_container.appendChild(new_art)
-
         generated_arts_container.appendChild(new_art_container)
         colletion_images_preview.src = new_art_url
+        
+        // store each art piece source for download reasons
         collection_art_urls.push(new_art_url)
+
+        // deactivate and reset the loader
+        if (i == collection_size - 1) {
+            on_generate_options[2].innerHTML = "Done"
+            setTimeout(() => {
+                on_generate_options[2].innerHTML = `
+                <span class="coll_loader_ui">
+                    <i class="fa fa-spinner"></i>
+                </span>`
+                helper.hide(on_generate_options[2])
+                helper.unhide_many([on_generate_options[0], on_generate_options[1]], "flex")
+            }, 4000);
+        }
     }
+
+    // empty the random_composite_tracker array so new 
+    // a collection can be generated
+    free_random_composite_tracker()
 
     // Display The Collection Preview
     generator_preview_frames_links[2].click()
@@ -1081,6 +1114,12 @@ on_generate_options[1].addEventListener("click", (e) => {
         let next_image = generated_arts_container.querySelector(`#coll_${next_image_cnt}`)
         next_image.style.border = "5px solid var(--tc2)"
         colletion_images_preview.src = next_image.src
+    })
+
+    // Navigate collection with keyboard also
+    document.addEventListener("keyup", (e) => {
+        if (e.keyCode == 37) show_prev_col_image_btn.click()
+        else if (e.keyCode == 39) show_next_col_image_btn.click()
     })
 
     // DOWNLOAD GENERATED COLLECTION STARTS HERE
