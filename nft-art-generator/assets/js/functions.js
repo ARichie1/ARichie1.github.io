@@ -567,5 +567,32 @@ this.reset_sliders = (default_values, sliders) => {
         return true
     }
 // =====FORM FUNCTIONS ENDS HERE===== //
+
+// =====FILE OPERATIONS STARTS HERE===== //
+    this.export_file = (filename, text) => {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+    
+        element.style.display = 'none';
+        document.body.appendChild(element);
+    
+        element.click();
+    
+        document.body.removeChild(element);
+    }
+
+    this.read_text_file = (file, text_container) => {
+        let reader = new FileReader()
+        reader.readAsText(file)
+        reader.onload = (event) => {
+            let file_content = event.target.result
+            console.log(file_content);
+            text_container = file_content
+            return file_content
+        }
+    }
+// =====FILE OPERATIONS STARTS HERE===== //
+
 }
 // =====CLASS (Help_me) ENDS HERE===== //

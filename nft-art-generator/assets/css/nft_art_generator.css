@@ -287,8 +287,32 @@ form button{
     border-radius: 5px;
 }
 .app .middle .user_layers 
-#box_mode form input{
+#box_mode form ul{
+    position: relative;
     width: 70%; height: 25px;
+}
+.app .middle .user_layers 
+#box_mode form ul input{
+    width: 100%; height: 25px;
+}
+.app .middle .user_layers 
+#box_mode form ul li:nth-child(2),
+.app .middle .user_layers 
+#box_mode form ul li:nth-child(3){
+    position: absolute;
+    top: -1%; right: 2%;
+    width: 10%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app .middle .user_layers 
+#box_mode form ul li:nth-child(2){
+    opacity: 1; z-index: 5;
+}
+.app .middle .user_layers 
+#box_mode form ul li:nth-child(3){
+    opacity: 0; z-index: -5;
 }
 .app .middle .user_layers 
 #box_mode form p{
@@ -353,9 +377,55 @@ form button{
     border-radius: 5px;
 }
 .app .middle .user_layers 
-#quick_mode form input{
+#quick_mode form ul{
+    position: relative;
     width: 70%; height: 25px;
 }
+
+.app .middle .user_layers 
+#quick_mode form ul input{
+    width: 100%; height: 25px;
+}
+.app .middle .user_layers 
+#quick_mode form ul li:nth-child(2),
+.app .middle .user_layers 
+#quick_mode form ul li:nth-child(3){
+    position: absolute;
+    top: -1%; right: -1%;
+    width: 10%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app .middle .user_layers 
+#quick_mode form ul li:nth-child(2){
+    opacity: 0; z-index: -5;
+}
+.app .middle .user_layers 
+#quick_mode form ul li:nth-child(3){
+    opacity: 1; z-index: 5;
+}
+
+.app .middle .user_layers 
+#box_mode form ul li:nth-child(2):hover::after,
+.app .middle .user_layers 
+#quick_mode form ul li:nth-child(3):hover::after{
+    position: absolute;
+    top: -120%; left: -150px;
+    content: "Add Multiple Layers";
+    width: 150px; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--tc3);
+    border-radius: 5px;
+}
+.app .middle .user_layers 
+#quick_mode form ul li:nth-child(3):hover::after{
+    top: 120%;
+    content: "Add Multiple Layers";
+}
+
 .app .middle .user_layers 
 #quick_mode form p{
     position: absolute;
@@ -444,7 +514,7 @@ form button{
 
 /* on import styles starts here */
 .app .middle .user_layers 
-.on_import{
+.on_aml{
     height: 100%; width: 100%;
     background: var(--ebg);
     display: flex;
@@ -454,7 +524,7 @@ form button{
     opacity: 0; z-index: -3;
 }
 .app .middle .user_layers 
-.on_import form{
+.on_aml form{
     position: relative;
     width: 95%; height: 85%;
     display: flex;
@@ -464,7 +534,7 @@ form button{
     border-radius: 5px;
 }
 .app .middle .user_layers 
-.on_import form .on_import_form_options{
+.on_aml form .on_aml_form_options{
     position: absolute;
     top: 2%; right: 2%;
     width: 100%; height: 30px;
@@ -477,8 +547,8 @@ form button{
     display: none;
 }
 .app .middle .user_layers 
-.on_import form 
-.on_import_form_options li{
+.on_aml form 
+.on_aml_form_options li{
     height: 30px;
     flex-basis: 40%;
     display: flex;
@@ -489,17 +559,17 @@ form button{
     padding-right: 2%;
 }
 .app .middle .user_layers 
-.on_import form 
-.on_import_form_options .reset_import_form_btn{
+.on_aml form 
+.on_aml_form_options .reset_aml_form_btn{
     justify-content: center;
 }
 .app .middle .user_layers 
-.on_import form 
-.on_import_form_options .paste_btn{
+.on_aml form 
+.on_aml_form_options .paste_btn{
     justify-content: flex-end;
 }
 .app .middle .user_layers 
-.on_import form .import_instruction{
+.on_aml form .aml_instruction{
     position: absolute;
     top: 10%; left: 4%;
     width: 92%; height: 66%;
@@ -514,7 +584,7 @@ form button{
     /* display: none; */
 }
 .app .middle .user_layers 
-.on_import form .import_instruction
+.on_aml form .aml_instruction
 ul{
     width: 100%; height: 10%;
     display: flex;
@@ -522,7 +592,125 @@ ul{
     align-items: center;
 }
 .app .middle .user_layers 
-.on_import form .import_instruction
+.on_aml form .aml_instruction
+ul li:nth-child(1){
+    width: 80%; height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+.app .middle .user_layers 
+.on_aml form .aml_instruction
+ul li:nth-child(2){
+    position: relative;
+    width: 20%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app .middle .user_layers 
+.on_aml form .aml_instruction
+ul li:nth-child(2):active:before{
+    content: "Copied";
+    position: absolute;
+    right: 100%;
+    width: auto; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tc2);
+    font-size: 12px;
+}
+.app .middle .user_layers 
+.on_aml form .aml_instruction
+.code_box{
+    width: 100%; height: 50%;
+    margin-top: 2%;
+    background: var(--ebg);
+    padding-top: 2.5%;
+    padding-left: 5%;
+}
+.app .middle .user_layers 
+.on_aml form .aml_instruction
+.continue_to_aml{
+    width: 30%;
+    margin-top: 5%;
+    margin-left: 35%;
+}
+.app .middle .user_layers 
+.on_aml form textarea{
+    width: 95%; height: 70%;
+    background: var(--fcw);
+    padding-top: 2%;
+    display: flex;
+    justify-content: flex-start;
+    background: ghostwhite;
+}
+.app .middle .user_layers 
+.on_aml form button{
+    width: 70%; height: 30px;
+    opacity: 0; z-index: -2;
+}
+/* on import styles ends here */
+
+
+/* on import file starts here */
+.app .middle .user_layers
+.on_import{
+    height: 100%; width: 100%;
+    background: var(--ebg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; z-index: -3;
+}
+
+.app .middle .user_layers 
+.on_import .import_actions{
+    width: 100%; height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 40%;
+}
+
+.app .middle .user_layers 
+.on_import .import_actions
+.clkb_link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px; width: 45%;
+    border: 1px dashed #000;
+}
+
+.app .middle .user_layers 
+.on_import .on_import_instruction{
+    position: absolute;
+    top: 10%; left: 4%;
+    width: 92%; height: 66%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    background: var(--tc3);
+    color: var(--tphc);
+    border-radius: 5px;
+    opacity: 0; z-index: -5;
+}
+.app .middle .user_layers 
+.on_import .on_import_instruction
+ul{
+    width: 100%; height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app .middle .user_layers 
+.on_import .on_import_instruction
 ul li:nth-child(1){
     width: 80%; height: 100%;
     display: flex;
@@ -540,7 +728,7 @@ ul li:nth-child(2){
     align-items: center;
 }
 .app .middle .user_layers 
-.on_import form .import_instruction
+.on_import .on_import_instruction
 ul li:nth-child(2):active:before{
     content: "Copied";
     position: absolute;
@@ -553,7 +741,7 @@ ul li:nth-child(2):active:before{
     font-size: 12px;
 }
 .app .middle .user_layers 
-.on_import form .import_instruction
+.on_import .on_import_instruction
 .code_box{
     width: 100%; height: 50%;
     margin-top: 2%;
@@ -562,27 +750,13 @@ ul li:nth-child(2):active:before{
     padding-left: 5%;
 }
 .app .middle .user_layers 
-.on_import form .import_instruction
+.on_import .on_import_instruction
 .continue_to_import{
     width: 30%;
     margin-top: 5%;
     margin-left: 35%;
 }
-.app .middle .user_layers 
-.on_import form textarea{
-    width: 95%; height: 70%;
-    background: var(--fcw);
-    padding-top: 2%;
-    display: flex;
-    justify-content: flex-start;
-    background: ghostwhite;
-}
-.app .middle .user_layers 
-.on_import form button{
-    width: 70%; height: 30px;
-    opacity: 0; z-index: -2;
-}
-/* on import styles ends here */
+/* on import file ends here */
 
 /* on generate styles starts here */
 .app .middle .user_layers

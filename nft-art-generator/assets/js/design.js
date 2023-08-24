@@ -13,6 +13,7 @@ import {open_rename, close_rename, change_layer_name,
 
 let helper = new Help_me();
 let LAYERS;
+let EXPORTABLE_LAYERS;
 
 // GET WINDOW DIMENSION FOR MEDIA QUERING
 let WINDOW_WIDTH = window.innerWidth;
@@ -126,19 +127,31 @@ let selected_cnt  = document.querySelector(".selected_cnt")
 const on_select_cancel  = document.querySelector(".cancel_on_select")
 const on_select_delete_btn = document.querySelector(".del_layers")
 
+const start_aml_link  = document.querySelector(".start_on_aml_link")
+const aml_link  = document.querySelector(".on_aml_link")
+const on_aml_container = document.querySelector(".on_aml")
+const on_aml_close = document.querySelector(".on_aml .close")
+const on_aml_instruction = document.querySelector(".on_aml .aml_instruction")
+const on_aml_copy_btn = document.querySelector(".on_aml .aml_instruction .copy_btn")
+const on_aml_code_box = document.querySelector(".on_aml .aml_instruction .code_box")
+const on_aml_continue_btn = document.querySelector(".on_aml .aml_instruction .continue_to_aml")
+const on_aml_options = document.querySelector(".on_aml .on_aml_form_options")
+const on_aml_view_format_btn = document.querySelector(".on_aml .view_aml_format")
+const on_aml_reset_btn = document.querySelector(".on_aml .reset_aml_form_btn")
+const on_aml_paste_btn = document.querySelector(".on_aml .paste_btn")
+const on_aml_input  = document.querySelector(".on_aml_input")
+const on_aml_button  = document.querySelector(".on_aml button")
+
 const import_layer_link  = document.querySelector(".import_layer")
-const on_import_container = document.querySelector(".on_import")
+const on_import_container = document.querySelector("on_import")
 const on_import_close = document.querySelector(".on_import .close")
-const on_import_instruction = document.querySelector(".on_import .import_instruction")
-const on_import_copy_btn = document.querySelector(".on_import .import_instruction .copy_btn")
-const on_import_code_box = document.querySelector(".on_import .import_instruction .code_box")
-const on_import_continue_btn = document.querySelector(".on_import .import_instruction .continue_to_import")
-const on_import_options = document.querySelector(".on_import .on_import_form_options")
-const on_import_view_format_btn = document.querySelector(".on_import .view_import_format")
-const on_import_reset_btn = document.querySelector(".on_import .reset_import_form_btn")
-const on_import_paste_btn = document.querySelector(".on_import .paste_btn")
-const on_import_input  = document.querySelector(".on_import_input")
-const on_import_button  = document.querySelector(".on_import button")
+const on_import_instruction = document.querySelector(".on_import .on_import_instruction")
+const on_import_code_box = document.querySelector(".on_import .on_import_instruction .code_box")
+const on_import_continue_btn = document.querySelector(".on_import .on_import_instruction .continue_to_import")
+const on_import_view_format_btn = document.querySelector(".on_import .on_import_format")
+const on_import_loader  = document.querySelector(".on_import .on_import_loader")
+const on_import_loader_btn  = document.querySelector(".on_import .on_import_loader_btn")
+
 const export_layer_link  = document.querySelector(".export_layer")
 
 const generate_art_link  = document.querySelector(".generate_art")
@@ -395,7 +408,7 @@ create_nft_collection_button.addEventListener('click', (e) => {
         collection_format = collection_output_format_input.value
         
         // Clear On Import Form
-        on_import_input.value = ""
+        on_aml_input.value = ""
         // Clear On Create Form
         on_create_input.value = ""
 
@@ -789,7 +802,18 @@ let fetch_and_activate_dom_single_layer = ((sl_name) => {
 // FETCHES THE NEWLY UPDATED LAYER FROM THE DOM ENDS HERE
 // SINGLE LAYER FUNCTIONALTIES ENDS HERE
 
-// Import Layers Start Here
+
+let invalid_layer_names = [
+    "", " ", "\t", "\n", 
+    "~", "`", "!", "@", "#",
+    "$", "%", "^", "&", "*", 
+    "(", ")", "_",  "+", "[",
+    "]", "{", "}", ";", ":", 
+    '"', "'", "\\", "|", "<", 
+    ",", ">", ".", "?", "/",
+]
+
+// Import Layers Starts Here
 // open import component to import layers when there ain't no layers
 start_import_layer_link.addEventListener("click", () => {
     user_layers_prev_components.push("on_no_layers")
@@ -807,75 +831,56 @@ import_layer_link.addEventListener("click", () => {
     art_generator_tools_container.style.left = "-40%"
 })
 
-// Control Import Copy/Paste
-on_import_copy_btn.addEventListener("click", () => {
-    let text = on_import_code_box.innerText;
-    helper.copy_content(text)
-})
-on_import_paste_btn.addEventListener("click", () => {
-    helper.paste_content(on_import_input)
-})
-
-helper.many_actions("click", 
-    [on_import_copy_btn, on_import_continue_btn], () => {
-    helper.disappear(on_import_instruction)
-    helper.unhide(on_import_options, "flex")
-    helper.appear(on_import_button, "2")
-})
-
 on_import_view_format_btn.addEventListener("click", () => {
     helper.appear(on_import_instruction)
-    helper.hide(on_import_options)
-    helper.disappear(on_import_button, "-2")
 })
-on_import_reset_btn.addEventListener("click", () => {
-    on_import_input.value = ""
+on_import_continue_btn.addEventListener("click", () => {
+    helper.disappear(on_import_instruction)
 })
+on_import_loader_btn.addEventListener("click", () => {
+    on_import_loader.click()
+})
+on_import_loader.addEventListener("change", () => {
+    let file_content = ""
+    let reader = new FileReader()
+    reader.readAsText(on_import_loader.files[0])
+    reader.onload = (event) => {
+        file_content = event.target.result
+        console.log(file_content);
 
-// import the layers in the import component text area
-on_import_button.addEventListener("click", (e) => {
-    e.preventDefault()
-
-    let invalid_layer_names = [
-        "", " ", "\t", "\n", 
-        "~", "`", "!", "@", "#",
-        "$", "%", "^", "&", "*", 
-        "(", ")", "_",  "+", "[",
-        "]", "{", "}", ";", ":", 
-        '"', "'", "\\", "|", "<", 
-        ",", ">", ".", "?", "/",
-    ]
-    if (invalid_layer_names.includes(on_import_input.value)) {
-        let msg = "Please Add ONE or More Layer Names"
-        let btns = [{text: "Ok", class:"notification_close n_clear",
-                id:"##" + notification_screen.className}]
-        helper.notification_box(nft_art_generator, notification_screen,
-            {type: "alert !!!", msg, btns}
-        )
-    }else{
-        let new_multi_layers = on_import_input.value.split("\n")
-        new_multi_layers.forEach(nml => {
-            let cleaned_nml = helper.remove_special_chars(nml)
-            if (!invalid_layer_names.includes(cleaned_nml)) {
-                let nl_id = (helper.count_keys(LAYERS) + 1).toString()
-                let nl = new Layer(cleaned_nml, nl_id, 
-                    [collection_width, collection_height])
-            
-                nl.add_to_layers()
-                fetch_and_activate_dom_layers()
-            }
-        });
-
-        user_layers_prev_components.push("on_import")
-        user_layers_current_component = ["art_generator_crud_tools", "layers"]
-        switch_user_layers_component()
-
-        helper.appear(show_right_in_media_query_btn, "8")
-
-        on_create_container.id = "quick_mode"
-        on_import_input.value = ""
+        if (invalid_layer_names.includes(file_content)) {
+            let msg = "Please Add ONE or More Layer Names"
+            let btns = [{text: "Ok", class:"notification_close n_clear",
+                    id:"##" + notification_screen.className}]
+            helper.notification_box(nft_art_generator, notification_screen,
+                {type: "alert !!!", msg, btns}
+            )
+        }else{
+            let file_layers_array = file_content.split("\n")
+            console.log(file_layers_array);
+            file_layers_array.forEach(nml => {
+                let cleaned_nml = helper.remove_special_chars(nml)
+                if (!invalid_layer_names.includes(cleaned_nml)) {
+                    let nl_id = (helper.count_keys(LAYERS) + 1).toString()
+                    let nl = new Layer(cleaned_nml, nl_id, 
+                        [collection_width, collection_height])
+                
+                    nl.add_to_layers()
+                    fetch_and_activate_dom_layers()
+                }
+            });
+    
+            user_layers_prev_components.push("on_import")
+            user_layers_current_component = ["art_generator_crud_tools", "layers"]
+            switch_user_layers_component()
+    
+            helper.appear(show_right_in_media_query_btn, "8")
+    
+            on_create_container.id = "quick_mode"
+        }
     }
 })
+
 on_import_close.addEventListener("click", () => {
     if (on_create_container.id == "box_mode") {
         close_user_layers_component("block")
@@ -885,6 +890,20 @@ on_import_close.addEventListener("click", () => {
     }
 })
 // Import Layers Ends Here
+
+// Export Layers Starts Here
+export_layer_link.addEventListener("click", () => {
+    fetch_and_activate_dom_layers()
+
+    EXPORTABLE_LAYERS = ""
+    for (const layer_key in LAYERS) {
+        if (Object.hasOwnProperty.call(LAYERS, layer_key)) {
+            EXPORTABLE_LAYERS += LAYERS[layer_key].name + "\n";
+        }
+    }
+    helper.export_file(`${collection_name}.txt`, EXPORTABLE_LAYERS);
+})
+// Export Layers Ends Here
 
 // Create New Layers Starts Here 
 start_create_layer_link.addEventListener("click", () => {
@@ -923,9 +942,113 @@ on_create_button.addEventListener("click", (e) => {
 on_create_close.addEventListener("click", () => {
     if (on_create_container.id == "box_mode") {
         close_user_layers_component("block")
-    }else close_user_layers_component("flex")
+    }else {
+        close_user_layers_component("flex")
+        user_layers_prev_components.push(["on_create"])
+        user_layers_current_component = ["art_generator_crud_tools", "layers"]   
+        switch_user_layers_component()  
+    }
 })
 // Create New Layers Ends Here 
+
+// Add Multiple Layers (aml) Start Here
+// open import component to import layers when there ain't no layers
+start_aml_link.addEventListener("click", () => {
+    user_layers_prev_components.push("on_create")
+    user_layers_current_component = "on_aml"
+    switch_user_layers_component()
+})
+
+// open import component to import layers more layers
+aml_link.addEventListener("click", () => {
+    user_layers_prev_components.push(["layers", "on_create"])
+    user_layers_current_component = "on_aml"
+    switch_user_layers_component()
+
+    helper.disappear(art_generator_tools_container)
+    art_generator_tools_container.style.left = "-40%"
+})
+
+// Control aml Copy/Paste
+on_aml_copy_btn.addEventListener("click", () => {
+    let text = on_aml_code_box.innerText;
+    helper.copy_content(text)
+})
+on_aml_paste_btn.addEventListener("click", () => {
+    helper.paste_content(on_aml_input)
+})
+
+helper.many_actions("click", 
+    [on_aml_copy_btn, on_aml_continue_btn], () => {
+    helper.disappear(on_aml_instruction)
+    helper.unhide(on_aml_options, "flex")
+    helper.appear(on_aml_button, "2")
+})
+
+on_aml_view_format_btn.addEventListener("click", () => {
+    helper.appear(on_aml_instruction)
+    helper.hide(on_aml_options)
+    helper.disappear(on_aml_button, "-2")
+})
+on_aml_reset_btn.addEventListener("click", () => {
+    on_aml_input.value = ""
+})
+
+// import the layers in the import component text area
+on_aml_button.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    if (invalid_layer_names.includes(on_aml_input.value)) {
+        let msg = "Please Add ONE or More Layer Names"
+        let btns = [{text: "Ok", class:"notification_close n_clear",
+                id:"##" + notification_screen.className}]
+        helper.notification_box(nft_art_generator, notification_screen,
+            {type: "alert !!!", msg, btns}
+        )
+    }else{
+        let new_multi_layers = on_aml_input.value.split("\n")
+        new_multi_layers.forEach(nml => {
+            let cleaned_nml = helper.remove_special_chars(nml)
+            if (!invalid_layer_names.includes(cleaned_nml)) {
+                let nl_id = (helper.count_keys(LAYERS) + 1).toString()
+                let nl = new Layer(cleaned_nml, nl_id, 
+                    [collection_width, collection_height])
+            
+                nl.add_to_layers()
+                fetch_and_activate_dom_layers()
+            }
+        });
+
+        close_user_layers_component("flex")
+        layers_container.style.display = "block"
+        user_layers_prev_components.push(["art_generator_crud_tools"])
+        user_layers_current_component = ["layers", "on_create"]   
+        switch_user_layers_component()
+
+        helper.appear(show_right_in_media_query_btn, "8")
+
+        on_create_container.id = "quick_mode"
+        on_aml_input.value = ""
+    }
+})
+
+on_aml_close.addEventListener("click", () => {
+    if (on_create_container.id == "box_mode") {
+        close_user_layers_component("block")
+        user_layers_prev_components.push("on_no_layers")
+        user_layers_current_component = ["on_create"]   
+        switch_user_layers_component()
+    }else {
+        close_user_layers_component("flex")
+        layers_container.style.display = "block"
+        user_layers_prev_components.push(["art_generator_crud_tools"])
+        user_layers_current_component = ["layers", "on_create"]   
+        switch_user_layers_component()
+        
+    }
+})
+// Add Multiple Layers (aml) Ends Here
+
 
 // Show art gen tools starts Here 
 art_generator_tools_container_btn.addEventListener("click", () => {

@@ -272,7 +272,15 @@
                                 <li>Create Layer</li>
                             </ul>
                             <form action="" method="">
-                                <input type="text" name="create_new_layer" class="on_create_input" id="on_create_input" placeholder="Layer Name">
+                                <ul class="new_layer_name_inputs">
+                                    <li>
+                                        <input type="text" name="create_new_layer" 
+                                        class="on_create_input" 
+                                        id="on_create_input" placeholder="Layer Name">
+                                    </li>
+                                    <li class="clkb_link start_on_aml_link"><i class="fa fa-plus"></i></li>
+                                    <li class="clkb_link on_aml_link"><i class="fa fa-plus"></i></li>
+                                </ul>
                                 <p>Please enter a name</p>
                                 <button class="clkb_btn">Add Layer</i></button>
                             </form>
@@ -287,23 +295,23 @@
                         <div class="unselect_all clkb_link">Unselect All</div>        
                         <div class="seleted_layers">Selected : <span class="selected_cnt">0</span></div>        
                         <div class="del_layers clkb_link"><i class="fa fa-trash-alt"></i></div>    
-                    </div> 
+                    </div>
                     
-                    <div class="on_import on_pop_up" state="closed">
-                        <div class="on_import_inner on_pop_up_inner">
-                            <ul class="on_import_header">
-                                <li class="on_import_close clkb_link close" id="##on_import">
+                    <div class="on_aml on_pop_up" state="closed">
+                        <div class="on_aml_inner on_pop_up_inner">
+                            <ul class="on_aml_header">
+                                <li class="on_aml_close clkb_link close" id="##on_aml">
                                     <i class="fa fa-times"></i>
                                 </li>
-                                <li>Import Layers</li>
+                                <li>Add Multiple Layers</li>
                             </ul>
                             <form action="" method="">
-                                <ul class="on_import_form_options">
-                                    <li class="clkb_link view_import_format">View Format</li>
-                                    <li class="clkb_link reset_import_form_btn">Reset</li>
+                                <ul class="on_aml_form_options">
+                                    <li class="clkb_link view_aml_format">View Format</li>
+                                    <li class="clkb_link reset_aml_form_btn">Reset</li>
                                     <li class="clkb_link paste_btn"><i class="fa fa-paste"></i>Paste</li>
                                 </ul>
-                                <div class="import_instruction">
+                                <div class="aml_instruction">
                                     <ul>
                                         <li>You Can Add Multiple Layers e.g &#128071;&#127998;</li>
                                         <li class="clkb_link copy_btn"><i class="fa fa-copy"></i>Copy</li>
@@ -319,14 +327,50 @@
                                     </div>
                                     <br>
                                     <div>NB: Each layer name should be on a new line</div>
-                                    <div class="clkb_btn continue_to_import">Continue</div>
+                                    <div class="clkb_btn continue_to_aml">Continue</div>
                                 </div>
-                                <textarea type="text" name="import_json_layers" 
-                                    class="on_import_input scr scr-y" id="on_import_input">
+                                <textarea type="text" name="aml_json_layers" 
+                                    class="on_aml_input scr scr-y" id="on_aml_input">
                                 </textarea>
                                 <button type="submit" class="clkb_btn">Add Layers</i></button>
                             </form>
                         </div> 
+                    </div>
+
+                    <div class="on_import on_pop_up" state="closed">
+                        <div class="on_import_inner on_pop_up_inner">
+                            <ul class="on_import_header">
+                                <li class="on_import_close clkb_link close" id="##on_import">
+                                    <i class="fa fa-times"></i>
+                                </li>
+                                <li>Import File From Your Device</li>
+                            </ul>
+                            <div class="import_actions">
+                                <div class="clkb_link on_import_loader_btn">
+                                    Import File
+                                    <input type="file" name="on_import_loader" 
+                                    class="on_import_loader" style="display: none;">
+                                </div>
+                                <div class="clkb_link on_import_format">View Format</div>
+                            </div>
+                            <div class="on_import_instruction">
+                                <ul>
+                                    <li>You Can Add A Text(.txt) File With Multiple Layers e.g &#128071;&#127998;</li>
+                                </ul>
+                                <div class="code_box">
+                                    background<br>
+                                    skin<br>
+                                    cloth<br>
+                                    mouth<br>
+                                    eye<br>
+                                    earring<br>
+                                    head wear
+                                </div>
+                                <br>
+                                <div>NB: Each layer name should be on a new line</div>
+                                <div class="clkb_btn continue_to_import">Continue</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="on_generate on_pop_up">
