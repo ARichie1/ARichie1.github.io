@@ -1,0 +1,635 @@
+:root{
+    /* GLASS BACKGROUND */
+    --ebg: rgba(255, 255, 2555, 0.129);
+    --blur :  blur(30px);
+
+    /* THEME COLOR */
+    --tc1 : rgb(108, 169, 238) ;
+    --tc2 : rgb(239, 117, 206) ;
+    --tc3 : rgb(132, 81, 181) ;
+    /* PLACEHOLDER COLOR LIGHT TONE */
+    --tphc : rgb(224, 144, 87);
+    /* CHILD ICON COLOR */
+    --tcic : gold;
+
+    /* FONT SIZE */
+    --fsl : 16px; --fsm : 13px; --fss : 12px;
+    --fsxl : 18px; --fsxs : 8px;
+
+    /* SHADOW */
+    --shadow : 0 0 0.5em #000a inset;
+    --shadow_out : 0 0 0.5em rgba(248, 247, 247, 0.667);
+
+    /* BORDER */
+    --line : 1px solid var(--tc1);
+}
+
+* {margin: 0;padding: 0;box-sizing: border-box;
+    user-select: none;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99.5vh; width:100vw;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow: hidden;
+    /* background: #000; */
+}
+
+li, span, .fa{list-style: none; cursor: pointer;}
+.many_icons{
+    position: relative;
+}
+
+/* =====APP STYLES START HERE===== */
+.app{
+    position: relative;
+    width: 100%; height: 100%;
+    padding: 1%;
+    /* border: 2px solid red; */
+    color: var(--tc1);
+    overflow: hidden;
+}
+@media screen and (min-width:901px) {
+    .app{
+        width: 60%; height: 100%;
+    } 
+}
+
+/* ====HEADER START HERE===== */
+header{
+    height: 10%; width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%; padding-right: 1%;
+    /* border: 1px solid blue; */
+}
+nav{
+    width: 65%;
+    /* border: 1px solid red; */
+}
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+nav ul .started_test_nav_links{
+    display: none;
+}
+.responsive_bars{
+    display: none;
+    z-index: -8;
+    transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+}
+@media screen and (max-width:900px) {
+    header{
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+    .responsive_bars{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px; height: 30px;
+        color: var(--tc1) !important;
+        border: 1px solid red;
+        z-index: 8;
+    }
+    nav{
+        position: absolute;
+        top: 0%;
+        left: -50%;
+        width: 50%;
+        height: 100%;
+        background: #fff;
+        font-size: 18px;
+        z-index: 7; z-index: -7; opacity: 0;
+        transition: 1s ease-in-out;
+        -webkit-transition: 1s ease-in-out;
+        -moz-transition: 1s ease-in-out;
+        -ms-transition: 1s ease-in-out;
+        -o-transition: 1s ease-in-out;
+    }
+    nav ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center; 
+    }
+}
+/* ====HEADER END HERE===== */
+
+/* ====PAGES START HERE===== */
+.app .page{
+    position: absolute; top: 11%;
+    height: 78.7%; width: 98%;
+    padding: 1%;
+    background: transparent;
+    border: 1px solid green;
+    background-color: #000;
+    border-radius: 6px ;
+    -webkit-border-radius: 6px ;
+    -moz-border-radius: 6px ;
+    -ms-border-radius: 6px ;
+    -o-border-radius: 6px ;
+}
+
+/* ====LANGING PAGE START HERE===== */
+.landing_page{
+    overflow-y: scroll;
+}
+.lpe{
+    border-bottom: 1px solid var(--tc1);
+    padding: 5%;
+}
+.lpe h2{height: 10%;}
+.landing_page .hero{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60%;
+}
+.landing_page .call_to_action{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40%;
+}
+.landing_page .call_to_action button{
+    height: 30px; width: 40%;
+}
+.landing_page .services{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+    text-align: center;
+}
+.landing_page .services .features{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    height: 60%; width: 100%;
+}
+.landing_page .services .features li{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90px; height: 90px;
+    border: 1px dashed var(--tc3);
+    border-radius: 100%;
+}
+.landing_page .about_us{
+    height: 100%;
+    text-align: center;
+}
+.landing_page .about_us .about_content{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 35px;
+    text-align: center;
+}
+.landing_page .contact_us{
+    height: 100%;
+    text-align: center;
+    padding: 5%;
+}
+.landing_page .contact_us form{
+    display: flex;   
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 85%; width: 70%;
+    margin: 0% auto;
+}
+.landing_page .contact_us form input{
+    width: 80%; height: 30px;
+}
+.landing_page .contact_us form input,
+.landing_page .contact_us form textarea,
+.landing_page .contact_us form button{
+    width: 80%; height: 30px;
+    border: 1px solid var(--tc1);
+}
+.landing_page .contact_us form textarea{
+    height: auto;
+}
+.landing_page .share_app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30%;
+    padding: 5%;
+}
+.landing_page .share_app .social_links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    height: 90%; width: 70%;
+}
+.landing_page .share_app .social_links li{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30px; height: 30px;
+}
+@media screen and (max-width: 500px) {
+    .landing_page .about_us .about_content{
+        line-height: 25px;
+    }
+}
+/* ====LANGING PAGE END HERE===== */
+
+/* ====TRAIT SELECTION PAGE START HERE===== */
+.trait_selection_page_header{
+    width: 100%; height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.trait_selection_page h3{
+    width: 60%;
+    font-size: medium;
+}
+.words_count{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--tc1);
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+.traits_picker{
+    width: 100%; height: 90%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.traits_group{
+    width: 100%; height: 80%;
+    display: flex;
+}
+.trait_container{
+    position: relative;
+    width: 25%;
+    margin: 1%;
+    border: 1px solid var(--tc1);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.trait_box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.trait_box .img_frame{
+    width:100%;
+    height: 80%;
+    border-radius: inherit;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.trait_box .img_frame img{
+    width:100%; height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.trait_word{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none !important;
+    border-top: 1px solid var(--tc1) !important;
+    border-radius: 0% !important;
+    -webkit-border-radius: 0% !important;
+    -moz-border-radius: 0% !important;
+    -ms-border-radius: 0% !important;
+    -o-border-radius: 0% !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+.trait_word:active{
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+.trait_meaning{
+    position: absolute;
+    top: 0%; left: 0%;
+    width: 100%; height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(120deg,
+        #000, var(--ebg), #000
+    );
+    color: white;
+    font-size: auto;
+    border: 1px solid yellow;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 2%;
+    opacity: 0; z-index: -6;
+}
+.trait_meaning_btn{
+    position: absolute;
+    top: 4%; right: 4%;
+    border-color: transparent !important;
+    z-index: 6;
+}
+.trait_meaning_btn:hover::before{
+    content: "Check Meaning";
+    position: absolute;
+    top: 0%;
+    right: 110%;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.trait_nav{
+    width: 100%; height: 15%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.trait_nav .submit_traits{
+    display: none;
+}
+@media screen and (max-width: 900px) {
+    .traits_group{
+        width: 100%; height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow-y: scroll;
+    }
+    .trait_container{
+        position: relative;
+        width: auto;
+    }
+}
+  
+/* ====TRAIT SELECTION PAGE END HERE===== */
+
+/* ====PERSONALITY DISPLAY PAGE START HERE===== */
+.personality_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: 40px;
+}
+.personality_page h2,
+.personality_page h3{
+    text-align: center;
+}
+.eventual_personality_description{
+    /* text-transform: capitalize; */
+    text-align: center;
+}
+.check_out_dom_careers,
+.check_out_careers,
+.view_less_dominant_careers,
+.view_most_dominant_careers{
+    width: 70%;
+    text-align: center;
+    border: 1px solid var(--tc1);
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%; height: 10%;
+}
+.options li{
+    width: 47%; height: 100%; text-align: center;
+    border: 1px solid var(--tc1);
+    margin: 0% 1%;
+}
+/* ====PERSONALITY DISPLAY PAGE END HERE===== */
+
+/* ====STATISTICS PAGE DISPLAY PAGE START HERE===== */
+.statistics_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.statistics_page .stat_table{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%; height: 60%;
+    border-radius: 5px;
+    border: 1px solid var(--tc1);
+}
+.statistics_page .stat_table ul{
+    height: 100%; width: 100%;
+}
+.statistics_page .stat_table ul:nth-child(1){
+    border-right: 1px solid var(--tc1);
+}
+.statistics_page .stat_table ul li{
+    width: 100%; height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    text-align: center;
+    border-radius: 0px;
+    border: none;
+    border-top: 1px solid var(--tc1);
+}
+.statistics_page .stat_table ul li:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+    border-top: none;
+}
+.statistics_page .stat_table ul li a{
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+/* ====STATISTICS PAGE DISPLAY PAGE END HERE===== */
+
+/* ====CAREER DISPLAY PAGE START HERE===== */
+.most_dom_personality_career_page,
+.less_dom_personality_career_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.more_dom_personality_career_page h2{
+    text-align: center; height: 5%;
+}
+.available_personalities{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%; height: 7%;
+}
+.available_personalities li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; height: 100%;
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    cursor: pointer;
+}
+.available_personalities li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 100%; height: 100%;
+    color: var(--tc1);
+    background: transparent;
+}
+.available_personalities_careers{
+    width: 100%; height: 65%;;
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.available_personalities_careers 
+.available_personalities_careers_container{
+    width: 100%; height: auto;
+    display: inline-block;
+}
+.career_description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.careers{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.careers li{
+    position: relative;
+    margin: 2%;
+}
+.careers li span{
+    position: absolute;
+    top: 0%; left: 0%;
+    width: 100%; height: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 6;
+    background: linear-gradient(120deg, 
+            #000, var(--ebg), #000);
+    font-size: 100%;
+    text-transform: capitalize;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.careers li img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+.md1{background: linear-gradient(to right, #43e97b 0%, lightgreen 100%) !important;}
+.md2{background: linear-gradient(to right, skyblue 0%, #38f9d7 100%) !important;}
+.md3{background: linear-gradient(to right, #0fd850 0%, #f9f047 100%) !important;}
+.md4{background: linear-gradient(to right, #4481eb 0%, #38f9d7 100%) !important;}
+
+.ld1{background: linear-gradient(to right, #f9d423, #f9d423 ) !important;}
+.ld2{background: linear-gradient(to right, #f9d423, #f83600) !important;}
+.ld3{background: linear-gradient(to right, #f83600 0%, #c20635 100%) !important;}
+.ld4{background: linear-gradient(to right, #c20635 0%, #490214 100%) !important;}
+
+.less_dom_personality_career_page .options li{
+    width: 100%; height: 100%; text-align: center;
+    border: 1px solid greenyellow;
+    margin: 0% 1%;
+}
+.vdc{height: 10%;}
+@media screen and (max-width:500px) {
+    .careers{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* ====CAREER DISPLAY PAGE END HERE===== */
+/* ====PAGES END HERE===== */
+
+/* ====FOOTER START HERE===== */
+footer{
+    position: absolute;
+    bottom: 0%;
+    height: 10%; width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* ====FOOTER END HERE===== */
+
+
+
+
+
+
+
