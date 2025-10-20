@@ -1,0 +1,638 @@
+.singlePlayerMainGame{
+    width: 100%;height: 100%;
+    display: none;
+}
+.multiPlayerMainGame{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex; align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 10px;
+    display: none;
+}
+.multiPlayerMainGame .players{
+    position: relative;
+    width: 100%;height: 7.5%;
+    border-radius: 25px;
+    display: flex; align-items: center;
+    justify-content: space-evenly;
+}
+.multiPlayerMainGame .opponentStats{
+    border-bottom: 2px solid var(--themeColor);
+}
+
+.multiPlayerMainGame .yourStats{
+    border-top: 2px solid var(--themeColor);
+}
+
+.multiPlayerMainGame .players .playerImg{
+    width: 30px;height: 30px;
+    border: 2px solid var(--themeFontColor);
+    border-radius: 100%;
+}
+.multiPlayerMainGame .players .playerImg img{
+    width: 100%;height: 100%;
+    border-radius: 100%;
+}
+.multiPlayerMainGame .players .playerCountry{display: var(--Country);}
+.multiPlayerMainGame .players .playerRank{display: var(--Rank);}
+
+.multiPlayerMainGame .gameScene{
+    position: relative;
+    width: 100%;height: 85%;
+    border-radius: inherit;
+}
+
+.btnLeft, .btnRight{
+    content: '>>';
+    position: absolute;top:37%;
+    width: 40px;height: 40px;
+    border-radius: 30%;
+    background: transparent;
+    color: var(--themeFontColor);
+    box-shadow: 0 0 0.5em #000 inset;
+    cursor: pointer;z-index: 7;
+    display: flex;justify-content: space-evenly;align-items: center;
+}
+.btnLeft:active, .btnRight:active{
+    transform: scale(0.9);
+}
+
+.btnLeft{content: '>>';position: absolute;left: 1%;}
+.btnRight{content: '<<';position: absolute;right: 1%;}
+
+.gameAlert{
+    position: absolute;top:27%;
+    left: 50%;transform: translateX(-50%);
+    width: 80%;height: 40px;
+    border-radius: 10px;
+    border: none;outline: none;
+    display: flex;justify-content: space-evenly;
+    align-items: center;
+    color: red;background: transparent;
+    text-transform: uppercase;
+    font-weight: bolder;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+.outcomeDisplayDiv{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80% !important;height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(30px);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    z-index: -1;
+}
+.outcomeDisplayDiv .theMessage{
+    width: 100%;height: 20%;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.outcomeDisplayDiv .theMessage h1{
+    text-align: center;
+}
+.outcomeDisplayDiv .theMessageGraphics{
+    width: 100%;height: 30%;
+    font-size: 100px;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.outcomeButtons{
+    position: relative;
+    width: 100%;height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.outcomeDisplayDiv .outcomeBtn{
+    position: relative;
+    width: 30%;height: 60%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bolder;
+    cursor: pointer;
+}
+.outcomeDisplayDiv .next{display: none;}
+.outcomeDisplayDiv .outcomeBtn:active{
+    transform: scale(0.9);
+}
+.outcomeDisplayDiv .theCombination{
+    position: relative;
+    width: 100%;height: 30%;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.outcomeDisplayDiv .theCombination::before{
+    content: 'SECRET COMBINATION';
+    position: absolute;
+    top: -10%;
+    width: 100%;height: 30%;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.outcomeDisplayDiv .codeout{
+    position: absolute;
+    margin: auto 1%;
+    width: 80%;height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.outcomeDisplayDiv .codeout .codediv{
+    position: relative;
+    width: 25%;height: 50%;
+    margin: 0.5%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.outcomeDisplayDiv .codeout .codediv img{
+    position: absolute;z-index: -1;
+    width: 100%;height: 100%;
+    border-radius: 10px;
+}
+.outcomeDisplayDiv .hideOutcome{
+    position: absolute;z-index: -1;
+    top: 10px; right: 10px;
+    width: 30px;height: 30px;
+    border-radius: 10px;
+    color: red;
+    cursor: pointer;
+}
+/* =====POWERUPS START =============*/
+.powerUpsLoader{
+    position: absolute;top:47%;
+    right: 1%;
+    width: 40px;height: 40px;
+    border-radius: 30%;
+    background: transparent;
+    color: var(--themeColor);
+    box-shadow: 0 0 0.5em #000 inset;
+    display: flex;justify-content: center;
+    align-items: center;flex-direction: column;
+    font-size: 14px;z-index: 2;
+    cursor: pointer;
+}
+
+.powerUps{
+    position: absolute;top:57%;
+    right: 2%;
+    width: 30px;height: auto;
+    background: transparent;
+    color: var(--themeColor);
+    display: flex;justify-content: center;
+    align-items: center;flex-direction: column;
+    font-size: 14px;
+}
+
+.powerUp{
+    position: relative;
+    width: 100%;height: 30px;
+    margin-bottom: 30%;
+    border-radius: 30%;
+    background: transparent;
+    color: var(--themeColor);
+    box-shadow: 0 0 0.5em #000 inset;
+    font-size: 14px;
+    display: flex;justify-content: space-evenly;align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;z-index: 2 ;
+}
+.powerUp:active{
+    transform: scale(0.7);
+}
+.powerUp .powerTime{
+    position: absolute;
+    width: 100%;height: 100%;
+    border-radius: inherit;
+    position: absolute;z-index: -1;
+    background: var(--themeColor);
+    color: #fff;
+    box-shadow: var(--shadow);
+    transition: 2s ease-in-out;
+}
+@keyframes powerDrainer {
+    0%{top: 0%;}
+    100%{top: 100%;}
+}
+@keyframes powerFiller {
+    0%{top: 100%;}
+    100%{top: 0%;}
+}
+.booster::after{
+    content: '+';
+    position: absolute;
+    top: 13%;right: 16%;
+    width: 20%;height: 20%;
+    background: transparent;
+    color: var(--themeFontColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: fantasy;
+    font-weight: bold;z-index: -1;
+}
+/* =====POWERUPS END=============*/
+
+/* =====EXIT START========================== */
+.mainnGameAudio, .exit,
+.agentToSelect{
+    position: absolute;top:47%;
+    left: 1%;
+    width: 40px;height: 40px;
+    border-radius: 30%;
+    background: transparent;
+    color: var(--themeFontColor);
+    box-shadow: 0 0 0.5em #000 inset;
+    display: flex;justify-content: space-evenly;align-items: center;
+    cursor: pointer;z-index: 7;
+}
+.mainnGameAudio{top:57%;}
+.agentToSelect{top: 67%;}
+@media only screen and (max-width:420px) {
+    .btnLeft, .btnRight,
+    .powerUpsLoader, .mainnGameAudio,
+    .exit, .agentToSelect{
+        width: 30px;height: 30px;
+        font-size: 80%;
+    }  
+}
+/* =====EXIT END========================== */
+
+
+/* ===== THE ARROWPACK START===============*/
+.arrowPack{
+    position: absolute;left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    width: 30px;height: 30px;
+    background: transparent;
+    cursor: pointer;
+}
+/* =====THE ARROW PACK END==================== */
+
+/* ==========SCREEN START========== */
+.screen{
+    top:0%;left: 50%;
+    transform: translateX(-50%);
+    height: 40%;width: 90%;
+    color: #000;
+    overflow: hidden;
+}
+/* ==========SCREEN HEADER START========== */
+.screenHeader{
+    position: absolute;
+    width: 100%;height: 15%;
+    display: flex;justify-content: space-around;align-items: center;
+    font-weight: bold;
+}
+/* ==========SCREEN HEADER END========== */
+
+/* ==========THE PREDICTIONS START========== */
+.predictions{
+    position: absolute;top:10%;
+    height: 80%;width: 100%;
+    display: flex;justify-content: space-around;
+    align-items: center;
+    color: rgb(175, 175, 175);
+    transition: 6s;
+    animation: slidePredictions 2s linear infinite;
+}
+.predictions .display{
+    position: absolute;
+    width: 100%;height: 92%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 2s;
+}
+
+.opponetsPrediction{left: -100%;height: 80%;overflow-y: scroll;}
+.currentPrediction{left: 0%;}
+.yourPrediction{right: -100%;height: 80%;overflow-y: scroll;}
+
+
+
+/* @keyframes slidePredictions {to{left:-100%}} */
+
+.predictions ol{width: 85%;height: 100%;} 
+.predictions ol li{
+    width: 100%;height: calc(100%/4);
+    position: relative;
+    color: var(--themeFontColor);
+}
+.predictions .codeout{
+    position: absolute;
+    left: 0%;margin: auto 1%;
+    display: flex;justify-content: space-evenly;align-items: center;
+}
+.predictions .codeout .codediv{
+    position: relative;
+    width: calc(100%/6);height: 50%;
+    margin: 0.5%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.predictions .codeout .codediv img{
+    position: absolute;z-index: -1;
+    width: 100%;height: 100%;
+    border-radius: 10px;
+}
+.predictions .result{
+    position: absolute;
+    right: 0%;margin: auto 1%;
+    display: flex;justify-content: space-evenly;align-items: center;
+}
+.predictions .result .status{
+    width: 25%;
+    height: 50%;margin: 1%;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background-size:100%, 1em 1em;
+}
+.predictions .result .status .statusText{
+    font-size: 100%;
+    display: var(--statusText);
+    justify-content: center;align-items: center;
+}
+.predictions .result .status .statusEmoji{
+    font-size: 100%;
+    display:  var(--Emoji);
+    justify-content: center;align-items: center;
+}
+
+.predictions .arrow{position: relative;}
+
+.dead{background: radial-gradient(rgb(26, 26, 26),black);}
+.injured{background: radial-gradient(red,black);}
+.alive{background: radial-gradient(green,black);}
+
+/* =====ACTIVE PREDICTIONS START================= */
+.activePrediction{
+    position: absolute;top:75%;
+    width: 100%;height: 25%;
+    border: none;outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transition: 1s ease-in-out; */
+}
+
+.activePrediction .codeout{
+    position: absolute;
+    border: 2px solid gray;
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border: none;outline: none;
+}
+.activePrediction .codeout .codediv{
+    position: relative;
+    width: 35px;height: 35px;
+    margin: 0.5%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.activePrediction .codeout img{width: 100%;height: 100%;}
+/* =====ACTIVE PREDICTIONS START================= */
+
+/* =====HINT PREDICTED START===================== */
+.hintPredicted{
+    position: absolute;left: 0%;
+    width: 100%;height: 92%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.hintPredicted .arrow{opacity: 0;}
+.hintPredicted .codeout{width: 50%;height: 45%;opacity: 1;}
+.hintPredicted .codeout .codediv{
+    font-size: bold;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+.hintPredicted .codeout img{width: 100%;height: 50%;background: var(--themeFontColor);}
+
+.hintPredicted .result{width: 45%;height: 70%;opacity: 1;}
+.hintPredicted .result .status{height: 33%;}
+
+/* =====HINT PREDICTED END===================== */
+
+/* ==========THE CURRENT PREDICTION START========== */
+.currentPrediction .codeout{width: 45%;height: 50%;}
+.currentPrediction .codeout img{width: 100%;height: 50%;}
+.currentPrediction .result{width: 45%;height: 50%;}
+
+/* ==========THE CURRENT PREDICTION END========== */
+
+/* ==========THE ALL PREDICTIONS START========== */
+.multiplePredictions .arrow{position: absolute;top: 50%;left:50%;transform: translate(-50%, -50%);text-align: center;color: #000;}
+.multiplePredictions .codeout{width: 45%;height: 95%;}
+.multiplePredictions .codeout .codediv{height: 90%;}
+.multiplePredictions .codeout .codediv img{left: 0%;}
+.multiplePredictions .result{width: 45%;height: 95%;}
+.multiplePredictions .result .status{height: 90%;}
+.multiplePredictions::-webkit-scrollbar{background: inherit;}
+.multiplePredictions::-webkit-scrollbar-thumb{background: var(--themeColor);box-shadow: var(--shadow); border-radius: 20px;}
+.multiplePredictions::-webkit-scrollbar-button{background: var(--themeFontColor);height: 2%;border-radius: 20%;}
+/* ==========THE ALL PREDICTIONS END=== */
+
+@media only screen and (max-width:500px) {
+    .predictions .codeout{width: 40%;}
+    .predictions .display .codeout .codediv{width: 25%;}
+    .predictions .result{width: 40%;margin-right: 2%;}
+    .predictions .result .status{width: 25%;}
+    .activePrediction .codeout{width: 100%;}
+}
+/* ==========THE PREDICTIONS END========== */
+/* ==========THE SCREEN END================== */
+
+/* ==========THE CODED IMAGES START========== */
+.codedImages{
+    top: 38%;left: 50%;
+    transform: translateX(-50%);
+    height: 60%;width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+/* ==========THE SOLDIERS START========== */
+.agents{
+    height: 100%;width: 100%;
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+/* ==========THE BATCHES START========== */
+.agents .batch{
+    height: 25%;width: 100%;
+    display: flex;align-items: center;
+    justify-content: space-evenly;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+.agents .batch1{top:2.5%}
+.agents .batch2{top:27.5%;}
+.agents .batch3{top:52.5%;}
+.agents .batch4{top:77.5%;}
+
+.agents button{
+    position: relative;width: 3.5em;height: 3.5em;
+    border-radius: 25%;border: none;
+    box-shadow: var(--shadow);
+    background: transparent;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;font-size: larger;
+    cursor: pointer;
+    opacity: 0.6;
+}
+@media only screen and (max-width:420px) {
+    .agents button{
+        width: 2.5em;height: 2.5em;
+    }
+}
+.agents button:active{
+    transform: scale(0.9);
+}
+.agents button img{
+    position: absolute;
+    top: 0%;left: 2% !important;
+    width: 98%;height: 99%;z-index: -1;
+    border-radius: 25%;
+    box-shadow: var(--shadow);
+}
+.agents .numbtn .clickNumber{
+    position: absolute;
+    top: -10%;right: -10%;
+    width: 30%;height: 30%;
+    border-radius: 100%;
+    background: var(--themeColor);
+    box-shadow: var(--shadow);
+    font-size: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.02s;
+}
+
+/* =====RESET BUTTON START========= */
+.agents .numbtnReset{
+    padding: 2% auto;
+    color: #111;
+    background:linear-gradient(75deg, #333, var(--themeColor));
+    box-shadow: var(--shadow);
+    border: none;outline: none;
+    opacity: 1;
+}
+/* =====RESET BUTTON END========= */
+
+
+/* =====SEND BUTTON START======== */
+.agents .numbtnSend{
+    padding: 2% auto;
+    color: #111;
+    background:linear-gradient(-75deg,#333, var(--themeColor));
+    box-shadow: var(--shadow);
+    border: none;outline: none;
+    opacity: 0.1;
+    z-index: -100;
+}
+/* =====SEND BUTTON END======== */
+/* ==========THE BATCHES END========== */
+/* ==========THE SOLDIERS END============ */
+/* ==========THE CODED IMAGES END=========== */
+/* ==========CONTAINER END=======================*/
+
+
+
+/* =====PLAYER CODE SELECTION START===== */
+.playerCodeSelection{
+    width: 100%;height: 100%;
+    margin-top: 10%;
+    display: none;
+}
+.playerCodeSelection .selection{
+    position: absolute;
+    height: 25%;width: 100%;
+    left: 50%;transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.playerCodeSelection .instruction{
+    margin-top: 60% auto;
+    text-align: center;
+}
+.playerCodeSelection .playerSelection{
+    position: relative;
+    width: 80%;height: 20%;
+    border: none;outline: none;
+}
+
+.playerCodeSelection .playerSelection .codeout{
+    position: absolute;
+    border: 2px solid gray;
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border: none;outline: none;
+}
+.playerCodeSelection .playerSelection .codeout .codediv{
+    position: relative;
+    width: 35px;height: 35px;
+    margin: 0.5%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.playerCodeSelection .playerSelection .codeout img{width: 100%;height: 100%;border-radius: 10px;}
+/* =====SELECTION END================= */
+
+/* =====RESET BUTTON START========= */
+.playerCodeSelection .agents .resetSelection{
+    padding: 2% auto;
+    color: #111;
+    background:linear-gradient(75deg, #333, var(--themeColor));
+    box-shadow: var(--shadow);
+    border: none;outline: none;
+    opacity: 1;
+}
+/* =====RESET BUTTON END========= */
+
+
+/* =====SEND BUTTON START======== */
+.playerCodeSelection .agents .saveSelection{
+    padding: 2% auto;
+    color: #111;
+    background:linear-gradient(-75deg,#333, var(--themeColor));
+    box-shadow: var(--shadow);
+    border: none;outline: none;
+    opacity: 0.1;
+    z-index: -100;
+}
+.playerCodeSelection .agents .playGame{
+    padding: 2% auto;
+    color: #111;
+    background:linear-gradient(-75deg,#333, var(--themeColor));
+    box-shadow: var(--shadow);
+    border: none;outline: none;
+    opacity: 1;
+    z-index: 1;
+    display: none;
+}
+/* =====PLAYER CODE SELECTION END===== */

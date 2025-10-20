@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xyz</title>
+    <link rel="shortcut icon" href="assets/images/earth.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/dia.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/maingame.css">
+</head>
+<body>
+    <audio class="buttonSound" class="sound" autoplay>
+        <source class="buttonSoundSource" src=""></source>
+      </audio>
+      <audio class="clickSound" class="sound" autoplay>
+        <source class="clickSoundSource" src=""></source>
+      </audio>
+      <audio class="gameMusic" class="sound" autoplay>
+        <source class="gameMusicSource" src=""></source>
+      </audio>
+<!-- ===============THE SCENE START========================== -->
+    <div class="scene">
+<!-- ===============MODULES START========================== -->
+        <div class="modules">
+<!-- ===============MODULES HEADER START============-->
+            <div class="top parts">
+                <div class="backButton">&#11013;</div>
+                <div class="homeButton">&#127968;</div>
+                <div class="topStats">
+                    <div class="title topStatValues">X. X. X</div>
+                    <div class="tokens topStatValues"><span class="tokensAmount">0</span> &#128176;</div>
+                    <div class="keys topStatValues"><span class="keysAmount">x</span> &#128273;</div>
+                    <div class="timeFrame topStatValues inGameValues">
+                        <div class="yourTime">0:00</div>
+                        <div class="powerLayerTime">+30s</div>
+                    </div>
+                    <div class="movesFrame topStatValues inGameValues">
+                        <div class="yourMoves">0</div>
+                        <div class="powerLayerMoves">+3</div>
+                    </div>
+                    <!-- <div class="powerLayerTime">+30s</div> -->
+                    <!-- <div class="powerLayerMoves">+3</div> -->
+                    <div class="activator"></div>
+                </div>
+            </div>
+<!-- ===============OUTCOMES DISPLAY START============= -->
+            <div class="outcomeDisplayDiv parts">
+                <div class='theMessage'><h1></h1></div>
+                <div class='theExtraMessage'><h3></h3></div>
+                <div class="theMessageGraphics"></div>
+                <div class='theCombination'>
+                    <div class='codeout'></div>
+                </div>
+                <div class="outcomeButtons">
+                    <div class='outcomeBtn menu'>Menu</div>
+                    <div class='outcomeBtn saveMe'>Save Me</div>
+                    <div class='outcomeBtn tryAgain'>Try Again</div>
+                    <div class='outcomeBtn next'>Next</div>
+                </div>
+                <div class="hideOutcome">X</div>
+            </div>
+<!-- ===============OUTCOMES DISPLAY END============= -->
+<!-- ===============MODULES HEADER END============ -->
+
+<!-- ===============MODULES BOTTOM START===========-->
+            <div class="bottom parts"></div>
+<!-- ===============MODULES BOTTOM END==============================================-->
+        </div>
+<!-- ===============MODULES END======================================================= -->
+    </div>
+<!-- ===============THE SCENE END======================================================== -->
+<script src="assets/js/gameLoader.js" type="module"></script>        
+<script src="assets/js/navigations/navigation.js"  type="module"></script>
+ </body>
+<!-- ============================================MADE BY AKINMADE RICHARD A.K.A A.RICHIE=============================== -->
+</html>

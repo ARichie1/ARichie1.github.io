@@ -1,0 +1,1005 @@
+/* =====HOME START======================= */
+.modules .bottom .home ul li{
+    width: 130px;height: 30px;
+    margin: 10px auto;position: relative;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.modules .bottom .home ul li:hover{
+    transform: scale(1.1);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+.modules .bottom .home ul li:active{
+    transform: scale(0.7);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+/* =====HOME END========================== */
+
+/* =====TUTORIAL START==================== */
+.modules .bottom .tutorial{
+    width: 90%;height: 90%;
+    margin: 20px;padding: 10px;
+    line-height: 22px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: none;
+}
+.modules .bottom .tutorial::-webkit-scrollbar{background: inherit}
+.modules .bottom .tutorial::-webkit-scrollbar-thumb{background: var(--themeColor);border-radius: 20px;box-shadow: var(--shadow);cursor: pointer;border-radius: 20px;}
+.modules .bottom .tutorial::-webkit-scrollbar-button{background: var(--themeFontColor);height: 2%;border-radius: 20%;}
+
+.modules .bottom .tutorial h5{
+    text-align: left;
+    font-weight: bolder;
+}
+.modules .bottom .tutorial ul{
+    margin-left: 15px;text-align: left;
+    line-height: 22px;list-style: disc;
+}
+.tutorial .example{
+    display: flex;justify-content: space-evenly;align-items: center;
+    color: rgb(175, 175, 175);
+}
+.tutorial .arrow{position: relative;text-align: center;color: #000;}
+.tutorial .arrow .arrowPack{
+    transform: translate(-50%, -50%);
+    cursor: default;
+}
+.tutorial .codeout{
+    height: 100%;
+    display: flex;justify-content: center;align-items: center;
+}
+.tutorial .codeout img{
+    width: 35px;height: 35px;
+    border-radius: 10px;
+}
+.tutorial .tutorialSendButton{
+    border-radius: 5px;
+    border: none;outline: none;
+    color: skyblue;
+    background:radial-gradient(#000, skyblue);
+    box-shadow: var(--shadow);
+    font-size: 12px;
+}
+.tutorial .result{
+    height: 100%;
+    display: flex;justify-content: center;align-items: center;
+}
+.tutorial .result .status{
+    position: relative;
+    width: 35px;height: 35px;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background-size:100%, 1em 1em;
+}
+.tutorial .tutorialresultsExplanation{
+    margin-left: 55%;
+    text-align: right;
+}
+.status{
+    position: relative;
+    width: 35px;height: 35px;margin-top: 10px;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background-size:100%, 1em 1em;
+    color: rgb(175, 175, 175);
+}
+.statusText{
+    position: absolute;left: 50%;
+    transform: translateX(-50%);
+    width: 100%;height: 100%;
+    font-size: 120%;
+    display: flex;justify-content: center;align-items: center;
+    opacity: 1;background: transparent;
+}
+.statusEmoji{
+    width: 100%;height: 100%;
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.1;
+}
+.dead{background: radial-gradient(rgb(26, 26, 26),black);}
+.injured{background: radial-gradient(red,black);}
+.alive{background: radial-gradient(green,black);}
+@media only screen and (max-width:420px) {
+    .tutorial .codeout img,
+    .tutorial .result .status {
+        width: 27px;height: 27px;
+    }
+}
+/* =====TUTORIAL END======================= */
+
+/* =====MORE GAMES START==================== */
+.modules .bottom .moreGames{
+    width: 90%;height: 90%;
+    margin: 20px;padding: 10px;
+    line-height: 22px;
+    display: flex;justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modules .bottom .moreGames .playMore{
+    position: absolute;left: 50%;
+    transform: translateX(-50%);
+    width: 40%;height: 8%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bolder;
+    cursor: pointer;
+}
+.modules .bottom .moreGames .playMore:active{
+    transform: translateX(-50%) scale(0.9);
+}
+/* =====MORE GAMES END==================== */
+
+/* =====SINGLE PLAYER START============= */
+.modules .bottom .singlePlayer{
+    display: none;
+}
+.modules .bottom .singlePlayer ul li{
+    width: 130px;height: 30px;
+    margin: 10px auto;position: relative;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.modules .bottom .singlePlayer ul li:hover{
+    transform: scale(1.2);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+/* =====SINGLE PLAYER END============= */
+
+/* =====FIND AGENTS DIFFICULTY START============= */
+.modules .bottom .findAgents,
+.modules .bottom .multiPlayerOnline{
+    position: relative;
+    width: 90%;height: 90%;
+    display: flex;flex-direction: column;
+    display: none;
+}
+.modules .bottom .difficultyTable{
+    position: absolute;top: 40%;
+    transform: translateY(-50%);
+    width: 100%; height:90%;
+    padding: 5%;
+    border-radius: 20px;
+}
+.modules .bottom .difficultyTable .headInfo{
+    display: flex;justify-content: space-around;
+    align-items: center;height: 15%;
+    margin-bottom: 3%;font-weight: bolder;
+    border-bottom: 2px solid var(--themeFontColor);
+}
+.modules .bottom .difficultyTable .difficulty{
+    display: flex;justify-content: space-around;
+    align-items: center;height: 12%;
+    margin-bottom: 3%;border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    position: relative;
+}
+.modules .bottom .difficultyTable .difficultyHeader,
+.modules .bottom .difficultyTable .agentsAvailable, 
+.modules .bottom .difficultyTable .timeAvailable, 
+.modules .bottom .difficultyTable .movesAvailable{
+    width: 25%;display: flex;justify-content: center;
+}
+.modules .bottom .findAgents .difficultyTable .difficulty:active, 
+.modules .bottom .multiPlayerOnline .difficultyTable .difficulty:active{
+    transform: scale(1.1);
+    box-shadow: 0 0 6em var(--themeFontColor) inset;
+}
+
+.modules .bottom .difficultyTable .selectAgent{
+    position: absolute;left: 43%;top: 23.5%;
+    width: 5%;border-radius: 5px;
+    background: var(--themeFontColor);
+    color: var(--themeColor);
+    display: flex;align-items: center;
+    justify-content: space-evenly; 
+    cursor: pointer;
+    opacity: 0;z-index: -1;
+}
+
+.modules .bottom .difficultyTable .selectAgentUl{
+    position: absolute;left: 50%;top: 21%;
+    display: flex;align-items: center;
+    justify-content: space-evenly;
+    width: 40%;height: 9%;
+    border-radius: 5px;
+    opacity: 0;z-index: -1;
+}
+.modules .bottom .difficultyTable .selectAgentUl li{
+    width: 19%;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    border-radius: inherit;
+    cursor: pointer;
+}
+
+.modules .bottom .findAgents .toGame, 
+.modules .bottom .multiPlayerOnline .toGame{
+    position: absolute; bottom: 0%;
+    left: 50%;transform: translateX(-50%);
+    width: 40%;height: 10%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bolder;
+    cursor: pointer;
+}
+.modules .bottom .findAgents .toGame:active, 
+.modules .bottom .multiPlayerOnline .toGame:active{
+    transform: translateX(-50%) scale(0.9);
+}
+/* =====FIND AGENTS DIFFICULTY END============= */
+
+/* =====STORY MODE START======================= */
+.modules .bottom .storyMode{
+    position: relative;
+    width: 90%;height: 85%;
+    margin-bottom: 7%;
+    display: flex;flex-direction: column;
+    display: none;
+}
+.modules .bottom .storyMode .stages{
+    position: relative;
+    width: 100%;height: 90%;
+    display: flex;flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.modules .bottom .storyMode .stages::-webkit-scrollbar{background: inherit}
+.modules .bottom .storyMode .stages::-webkit-scrollbar-thumb{background: var(--themeColor);box-shadow: var(--shadow);border-radius: 20px;}
+.modules .bottom .storyMode .stages::-webkit-scrollbar-button{background: var(--themeFontColor);height: 2%;border-radius: 20%;}
+
+.stage{position: absolute;width: 100%;height: 100%;}
+.modules .bottom .storyMode .stageOne{left: 0%;}
+.modules .bottom .storyMode .stageTwo{left: 100%;}
+
+.modules .bottom .storyMode .levelGrid{
+    position:absolute;top: 50%;
+    transform: translateY(-50%);
+    width: 100%;height: 80%;
+    border-radius: inherit;
+    display: grid;grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+.modules .bottom .storyMode .levelGrid::before{
+    content: 'DIA';
+    position: absolute;left: 25%;top: 30%;
+    width: 50%;height: 50%;
+    transform: rotate(-40deg);
+    text-align: center;font-size: 90px;
+    opacity: 0.1;z-index: -1;
+}
+.modules .bottom .storyMode .stageOne .levelGrid::before{content: 'STAGE ONE';}
+.modules .bottom .storyMode .stageTwo .levelGrid::before{content: 'STAGE TWO';}
+
+.modules .bottom .storyMode .levelGrid .level{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 2%;
+    box-shadow: var(--shadow);
+}
+
+.modules .bottom .storyMode .levelGrid .level:hover{
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+.modules .bottom .storyMode .levelGrid .level:active{
+    transform: scale(0.9);
+}
+/* =====STORY MODE END======================= */
+
+/* =====SURVIVAL MODE START======================= */
+.survivalMode{
+    position: relative;
+    width: 90%;height: 85%;
+    margin-bottom: 7%;
+    display: flex;flex-direction: column;
+    display: none;
+}
+.survivalMode .survivalGraphics{
+    display: flex;justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    width: 100%; height: 70%;
+    font-size: 500%;
+}
+.modules .bottom .survivalMode .playSurvival{
+    position: absolute;top: 80%;
+    left: 50%;transform: translateX(-50%);
+    width: 50%;height: 10%;
+    text-align: center;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bolder;
+    cursor: pointer;
+}
+.modules .bottom .survivalMode .playSurvival:active{
+    transform: translateX(-50%) scale(0.9);
+}
+/* =====SURVIVAL MODE END======================= */
+
+/* =====MUTIPLAYER START============= */
+.modules .bottom .multiPlayer,
+.modules .bottom .multiPlayerOnline{
+    display: none;
+}
+.modules .bottom .multiPlayer ul li{
+    width: 130px;height: 30px;
+    margin: 10px auto;position: relative;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.modules .bottom .multiPlayer ul li:hover{
+    transform: scale(1.1);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+.modules .bottom .multiPlayer ul li:active{
+    transform: scale(0.7);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+
+.modules .bottom .multiplayerChallenge,
+.modules .bottom .multiplayerOnlineSceneSelect {
+    display: none;
+}
+.modules .bottom .multiplayerChallenge ul li,
+.modules .bottom .multiplayerOnlineSceneSelect ul li{
+    width: 130px;height: 30px;
+    margin: 10px auto;position: relative;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.modules .bottom .multiplayerChallenge ul li:hover,
+.modules .bottom .multiplayerOnlineSceneSelect ul li:hover{
+    transform: scale(1.2);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+
+/* =====MUTIPLAYER CHALLENGE START============= */
+.modules .bottom .multiplayerContinueToSelect{
+	display: none;
+    position: relative;
+    width: 100%;height: 90%;
+    display: flex;flex-direction: column;
+    display: none;
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff{
+    position: absolute;
+    width: 90%; height: 90%;
+    padding: 5%;top: 50%;left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .pic{
+    position: absolute;padding: 5%;
+    width: 80px; height: 80px;
+    border-radius: 100%;border: 2px solid var(--themeColor);
+    display: flex;align-items: center;justify-content: center
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .pic img{
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 100%;border: 2px solid var(--themeColor);
+    display: flex;align-items: center;justify-content: center
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .pic p{
+    position: absolute;top:70%;
+    width: 100%; height: 100%;
+    display: flex;align-items: center;justify-content: center
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .host{
+    top: 10%;
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .join,
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .waitingForOpponent{
+    top: 50%;
+}                                                            
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .versus{
+    font-size: 20px;
+    top: 35%;
+    border: none;outline: none;
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .selectYourCode{
+    position: absolute;top: 80%;
+    left: 50%;transform: translateX(-50%);
+    width: 50%;height: 10%;
+    text-align: center;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bolder;
+    cursor: pointer;
+}
+.modules .bottom .multiplayerContinueToSelect 
+.multiplayerFaceOff .selectYourCode:active{
+    transform: translateX(-50%) scale(0.9);
+}
+
+.modules .bottom .multiplayerContinueToSelect 
+.hostSettingsButton{
+    position: absolute;
+    width: 40px; height: 40px !important;
+    bottom: 6%;left: 10%;
+    display: flex;align-items: center;justify-content: center;
+    border-radius: 100%;
+    cursor: pointer;
+    background: transparent;
+    color: var(--themeColor);
+    box-shadow: var(--shadow);
+}
+.modules .bottom .multiplayerContinueToSelect 
+.hostSettingsButton:active{
+    transform: scale(0.9);
+}
+
+/* =====MULTIPLAYER HOST SETTINGS START=====*/
+.modules .bottom .multiplayerContinueToSelect .hostSettings{
+    position: relative;top: 10%;left: 50%;
+    width: 90%; height: 80%;padding: 5%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    background: var(--themeFontColor);
+    color: var(--themeColor);
+    display: flex;justify-content: center;
+    align-items: center;
+    display: none;
+}
+    
+/* =====MUTIPLAYER CHALLENGE END============= */
+
+/* =====MUTIPLAYER CONNECT TO HOST(JOIN) START============= */
+.modules .bottom .multiplayerHostSelect, 
+.modules .bottom .multiplayerOnlineSceneTwo {
+    position: relative;
+    width: 100%;height: 90%;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modules .bottom .multiplayerHostSelect h4{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modules .bottom .multiplayerHostSelect .setHost{
+    position: absolute;
+    top:50%;left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost{
+    position: relative;
+    width: 70%;height: 30px;
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--themeFontColor);
+    box-shadow: 0 0 0.5em #000a inset;
+    cursor: pointer;
+    border: none;outline: none;
+}
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost .selectedHostValue{
+    width: 100%;height: 100%;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost ul{
+    position: absolute;
+    top: 115%;width: 100%;
+    height: 450%;
+    border-radius: inherit;
+    background: skyblue;
+    color: var(--themeFontColor);
+    cursor: pointer;
+    opacity: 0;z-index: -1;
+    overflow-y:scroll;
+}
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost ul::-webkit-scrollbar{background: inherit; border-radius: 20px;}
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost ul::-webkit-scrollbar-thumb{background: var(--themeColor);box-shadow: var(--shadow);border-radius: 20px;}
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost ul::-webkit-scrollbar-button{background: var(--themeFontColor);height: 0%;width: 0%; border-radius: 20%;}
+
+.modules .bottom .multiplayerHostSelect 
+.setHost .selectHost ul li{
+    width: 94%;
+    margin: 3%;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.modules .bottom .multiplayerHostSelect 
+.nextToHostButton{
+    width: 50%;height: 15%;
+    display: flex;justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bolder;
+    cursor: pointer;
+}
+.modules .bottom .multiplayerHostSelect 
+.nextToHostButton:active{
+    transform: scale(0.9);
+}
+/* =====MUTIPLAYER CONNECT TO HOST(JOIN) END============= */
+
+/* =====MULTIPLAYER END============= */
+
+
+/* =====SETTINGS START============= */
+.modules .bottom .settings{
+    display: none;
+}
+.modules .bottom .settings ul li{
+    width: 130px;height: 30px;
+    margin: 10px auto;position: relative;
+    display: flex;justify-content: center;align-items: center;
+    border-radius: 10px;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.modules .bottom .settings ul li:hover{
+    transform: scale(1.2);
+    background: linear-gradient(-45deg, var(--themeColor), transparent);
+}
+/* =====SETTINGS END============= */
+
+/* =====SETTINGS PROFILE START============= */
+.modules .bottom .settingsProfile{
+    position: relative;
+    width: 90%;height: 90%;
+    display: flex;flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: none;
+}
+.modules .bottom .settingsProfile::-webkit-scrollbar{background: inherit;}
+.modules .bottom .settingsProfile::-webkit-scrollbar-thumb{background: var(--themeColor);border-radius: 20px;box-shadow: var(--shadow);cursor: pointer;}
+.modules .bottom .settingsProfile::-webkit-scrollbar-button{background: var(--themeFontColor);height: 1%;border-radius: 20%;}
+
+/* =====PROFILE AVATAR SETTINGS START========== */
+.modules .bottom .settingsProfile .avatar{
+	position:relative;width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1% auto;
+}
+.modules .bottom .settingsProfile  .avatarCell{
+	display:flex;justify-content:center;align-items:center;
+    padding: 5%;width: 100%; height: 100%;
+}
+.modules .bottom .settingsProfile .avatar .avatarImageWrapper{
+	width: 80px; height: 80px;
+    border-radius: 100%;
+    border: 4px solid var(--themeColor);
+    display: flex;align-items: center;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+.modules .bottom .settingsProfile  .avatarCell img{
+    position: absolute;
+    width: 96%; height: 96%;margin: 2%;
+    border-radius: 100%;
+    display: flex;align-items: center;justify-content: center;
+
+}
+.avatarImg2{left: 100%;}.avatarImg3{left: 200%;}
+.avatarImg4{left: 300%;}.avatarImg5{left: 400%;}
+
+.modules .bottom .settingsProfile .avatar .avatarControl{
+    width: 50px;height: 40px;
+	background:transparent;
+    cursor: pointer;
+    border-radius: 100%; 
+    border: none;
+    font-weight: bolder;
+    box-shadow: var(--shadow);
+}
+.modules .bottom .settingsProfile .avatar .avatarControl:active{
+    transform: scale(0.9);
+}
+/* .modules .bottom .settingsProfile .avatar .controlLeft{
+        left:28%;
+} */
+.modules .bottom .settingsProfile .avatar .controlRight{
+    /* right:28%; */
+    opacity: 0;
+}
+/* =====PROFILE AVATAR SETTINGS END========== */
+
+/* =====PROFILE USER-DETAILS SETTINGS START========== */
+.modules .bottom .settingsProfile .profileBox{
+    width: 90%;margin: 5% auto;padding: 5%;
+    border-radius: 20px;
+}
+.modules .bottom .settingsProfile form div{
+    margin: 2% auto;
+}
+.modules .bottom .settingsProfile form div label{
+    height: 100%;width: 100%;
+}
+.modules .bottom .settingsProfile form div input{
+    height: 50;width: 100%;
+    height: 30px;margin: 5px auto;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 0.5em #000a;
+    border: none; outline: none;
+}
+.modules .bottom .settingsProfile form button{
+    margin: 10px auto;
+    width: 20%;height: 30px;
+    float: right;font-weight: bold;
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: var(--shadow);
+    border: none;outline: none;
+    cursor: pointer;
+}
+.modules .bottom .settingsProfile form button:active{
+    transform: scale(0.9);
+    border: none; outline: none;
+}
+.modules .bottom .settingsProfile .profileForm1{
+    box-shadow: var(--shadow);
+}
+.modules .bottom .settingsProfile .profileForm1 div{
+    margin: 0% auto;
+}
+.modules .bottom .settingsProfile 
+.profileForm1 .profilePasswordDiv{
+    display: flex;align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10% auto;padding-left: 5%;
+    border-radius: 30px;
+    background: var(--themeColor);
+    box-shadow: var(--shadow);
+}
+.modules .bottom .settingsProfile 
+.profileForm1 .profilePasswordDiv button{
+    font-size: 70%;
+    margin-right: 5%;
+}
+.modules .bottom .settingsProfile 
+.profileForm1 .profilePasswordDiv button:active{
+    transform: scale(0.9);
+}
+.modules .bottom .settingsProfile .profilePasswordReset{
+    position: absolute;
+    left: 50%;top: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    background: #000;
+    color: #eee;
+    box-shadow: var(--shadow);
+    opacity: 0;z-index: -3;
+}
+.modules .bottom .settingsProfile 
+.profilePasswordReset .passwordResetSubmit{
+    color: #000;
+    background: #eee;
+}
+/* =====PROFILE USER-DETAILS SETTINGS END========== */
+
+/* =====PROFILE GAME-DETAILS DISPLAY START========== */
+.modules .bottom .settingsProfile .profileGameStats{
+    box-shadow: var(--shadow);   
+}
+.modules .bottom .settingsProfile .profileGameStats .subdiv{
+    position: relative;
+    width: 100%;padding: 3%;
+}
+.modules .bottom .settingsProfile 
+.profileGameStats .subdiv .subsubdiv{
+    position: relative;
+    width: 100%;height: 30px ;
+    display: flex;align-items: center;
+    font-weight: bolder;font-size: 16.5px;
+}
+.modules .bottom .settingsProfile 
+.profileGameStats .subdiv span{
+    position: absolute;
+    top: 50%;right: 2%;
+    transform: translateY(-50%);
+    width: 60%;height: 90%;
+    display: flex;align-items: center;
+    background: whitesmoke;
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    padding-left: 4%;
+    text-align: left;
+}
+.modules .bottom .settingsProfile 
+.profileGameStats .subdiv span span{
+    width: 1em !important;height: 1em !important;
+    display: flex;align-items: center;
+    left: 85% !important;
+    padding: 1% 2% !important;
+    border-radius: 100% !important;
+    cursor: pointer;
+}
+.modules .bottom .settingsProfile 
+.profileGameStats .subdiv span span:active{
+    transform: translateY(-50%) scale(0.9);
+    border: none; outline: none;
+}
+.modules .bottom .settingsProfile 
+.profileGameStats .subdiv .subsubdiv span{
+    position: absolute;
+    top: 50%;right: 2%;
+    transform: translateY(-50%);
+    width: 30%;height: 90%;
+    display: flex;align-items: center;
+    background: whitesmoke;
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    padding-left: 4%;
+    text-align: left;
+}
+/* =====PROFILE GAME-DETAILS DISPLAY END========== */
+/* =====SETTINGS PROFILE END========================== */
+
+/* =====SETTINGS DISPLAY START============= */
+.modules .bottom .settingsDisplay{
+    position: relative;
+    width: 90%;height: 90%;
+    display: flex;flex-direction: column;
+    display: none;
+}
+
+.modules .bottom .settingsDisplay .displayBox{
+    position: relative;
+    width: 100%;height: 40px;
+    display: flex;align-items: center;
+    margin: 1% auto;padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.modules .bottom .settingsDisplay
+.displayLanguage{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.modules .bottom .settingsDisplay
+.displayLanguage .selectedLanguage{
+    width: 70%;height: 130%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    box-shadow: var(--shadow);
+    background: var(--themeColor);
+    font-weight: bold;
+    outline:none;border: none;
+    cursor: pointer;
+}
+.modules .bottom .settingsDisplay
+.displayLanguage .languages{
+    position: absolute;
+    top: 100%;right: 6.5%;
+    width: 60%;
+    border-radius: 10px;
+    background: var(--themeFontColor);
+    color: #eee;
+    opacity: 0; z-index: -3;
+}
+.modules .bottom .settingsDisplay
+.displayLanguage .languages li{
+    margin: 2% auto;
+    border-bottom: 1px solid var(--themeColor);
+    cursor: pointer;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme{
+    width: 100%;height: 100px;
+    margin: 1% auto;
+    display: block;
+}
+
+.modules .bottom .settingsDisplay 
+.displayTheme .theme{
+    position: relative;
+    display: flex;align-items: center;
+    width: 100%;height: 40%;
+    font-size: 14px;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .settingsCustomize{
+    position: absolute;right: 5%;
+    width: 20%;height: 80%;
+    display: flex;justify-content: center; align-items: center;
+    background: var(--themeColor);
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .settingsCustomize:active{
+    transform: scale(0.9);
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .themeCustomizer{
+    position: absolute;
+    width: 90%;
+    display: flex;justify-content: center;
+    align-items: center;padding: 2%;
+    background: var(--themeFontColor);
+    color: #eee;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    display: none;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .themeCustomizer .custom{
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .themeCustomizer .custom .colorsHolder{
+    display: flex;justify-content: space-evenly;width: 50%;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .themeCustomizer .custom
+.colorsHolder .colorPicker{
+    display: flex;width: 10%;
+    border: 1px solid #eee;
+    border-radius: 5px;cursor: pointer;
+}
+.modules .bottom .settingsDisplay 
+.displayTheme .themeCustomizer .resetCustomColors{
+    display: flex;align-items: center;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: inherit;
+    background: red;cursor: pointer;
+}
+/* =====SETTINGS DISPLAY END============= */
+
+/* =====SETTINGS AUDIO START============= */
+.modules .bottom .settingsAudio{
+    position: relative;
+    width: 90%;height: 90%;
+    padding-top: 20%;
+    display: flex;flex-direction: column;
+    display: none;
+}
+
+.modules .bottom .settingsAudio .audioBox{
+    position: relative;
+    width: 90%;height: 40px;
+    display: flex;align-items: center;
+    margin: 1% auto;padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+/* =======SETTINGS AUDIO END ==========*/
+
+/* =======SETTINGS SWITCH START ==========*/
+.modules .bottom .settingsSwitch{
+    position: absolute;right: 5%;
+    width: 20%;height: 80%;
+    border-radius: 20px;
+    background: var(--themeFontColor);
+}
+.modules .bottom .switchInner{
+    height: 100%;
+    display: flex;align-items: center;
+    padding: 3%;
+    border: 2px solid var(--themeColor);
+    border-radius: inherit;
+}
+.modules .bottom .switchButton{
+    width: 50%;height: 100%;
+    margin-left: 50%;
+    border-radius: 18px;
+    background: radial-gradient(#fff,var(--themeColor),#fff);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+/* =======SETTINGS SWITCH END ==========*/
+
+/* =====SETTINGS  ABOUT START============= */
+.modules .bottom .settingsAbout{
+	display: none;
+}
+
+/* =====SETTINGS CREDITS START============= */
+.modules .bottom .settingsCredits{
+    position: relative;
+    width: 90%;height: 90%;
+    padding-top: 20%;
+    text-align: center;
+    display: none;
+}
+.modules .bottom .settingsCredits .backButton{
+    width: 20px;height: 20px;
+    background: var(--themeColor);
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* =====SETTINGS CREDITS END============= */

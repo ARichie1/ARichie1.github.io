@@ -1,0 +1,728 @@
+<!-- LOADER 1-->
+<!-- <div class="bottom parts">
+    <div class="loader">
+        <div class="dot1">.</div>
+        <div class="dot2">.</div>
+        <div class="dot3">.</div>
+    </div>
+</div> -->
+
+<!-- ===============HOME START=================-->
+<div class="home">
+    <ul>
+        <!-- <li class="modalLink" id="tutorial">TUTORIAL</li> -->
+        <li class="modalLink" id="tutorial">HOW TO PLAY</li>
+        <li class="modalLink" id="singlePlayer">SINGLE PLAYER</li>
+        <li class="modalLink" id="multiPlayer">MULTIPLAYER</li>
+        <li class="modalLink" id="settings">SETTINGS</li>
+        <li class="modalLink" id="moreGames">MORE GAMES</li>
+        <li class="modalLink" id="quitMain">QUIT</li>
+    </ul>
+</div>
+<!-- ===============HOME END====================-->
+
+<!-- ===============TUTORIAL START=================-->
+<div class="tutorial">
+    <h3> HOW TO PLAY</h3><br>
+    <ul>
+        <li>The goal is to find your opponent's/computer's selected agents(pictures) and their exact positions.</li> 
+        <li>There are no repeated picture in the secret selection.</li>
+        <li>Example : To test a combination, click on 4 different agents(pictures) on the screen.</li>
+        <li>Then press the <span class="tutorialSendButton">SEND</span> button so your combination can be tested.</li>
+        <li>
+            <p>Some results will appear above looking like : </p>
+            <br>
+            <div class="example">
+                <div class="codeout">
+                    <img src="assets/images/faces/hater.jpg" id="codout1" class="code" type="button"/>
+                    <img src="assets/images/faces/hulk.jpg" id="codeout2" class="code" type="button"/>
+                    <img src="assets/images/faces/ninja.jpg" id="codeout3" class="code" type="button"/>
+                    <img src="assets/images/faces/gow.jpg" id="codeout4" class="code" type="button" />
+                </div>
+                <div class="arrow">
+                    <div class="arrowPack">
+                        <div class="arrowHolder">
+                            <div class="arrowHead arrowParts"></div>
+                            <div class="arrowBody arrowParts"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="result">
+                    <div class="status dead"><p class="statusText">D</p><span class="statusEmoji">&#128128;</span></div>
+                    <div class="status dead"><p class="statusText">D</p><span class="statusEmoji">&#128128;</span></div>
+                    <div class="status injured"><p class="statusText">I</p><span class="statusEmoji">&#129301;</span></div>
+                    <div class="status alive"><p class="statusText">A</p><span class="statusEmoji">&#128519;</span></div>
+                </div>
+            </div>
+            <br>
+            <span class="tutorialresultsExplanation">2 dead, 1 injured, 1 alive </span>
+            <ul class="statusExplanation">
+                <li><strong><div class="status dead"><p class="statusText">D</p><span class="statusEmoji">&#128128;</span></div>Dead :</strong> means one of the agents(pictures) you selected is among the opponent's secret selection and is in the right position.[TERMINATED]</li>
+                <li><strong><div class="status injured"><p class="statusText">I</p><span class="statusEmoji">&#129301;</span></div>Injured :</strong> means one of the agents(pictures) you selected is among the opponent's secret selection but not in the right position.[BLEEDING]</li>
+                <li><strong><div class="status alive"><p class="statusText">A</p><span class="statusEmoji">&#128519;</span></div>Alive :</strong> means one of the agents(pictures) you selected is not among the opponent's secret selection.[SAFE]</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+    <p style="margin-left: 7%;">Hoping you enjoy yourself &#128522; and keep playing &#128077;.</p>
+</div>
+<!-- ===============TUTORIAL END====================-->
+
+<!-- ===============MORE GAMES START=================-->
+<div class="moreGames">
+    <h3> CHECK OUT MORE GAMES</h3><br>
+    <div class="playMore">Play More</div>
+</div>
+<!-- ===============MORE GAMES END=================-->
+
+<!-- ===============SINGLE PLAYER START=================-->
+<div class="singlePlayer">
+    <h2>SINGLE PLAYER</h2>
+    <ul>
+        <li class="modalLink" id="findAgents">FIND AGENT</li>
+        <li class="modalLink" id="storyMode">STORY MODE</li>
+        <li class="modalLink" id="survivalMode">SURVIVAL</li>
+    </ul>
+</div>
+<!-- ===============SINGLE PLAYER END====================-->
+
+<!-- ===============FIND AGENTS DIFFICULTY START=================-->
+<div class="findAgents">
+    <div class="difficultyTable">
+        <div class="headInfo">
+            <div class="difficultyHeader">DIFFICULTY</div>
+            <div class="agentsAvailable">AGENTS</div>
+            <div class="timeAvailable">TIME(s)</div>
+            <div class="movesAvailable">MOVES</div>
+        </div>
+        <div class="endless difficulty">
+            <div class="difficultyHeader">ENDLESS</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="selectAgent">></div>
+        <ul class="selectAgentUl">
+            <li>2</li><li>3</li>
+            <li>4</li><li>5</li>
+            <li>6</li>
+        </ul>
+        <div class="easy difficulty">
+            <div class="difficultyHeader">EASY</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="medium difficulty">
+            <div class="difficultyHeader">MEDIUM</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="hard difficulty">
+            <div class="difficultyHeader">HARD</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="detective difficulty">
+            <div class="difficultyHeader">DETECTIVE</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="wizard difficulty">
+            <div class="difficultyHeader">WIZARD</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+    </div>
+    <div class="continueToGame toGame" id="singlePlayerMainGame">CONTINUE</div>
+</div>
+<!-- ===============FIND AGENTS DIFFICULTY END====================-->
+
+
+<!-- ===============STORY MODE START=================-->
+<div class="storyMode">
+    <h3>TERMINATE ENEMY SPIES ACROSS THE WORLD</h3>
+    <div class="stages">
+        <div class="stageOne stage">
+            <div class="levelGrid">                
+                <div class="level toGame" lvlCode="1" id="singlePlayerMainGame">1</div>
+                <div class="level toGame" lvlCode="2" id="singlePlayerMainGame">2</div>
+                <div class="level toGame" lvlCode="3" id="singlePlayerMainGame">3</div>
+                <div class="level toGame" lvlCode="4" id="singlePlayerMainGame">4</div>
+                <div class="level toGame" lvlCode="5" id="singlePlayerMainGame">5</div>
+                <div class="level toGame" lvlCode="6" id="singlePlayerMainGame">6</div>
+                <div class="level toGame" lvlCode="7" id="singlePlayerMainGame">7</div>
+                <div class="level toGame" lvlCode="8" id="singlePlayerMainGame">8</div>
+                <div class="level toGame" lvlCode="9" id="singlePlayerMainGame">9</div>                
+            </div>
+        </div>
+        <div class="stageTwo stage">
+            <div class="levelGrid">
+                <div class="level  toGame" lvlCode="10" id="singlePlayerMainGame">10</div>
+                <div class="level  toGame" lvlCode="11" id="singlePlayerMainGame">11</div>
+                <div class="level  toGame" lvlCode="12" id="singlePlayerMainGame">12</div>
+                <div class="level  toGame" lvlCode="13" id="singlePlayerMainGame">13</div>
+                <div class="level  toGame" lvlCode="14" id="singlePlayerMainGame">14</div>
+                <div class="level  toGame" lvlCode="15" id="singlePlayerMainGame">15</div>
+                <div class="level  toGame" lvlCode="16" id="singlePlayerMainGame">16</div>
+                <div class="level  toGame" lvlCode="17" id="singlePlayerMainGame">17</div>
+                <div class="level lv18">...</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============STORY MODE END====================-->
+
+<!-- ===============SURVIVAL MODE START============== -->
+<div class="survivalMode">
+    <h3>SURVIVAL MODE</h3>
+    <div class="survivalGraphics">
+        <span>&#128507;</span> 
+        <span>&#127939;</span> 
+        <span>&#128342;</span>
+    </div>
+    <div class="playSurvival toGame" id="singlePlayerMainGame">Start</div>
+</div>
+<!-- ===============SURVIVAL MODE END============== -->
+
+<!-- ===============MULTIPLAYER START====================-->
+<div class="multiPlayer">
+    <ul>
+        <li class="modalLink local" id="multiplayerChallenge">LOCAL</li>
+        <li class="modalLink online" id="multiplayerOnlineSceneSelect">ONLINE</li>
+</div>
+<!-- ===============MULTIPLAYER START====================-->
+
+<!-- ===============MULTIPLAYER ONLINE GAME TYPE SELECT START=================-->
+<div class="multiplayerOnlineSceneSelect">
+    <h3>PLAY ONLINE</h3>
+    <ul>
+        <li class="modalLink" id="multiPlayerOnline">QUICKPLAY</li>
+        <li class="modalLink" id="multiplayerChallenge">CHALLENGE</li>
+    </ul>
+</div>
+<!-- ===============MULTIPLAYER ONLINE GAME TYPE SELECT END====================-->
+
+
+<!-- ===============MULTIPLAYER CHALLENGE START=================-->
+<div class="multiplayerChallenge">
+    <h3>PLAY LOCAL</h3>
+    <ul>
+        <li class="modalLink hoster" id="multiplayerContinueToSelect">HOST</li>
+        <li class="modalLink joiner" id="multiplayerHostSelect">JOIN</li>
+    </ul>
+</div>
+<!-- ===============MULTIPLAYER CHALLENGE END====================-->
+
+<!-- ===============MULTIPLAYER LOCAL SCENE TWO START=================-->
+<div class="multiplayerContinueToSelect">
+    <h3>PLAY LOCAL</h3>
+    <div class="multiplayerFaceOff">
+        <div class="host pic">
+            <img src="assets/images/faces/asta3.jpeg" class="hostImg" alt="">
+            <p class="opponentImg">You</p>   
+        </div>
+        <div class="versus pic">VS</div>
+        <div class="waitingForOpponent pic">waiting...</div>
+        <div class="join pic">
+            <img src="assets/images/faces/asta2.jpeg" class="opponentImg" alt="">
+            <p class="opponentImg">Jack</p>
+        </div>
+        <div class="modalLink selectYourCode" id="playerCodeSelection">BUILD YOUR CODE</div>
+    </div>    
+    <div class="hostSettings">
+        <div class="difficultyTable">
+            <div class="headInfo">
+                <div class="difficultyHeader">DIFFICULTY</div>
+                <div class="agentsAvailable">AGENTS</div>
+                <div class="timeAvailable">TIME(s)</div>
+                <div class="movesAvailable">MOVES</div>
+            </div>
+            <div class="endless difficulty">
+                <div class="difficultyHeader">ENDLESS</div>
+                <div class="agentsAvailable"></div>
+                <div class="timeAvailable"></div>
+                <div class="movesAvailable"></div>
+            </div>
+            <div class="selectAgent">></div>
+            <ul class="selectAgentUl">
+                <li>2</li><li>3</li>
+                <li>4</li><li>5</li>
+                <li>6</li>
+            </ul>
+            <div class="easy difficulty">
+                <div class="difficultyHeader">EASY</div>
+                <div class="agentsAvailable"></div>
+                <div class="timeAvailable"></div>
+                <div class="movesAvailable"></div>
+            </div>
+            <div class="medium difficulty">
+                <div class="difficultyHeader">MEDIUM</div>
+                <div class="agentsAvailable"></div>
+                <div class="timeAvailable"></div>
+                <div class="movesAvailable"></div>
+            </div>
+            <div class="hard difficulty">
+                <div class="difficultyHeader">HARD</div>
+                <div class="agentsAvailable"></div>
+                <div class="timeAvailable"></div>
+                <div class="movesAvailable"></div>
+            </div>
+            <div class="detective difficulty">
+                <div class="difficultyHeader">DETECTIVE</div>
+                <div class="agentsAvailable"></div>
+                <div class="timeAvailable"></div>
+                <div class="movesAvailable"></div>
+            </div>
+            <div class="wizard difficulty">
+                <div class="difficultyHeader">WIZARD</div>
+                <div class="agentsAvailable"></div>
+                <div class="timeAvailable"></div>
+                <div class="movesAvailable"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hostSettingsButton">&#128736;</div>
+</div>
+<!-- ===============MULTIPLAYER LOCAL SCENE TWO END====================-->
+
+<!-- ===============MULTIPLAYER CONNECT TO HOST(JOIN) START====================-->
+<div class="multiplayerHostSelect">
+    <h3>PLAY LOCAL</h3>
+    <div class="setHost">
+        <div class="selectHost" id="selectHost">
+            <h4>Choose Host</h4>
+            <div class="selectedHostValue">Choose Host</div>
+            <ul class="hosts">
+                <li class="host" id="host_1">Timmy</li>
+                <li class="host" id="host_2">wifi-mi</li>
+                <li class="host" id="host_3">hackerWifi</li>
+                <li class="host" id="host_3">hackerWifi2</li>
+                <li class="host" id="host_3">hackerWifi3</li>
+                <li class="host" id="host_3">hackerWifi3</li>
+                <li class="host" id="host_3">hackerWifi3</li>
+            </ul>
+        </div>
+        <div class="modalLink nextToHostButton" id="multiplayerContinueToSelect">Next</div>
+    </div>
+</div>
+<!-- ===============MULTIPLAYER CONNECT TO HOST(JOIN) END====================-->
+
+<!-- ===============MULTIPLAYER ONLINE QUICK PLAY START=================-->
+<div class="multiPlayerOnline">
+    <div class="difficultyTable">
+        <div class="headInfo">
+            <div class="difficultyHeader">DIFFICULTY</div>
+            <div class="agentsAvailable">AGENTS</div>
+            <div class="timeAvailable">TIME(s)</div>
+            <div class="movesAvailable">MOVES</div>
+        </div>
+        <div class="endless difficulty">
+            <div class="difficultyHeader">ENDLESS</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="selectAgent">></div>
+        <ul class="selectAgentUl">
+            <li>2</li><li>3</li>
+            <li>4</li><li>5</li>
+            <li>6</li>
+        </ul>
+        <div class="easy difficulty">
+            <div class="difficultyHeader">EASY</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="medium difficulty">
+            <div class="difficultyHeader">MEDIUM</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="hard difficulty">
+            <div class="difficultyHeader">HARD</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="detective difficulty">
+            <div class="difficultyHeader">DETECTIVE</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+        <div class="wizard difficulty">
+            <div class="difficultyHeader">WIZARD</div>
+            <div class="agentsAvailable"></div>
+            <div class="timeAvailable"></div>
+            <div class="movesAvailable"></div>
+        </div>
+    </div>
+    <div class="playOnline toGame" id="multiPlayerMainGame">Continue</div>
+</div>
+<!-- ===============MULTIPLAYER ONLINE QUICK PLAY END====================-->
+
+<!-- ===============SETTINGS START=================-->
+<div class="settings">
+    <h3>SETTINGS</h3>
+    <ul>
+        <li class="modalLink" id="settingsProfile">PROFILE</li>
+        <li class="modalLink" id="settingsDisplay">DISPLAY</li>
+        <li class="modalLink" id="settingsAudio">AUDIO</li>
+        <li class="modalLink" id="settingsAbout">ABOUT</li>
+        <li class="modalLink" id="settingsCredits">CREDITS</li>
+    </ul>
+</div>
+<!-- ===============SETTINGS END====================-->
+
+<!-- ===============SETTINGS PROFILE START=================-->
+<div class="settingsProfile">
+    <h3>PROFILE</h3>
+        <div class="avatar">
+            <button class="avatarControl controlLeft"><</button>
+            <div class="avatarCell">
+                <div class="avatarImageWrapper">
+                    <img src="assets/images/faces/asta3.jpeg" class="avatarImg1" alt="" >
+                    <img src="assets/images/faces/asta2.jpeg" class="avatarImg2" alt="" >
+                    <img src="assets/images/faces/hulk.jpg" class="avatarImg3" alt="" >
+                    <img src="assets/images/faces/gow.jpg" class="avatarImg4" alt="" >
+                    <img src="assets/images/faces/hulk.jpg" class="avatarImg5" alt="" >
+                    <img src="assets/images/faces/hater.jpg" class="avatarImg5" alt="" >
+                    <img src="assets/images/faces/hulk.jpg" class="avatarImg5" alt="" >
+                </div> 
+            </div>
+            <button class="avatarControl controlRight">></button>
+        </div>
+
+        <form action="" method="post" class="profileForm1 profileBox">
+         <div class="profileUsernameDiv">   
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <br>
+        <div class="profileCountryDiv">
+            <label for="country">COUNTRY</label>
+            <input type="text" name="country" id="country">
+        </div>
+        <br>
+        <div class="profileEmailDiv">
+            <label for="email">EMAIL</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <button type="submit" name="submitForm" class="submitForm">Save</button>
+        <br>
+        <div class="profilePasswordDiv">
+            <p>Password</p>
+            <button type="button" class="changePassword">Change</button>
+        </div>
+    </form>
+
+    <form action="" method="post" class="profilePasswordReset profileBox">
+        <h3>RESET PASSWORD</h3>
+        <div class="passwordModal">
+            <label for="password">CURRENT PASSWORD</label>
+            <input type="text" name="currentPassword" id="currentPassword" value="">
+
+            <label for="password">NEW PASSWORD</label>
+            <input type="text" name="newPassword" id="newPassword" value="">
+
+            <label for="password">CONFIRM NEW PASSWORD</label>
+            <input type="text" name="confirmNewPassword" id="confirmNewPassword" value="">
+            
+            <button class="passwordResetSubmit" type="submit" name="passwordResetSubmit">Reset</button>
+        </div> 
+    </form>
+
+    <div class="profileGameStats profileBox">
+        <h3>Game Stats</h3>
+        <div class="profileRank subdiv"><h4>Rank</h4> <span class="profileRankStatus">***</span></div>
+        <div class="profileTeam subdiv"><h4>Current Team</h4> <span class="profileTeamStatus">robafc</span></div>
+        <div class="profileKeys subdiv">
+            <h4>Keys</h4>
+            <span class="keyBalanceWrapper">
+                <p class="keyBalance">3</p>
+                <span class="AddTokeyBalance">+</span>
+            </span>
+        </div>
+        <div class="profileTokens subdiv">
+                <h4 style="display: flex;"><p class="gameName">XXX</p>Tokens</h4>
+                <span class="TokenBalanceWrapper">
+                    <p class="TokenBalance">???</p>
+                    <span class="AddToTokenBalance">+</span>
+                </span>
+        </div>
+        <div class="profileGamePlayed subdiv">
+            <h4>Game Played</h4>
+            <div class="profileVersusComputer subsubdiv"><h5>Versus Computer</h5><span>80</span></div>
+            <div class="profileOfflineMultiplayer subsubdiv"><h5>Offline Multiplayer</h5><span>50</span></div>
+            <div class="profileOnlineMultiplayer subsubdiv"><h5>Online Multiplayer</h5><span>30</span></div>
+        </div>
+    </div>
+
+
+</div>
+<!-- ===============SETTINGS PROFILE END====================-->
+
+
+<!-- ===============SETTINGS DISPLAY START===========================================-->
+<div class="settingsDisplay">
+    <h3>DISPLAY</h3>
+<!-- =====SETTING DISPLAY LANGUAGE END=========================================== -->
+    <div class="displayLanguage displayBox">
+        <h4>Language</h4>
+        <div class="selectedLanguage">English</div>
+        <ul class="languages">
+            <li value="">English</li>
+            <li value="">Spanish</li>
+            <li value="">German</li>
+            <li value="">Portuguese</li>
+            <li value="">French</li>
+        </ul>
+    </div>
+<!-- =====SETTING DISPLAY LANGUAGE END=========================================== -->
+
+<!-- =====SETTING DISPLAY THEME START=========================================== -->
+    <div class="displayTheme displayBox">
+        <h4>Theme</h4>
+        <!-- =====SETTING DISPLAY DARKMODE THEME START=====-->
+        <div class="displayThemeDark theme">
+            <p>Switch To Dark Mode<p>
+            <div class="settingsSwitch">
+                <div class="switchInner">
+                    <div class="switchButton" id="darkModeControl"></div>
+                </div>
+            </div>
+        </div>
+        <!-- =====SETTING DISPLAY DARKMODE THEME END=====-->
+
+        <!-- =====SETTING DISPLAY CUSTOMIZE THEME START===== -->
+        <div class="displayThemeCustom theme">
+            <p>Customize<p>
+            <div class="settingsCustomize">Edit &#10036;</div>
+        </div>
+        <div class="themeCustomizer">
+            <div class="custom" id="backgroundColor">Background Color</div>
+            <div class="custom" id="headerColor">Header Color</div>
+            <div class="custom" id="headerFontColor">Header Font Color</div>
+            <div class="custom" id="themeColor">Theme Color</div>
+            <div class="custom" id="themeFontColor">Theme Font Color</div>
+            <div class="resetCustomColors"><p>Reset</p><span>&#10055;</span></div>
+        </div>
+        <!-- =====SETTING DISPLAY CUSTOMIZE THEME END=====-->
+    </div>
+<!-- =====SETTING DISPLAY THEME END=========================================== --
+<!-- =====SETTING DISPLAY DISPLAY ANIMATION START============================= -->
+    <div class="displayAnimation displayBox">
+        <h4>Animation</h4>
+        <div class="settingsSwitch">
+            <div class="switchInner">
+                <div class="switchButton" id="animationControl"></div>
+            </div>
+        </div>
+    </div>
+<!-- =====SETTING DISPLAY DISPLAY ANIMATION END============================= -->
+
+<!-- =====SETTING DISPLAY DISPLAY STATUSTEXT START============================= -->
+<div class="displayStatusText displayBox">
+    <h4>Status Text</h4>
+    <div class="settingsSwitch">
+        <div class="switchInner">
+            <div class="switchButton" id="statusTextControl"></div>
+        </div>
+    </div>
+</div>
+<!-- =====SETTING DISPLAY DISPLAY STATUSTEXT END============================= -->
+
+<!-- =====SETTING DISPLAY DISPLAY EMOJI START============================= -->
+    <div class="displayEmoji displayBox">
+        <h4>Emoji</h4>
+        <div class="settingsSwitch">
+            <div class="switchInner">
+                <div class="switchButton" id="emojiControl"></div>
+            </div>
+        </div>
+    </div>
+<!-- =====SETTING DISPLAY DISPLAY EMOJI END============================= -->
+
+<!-- =====SETTING DISPLAY DISPLAY COUNTRY START============================= -->
+    <div class="displayCountry displayBox">
+        <h4>Country</h4>
+        <div class="settingsSwitch">
+            <div class="switchInner">
+                <div class="switchButton" id="countryControl"></div>
+            </div>
+        </div>
+    </div>
+<!-- =====SETTING DISPLAY DISPLAY COUNTRY END============================= -->
+
+<!-- =====SETTING DISPLAY DISPLAY RANK START============================= -->
+    <div class="displayRank displayBox">
+        <h4>Rank</h4>
+        <div class="settingsSwitch">
+            <div class="switchInner">
+                <div class="switchButton" id="rankControl"></div>
+            </div>
+        </div>
+    </div>
+<!-- =====SETTING DISPLAY DISPLAY RANK START============================= -->
+</div>
+<!-- ===============SETTINGS DISPLAY END=========================================-->
+
+
+<!-- ===============SETTINGS AUDIO START===========================================-->
+<div class="settingsAudio">
+    <h3>AUDIO</h3>
+<!-- =====SETTING AUDIO MUSIC START=========================================== -->
+    <div class="audioMusic audioBox">
+        <h4>Music</h4>
+        <div class="settingsSwitch">
+            <div class="switchInner">
+                <div class="switchButton" id="musicControl"></div>
+            </div>
+        </div>
+    </div>
+<!-- =====SETTING AUDIO MUSIC END============================= -->
+
+<!-- =====SETTING AUDIO SOUND START============================= -->
+    <div class="audioSound audioBox">
+        <h4>Sound</h4>
+        <div class="settingsSwitch">
+            <div class="switchInner">
+                <div class="switchButton" id="soundControl"></div>
+            </div>
+        </div>
+    </div>
+<!-- =====SETTING AUDIO SOUND END============================= -->
+</div>
+<!-- ===============SETTINGS AUDIO END=========================================-->
+
+
+<!-- ===============SETTINGS ABOUT START===========================================-->
+<div class="settingsAbout">
+    <h3>ABOUT US</h3>
+
+</div>
+<!-- ===============SETTINGS ABOUT END=========================================-->
+
+
+<!-- ===============SETTINGS CONTRIBUTORS/CREDITS START===========================================-->
+<div class="settingsCredits">
+    <h3>CREDITS</h3>
+    <h5>D.!.A&COPY; created by Akinmade Richard</h5>
+    <h5>twitter -> @RichieROBA</h5>
+    <h5>codepen -> @RichieROBA</h5>
+    <h5>piinterest -> @RichieROBA</h5>
+    <a href="https://www.robatics.github">Explore More Projects</a><br><br>
+    <span class="backButton"><-</span>
+    
+</div>
+<!-- ===============SETTINGS CONTRIBUTORS/CREDITS END=========================================-->
+
+
+<!-- ===============THE PLAYER CODE SELECTION START======================= -->
+<div class="playerCodeSelection">
+      <h3>BUILD YOUR SECRET COMBINATION</h3>
+    <!-- ===============THE SELECTION START=============== -->
+    <div class="selection screenChild">
+        <div class="instruction">Seleted <span class="agentAmount">4</span> Agents</div>
+        <div class="playerSelection">
+            <div class="codeout"></div>
+        </div>
+    </div>
+    <!-- ===============THE SELECTION END=============== -->
+
+  <!-- ===============THE CODED IMAGES START=============== -->
+      <div class="codedImages bottomContents">
+      <!-- ===============THE SOLDIERS START=============== -->
+          <div class="agents">
+              <!-- ===============BATCH 1 START=============== -->
+              <div class="batch1 batch">
+              <button class="listed" data-sound="../sounds/0.wav" type="button">
+                  <img id="_0_" src="assets/images/faces/asta2.jpeg" />
+              </button>
+              <button class="listed" data-sound="../sounds/1.wav" type="button">
+                  <img id="_1_" src="assets/images/faces/asta3.jpeg" />
+              </button>
+              <button class="listed" data-sound="../sounds/2.wav" type="button">
+                  <img id="_2_" src="assets/images/faces/draw.jpg" />
+              </button>
+              </div>
+              <!-- ===============BATCH 1 END=============== -->
+              <!-- ===============BATCH 2 START=============== -->
+              <div class="batch2 batch">
+              <button class="listed" data-sound="../sounds/3.wav" type="button">
+                  <img id="_3_" src="assets/images/faces/face.jpg" />
+              </button>
+              <button class="listed" data-sound="../sounds/4.wav" type="button">
+                  <img id="_4_" src="assets/images/faces/forgot.png" />
+              </button>
+              <button class="listed" data-sound="../sounds/5.wav" type="button">
+                  <img id="_5_" src="assets/images/faces/gow.jpg" />
+              </button>
+              </div>
+              <!-- ===============BATCH 2 END=============== -->
+              <!-- ===============BATCH 3 START=============== -->
+              <div class="batch3 batch">
+              <button class="listed" data-sound="../sounds/6.wav" type="button">
+                  <img id="_6_" src="assets/images/faces/profile.png" />
+              </button>
+              <button class="listed" data-sound="../sounds/7.wav" type="button">
+                  <img id="_7_" src="assets/images/faces/hater.jpg" />
+              </button>
+              <button class="listed" data-sound="../sounds/8.wav" type="button">
+                  <img id="_8_" src="assets/images/faces/ninja.jpg" />
+              </button>
+              </div>
+              <!-- ===============BATCH 3 END=============== -->
+              <!-- ===============BATCH 4 START=============== -->
+              <div class="batch4 batch">
+              <button id="btnx1" class="resetSelection" type="button">Reset</button>
+              <button class="listed" data-sound="../sounds/9.wav" type="button">
+                  <img id="_9_" src="assets/images/faces/asta1.jpeg" />
+              </button>
+              <button id="btnx2" class="saveSelection" type="button">Save</button>
+              <button class="playGame toGame" id="multiPlayerMainGame" type="button">Play</button>
+              </div>
+              <!-- ===============BATCH 4 END=============== -->
+          </div>
+      <!-- ===============SOLDIERS END==================== -->
+      </div>
+  <!-- ===============THE CODED IMAGES END=============== -->
+</div>
+<!-- ===============THE PLAYER CODE SELECTION END======================= -->
+
+<!-- ===============SINGLE PLAYER MAINGAME START====================-->
+  <div class="singlePlayerMainGame gameTypes"></div>
+<!-- ===============SINGLE PLAYER MAINGAME START====================-->
+
+  <!-- ===============MULTIPLAYER MAINGAME START====================-->
+    <div class="multiPlayerMainGame gameTypes">
+        <div class="opponentStats players">
+            <div class="playerImg">
+                <img src="assets/images/faces/asta2.jpeg" alt="opponentImg">    
+            </div>
+            <div class="playerName">Name</div>
+            <div class="playerCountry">usa</div>
+            <div class="playerRank">5000</div>
+            <div class="playerTime">0:00</div>
+            <div class="playerMoves">10</div>
+        </div>
+        <div class="gameScene"></div>
+        <div class="yourStats  players">
+            <div class="playerImg">
+                <img src="assets/images/faces/draw.jpg" alt="yourImg">    
+            </div>
+            <div class="playerName">Name</div>
+            <div class="playerCountry">uk</div>
+            <div class="playerRank">1000</div>
+            <div class="playerTime">0:00</div>
+            <div class="playerMoves">16</div>
+        </div>
+    </div>
+  <!-- ===============MULTIPLAYER MAINGAME END====================-->
