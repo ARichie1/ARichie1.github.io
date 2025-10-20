@@ -1,0 +1,19 @@
+
+/* .landing_page{z-index: -3; opacity: 0;} */
+
+.trait_selection_page{z-index: -3; opacity: 0;}
+
+.personality_page{z-index: -3; opacity: 0;}
+
+.statistics_page{z-index: -3; opacity: 0;}
+
+.most_dom_personality_career_page{z-index: -3; opacity: 0;}
+
+.less_dom_personality_career_page{z-index: -3; opacity: 0;}
+
+
+/* .trait_selection_page,
+.personality_page,
+.career_page{
+    z-index: -3; opacity: 0;
+} */
