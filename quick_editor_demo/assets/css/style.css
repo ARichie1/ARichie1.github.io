@@ -50,7 +50,9 @@ body{
     /* font-family: FontAwesome; */
     overflow: hidden;
 }
-
+a {
+    text-decoration: none;
+}
 li, span, .fa{list-style: none; cursor: pointer;}
 .many_icons{
     position: relative;
